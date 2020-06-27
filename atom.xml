@@ -1,0 +1,533 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>Dana Shaw&#39;s blog</title>
+  
+  <subtitle>为了去往别处</subtitle>
+  <link href="/atom.xml" rel="self"/>
+  
+  <link href="https://dana5haw.com/"/>
+  <updated>2020-06-27T14:12:28.847Z</updated>
+  <id>https://dana5haw.com/</id>
+  
+  <author>
+    <name>Dana Shaw</name>
+    
+  </author>
+  
+  <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>今天父亲节</title>
+    <link href="https://dana5haw.com/posts/father&#39;s-day.html"/>
+    <id>https://dana5haw.com/posts/father&#39;s-day.html</id>
+    <published>2020-06-21T16:21:04.000Z</published>
+    <updated>2020-06-27T14:12:28.847Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>今天父亲节，昨天听说今天是世界末日，今天有些地区似乎可以看到日环食。今天可真特殊。</p><a id="more"></a><h2 id="又画了一个电子卡片，用了新电脑"><a href="#又画了一个电子卡片，用了新电脑" class="headerlink" title="又画了一个电子卡片，用了新电脑"></a>又画了一个电子卡片，用了新电脑</h2><p><img src="https://v2ray.dana5haw.com:8008/images/2020/06/22/fd.gif" alt="fd.gif"></p><h2 id="感受"><a href="#感受" class="headerlink" title="感受"></a>感受</h2><p>要表达爱，只有表达出来，对方才能确认到，所以不要吝啬说爱。看到他人因自己而快乐，自己也得到快乐。</p><h2 id="永远猎奇永远鲜活"><a href="#永远猎奇永远鲜活" class="headerlink" title="永远猎奇永远鲜活"></a>永远猎奇永远鲜活</h2><p>设置了新的桌面背景和浏览器背景。打算买轻便本，华为还是macbook？手里的华为先体验一段时间再说。学习必须要继续，不能偷懒。<br><img src="https://v2ray.dana5haw.com:8008/images/2020/06/22/imaged3f620429a9c4c15.png" alt="imaged3f620429a9c4c15.png"><br><img src="https://v2ray.dana5haw.com:8008/images/2020/06/22/imagecd9ee8b85b6fd188.png" alt="imagecd9ee8b85b6fd188.png"><br><img src="https://v2ray.dana5haw.com:8008/images/2020/06/22/image818c7082c453fadc.png" alt="image818c7082c453fadc.png"><br>正则表达式的这个图太好看了：<br><img src="https://v2ray.dana5haw.com:8008/images/2020/06/22/image7edfb6ee23065f6b.png" alt="image7edfb6ee23065f6b.png"></p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h2&gt;&lt;p&gt;今天父亲节，昨天听说今天是世界末日，今天有些地区似乎可以看到日环食。今天可真特殊。&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="好奇星球" scheme="https://dana5haw.com/categories/%E5%A5%BD%E5%A5%87%E6%98%9F%E7%90%83/"/>
+    
+    
+      <category term="父亲节" scheme="https://dana5haw.com/tags/%E7%88%B6%E4%BA%B2%E8%8A%82/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>怎样把hexo博客同步部署到github和gitee</title>
+    <link href="https://dana5haw.com/posts/hexo-meanwhile-deploy-github-gitee.html"/>
+    <id>https://dana5haw.com/posts/hexo-meanwhile-deploy-github-gitee.html</id>
+    <published>2020-06-21T15:37:07.000Z</published>
+    <updated>2020-06-27T14:12:28.910Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>虽然很早就设置了同步部署hexo博客到github和gitee，但是后来发现gitee上没有同步博客了。为啥？今天登录到gitee，才发现我并没有设置ssh公钥😓</p><a id="more"></a><h2 id="同步部署到gitee"><a href="#同步部署到gitee" class="headerlink" title="同步部署到gitee"></a>同步部署到gitee</h2><p>将电脑的ssh公钥复制到gitee网站，设置ssh验证。我当前gitee和github都是用的ssh验证方式。<br><img src="https://v2ray.dana5haw.com:8008/images/2020/06/21/imageaa5936e007c6a218.png" alt="imageaa5936e007c6a218.png"><br>hexo主配置文件（_config.yml）：<br><img src="https://v2ray.dana5haw.com:8008/images/2020/06/22/image.png" alt="image.png"></p><h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><p>参考了<a href="https://junqifu.github.io/article/1ff6794c/" target="_blank" rel="noopener">这篇文章</a><br>以及<a href="https://blog.csdn.net/yakuaback/article/details/104513748" target="_blank" rel="noopener">这篇文章</a>告诉我，gitee的博客需要我们去手动更新。</p><hr><p>Tips:</p><ol><li>hexo设置的同步部署，是同步部署到github仓库和gitee仓库</li><li>gitee不会自动更新我们的网站，我们部署了新的博客文章，需要到gitee去手动同步（感觉好麻烦哦，一点都不智能，应该有自动更新的简便方法(:</li></ol>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h2&gt;&lt;p&gt;虽然很早就设置了同步部署hexo博客到github和gitee，但是后来发现gitee上没有同步博客了。为啥？今天登录到gitee，才发现我并没有设置ssh公钥😓&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="hexo博客" scheme="https://dana5haw.com/categories/hexo%E5%8D%9A%E5%AE%A2/"/>
+    
+    
+      <category term="hexo博客" scheme="https://dana5haw.com/tags/hexo%E5%8D%9A%E5%AE%A2/"/>
+    
+      <category term="同步部署" scheme="https://dana5haw.com/tags/%E5%90%8C%E6%AD%A5%E9%83%A8%E7%BD%B2/"/>
+    
+      <category term="github" scheme="https://dana5haw.com/tags/github/"/>
+    
+      <category term="gitee" scheme="https://dana5haw.com/tags/gitee/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>部署hexo博客报错，账号密码错误，怎么办</title>
+    <link href="https://dana5haw.com/posts/hexo-deploy-failed-access-token.html"/>
+    <id>https://dana5haw.com/posts/hexo-deploy-failed-access-token.html</id>
+    <published>2020-06-21T15:10:56.000Z</published>
+    <updated>2020-06-27T14:12:29.027Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>部署hexo博客时，输入了错误的账号名，怎么更正这个账号名？google了一下，需要更改windows凭据。</p><a id="more"></a><h2 id="报错信息"><a href="#报错信息" class="headerlink" title="报错信息"></a>报错信息</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">remote: Incorrect username or password ( access token )</span><br></pre></td></tr></table></figure><h2 id="解决方法"><a href="#解决方法" class="headerlink" title="解决方法"></a>解决方法</h2><p>更改windows凭据。</p><ol><li>windows键+i，进入windows设置界面，搜索“windows凭据”，进入设置页面。<br><img src="https://v2ray.dana5haw.com:8008/images/2020/06/21/image91ed43d33ba27aad.png" alt="image91ed43d33ba27aad.png"></li><li>点击“编辑”，修改账号名。（这儿只是举例，实际需要修改github对应的凭据）<br><img src="https://v2ray.dana5haw.com:8008/images/2020/06/21/imagee431cb9f98276c97.png" alt="imagee431cb9f98276c97.png"></li></ol><h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><p>参考<a href="https://blog.csdn.net/mmyhs/article/details/81589419" target="_blank" rel="noopener">这篇文章</a></p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h2&gt;&lt;p&gt;部署hexo博客时，输入了错误的账号名，怎么更正这个账号名？google了一下，需要更改windows凭据。&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="hexo博客" scheme="https://dana5haw.com/categories/hexo%E5%8D%9A%E5%AE%A2/"/>
+    
+    
+      <category term="hexo博客" scheme="https://dana5haw.com/tags/hexo%E5%8D%9A%E5%AE%A2/"/>
+    
+      <category term="账号或密码错误" scheme="https://dana5haw.com/tags/%E8%B4%A6%E5%8F%B7%E6%88%96%E5%AF%86%E7%A0%81%E9%94%99%E8%AF%AF/"/>
+    
+      <category term="windows凭据" scheme="https://dana5haw.com/tags/windows%E5%87%AD%E6%8D%AE/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>换了电脑怎样快速迁移hexo博客</title>
+    <link href="https://dana5haw.com/posts/change-PC-migrate-hexo-blog.html"/>
+    <id>https://dana5haw.com/posts/change-PC-migrate-hexo-blog.html</id>
+    <published>2020-06-21T14:56:25.000Z</published>
+    <updated>2020-06-27T14:12:28.941Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>换了电脑，怎么迁移hexo博客，在新电脑上面继续写博客？折腾半天，终于找到一个简单有效快速的方法。</p><a id="more"></a><h2 id="方法步骤"><a href="#方法步骤" class="headerlink" title="方法步骤"></a>方法步骤</h2><ol><li><p>在新电脑上面安装必备软件：git、nodejs、hexo。<br><img src="https://v2ray.dana5haw.com:8008/images/2020/06/21/image.png" alt="image.png"></p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install -g hexo</span><br></pre></td></tr></table></figure></li><li><p>新电脑创建一个目录用来写博客。</p></li><li><p>接下来，把旧电脑上面博客目录的这几个文件/文件夹拷贝到新电脑的博客目录。</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">_config.yml</span><br><span class="line">package.json</span><br><span class="line">scaffolds&#x2F;</span><br><span class="line">source&#x2F;</span><br><span class="line">themes&#x2F;</span><br></pre></td></tr></table></figure></li><li><p>在新电脑的博客目录执行这几条命令：</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">npm install #安装依赖包</span><br><span class="line">npm install hexo-deployer-git --save #hexo部署工具</span><br><span class="line">npm install hexo-generator-sitemap --save #站点地图</span><br></pre></td></tr></table></figure></li><li><p>依次输入这两条命令，在浏览器输入<a href="http://localhost:4000即可本地测试博客迁移是否成功。">http://localhost:4000即可本地测试博客迁移是否成功。</a></p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">hexo g</span><br><span class="line">hexo s</span><br></pre></td></tr></table></figure></li><li><p>部署命令：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo d</span><br></pre></td></tr></table></figure></li></ol><h2 id="参考文章"><a href="#参考文章" class="headerlink" title="参考文章"></a>参考文章</h2><p>最终参考<a href="https://wungjyan.github.io/2018/08/17/move-hexo/" target="_blank" rel="noopener">这篇文章</a></p><hr><p>Tips：</p><ol><li>在没有本地测试博客是否迁移成功之前，一定不要<code>hexo d</code>部署。否则，将导致网站完全空白！</li><li>迁移博客一定不要在新电脑上面初始化<code>hexo init xxx</code>，切记！只需要拷贝迁移博客需要用到的文件/文件夹。</li></ol>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h2&gt;&lt;p&gt;换了电脑，怎么迁移hexo博客，在新电脑上面继续写博客？折腾半天，终于找到一个简单有效快速的方法。&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="hexo博客" scheme="https://dana5haw.com/categories/hexo%E5%8D%9A%E5%AE%A2/"/>
+    
+    
+      <category term="迁移hexo博客" scheme="https://dana5haw.com/tags/%E8%BF%81%E7%A7%BBhexo%E5%8D%9A%E5%AE%A2/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>python读取复杂json并取值</title>
+    <link href="https://dana5haw.com/posts/python-read-complex-json.html"/>
+    <id>https://dana5haw.com/posts/python-read-complex-json.html</id>
+    <published>2020-06-17T14:00:46.000Z</published>
+    <updated>2020-06-27T14:12:28.524Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>工作中需要读取复杂json，并取需要的值写入excel，整理配置。</p><a id="more"></a><h2 id="脚本"><a href="#脚本" class="headerlink" title="脚本"></a>脚本</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># -*- coding: utf-8-*- #</span></span><br><span class="line"><span class="keyword">import</span> os</span><br><span class="line"><span class="keyword">import</span> xlwt</span><br><span class="line"><span class="keyword">import</span> json</span><br><span class="line"></span><br><span class="line">book = xlwt.Workbook(encoding=<span class="string">'GBK'</span>,style_compression=<span class="number">0</span>)</span><br><span class="line">sheet = book.add_sheet(<span class="string">'XX'</span>, cell_overwrite_ok=<span class="literal">True</span>)</span><br><span class="line">sheet.write(<span class="number">0</span>, <span class="number">0</span>, <span class="string">'所属集群'</span>) </span><br><span class="line">sheet.write(<span class="number">0</span>, <span class="number">1</span>, <span class="string">'系统名称'</span>) </span><br><span class="line">sheet.write(<span class="number">0</span>, <span class="number">2</span>, <span class="string">'请求白名单'</span>)</span><br><span class="line">sheet.write(<span class="number">0</span>, <span class="number">3</span>, <span class="string">'响应白名单'</span>)</span><br><span class="line">sheet.write(<span class="number">0</span>, <span class="number">4</span>, <span class="string">'WAF白名单'</span>)</span><br><span class="line">sheet.write(<span class="number">0</span>, <span class="number">5</span>, <span class="string">'封装名单'</span>)</span><br><span class="line">sheet.write(<span class="number">0</span>, <span class="number">6</span>, <span class="string">'验证名单'</span>)</span><br><span class="line">sheet.write(<span class="number">0</span>, <span class="number">7</span>, <span class="string">'websocket路径'</span>)</span><br><span class="line">sheet.write(<span class="number">0</span>, <span class="number">8</span>, <span class="string">'配置文件名称'</span>)</span><br><span class="line">sheet.write(<span class="number">0</span>, <span class="number">9</span>, <span class="string">'是否防护'</span>)</span><br><span class="line">sheet.write(<span class="number">0</span>, <span class="number">10</span>, <span class="string">'后端服务器'</span>)</span><br><span class="line">sheet.write(<span class="number">0</span>, <span class="number">11</span>, <span class="string">'是否https协议'</span>)</span><br><span class="line">sheet.write(<span class="number">0</span>, <span class="number">12</span>, <span class="string">'IP白名单'</span>)</span><br><span class="line">sheet.write(<span class="number">0</span>, <span class="number">13</span>, <span class="string">'IP黑名单'</span>)</span><br><span class="line">sheet.write(<span class="number">0</span>, <span class="number">14</span>, <span class="string">'是否关闭测试页面'</span>)</span><br><span class="line">sheet.write(<span class="number">0</span>, <span class="number">15</span>, <span class="string">'reload状态码'</span>)</span><br><span class="line">sheet.write(<span class="number">0</span>, <span class="number">16</span>, <span class="string">'WAF是否监控'</span>)</span><br><span class="line">sheet.write(<span class="number">0</span>, <span class="number">17</span>, <span class="string">'RAS版本'</span>)</span><br><span class="line">sheet.write(<span class="number">0</span>, <span class="number">18</span>, <span class="string">'RAS指纹'</span>)</span><br><span class="line">sheet.write(<span class="number">0</span>, <span class="number">19</span>, <span class="string">'IP保护模式'</span>)</span><br><span class="line">sheet.write(<span class="number">0</span>, <span class="number">20</span>, <span class="string">'IP白名单个数'</span>)</span><br><span class="line">sheet.write(<span class="number">0</span>, <span class="number">21</span>, <span class="string">'IP黑名单个数'</span>)</span><br><span class="line">sheet.write(<span class="number">0</span>, <span class="number">22</span>, <span class="string">'请求白名单个数'</span>)</span><br><span class="line">sheet.write(<span class="number">0</span>, <span class="number">23</span>, <span class="string">'响应白名单个数'</span>)</span><br><span class="line">sheet.write(<span class="number">0</span>, <span class="number">24</span>, <span class="string">'WAF白名单个数'</span>)</span><br><span class="line">sheet.write(<span class="number">0</span>, <span class="number">25</span>, <span class="string">'websocket路径个数'</span>)</span><br><span class="line">sheet.write(<span class="number">0</span>, <span class="number">26</span>, <span class="string">'自动化工具拦截'</span>)</span><br><span class="line">sheet.write(<span class="number">0</span>, <span class="number">27</span>, <span class="string">'破解行为拦截'</span>)</span><br><span class="line">sheet.write(<span class="number">0</span>, <span class="number">28</span>, <span class="string">'WAF模块'</span>)</span><br><span class="line">sheet.write(<span class="number">0</span>, <span class="number">29</span>, <span class="string">'App防护'</span>)</span><br><span class="line">sheet.write(<span class="number">0</span>, <span class="number">30</span>, <span class="string">'web标准保护'</span>)</span><br><span class="line">sheet.write(<span class="number">0</span>, <span class="number">31</span>, <span class="string">'web高级保护'</span>)</span><br><span class="line">sheet.write(<span class="number">0</span>, <span class="number">32</span>, <span class="string">'命令执行'</span>)</span><br><span class="line">sheet.write(<span class="number">0</span>, <span class="number">33</span>, <span class="string">'文件上传'</span>)</span><br><span class="line">sheet.write(<span class="number">0</span>, <span class="number">34</span>, <span class="string">'java反序列化'</span>)</span><br><span class="line">sheet.write(<span class="number">0</span>, <span class="number">35</span>, <span class="string">'本地文件包含'</span>)</span><br><span class="line">sheet.write(<span class="number">0</span>, <span class="number">36</span>, <span class="string">'php注入'</span>)</span><br><span class="line">sheet.write(<span class="number">0</span>, <span class="number">37</span>, <span class="string">'协议攻击'</span>)</span><br><span class="line">sheet.write(<span class="number">0</span>, <span class="number">38</span>, <span class="string">'远程文件包含'</span>)</span><br><span class="line">sheet.write(<span class="number">0</span>, <span class="number">39</span>, <span class="string">'扫描探测'</span>)</span><br><span class="line">sheet.write(<span class="number">0</span>, <span class="number">40</span>, <span class="string">'固定会话'</span>)</span><br><span class="line">sheet.write(<span class="number">0</span>, <span class="number">41</span>, <span class="string">'SQL注入'</span>)</span><br><span class="line">sheet.write(<span class="number">0</span>, <span class="number">42</span>, <span class="string">'XSS'</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">with</span> open(<span class="string">'XX.json'</span>,<span class="string">'r'</span>) <span class="keyword">as</span> f:</span><br><span class="line">    data = json.load(f)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 将json字典写入excel</span></span><br><span class="line">n = <span class="number">1</span></span><br><span class="line">usefuldata=data[<span class="string">'system_settings'</span>][<span class="string">'_value'</span>][<span class="string">'nginx'</span>][<span class="string">'upstreams'</span>] <span class="comment">#各系统配置详情</span></span><br><span class="line">ip_black=data[<span class="string">'system_settings'</span>][<span class="string">'_value'</span>][<span class="string">'ip_black'</span>][<span class="string">'value'</span>][<span class="string">'_value'</span>] <span class="comment">#IP黑名单</span></span><br><span class="line">sphinx_version=data[<span class="string">'sphinx_version'</span>][<span class="string">'_value'</span>] <span class="comment">#版本</span></span><br><span class="line">certFp=data[<span class="string">'system_settings'</span>][<span class="string">'_value'</span>][<span class="string">'cluster'</span>][<span class="string">'mobile'</span>][<span class="string">'certFp'</span>][<span class="string">'_value'</span>] <span class="keyword">if</span> <span class="string">'certFp'</span> <span class="keyword">in</span> data[<span class="string">'system_settings'</span>][<span class="string">'_value'</span>][<span class="string">'cluster'</span>][<span class="string">'mobile'</span>] <span class="keyword">else</span> <span class="string">""</span><span class="comment">#指纹</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> list_item <span class="keyword">in</span> usefuldata:</span><br><span class="line">    <span class="comment"># print(list_item) #打印站点名</span></span><br><span class="line">    protect_list=usefuldata[list_item][<span class="string">'protected_list'</span>][<span class="string">'_value'</span>] <span class="comment">#防护模块</span></span><br><span class="line">    EncapsulationListOut=usefuldata[list_item][<span class="string">'EncapsulationListOut'</span>][<span class="string">'_value'</span>] <span class="comment">#封装名单</span></span><br><span class="line">    FullWhiteList=usefuldata[list_item][<span class="string">'FullWhiteList'</span>][<span class="string">'_value'</span>] <span class="comment">#请求白名单</span></span><br><span class="line">    FullWhiteListOut=usefuldata[list_item][<span class="string">'FullWhiteListOut'</span>][<span class="string">'_value'</span>] <span class="comment">#响应白名单</span></span><br><span class="line">    Inject_Whitelist=usefuldata[list_item][<span class="string">'Inject_Whitelist'</span>][<span class="string">'_value'</span>] <span class="comment">#WAF白名单</span></span><br><span class="line">    VerificationList=usefuldata[list_item][<span class="string">'VerificationList'</span>][<span class="string">'_value'</span>] <span class="comment">#验证名单</span></span><br><span class="line">    WafEnabledModules=usefuldata[list_item][<span class="string">'WafEnabledModules'</span>][<span class="string">'_value'</span>] <span class="keyword">if</span> <span class="string">'WafEnabledModules'</span> <span class="keyword">in</span> usefuldata[list_item] <span class="keyword">else</span> &#123;&#125; <span class="comment">#WAF模块</span></span><br><span class="line">    site_customize_name=usefuldata[list_item][<span class="string">'site_customize_name'</span>][<span class="string">'_value'</span>] <span class="comment">#系统名称</span></span><br><span class="line">    websocket_paths=usefuldata[list_item][<span class="string">'websocket_paths'</span>][<span class="string">'_value'</span>] <span class="keyword">if</span> <span class="string">'websocket_paths'</span> <span class="keyword">in</span> usefuldata[list_item] <span class="keyword">else</span> <span class="string">""</span> <span class="comment">#websocket路径</span></span><br><span class="line">    istrue=usefuldata[list_item][<span class="string">'enabled'</span>][<span class="string">'_value'</span>] <span class="comment">#是否防护</span></span><br><span class="line">    UpstreamList=usefuldata[list_item][<span class="string">'UpstreamList'</span>][<span class="string">'_value'</span>] <span class="comment">#后端服务器</span></span><br><span class="line">    IsUpstreamHttps=usefuldata[list_item][<span class="string">'IsUpstreamHttps'</span>][<span class="string">'_value'</span>] <span class="comment">#是否https协议</span></span><br><span class="line">    IpWhiteList=usefuldata[list_item][<span class="string">'IpWhiteList'</span>][<span class="string">'_value'</span>] <span class="comment">#IP白名单</span></span><br><span class="line">    disable_123456=usefuldata[list_item][<span class="string">'disable_123456'</span>][<span class="string">'_value'</span>] <span class="keyword">if</span> <span class="string">'disable_123456'</span> <span class="keyword">in</span> usefuldata[list_item] <span class="keyword">else</span> <span class="string">""</span> <span class="comment">#是否关闭测试页面</span></span><br><span class="line">    reload_status_code=usefuldata[list_item][<span class="string">'reload_status_code'</span>][<span class="string">'_value'</span>] <span class="keyword">if</span> <span class="string">'reload_status_code'</span> <span class="keyword">in</span> usefuldata[list_item] <span class="keyword">else</span> <span class="string">""</span> <span class="comment">#reload状态码</span></span><br><span class="line">    waf_learning_mode=usefuldata[list_item][<span class="string">'waf_learning_mode'</span>][<span class="string">'_value'</span>] <span class="comment">#WAF是否监控</span></span><br><span class="line">    IpListSwitch=usefuldata[list_item][<span class="string">'IpListSwitch'</span>][<span class="string">'_value'</span>] <span class="comment">#IP保护模式</span></span><br><span class="line">    len_IpWhiteList=len(IpWhiteList) <span class="comment">#IP白名单个数</span></span><br><span class="line">    len_ip_black=len(ip_black) <span class="comment">#IP黑名单个数</span></span><br><span class="line">    len_FullWhiteList=len(FullWhiteList) <span class="comment">#请求白名单个数</span></span><br><span class="line">    len_FullWhiteListOut=len(FullWhiteListOut) <span class="comment">#响应白名单个数</span></span><br><span class="line">    len_Inject_Whitelist=len(Inject_Whitelist) <span class="comment">#WAF白名单个数</span></span><br><span class="line">    len_websocket_paths=len(websocket_paths) <span class="comment">#websocket路径个数</span></span><br><span class="line">    automated_tool_intercept=protect_list[<span class="string">'automated_tool_intercept'</span>] <span class="comment">#自动化工具拦截</span></span><br><span class="line">    crack_behavior_interception=protect_list[<span class="string">'crack_behavior_interception'</span>] <span class="comment">#破解行为拦截</span></span><br><span class="line">    injection_attack_interception=protect_list[<span class="string">'injection_attack_interception'</span>] <span class="comment">#WAF模块</span></span><br><span class="line">    mobile_sdk_protection=protect_list[<span class="string">'mobile_sdk_protection'</span>] <span class="comment">#App防护</span></span><br><span class="line">    web_standard_protection=protect_list[<span class="string">'web_standard_protection'</span>] <span class="comment">#web标准保护</span></span><br><span class="line">    web_advanced_protection=protect_list[<span class="string">'web_advanced_protection'</span>] <span class="comment">#web高级保护</span></span><br><span class="line">    command_excute_interception=WafEnabledModules[<span class="string">'command_excute_interception'</span>] <span class="keyword">if</span> <span class="string">'command_excute_interception'</span> <span class="keyword">in</span> WafEnabledModules <span class="keyword">else</span> <span class="string">""</span> <span class="comment">#命令执行</span></span><br><span class="line">    file_upload_interception=WafEnabledModules[<span class="string">'file_upload_interception'</span>] <span class="keyword">if</span> <span class="string">'file_upload_interception'</span> <span class="keyword">in</span> WafEnabledModules <span class="keyword">else</span> <span class="string">""</span> <span class="comment">#文件上传</span></span><br><span class="line">    java_deserialization_interception=WafEnabledModules[<span class="string">'java_deserialization_interception'</span>] <span class="keyword">if</span> <span class="string">'java_deserialization_interception'</span> <span class="keyword">in</span> WafEnabledModules <span class="keyword">else</span> <span class="string">""</span> <span class="comment">#java反序列化</span></span><br><span class="line">    local_file_include_interception=WafEnabledModules[<span class="string">'local_file_include_interception'</span>] <span class="keyword">if</span> <span class="string">'local_file_include_interception'</span> <span class="keyword">in</span> WafEnabledModules <span class="keyword">else</span> <span class="string">""</span> <span class="comment">#本地文件包含</span></span><br><span class="line">    php_injection_interception=WafEnabledModules[<span class="string">'php_injection_interception'</span>] <span class="keyword">if</span> <span class="string">'php_injection_interception'</span> <span class="keyword">in</span> WafEnabledModules <span class="keyword">else</span> <span class="string">""</span> <span class="comment">#php注入</span></span><br><span class="line">    protocol_attack_interception=WafEnabledModules[<span class="string">'protocol_attack_interception'</span>] <span class="keyword">if</span> <span class="string">'protocol_attack_interception'</span> <span class="keyword">in</span> WafEnabledModules <span class="keyword">else</span> <span class="string">""</span> <span class="comment">#协议攻击</span></span><br><span class="line">    remote_file_include_interception=WafEnabledModules[<span class="string">'remote_file_include_interception'</span>] <span class="keyword">if</span> <span class="string">'remote_file_include_interception'</span> <span class="keyword">in</span> WafEnabledModules <span class="keyword">else</span> <span class="string">""</span> <span class="comment">#远程文件包含</span></span><br><span class="line">    scanner_detect_interception=WafEnabledModules[<span class="string">'scanner_detect_interception'</span>] <span class="keyword">if</span> <span class="string">'scanner_detect_interception'</span> <span class="keyword">in</span> WafEnabledModules <span class="keyword">else</span> <span class="string">""</span> <span class="comment">#扫描探测</span></span><br><span class="line">    session_fixation_interception=WafEnabledModules[<span class="string">'session_fixation_interception'</span>] <span class="keyword">if</span> <span class="string">'session_fixation_interception'</span> <span class="keyword">in</span> WafEnabledModules <span class="keyword">else</span> <span class="string">""</span> <span class="comment">#固定会话</span></span><br><span class="line">    sql_injection_interception=WafEnabledModules[<span class="string">'sql_injection_interception'</span>] <span class="keyword">if</span> <span class="string">'sql_injection_interception'</span> <span class="keyword">in</span> WafEnabledModules <span class="keyword">else</span> <span class="string">""</span> <span class="comment">#sql注入</span></span><br><span class="line">    xss_injection_interception=WafEnabledModules[<span class="string">'xss_injection_interception'</span>] <span class="keyword">if</span> <span class="string">'xss_injection_interception'</span> <span class="keyword">in</span> WafEnabledModules <span class="keyword">else</span> <span class="string">""</span> <span class="comment">#XSS</span></span><br><span class="line"></span><br><span class="line">    sheet.write(n,<span class="number">0</span>,<span class="string">'XX'</span>) <span class="comment">#所属集群</span></span><br><span class="line">    sheet.write(n,<span class="number">1</span>,str(site_customize_name)) <span class="comment">#系统名称</span></span><br><span class="line">    sheet.write(n,<span class="number">2</span>,str(FullWhiteList)) <span class="comment">#请求白名单</span></span><br><span class="line">    sheet.write(n,<span class="number">3</span>,str(FullWhiteListOut)) <span class="comment">#响应白名单</span></span><br><span class="line">    sheet.write(n,<span class="number">4</span>,str(Inject_Whitelist)) <span class="comment">#WAF白名单</span></span><br><span class="line">    sheet.write(n,<span class="number">5</span>,str(EncapsulationListOut)) <span class="comment">#封装名单</span></span><br><span class="line">    sheet.write(n,<span class="number">6</span>,str(VerificationList)) <span class="comment">#验证名单</span></span><br><span class="line">    sheet.write(n,<span class="number">7</span>,str(websocket_paths)) <span class="comment">#websocket路径</span></span><br><span class="line">    sheet.write(n,<span class="number">8</span>,str(list_item)) <span class="comment">#配置文件名称</span></span><br><span class="line">    sheet.write(n,<span class="number">9</span>,str(istrue)) <span class="comment">#是否防护</span></span><br><span class="line">    sheet.write(n,<span class="number">10</span>,str(UpstreamList)) <span class="comment">#后端服务器</span></span><br><span class="line">    sheet.write(n,<span class="number">11</span>,str(IsUpstreamHttps)) <span class="comment">#是否https协议</span></span><br><span class="line">    sheet.write(n,<span class="number">12</span>,str(IpWhiteList)) <span class="comment">#IP白名单</span></span><br><span class="line">    sheet.write(n,<span class="number">13</span>,str(ip_black)) <span class="comment">#IP黑名单</span></span><br><span class="line">    sheet.write(n,<span class="number">14</span>,str(disable_123456)) <span class="comment">#是否关闭测试页面</span></span><br><span class="line">    sheet.write(n,<span class="number">15</span>,str(reload_status_code)) <span class="comment">#reload状态码</span></span><br><span class="line">    sheet.write(n,<span class="number">16</span>,str(waf_learning_mode)) <span class="comment">#WAF是否监控</span></span><br><span class="line">    sheet.write(n,<span class="number">17</span>,str(sphinx_version)) <span class="comment">#RAS版本</span></span><br><span class="line">    sheet.write(n,<span class="number">18</span>,str(certFp)) <span class="comment">#RAS指纹</span></span><br><span class="line">    sheet.write(n,<span class="number">19</span>,str(IpListSwitch)) <span class="comment">#IP保护模式</span></span><br><span class="line">    sheet.write(n,<span class="number">20</span>,str(len_IpWhiteList)) <span class="comment">#IP白名单个数</span></span><br><span class="line">    sheet.write(n,<span class="number">21</span>,str(len_ip_black)) <span class="comment">#IP黑名单个数</span></span><br><span class="line">    sheet.write(n,<span class="number">22</span>,str(len_FullWhiteList)) <span class="comment">#请求白名单个数</span></span><br><span class="line">    sheet.write(n,<span class="number">23</span>,str(len_FullWhiteListOut)) <span class="comment">#响应白名单个数</span></span><br><span class="line">    sheet.write(n,<span class="number">24</span>,str(len_Inject_Whitelist)) <span class="comment">#WAF白名单个数</span></span><br><span class="line">    sheet.write(n,<span class="number">25</span>,str(len_websocket_paths)) <span class="comment">#websocket路径个数</span></span><br><span class="line">    sheet.write(n,<span class="number">26</span>,str(automated_tool_intercept)) <span class="comment">#自动化工具拦截</span></span><br><span class="line">    sheet.write(n,<span class="number">27</span>,str(crack_behavior_interception)) <span class="comment">#破解行为拦截</span></span><br><span class="line">    sheet.write(n,<span class="number">28</span>,str(injection_attack_interception)) <span class="comment">#WAF模块</span></span><br><span class="line">    sheet.write(n,<span class="number">29</span>,str(mobile_sdk_protection)) <span class="comment">#App防护</span></span><br><span class="line">    sheet.write(n,<span class="number">30</span>,str(web_standard_protection)) <span class="comment">#web标准保护</span></span><br><span class="line">    sheet.write(n,<span class="number">31</span>,str(web_advanced_protection)) <span class="comment">#web高级保护</span></span><br><span class="line">    sheet.write(n,<span class="number">32</span>,str(command_excute_interception)) <span class="comment">#命令执行</span></span><br><span class="line">    sheet.write(n,<span class="number">33</span>,str(file_upload_interception)) <span class="comment">#文件上传</span></span><br><span class="line">    sheet.write(n,<span class="number">34</span>,str(java_deserialization_interception)) <span class="comment">#java反序列化</span></span><br><span class="line">    sheet.write(n,<span class="number">35</span>,str(local_file_include_interception)) <span class="comment">#本地文件包含</span></span><br><span class="line">    sheet.write(n,<span class="number">36</span>,str(php_injection_interception)) <span class="comment">#php注入</span></span><br><span class="line">    sheet.write(n,<span class="number">37</span>,str(protocol_attack_interception)) <span class="comment">#协议攻击</span></span><br><span class="line">    sheet.write(n,<span class="number">38</span>,str(remote_file_include_interception)) <span class="comment">#远程文件包含</span></span><br><span class="line">    sheet.write(n,<span class="number">39</span>,str(scanner_detect_interception)) <span class="comment">#扫描探测</span></span><br><span class="line">    sheet.write(n,<span class="number">40</span>,str(session_fixation_interception)) <span class="comment">#固定会话</span></span><br><span class="line">    sheet.write(n,<span class="number">41</span>,str(sql_injection_interception)) <span class="comment">#sql注入</span></span><br><span class="line">    sheet.write(n,<span class="number">42</span>,str(xss_injection_interception)) <span class="comment">#XSS</span></span><br><span class="line"></span><br><span class="line">    n=n+<span class="number">1</span></span><br><span class="line"></span><br><span class="line">book.save(<span class="string">'XX.xls'</span>)</span><br></pre></td></tr></table></figure><p>分析：主要思路就是，把大字典转换为小字典，遍历小字典，获取自己所需的键值。<br>注意：</p><ol><li>字典不存在的情况，需要设置空字典<code>{}</code>，否则报错。</li><li>键不存在的情况，需要设置空值<code>&quot;&quot;</code>，否则报错。<br>主要用到的知识也很简单，–怎么获取字典键值–，此处采取了较为简洁的方式：<code>value=dict[&#39;key&#39;]</code>。<br>需要重点注意的就是数据类型，是字典还是列表？最终存入excel的数据必须是字符类型。<code>str()</code>是做数据类型强制转换，转换为字符。</li></ol>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h2&gt;&lt;p&gt;工作中需要读取复杂json，并取需要的值写入excel，整理配置。&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="python脚本" scheme="https://dana5haw.com/categories/python%E8%84%9A%E6%9C%AC/"/>
+    
+    
+      <category term="python" scheme="https://dana5haw.com/tags/python/"/>
+    
+      <category term="读取复杂json" scheme="https://dana5haw.com/tags/%E8%AF%BB%E5%8F%96%E5%A4%8D%E6%9D%82json/"/>
+    
+      <category term="取值" scheme="https://dana5haw.com/tags/%E5%8F%96%E5%80%BC/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>将多个文件内容合并为一个excel，一行写一个文件</title>
+    <link href="https://dana5haw.com/posts/file-to-excel-python.html"/>
+    <id>https://dana5haw.com/posts/file-to-excel-python.html</id>
+    <published>2020-06-17T13:55:03.000Z</published>
+    <updated>2020-06-27T14:12:28.888Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>整理NG配置文件，每次都去服务器上面去查，很不方便，有时候因为网络限制根本登录不到服务器。于是，就想把服务器的NG配置文件拷贝到本地，集中整理为一张表，就看这张表查各个系统的具体配置。</p><a id="more"></a><h2 id="脚本"><a href="#脚本" class="headerlink" title="脚本"></a>脚本</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># -*- coding: utf-8-*- #</span></span><br><span class="line"><span class="keyword">import</span> os</span><br><span class="line"><span class="keyword">import</span> re</span><br><span class="line"><span class="keyword">import</span> xlwt</span><br><span class="line"></span><br><span class="line">book = xlwt.Workbook(encoding=<span class="string">'GBK'</span>,style_compression=<span class="number">0</span>)</span><br><span class="line">sheet = book.add_sheet(<span class="string">'XX'</span>, cell_overwrite_ok=<span class="literal">True</span>)</span><br><span class="line">sheet.write(<span class="number">0</span>, <span class="number">0</span>, <span class="string">'所属NG'</span>)</span><br><span class="line">sheet.write(<span class="number">0</span>, <span class="number">1</span>, <span class="string">'配置文件名称'</span>)</span><br><span class="line">sheet.write(<span class="number">0</span>, <span class="number">2</span>, <span class="string">'配置文件内容'</span>) </span><br><span class="line"></span><br><span class="line">path = <span class="string">r"D:\XX-conf"</span> <span class="comment">#文件夹目录</span></span><br><span class="line">files= os.listdir(path) <span class="comment">#得到文件夹下的所有文件名称</span></span><br><span class="line"></span><br><span class="line">a=<span class="number">1</span></span><br><span class="line">q=<span class="number">1</span></span><br><span class="line"><span class="keyword">for</span> file <span class="keyword">in</span> files:</span><br><span class="line">    <span class="keyword">if</span> <span class="keyword">not</span> os.path.isdir(file): <span class="comment">#判断是否是文件夹，不是文件夹才打开</span></span><br><span class="line">        fd = open(path+<span class="string">"/"</span>+file); <span class="comment">#打开文件</span></span><br><span class="line">        lines = fd.readlines()</span><br><span class="line">        string = <span class="string">""</span></span><br><span class="line">        <span class="keyword">for</span> line <span class="keyword">in</span> lines:</span><br><span class="line">            string += line <span class="comment">#配置文件内容</span></span><br><span class="line">        sheet.write(a, <span class="number">0</span>, <span class="string">'XX'</span>)</span><br><span class="line">        sheet.write(a, <span class="number">2</span>, string)</span><br><span class="line">        a = a+<span class="number">1</span></span><br><span class="line">    sheet.write(q,<span class="number">1</span>,file)  </span><br><span class="line">    q=q+<span class="number">1</span> </span><br><span class="line">book.save(<span class="string">'XX-conf.xls'</span>)</span><br></pre></td></tr></table></figure><h2 id="效果"><a href="#效果" class="headerlink" title="效果"></a>效果</h2><p><img src="https://v2ray.dana5haw.com:8008/images/2020/06/17/imaged721828f323959f2.png" alt="imaged721828f323959f2.png"></p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h2&gt;&lt;p&gt;整理NG配置文件，每次都去服务器上面去查，很不方便，有时候因为网络限制根本登录不到服务器。于是，就想把服务器的NG配置文件拷贝到本地，集中整理为一张表，就看这张表查各个系统的具体配置。&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="python脚本" scheme="https://dana5haw.com/categories/python%E8%84%9A%E6%9C%AC/"/>
+    
+    
+      <category term="excel" scheme="https://dana5haw.com/tags/excel/"/>
+    
+      <category term="python" scheme="https://dana5haw.com/tags/python/"/>
+    
+      <category term="文件转excel" scheme="https://dana5haw.com/tags/%E6%96%87%E4%BB%B6%E8%BD%ACexcel/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>正则表达式-不匹配特定字符串开头的url</title>
+    <link href="https://dana5haw.com/posts/Reg-Exclude-url.html"/>
+    <id>https://dana5haw.com/posts/Reg-Exclude-url.html</id>
+    <published>2020-06-17T13:38:42.000Z</published>
+    <updated>2020-06-27T14:12:28.954Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>一直都有个需求，写出一个正则表达式，不匹配以某个目录开头的url，主要是工作中需要用到，以前不会写这个表达式，就干脆没有做相关配置，这回终于找到方法了。</p><a id="more"></a><h2 id="怎么写正则"><a href="#怎么写正则" class="headerlink" title="怎么写正则"></a>怎么写正则</h2><p><code>?!</code>这叫做<code>前瞻匹配</code>，意思就是以啥啥啥开头。<br>我需要匹配不以某个目录开头的url，这样写：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">(?i)^(?!&#x2F;plugin).*?$</span><br></pre></td></tr></table></figure><p>这个表达式意思就是：不匹配以<code>/plugin</code>开头的url。<br>之前我们还写过排除匹配特定url的正则表达式，这样写：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">(?i)^(?!&#x2F;test.html($|\?.+))</span><br></pre></td></tr></table></figure><p>这个表达式意思就是：不匹配<code>/test.html</code>这个url。</p><h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><p>参考了<a href="https://www.cnblogs.com/asfeixue/p/lookahead.html" target="_blank" rel="noopener">这篇文章</a>，OK，这种正则表达式的官方名字叫<code>否定前瞻</code>。</p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h2&gt;&lt;p&gt;一直都有个需求，写出一个正则表达式，不匹配以某个目录开头的url，主要是工作中需要用到，以前不会写这个表达式，就干脆没有做相关配置，这回终于找到方法了。&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="正则表达式" scheme="https://dana5haw.com/categories/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/"/>
+    
+    
+      <category term="正则表达式" scheme="https://dana5haw.com/tags/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/"/>
+    
+      <category term="前瞻匹配" scheme="https://dana5haw.com/tags/%E5%89%8D%E7%9E%BB%E5%8C%B9%E9%85%8D/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>hexo突然无法deploy报错connection timeout</title>
+    <link href="https://dana5haw.com/posts/hexo-deploy-failed-connection-timeout.html"/>
+    <id>https://dana5haw.com/posts/hexo-deploy-failed-connection-timeout.html</id>
+    <published>2020-06-17T13:24:55.000Z</published>
+    <updated>2020-06-27T14:12:28.374Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>不晓得为啥，hexo突然无法deploy本地的文章，头疼……搁置了几天，今天终于腾出精力来google。</p><a id="more"></a><h2 id="问题现象"><a href="#问题现象" class="headerlink" title="问题现象"></a>问题现象</h2><p><img src="https://v2ray.dana5haw.com:8008/images/2020/06/17/image411af13ac4a6e986.png" alt="image411af13ac4a6e986.png"></p><h2 id="原因"><a href="#原因" class="headerlink" title="原因"></a>原因</h2><p>因为电脑本地的ssh目录缺失了config文件。<br><img src="https://v2ray.dana5haw.com:8008/images/2020/06/17/imageae93b428e4304472.png" alt="imageae93b428e4304472.png"></p><h2 id="解决方法"><a href="#解决方法" class="headerlink" title="解决方法"></a>解决方法</h2><p>自己创建缺失的config文件：<br><img src="https://v2ray.dana5haw.com:8008/images/2020/06/17/imageae93b428e4304472.png" alt="imageae93b428e4304472.png"></p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">Host github.com</span><br><span class="line">User XXX@gmail.com</span><br><span class="line">Hostname ssh.github.com</span><br><span class="line">PreferredAuthentications publickey</span><br><span class="line">IdentityFile ~&#x2F;.ssh&#x2F;id_rsa</span><br><span class="line">Port 443</span><br></pre></td></tr></table></figure><h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><p>参考了<a href="https://blog.csdn.net/MBuger/article/details/70226712" target="_blank" rel="noopener">这篇文章</a></p><hr><p>真的是，不晓得为啥就出现这样的问题，本来还以为是github被墙了，看来是我想复杂了。但是话说，我的config文件是咋缺失的……</p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h2&gt;&lt;p&gt;不晓得为啥，hexo突然无法deploy本地的文章，头疼……搁置了几天，今天终于腾出精力来google。&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="hexo博客" scheme="https://dana5haw.com/categories/hexo%E5%8D%9A%E5%AE%A2/"/>
+    
+      <category term="troubleshooting" scheme="https://dana5haw.com/categories/troubleshooting/"/>
+    
+    
+      <category term="hexo" scheme="https://dana5haw.com/tags/hexo/"/>
+    
+      <category term="connection timeout" scheme="https://dana5haw.com/tags/connection-timeout/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>将excel每行内容导出为单个文件并以特定列的内容作为文件名</title>
+    <link href="https://dana5haw.com/posts/excel-vba-convert.html"/>
+    <id>https://dana5haw.com/posts/excel-vba-convert.html</id>
+    <published>2020-06-16T05:31:07.000Z</published>
+    <updated>2020-06-27T14:12:28.882Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>为了提高效率，我需要把excel每行的数据转存为单个文件。google告诉我可使用vba代码实现，就找到了一个简单方法，一个表转多个文件，一秒搞定。</p><a id="more"></a><h2 id="vba代码"><a href="#vba代码" class="headerlink" title="vba代码"></a>vba代码</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">Sub t()</span><br><span class="line">For i &#x3D; 2 To 204 </span><br><span class="line">Open &quot;d:\&quot; &amp; Cells(i, 2) For Append As #1</span><br><span class="line">Print #1, Cells(i, 3)</span><br><span class="line">Close #1</span><br><span class="line">Next</span><br><span class="line">End Sub</span><br></pre></td></tr></table></figure><p>代码解释：<br>1、将第2行到第204行的数据转存为单个文件<br>2、打开D盘，每行内容以第二列数据作为文件名<br>3、打印第三列数据作为文件内容</p><h2 id="效果"><a href="#效果" class="headerlink" title="效果"></a>效果</h2><p><a href="https://v2ray.dana5haw.com:8008/image/ZzoT" target="_blank" rel="noopener"><img src="https://v2ray.dana5haw.com:8008/images/2020/06/16/image.png" alt="image.png"></a><br><img src="https://v2ray.dana5haw.com:8008/images/2020/06/16/image318502281bf2ce85.png" alt="image318502281bf2ce85.png"></p><h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><p>参考<a href="https://zhidao.baidu.com/question/1860550641232376387.html?qbpn=1_1&fr=newsearchlist&word=%E5%A6%82%E4%BD%95%E6%8A%8Aexcel%E6%AF%8F%E4%B8%80%E8%A1%8C%E5%90%84%E5%AF%BC%E5%87%BA%E4%B8%BA%E4%B8%80%E4%B8%AAtxt%E6%96%87%E6%9C%AC%2C%E5%B9%B6%E4%B8%94%E4%BB%A5%E5%AF%B9%E5%BA%94%E6%AF%8F%E8%A1%8C%E7%9A%84%E6%A0%87%E9%A2%98%E5%91%BD%E5%90%8D&aup=1" target="_blank" rel="noopener">这篇文章</a></p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h2&gt;&lt;p&gt;为了提高效率，我需要把excel每行的数据转存为单个文件。google告诉我可使用vba代码实现，就找到了一个简单方法，一个表转多个文件，一秒搞定。&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="excel" scheme="https://dana5haw.com/categories/excel/"/>
+    
+      <category term="vba编程" scheme="https://dana5haw.com/categories/vba%E7%BC%96%E7%A8%8B/"/>
+    
+    
+      <category term="excel" scheme="https://dana5haw.com/tags/excel/"/>
+    
+      <category term="vba代码" scheme="https://dana5haw.com/tags/vba%E4%BB%A3%E7%A0%81/"/>
+    
+      <category term="excel每行数据转存为单个文件" scheme="https://dana5haw.com/tags/excel%E6%AF%8F%E8%A1%8C%E6%95%B0%E6%8D%AE%E8%BD%AC%E5%AD%98%E4%B8%BA%E5%8D%95%E4%B8%AA%E6%96%87%E4%BB%B6/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>linux批量修改文件后缀</title>
+    <link href="https://dana5haw.com/posts/linux-modify-file-suffix.html"/>
+    <id>https://dana5haw.com/posts/linux-modify-file-suffix.html</id>
+    <published>2020-06-13T10:52:37.000Z</published>
+    <updated>2020-06-27T14:12:28.413Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>批量修改目录下面的所有文件名后缀。</p><a id="more"></a><h2 id="怎么做"><a href="#怎么做" class="headerlink" title="怎么做"></a>怎么做</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rename  .txt  .bk *</span><br></pre></td></tr></table></figure><p>将txt后缀改为bk后缀。</p><h2 id="参考文章"><a href="#参考文章" class="headerlink" title="参考文章"></a>参考文章</h2><p><a href="https://blog.mimvp.com/article/15218.html" target="_blank" rel="noopener">参考文章</a></p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h2&gt;&lt;p&gt;批量修改目录下面的所有文件名后缀。&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="shell" scheme="https://dana5haw.com/categories/shell/"/>
+    
+    
+      <category term="linux shell" scheme="https://dana5haw.com/tags/linux-shell/"/>
+    
+      <category term="批量修改文件后缀" scheme="https://dana5haw.com/tags/%E6%89%B9%E9%87%8F%E4%BF%AE%E6%94%B9%E6%96%87%E4%BB%B6%E5%90%8E%E7%BC%80/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>爱情不过是场权谋游戏</title>
+    <link href="https://dana5haw.com/posts/love-game.html"/>
+    <id>https://dana5haw.com/posts/love-game.html</id>
+    <published>2020-05-26T05:12:35.000Z</published>
+    <updated>2020-06-27T14:12:28.982Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>前言不搭后语。</p><a id="more"></a><h2 id="后语"><a href="#后语" class="headerlink" title="后语"></a>后语</h2><p>爱情不过是场权谋游戏，男男女女在这场游戏里博弈。长大以前，我爱你就足够。人长大了，就学会计较得失。你爱我吗？你有我爱你那么多吗？你愿意为我放弃其他人或事吗？这些问题成了各自心中的一杆秤。大家开始不自觉地开始计算投入产出比，就像世界上的任何一种投资那样。这样的变化不是不对，只是爱情比玻璃还脆弱，比温室里的花朵还经不起风吹雨打。没有最爱，没有更爱，只是错爱。我很善变，善变到自己都不想承认。</p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h2&gt;&lt;p&gt;前言不搭后语。&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="思考" scheme="https://dana5haw.com/categories/%E6%80%9D%E8%80%83/"/>
+    
+    
+      <category term="爱情" scheme="https://dana5haw.com/tags/%E7%88%B1%E6%83%85/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>使用phpstudy验证CSRF漏洞</title>
+    <link href="https://dana5haw.com/posts/phpstudy-verify-csrf.html"/>
+    <id>https://dana5haw.com/posts/phpstudy-verify-csrf.html</id>
+    <published>2020-05-22T08:57:53.000Z</published>
+    <updated>2020-06-27T14:12:28.848Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>可以使用phpstudy建本地网站，将csrf漏洞验证的html放到网站根目录，验证csrf漏洞。</p><a id="more"></a><h2 id="操作步骤"><a href="#操作步骤" class="headerlink" title="操作步骤"></a>操作步骤</h2><ol><li>使用burp生成poc，将html保存到本地，命名为csrf.html。</li><li>将这个html上传到phpstudy网站根目录，输入127.0.0.1/csrf.html进行访问。</li><li>用burp抓包，重放csrf.html。如果能正常返回页面，说明csrf漏洞存在。<br>原理：本质上是修改了网站的referer。修复这个漏洞的方式是限制referer，不允许其他域名的referer访问网站。</li></ol><hr><p>待实操。</p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h2&gt;&lt;p&gt;可以使用phpstudy建本地网站，将csrf漏洞验证的html放到网站根目录，验证csrf漏洞。&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="渗透学习" scheme="https://dana5haw.com/categories/%E6%B8%97%E9%80%8F%E5%AD%A6%E4%B9%A0/"/>
+    
+    
+      <category term="phpstudy" scheme="https://dana5haw.com/tags/phpstudy/"/>
+    
+      <category term="验证csrf漏洞" scheme="https://dana5haw.com/tags/%E9%AA%8C%E8%AF%81csrf%E6%BC%8F%E6%B4%9E/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>查看linux机器使用的加密算法</title>
+    <link href="https://dana5haw.com/posts/linux-encrypt-authconfig.html"/>
+    <id>https://dana5haw.com/posts/linux-encrypt-authconfig.html</id>
+    <published>2020-05-15T13:37:36.000Z</published>
+    <updated>2020-06-27T14:12:28.950Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>/etc/passwd存放了用户名及密码信息，其中的密码是密文。我们怎么看这个密文的加密算法？主要是想试试怎么根据密文破解出用户的密码。</p><a id="more"></a><h2 id="命令"><a href="#命令" class="headerlink" title="命令"></a>命令</h2><p>使用以下命令查看机器使用的加密算法：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">authconfig --test | grep hashing</span><br></pre></td></tr></table></figure><p><a href="https://v2ray.dana5haw.com:8008/image/Zvdd" target="_blank" rel="noopener"><img src="https://v2ray.dana5haw.com:8008/images/2020/05/15/image.png" alt="image.png"></a><br>我看了下自己手里的机器，几乎都是使用sha512加密算法，暂时没破解出来。</p><h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><p>参考了这篇<a href="https://blog.csdn.net/lws123253/article/details/89228589" target="_blank" rel="noopener">文章</a></p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h2&gt;&lt;p&gt;/etc/passwd存放了用户名及密码信息，其中的密码是密文。我们怎么看这个密文的加密算法？主要是想试试怎么根据密文破解出用户的密码。&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="linux" scheme="https://dana5haw.com/categories/linux/"/>
+    
+    
+      <category term="linux" scheme="https://dana5haw.com/tags/linux/"/>
+    
+      <category term="加密算法" scheme="https://dana5haw.com/tags/%E5%8A%A0%E5%AF%86%E7%AE%97%E6%B3%95/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>读取json数据并写入excel</title>
+    <link href="https://dana5haw.com/posts/json-convert-excel-python.html"/>
+    <id>https://dana5haw.com/posts/json-convert-excel-python.html</id>
+    <published>2020-05-14T08:21:04.000Z</published>
+    <updated>2020-06-27T14:12:29.015Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>工作中整理数据需要把json文件转为excel数据。用python来做。</p><a id="more"></a><h2 id="脚本"><a href="#脚本" class="headerlink" title="脚本"></a>脚本</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># -*- coding: utf-8 -*-</span></span><br><span class="line"><span class="keyword">import</span> xlwt</span><br><span class="line"><span class="keyword">import</span> json</span><br><span class="line"></span><br><span class="line"><span class="comment"># 创建excel工作表</span></span><br><span class="line">workbook = xlwt.Workbook(encoding=<span class="string">'utf-8'</span>)</span><br><span class="line">worksheet = workbook.add_sheet(<span class="string">'sheet1'</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 设置表头</span></span><br><span class="line">worksheet.write(<span class="number">0</span>, <span class="number">0</span>, label=<span class="string">'备注'</span>)</span><br><span class="line">worksheet.write(<span class="number">0</span>, <span class="number">1</span>, label=<span class="string">'App包名'</span>)</span><br><span class="line">worksheet.write(<span class="number">0</span>, <span class="number">2</span>, label=<span class="string">'App签名'</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># 读取json文件</span></span><br><span class="line"><span class="keyword">with</span> open(<span class="string">'b.json'</span>, <span class="string">'r'</span>) <span class="keyword">as</span> f:</span><br><span class="line">    data = json.load(f)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 将json字典写入excel</span></span><br><span class="line"><span class="comment"># 变量用来循环时控制写入单元格，感觉有更好的表达方式</span></span><br><span class="line">val = <span class="number">1</span></span><br><span class="line"><span class="keyword">for</span> list_item <span class="keyword">in</span> data:</span><br><span class="line">    <span class="keyword">for</span> key, value <span class="keyword">in</span> list_item.items():</span><br><span class="line">        <span class="keyword">if</span> key == <span class="string">"description"</span>:</span><br><span class="line">            worksheet.write(val, <span class="number">0</span>, value)</span><br><span class="line">        <span class="keyword">elif</span> key == <span class="string">"app_pkgname"</span>:</span><br><span class="line">            worksheet.write(val, <span class="number">1</span>, value)</span><br><span class="line">        <span class="keyword">elif</span> key == <span class="string">"app_cer"</span>:</span><br><span class="line">            worksheet.write(val, <span class="number">2</span>, value)</span><br><span class="line">    val = val + <span class="number">1</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 保存</span></span><br><span class="line">workbook.save(<span class="string">'b-App.xls'</span>)</span><br></pre></td></tr></table></figure><h2 id="效果"><a href="#效果" class="headerlink" title="效果"></a>效果</h2><p>json文件格式：<br><a href="https://v2ray.dana5haw.com:8008/image/ZaJu" target="_blank" rel="noopener"><img src="https://v2ray.dana5haw.com:8008/images/2020/05/14/image570b0a9c6b7fbd99.png" alt="image570b0a9c6b7fbd99.png"></a><br>转换为excel之后：<br><a href="https://v2ray.dana5haw.com:8008/image/Znuc" target="_blank" rel="noopener"><img src="https://v2ray.dana5haw.com:8008/images/2020/05/14/image81096c3f92e00df9.png" alt="image81096c3f92e00df9.png"></a></p><h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><p>基本上是抄了这个文章的<a href="https://blog.csdn.net/destinymf/article/details/78096678" target="_blank" rel="noopener">代码</a></p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h2&gt;&lt;p&gt;工作中整理数据需要把json文件转为excel数据。用python来做。&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="实用python脚本" scheme="https://dana5haw.com/categories/%E5%AE%9E%E7%94%A8python%E8%84%9A%E6%9C%AC/"/>
+    
+    
+      <category term="python" scheme="https://dana5haw.com/tags/python/"/>
+    
+      <category term="json写入excel" scheme="https://dana5haw.com/tags/json%E5%86%99%E5%85%A5excel/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>长ping测试网络状态</title>
+    <link href="https://dana5haw.com/posts/long-ping.html"/>
+    <id>https://dana5haw.com/posts/long-ping.html</id>
+    <published>2020-05-14T08:19:53.000Z</published>
+    <updated>2020-06-27T14:12:29.054Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>工作中，需要测试两台机器之间的网络状态，使用长ping查看一下网络状态。</p><a id="more"></a><h2 id="windows服务器怎么长ping"><a href="#windows服务器怎么长ping" class="headerlink" title="windows服务器怎么长ping"></a>windows服务器怎么长ping</h2><p>命令：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ping -t [IP地址]</span><br></pre></td></tr></table></figure><p><a href="https://v2ray.dana5haw.com:8008/image/Zwaf" target="_blank" rel="noopener"><img src="https://v2ray.dana5haw.com:8008/images/2020/05/14/imagee3dd53d84d22d73e.png" alt="imagee3dd53d84d22d73e.png"></a></p><h2 id="linux机器怎么长ping"><a href="#linux机器怎么长ping" class="headerlink" title="linux机器怎么长ping"></a>linux机器怎么长ping</h2><p>命令：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">ping -s 1500 -c 4 [IP地址]</span><br><span class="line">-s 指定数据包大小为1500Byte</span><br><span class="line">-c 指定ping的次数</span><br></pre></td></tr></table></figure><p><a href="https://v2ray.dana5haw.com:8008/image/ZAyj" target="_blank" rel="noopener"><img src="https://v2ray.dana5haw.com:8008/images/2020/05/14/image1dd4a13afd54e986.png" alt="image1dd4a13afd54e986.png"></a></p><h2 id="windows死亡之ping"><a href="#windows死亡之ping" class="headerlink" title="windows死亡之ping"></a>windows死亡之ping</h2><p>命令：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ping -t -l 65500 [IP地址]</span><br></pre></td></tr></table></figure><p><a href="https://v2ray.dana5haw.com:8008/image/ZC9Q" target="_blank" rel="noopener"><img src="https://v2ray.dana5haw.com:8008/images/2020/05/14/image97e342f531c052fd.png" alt="image97e342f531c052fd.png"></a></p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h2&gt;&lt;p&gt;工作中，需要测试两台机器之间的网络状态，使用长ping查看一下网络状态。&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="工具" scheme="https://dana5haw.com/categories/%E5%B7%A5%E5%85%B7/"/>
+    
+    
+      <category term="长ping" scheme="https://dana5haw.com/tags/%E9%95%BFping/"/>
+    
+      <category term="网络状态" scheme="https://dana5haw.com/tags/%E7%BD%91%E7%BB%9C%E7%8A%B6%E6%80%81/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>nginx反向代理-设置获取用户真实端口</title>
+    <link href="https://dana5haw.com/posts/Nginx-get-real-port.html"/>
+    <id>https://dana5haw.com/posts/Nginx-get-real-port.html</id>
+    <published>2020-05-14T06:33:46.000Z</published>
+    <updated>2020-06-27T14:12:28.430Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>工作上的需要，nginx作为反向代理，需要获取到用户的源端口，并传递给应用服务器。</p><a id="more"></a><h2 id="怎么设置"><a href="#怎么设置" class="headerlink" title="怎么设置"></a>怎么设置</h2><p>在nginx配置文件加上这一句即可。</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">proxy_set_header        X-Real-Port     $remote_port;</span><br></pre></td></tr></table></figure><p><a href="https://v2ray.dana5haw.com:8008/image/ZjxH" target="_blank" rel="noopener"><img src="https://v2ray.dana5haw.com:8008/images/2020/05/14/image.png" alt="image.png"></a></p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h2&gt;&lt;p&gt;工作上的需要，nginx作为反向代理，需要获取到用户的源端口，并传递给应用服务器。&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="nginx" scheme="https://dana5haw.com/categories/nginx/"/>
+    
+    
+      <category term="nginx反向代理" scheme="https://dana5haw.com/tags/nginx%E5%8F%8D%E5%90%91%E4%BB%A3%E7%90%86/"/>
+    
+      <category term="获取用户真实端口" scheme="https://dana5haw.com/tags/%E8%8E%B7%E5%8F%96%E7%94%A8%E6%88%B7%E7%9C%9F%E5%AE%9E%E7%AB%AF%E5%8F%A3/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>冬至日</title>
+    <link href="https://dana5haw.com/posts/dongzhiri.html"/>
+    <id>https://dana5haw.com/posts/dongzhiri.html</id>
+    <published>2020-05-11T12:17:04.000Z</published>
+    <updated>2020-06-27T14:12:28.854Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>好似当下的末日。</p><a id="more"></a><h2 id="摘抄"><a href="#摘抄" class="headerlink" title="摘抄"></a>摘抄</h2><ol><li>战乱时间的严惩，往往意味着死刑。</li><li>得了吧，他们祈福跳恒河，中毒跳恒河，你去看看新闻，恒河都快被尸体截流了！</li><li>记住，不要管任何人，明白吗?</li><li>让我们残忍起来根本不需要什么视频暗示，也不需要什么道理解释，仅仅一个命令，就足够了。我们，可是军人。</li><li>不要叫我大夫，那是负责救死扶伤的。今天的我，没资格被称为大夫。</li><li>你要在最清醒的状态里感受我们的残忍。你要在几百名医学者面前赤身裸体，毫无尊严，毫无人格。我们还会不断地询问你，疼吗？痒吗？什么感觉？我们会看着你逐步变异，逐步成为丧尸。</li><li>科学家利用运气，可从不等待运气。</li><li>人类都是死到临头时才意识到自己多么无知。</li><li>世界上真有灾难来临，坐以待毙的人。</li><li>自然是均衡的，要向死神手上拉回一个人，就意味着某个时间段，某个空间里，有人替他而亡。<h2 id="词条"><a href="#词条" class="headerlink" title="词条"></a>词条</h2></li><li>马基雅维利主义：在领域人格心理学，马基雅维利是一种心理特质集中在人际关系处理，不露声色的冷淡，冷漠和对道德的摒弃。</li><li>J.·马里恩·西姆斯：是一位外科学先驱，被认为是“美国妇科学之父”。现代历史学家认为他在研究中使用了奴隶作为实验对象。</li><li>拉文斯布吕克集中营：是纳粹德国时期的一个集中营，位于柏林以北90公里拉文斯布吕克村附近。拉文斯布吕克集中营于1939年5月启用。关押对象多为妇女。1945年4月30日，苏联军队解放此地。1939年至1945年，约有130,000名女囚在此关押，其中仅有约4万名幸存。</li><li>危地马拉梅毒试验：美国在1946年至1948年间为检验青霉素治疗梅毒的效果，在参加者不知情的情况下在危地马拉进行的一系列人体试验。试验中有696名感染者，其中约三分之一的感染者尚未得到有效治疗。美国政府在2010年10月就该事件发表正式的道歉。</li><li>塔斯基吉梅毒实验：美国公共卫生局性病部门在1932年至1972年间于阿拉巴马州与塔斯基吉大学合作，对近399名非洲裔男性梅毒患者及201名健康非洲裔男性所进行的一系列人体试验。这些实验参与者皆为生活贫困的阿拉巴马州梅肯县佃农。该实验以提供免费医疗、餐点、丧葬保险以吸引居民参与实验，也以此目的募集基金。</li><li>弗洛伦斯·南丁格尔，OM，RRC：英国护士和统计学家，出生于意大利一个来自英国上流社会的家庭。 南丁格尔在德国学习护理后，曾往伦敦的医院工作。于1853年成为伦敦慈善医院的护士长。 克里米亚战争时，她极力向英国军方争取在战地开设医院，为士兵提供医疗护理。 </li><li>希波克拉底誓词：俗称医师誓词，是西方医生传统上行医前的誓言，希波克拉底乃古希腊医者，被誉为西方“医学之父”。在希波克拉底所立的这份誓词中，列出了一些特定的伦理上的规范。但希波克拉底有可能不是这份誓词的原作者。</li></ol>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h2&gt;&lt;p&gt;好似当下的末日。&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="读书笔记" scheme="https://dana5haw.com/categories/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/"/>
+    
+    
+      <category term="读书笔记" scheme="https://dana5haw.com/tags/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/"/>
+    
+      <category term="冬至日" scheme="https://dana5haw.com/tags/%E5%86%AC%E8%87%B3%E6%97%A5/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>制作的第一张母亲节电子贺卡</title>
+    <link href="https://dana5haw.com/posts/undefined.html"/>
+    <id>https://dana5haw.com/posts/undefined.html</id>
+    <published>2020-05-10T15:54:12.000Z</published>
+    <updated>2020-06-27T14:12:28.859Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>今天母亲节。</p><a id="more"></a><h2 id="谷歌电子卡片"><a href="#谷歌电子卡片" class="headerlink" title="谷歌电子卡片"></a>谷歌电子卡片</h2><p>就是谷歌浏览器的banner有这个制作电子卡片的推介，就玩了一把，顺便用ScreentoGif将录屏转为gif动图。<br>效果是酱紫：<br><a href="https://v2ray.dana5haw.com:8008/image/Z67G" target="_blank" rel="noopener"><img src="https://v2ray.dana5haw.com:8008/images/2020/05/10/md.gif" alt="md.gif"></a></p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h2&gt;&lt;p&gt;今天母亲节。&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="好奇星球" scheme="https://dana5haw.com/categories/%E5%A5%BD%E5%A5%87%E6%98%9F%E7%90%83/"/>
+    
+    
+      <category term="ScreentoGif制作gif动图" scheme="https://dana5haw.com/tags/ScreentoGif%E5%88%B6%E4%BD%9Cgif%E5%8A%A8%E5%9B%BE/"/>
+    
+      <category term="母亲节" scheme="https://dana5haw.com/tags/%E6%AF%8D%E4%BA%B2%E8%8A%82/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>linux中的wheel用户组</title>
+    <link href="https://dana5haw.com/posts/Linux-wheel-group-sudo-su.html"/>
+    <id>https://dana5haw.com/posts/Linux-wheel-group-sudo-su.html</id>
+    <published>2020-05-10T15:33:45.000Z</published>
+    <updated>2020-06-27T14:12:28.408Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>第一次接触到wheel用户组。网上许多资料说，不在wheel用户组的用户无法su登录到root用户，经过亲身测试，这种说法是不对的。</p><a id="more"></a><h2 id="wheel用户组"><a href="#wheel用户组" class="headerlink" title="wheel用户组"></a>wheel用户组</h2><p>wheel用户组的id值是10。<br><a href="https://v2ray.dana5haw.com:8008/image/Zos7" target="_blank" rel="noopener"><img src="https://v2ray.dana5haw.com:8008/images/2020/05/10/image91a90f2d72a75f06.png" alt="image91a90f2d72a75f06.png"></a><br>经测试，不在wheel组的用户，可以su登录到root用户。<br><a href="https://v2ray.dana5haw.com:8008/image/Z3dY" target="_blank" rel="noopener"><img src="https://v2ray.dana5haw.com:8008/images/2020/05/10/imagebd498e4fd8deced2.png" alt="imagebd498e4fd8deced2.png"></a></p><h2 id="不在wheel组无法执行sudo权限"><a href="#不在wheel组无法执行sudo权限" class="headerlink" title="不在wheel组无法执行sudo权限"></a>不在wheel组无法执行sudo权限</h2><p>不在wheel组的用户，无法执行sudo权限。<br><a href="https://v2ray.dana5haw.com:8008/image/Zcox" target="_blank" rel="noopener"><img src="https://v2ray.dana5haw.com:8008/images/2020/05/10/imagec0afbd8ef7a31a77.png" alt="imagec0afbd8ef7a31a77.png"></a></p><h2 id="将普通用户添加到wheel用户组"><a href="#将普通用户添加到wheel用户组" class="headerlink" title="将普通用户添加到wheel用户组"></a>将普通用户添加到wheel用户组</h2><p>命令语法：<code>usermod -G wheel 用户名</code><br><a href="https://v2ray.dana5haw.com:8008/image/Z0XS" target="_blank" rel="noopener"><img src="https://v2ray.dana5haw.com:8008/images/2020/05/10/image2243ef85ece1ed74.png" alt="image2243ef85ece1ed74.png"></a></p><h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><p>将普通用户添加到wheel用户组，参考这篇<a href="https://blog.csdn.net/cbbbc/article/details/51712913" target="_blank" rel="noopener">文章</a></p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h2&gt;&lt;p&gt;第一次接触到wheel用户组。网上许多资料说，不在wheel用户组的用户无法su登录到root用户，经过亲身测试，这种说法是不对的。&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="linux" scheme="https://dana5haw.com/categories/linux/"/>
+    
+    
+      <category term="linux" scheme="https://dana5haw.com/tags/linux/"/>
+    
+      <category term="wheel用户组" scheme="https://dana5haw.com/tags/wheel%E7%94%A8%E6%88%B7%E7%BB%84/"/>
+    
+      <category term="su" scheme="https://dana5haw.com/tags/su/"/>
+    
+      <category term="sudo" scheme="https://dana5haw.com/tags/sudo/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Nginx的pid进程消失，服务突然挂掉怎么办</title>
+    <link href="https://dana5haw.com/posts/Nginx-pid-disappear.html"/>
+    <id>https://dana5haw.com/posts/Nginx-pid-disappear.html</id>
+    <published>2020-05-10T13:35:36.000Z</published>
+    <updated>2020-06-27T14:12:28.442Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>最近遇到一个奇葩问题，nginx神不知鬼不觉地挂掉了，检查配置文件失败，发现是pid文件缺失。怎么办呢？</p><a id="more"></a><h2 id="pid文件缺失怎么办"><a href="#pid文件缺失怎么办" class="headerlink" title="pid文件缺失怎么办"></a>pid文件缺失怎么办</h2><p>自己创建一个pid文件，随意写一个进程id放到文件里面，重启Nginx服务。另外，Keepalived服务也不知道为啥挂掉了，也得重启。</p><h2 id="参考文章"><a href="#参考文章" class="headerlink" title="参考文章"></a>参考文章</h2><p>参考了这篇<a href="https://blog.51cto.com/10950710/2309265" target="_blank" rel="noopener">教程</a></p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h2&gt;&lt;p&gt;最近遇到一个奇葩问题，nginx神不知鬼不觉地挂掉了，检查配置文件失败，发现是pid文件缺失。怎么办呢？&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="nginx" scheme="https://dana5haw.com/categories/nginx/"/>
+    
+    
+      <category term="nginx反向代理" scheme="https://dana5haw.com/tags/nginx%E5%8F%8D%E5%90%91%E4%BB%A3%E7%90%86/"/>
+    
+      <category term="pid文件消失" scheme="https://dana5haw.com/tags/pid%E6%96%87%E4%BB%B6%E6%B6%88%E5%A4%B1/"/>
+    
+  </entry>
+  
+</feed>

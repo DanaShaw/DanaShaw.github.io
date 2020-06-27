@@ -1,0 +1,709 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 4.2.1">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/orange.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/orange.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+  <meta name="google-site-verification" content="HMAT9TapFXG6PRtARF9Qc_fDKANMj-rP3F5FjHjr7kI">
+
+<link rel="stylesheet" href="/css/main.css">
+
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Noto Serif SC:300,300italic,400,400italic,700,700italic|EB Garamond:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.css">
+
+
+<script id="hexo-configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    hostname: new URL('https://dana5haw.com').hostname,
+    root: '/',
+    scheme: 'Gemini',
+    version: '7.7.0',
+    exturl: false,
+    sidebar: {"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},
+    copycode: {"enable":true,"show_result":true,"style":"mac"},
+    back2top: {"enable":true,"sidebar":false,"scrollpercent":true},
+    bookmark: {"enable":true,"color":"#222","save":"auto"},
+    fancybox: true,
+    mediumzoom: false,
+    lazyload: false,
+    pangu: false,
+    comments: {"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},
+    algolia: {
+      appID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    },
+    localsearch: {"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
+    path: './public/search.xml',
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}
+  };
+</script>
+
+
+  <meta name="description" content="需求爬取阳光政务网的问题反映模块。主要练习翻页请求是怎么实现的。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="scrapy爬虫实例之爬取阳光政务网的问题反映模块">
+<meta property="og:url" content="https://dana5haw.com/posts/Scrapy_Spider_Sunshine.html">
+<meta property="og:site_name" content="Dana Shaw&#39;s blog">
+<meta property="og:description" content="需求爬取阳光政务网的问题反映模块。主要练习翻页请求是怎么实现的。">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://ww1.sinaimg.cn/large/006gDuOdgy1gbzpumuip1j31f60u0n2p.jpg">
+<meta property="og:image" content="http://ww1.sinaimg.cn/large/006gDuOdgy1gbzq8qfz06j31f60u0k2j.jpg">
+<meta property="article:published_time" content="2020-02-17T13:16:34.000Z">
+<meta property="article:modified_time" content="2020-06-27T14:12:28.569Z">
+<meta property="article:author" content="Dana Shaw">
+<meta property="article:tag" content="scrapy爬虫实例">
+<meta property="article:tag" content="爬取阳光政务网的问题反映模块">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://ww1.sinaimg.cn/large/006gDuOdgy1gbzpumuip1j31f60u0n2p.jpg">
+
+<link rel="canonical" href="https://dana5haw.com/posts/Scrapy_Spider_Sunshine.html">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome: false,
+    isPost: true
+  };
+</script>
+
+  <title>scrapy爬虫实例之爬取阳光政务网的问题反映模块 | Dana Shaw's blog</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+<link rel="alternate" href="/atom.xml" title="Dana Shaw's blog" type="application/atom+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-meta">
+
+    <div>
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Dana Shaw's blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+        <p class="site-subtitle">为了去往别处</p>
+  </div>
+
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+</div>
+
+
+<nav class="site-nav">
+  
+  <ul id="menu" class="menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-fw fa-user"></i>关于</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档</a>
+
+  </li>
+        <li class="menu-item menu-item-sitemap">
+
+    <a href="/sitemap.xml" rel="section"><i class="fa fa-fw fa-sitemap"></i>站点地图</a>
+
+  </li>
+        <li class="menu-item menu-item-commonweal">
+
+    <a href="/404/" rel="section"><i class="fa fa-fw fa-heartbeat"></i>公益 404</a>
+
+  </li>
+        <li class="menu-item menu-item-readnotes">
+
+    <a href="/categories/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/" rel="section"><i class="fa fa-fw fa-book"></i>读书笔记</a>
+
+  </li>
+        <li class="menu-item menu-item-movienotes">
+
+    <a href="/categories/%E8%A7%82%E5%BD%B1%E7%AC%94%E8%AE%B0/" rel="section"><i class="fa fa-fw fa-youtube"></i>观影笔记</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+
+</nav>
+  <div class="site-search">
+    <div class="popup search-popup">
+    <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocorrect="off" autocapitalize="none"
+           placeholder="搜索..." spellcheck="false"
+           type="text" id="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result"></div>
+
+</div>
+<div class="search-pop-overlay"></div>
+
+  </div>
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <a role="button" class="book-mark-link book-mark-link-fixed"></a>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content">
+            
+
+  <div class="posts-expand">
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://dana5haw.com/posts/Scrapy_Spider_Sunshine.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/./images/photo.jpg">
+      <meta itemprop="name" content="Dana Shaw">
+      <meta itemprop="description" content="连尘埃也想收藏">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Dana Shaw's blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          scrapy爬虫实例之爬取阳光政务网的问题反映模块
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-02-17 21:16:34" itemprop="dateCreated datePublished" datetime="2020-02-17T21:16:34+08:00">2020-02-17</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-06-27 22:12:28" itemprop="dateModified" datetime="2020-06-27T22:12:28+08:00">2020-06-27</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/python%E7%88%AC%E8%99%AB%E5%AE%9E%E4%BE%8B/" itemprop="url" rel="index">
+                    <span itemprop="name">python爬虫实例</span>
+                  </a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/scrapy%E6%A1%86%E6%9E%B6%E7%88%AC%E8%99%AB/" itemprop="url" rel="index">
+                    <span itemprop="name">scrapy框架爬虫</span>
+                  </a>
+                </span>
+            </span>
+
+          
+            <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span><br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>6.3k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-clock-o"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>6 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h2 id="需求"><a href="#需求" class="headerlink" title="需求"></a>需求</h2><p>爬取<a href="http://wz.sun0769.com/" target="_blank" rel="noopener">阳光政务网</a>的问题反映模块。主要练习翻页请求是怎么实现的。</p>
+<a id="more"></a>
+
+<h2 id="怎么做"><a href="#怎么做" class="headerlink" title="怎么做"></a>怎么做</h2><p>首先，观察element和html响应，发现element中有tbody标签，但是html响应里面没有tbody标签（<strong>这种情况比较多，所以看到tbody标签要额外小心</strong>）。写xpath一定要以html响应为准！<br>start_url要找对，今天我亲自体验了一把start_url都没有正确设置的情况下改xpath的痛苦之情😭<br><img src="http://ww1.sinaimg.cn/large/006gDuOdgy1gbzpumuip1j31f60u0n2p.jpg" alt="image.png"><br>思路：</p>
+<ol>
+<li>提取当前页面的数据和详情页的url</li>
+<li><code>scrapy.Request()</code>发送详情页的请求，提取详情页数据</li>
+<li>提取翻页的url，发送翻页请求，循环1-2步</li>
+</ol>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">yield</span> scrapy.Request(</span><br><span class="line">                item[<span class="string">"href"</span>],</span><br><span class="line">                callback=self.parse_detail,</span><br><span class="line">                meta=&#123;<span class="string">"item"</span>: item&#125;</span><br><span class="line">            )</span><br></pre></td></tr></table></figure>
+<p>这部分代码是关键。功能是发送详情页请求，<code>parse_detail</code>是我们新定义的一个用于提取详情页数据的函数。<code>meta</code>用于传递当前的数据到parse_detail函数体，使用的场景是当前提取的是部分数据，需要将这部分的数据传递到callback函数体继续添加新的数据。<br>这个例子中，我们还用到了items模块，定义我们需要提取的数据字段。在爬虫代码中使用这个item时，需import。比如：<br><code>from sun.items import SunItem</code></p>
+<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><p>爬虫代码：wzsun.py</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># -*- coding: utf-8 -*-</span></span><br><span class="line"><span class="keyword">import</span> scrapy</span><br><span class="line"><span class="keyword">from</span> sun.items <span class="keyword">import</span> SunItem</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">WzsunSpider</span><span class="params">(scrapy.Spider)</span>:</span></span><br><span class="line">    name = <span class="string">'wzsun'</span></span><br><span class="line">    allowed_domains = [<span class="string">'sun0769.com'</span>]</span><br><span class="line">    start_urls = [<span class="string">'http://wz.sun0769.com/html/top/report.shtml'</span>]</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">parse</span><span class="params">(self, response)</span>:</span></span><br><span class="line">        <span class="comment">#1. 提取当前页面的数据和详情页的url</span></span><br><span class="line">        tr_list = response.xpath(<span class="string">"//div[@class='newsHead clearfix']/table[2]/tr"</span>)</span><br><span class="line">        <span class="keyword">for</span> tr <span class="keyword">in</span> tr_list:</span><br><span class="line">            item = SunItem()</span><br><span class="line">            item[<span class="string">"title"</span>] = tr.xpath(<span class="string">"./td[3]/a/@title"</span>).extract_first()</span><br><span class="line">            <span class="comment"># print(item["title"])</span></span><br><span class="line">            item[<span class="string">"href"</span>] = tr.xpath(<span class="string">"./td[3]/a/@href"</span>).extract_first()</span><br><span class="line">            <span class="comment"># print(item["href"])</span></span><br><span class="line">            item[<span class="string">"publish_date"</span>] = tr.xpath(<span class="string">"./td[last()]/text()"</span>).extract_first()</span><br><span class="line">            <span class="comment"># print(item["publish_date"])</span></span><br><span class="line">        <span class="comment">#2. scrapy.Request()发送详情页的请求，提取详情页数据</span></span><br><span class="line">            <span class="keyword">yield</span> scrapy.Request(</span><br><span class="line">                item[<span class="string">"href"</span>],</span><br><span class="line">                callback=self.parse_detail,</span><br><span class="line">                meta=&#123;<span class="string">"item"</span>: item&#125;</span><br><span class="line">            )</span><br><span class="line">        <span class="comment">#3. 翻页</span></span><br><span class="line">        next_url = response.xpath(<span class="string">"//div[@class='pagination']//a[text()='&gt;']/@href"</span>).extract_first()</span><br><span class="line">        <span class="comment"># print(next_url)</span></span><br><span class="line">        <span class="keyword">if</span> next_url <span class="keyword">is</span> <span class="keyword">not</span> <span class="literal">None</span>:</span><br><span class="line">            <span class="keyword">yield</span> scrapy.Request(</span><br><span class="line">                next_url,</span><br><span class="line">                callback=self.parse</span><br><span class="line">            )</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">parse_detail</span><span class="params">(self,response)</span>:</span></span><br><span class="line">        item = response.meta[<span class="string">"item"</span>]</span><br><span class="line">        item[<span class="string">"content"</span>] = response.xpath(<span class="string">"//div[@class='wzy1']/table[2]//td[@class='txt16_3']/text()"</span>).extract()</span><br><span class="line">        <span class="comment"># print(item["content"])</span></span><br><span class="line">        item[<span class="string">"content_img"</span>] = response.xpath(<span class="string">"//div[@class='wzy1']/table[2]//td[@class='txt16_3']//img/@src"</span>).extract()</span><br><span class="line">        item[<span class="string">"content_img"</span>] = [<span class="string">"http://wz.sun0769.com"</span>+i <span class="keyword">for</span> i <span class="keyword">in</span> item[<span class="string">"content_img"</span>]]</span><br><span class="line">        <span class="comment"># print(item["content_img"])</span></span><br><span class="line">        <span class="comment"># print(item)</span></span><br><span class="line">        <span class="keyword">yield</span> item</span><br></pre></td></tr></table></figure>
+<p>items.py：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># -*- coding: utf-8 -*-</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Define here the models for your scraped items</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line"><span class="comment"># See documentation in:</span></span><br><span class="line"><span class="comment"># https://docs.scrapy.org/en/latest/topics/items.html</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> scrapy</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">SunItem</span><span class="params">(scrapy.Item)</span>:</span></span><br><span class="line">    <span class="comment"># define the fields for your item here like:</span></span><br><span class="line">    title = scrapy.Field()</span><br><span class="line">    publish_date = scrapy.Field()</span><br><span class="line">    href = scrapy.Field()</span><br><span class="line">    content = scrapy.Field()</span><br><span class="line">    content_img = scrapy.Field()</span><br></pre></td></tr></table></figure>
+<p>pipelines.py：这里保存数据时，我们对提取的数据做了格式化，将content里面的\xa0和空格做了替换。此处复习了正则表达式的替换功能<code>re.sub</code></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># -*- coding: utf-8 -*-</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Define your item pipelines here</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line"><span class="comment"># Don't forget to add your pipeline to the ITEM_PIPELINES setting</span></span><br><span class="line"><span class="comment"># See: https://docs.scrapy.org/en/latest/topics/item-pipeline.html</span></span><br><span class="line"><span class="keyword">import</span> re</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">SunPipeline</span><span class="params">(object)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">process_item</span><span class="params">(self, item, spider)</span>:</span></span><br><span class="line">        item[<span class="string">"content"</span>] = self.process_content(item[<span class="string">"content"</span>]) <span class="comment">#将content的数据做格式化</span></span><br><span class="line">        print(item)</span><br><span class="line">        <span class="keyword">return</span> item</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">process_content</span><span class="params">(self, content)</span>:</span></span><br><span class="line">        content = [re.sub(<span class="string">r"\xa0|\s"</span>,<span class="string">""</span>,i) <span class="keyword">for</span> i <span class="keyword">in</span> content] <span class="comment">#去除\xa0和空格</span></span><br><span class="line">        content = [i <span class="keyword">for</span> i <span class="keyword">in</span> content <span class="keyword">if</span> len(i)&gt;<span class="number">0</span>] <span class="comment">#去除列表中的空字符串</span></span><br><span class="line">        <span class="keyword">return</span> content</span><br></pre></td></tr></table></figure>
+<p>settings.py：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># -*- coding: utf-8 -*-</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Scrapy settings for sun project</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line"><span class="comment"># For simplicity, this file contains only settings considered important or</span></span><br><span class="line"><span class="comment"># commonly used. You can find more settings consulting the documentation:</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line"><span class="comment">#     https://docs.scrapy.org/en/latest/topics/settings.html</span></span><br><span class="line"><span class="comment">#     https://docs.scrapy.org/en/latest/topics/downloader-middleware.html</span></span><br><span class="line"><span class="comment">#     https://docs.scrapy.org/en/latest/topics/spider-middleware.html</span></span><br><span class="line"></span><br><span class="line">BOT_NAME = <span class="string">'sun'</span></span><br><span class="line"></span><br><span class="line">SPIDER_MODULES = [<span class="string">'sun.spiders'</span>]</span><br><span class="line">NEWSPIDER_MODULE = <span class="string">'sun.spiders'</span></span><br><span class="line"></span><br><span class="line">LOG_LEVEL = <span class="string">'WARNING'</span></span><br><span class="line"><span class="comment"># Crawl responsibly by identifying yourself (and your website) on the user-agent</span></span><br><span class="line">USER_AGENT = <span class="string">'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/80.0.3987.106 Safari/537.36'</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Obey robots.txt rules</span></span><br><span class="line">ROBOTSTXT_OBEY = <span class="literal">False</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Configure maximum concurrent requests performed by Scrapy (default: 16)</span></span><br><span class="line"><span class="comment">#CONCURRENT_REQUESTS = 32</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Configure a delay for requests for the same website (default: 0)</span></span><br><span class="line"><span class="comment"># See https://docs.scrapy.org/en/latest/topics/settings.html#download-delay</span></span><br><span class="line"><span class="comment"># See also autothrottle settings and docs</span></span><br><span class="line"><span class="comment">#DOWNLOAD_DELAY = 3</span></span><br><span class="line"><span class="comment"># The download delay setting will honor only one of:</span></span><br><span class="line"><span class="comment">#CONCURRENT_REQUESTS_PER_DOMAIN = 16</span></span><br><span class="line"><span class="comment">#CONCURRENT_REQUESTS_PER_IP = 16</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Disable cookies (enabled by default)</span></span><br><span class="line"><span class="comment">#COOKIES_ENABLED = False</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Disable Telnet Console (enabled by default)</span></span><br><span class="line"><span class="comment">#TELNETCONSOLE_ENABLED = False</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Override the default request headers:</span></span><br><span class="line"><span class="comment">#DEFAULT_REQUEST_HEADERS = &#123;</span></span><br><span class="line"><span class="comment">#   'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',</span></span><br><span class="line"><span class="comment">#   'Accept-Language': 'en',</span></span><br><span class="line"><span class="comment">#&#125;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Enable or disable spider middlewares</span></span><br><span class="line"><span class="comment"># See https://docs.scrapy.org/en/latest/topics/spider-middleware.html</span></span><br><span class="line"><span class="comment">#SPIDER_MIDDLEWARES = &#123;</span></span><br><span class="line"><span class="comment">#    'sun.middlewares.SunSpiderMiddleware': 543,</span></span><br><span class="line"><span class="comment">#&#125;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Enable or disable downloader middlewares</span></span><br><span class="line"><span class="comment"># See https://docs.scrapy.org/en/latest/topics/downloader-middleware.html</span></span><br><span class="line"><span class="comment">#DOWNLOADER_MIDDLEWARES = &#123;</span></span><br><span class="line"><span class="comment">#    'sun.middlewares.SunDownloaderMiddleware': 543,</span></span><br><span class="line"><span class="comment">#&#125;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Enable or disable extensions</span></span><br><span class="line"><span class="comment"># See https://docs.scrapy.org/en/latest/topics/extensions.html</span></span><br><span class="line"><span class="comment">#EXTENSIONS = &#123;</span></span><br><span class="line"><span class="comment">#    'scrapy.extensions.telnet.TelnetConsole': None,</span></span><br><span class="line"><span class="comment">#&#125;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Configure item pipelines</span></span><br><span class="line"><span class="comment"># See https://docs.scrapy.org/en/latest/topics/item-pipeline.html</span></span><br><span class="line">ITEM_PIPELINES = &#123;</span><br><span class="line">   <span class="string">'sun.pipelines.SunPipeline'</span>: <span class="number">300</span>,</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment"># Enable and configure the AutoThrottle extension (disabled by default)</span></span><br><span class="line"><span class="comment"># See https://docs.scrapy.org/en/latest/topics/autothrottle.html</span></span><br><span class="line"><span class="comment">#AUTOTHROTTLE_ENABLED = True</span></span><br><span class="line"><span class="comment"># The initial download delay</span></span><br><span class="line"><span class="comment">#AUTOTHROTTLE_START_DELAY = 5</span></span><br><span class="line"><span class="comment"># The maximum download delay to be set in case of high latencies</span></span><br><span class="line"><span class="comment">#AUTOTHROTTLE_MAX_DELAY = 60</span></span><br><span class="line"><span class="comment"># The average number of requests Scrapy should be sending in parallel to</span></span><br><span class="line"><span class="comment"># each remote server</span></span><br><span class="line"><span class="comment">#AUTOTHROTTLE_TARGET_CONCURRENCY = 1.0</span></span><br><span class="line"><span class="comment"># Enable showing throttling stats for every response received:</span></span><br><span class="line"><span class="comment">#AUTOTHROTTLE_DEBUG = False</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Enable and configure HTTP caching (disabled by default)</span></span><br><span class="line"><span class="comment"># See https://docs.scrapy.org/en/latest/topics/downloader-middleware.html#httpcache-middleware-settings</span></span><br><span class="line"><span class="comment">#HTTPCACHE_ENABLED = True</span></span><br><span class="line"><span class="comment">#HTTPCACHE_EXPIRATION_SECS = 0</span></span><br><span class="line"><span class="comment">#HTTPCACHE_DIR = 'httpcache'</span></span><br><span class="line"><span class="comment">#HTTPCACHE_IGNORE_HTTP_CODES = []</span></span><br><span class="line"><span class="comment">#HTTPCACHE_STORAGE = 'scrapy.extensions.httpcache.FilesystemCacheStorage'</span></span><br></pre></td></tr></table></figure>
+<p>在设置文件里，我们开启了<code>USER_AGENT</code>字段，设置了一个UA。</p>
+<h2 id="爬取的结果"><a href="#爬取的结果" class="headerlink" title="爬取的结果"></a>爬取的结果</h2><p><img src="http://ww1.sinaimg.cn/large/006gDuOdgy1gbzq8qfz06j31f60u0k2j.jpg" alt="image.png"></p>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>settings.py文件里面的<code>ROBOTSTXT_OBEY = False</code>意思是不遵循robots.txt的爬虫规则。<br>正则表达式中<code>\s</code>表示空格符号。<br>翻页请求是这样实现的：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">next_url = response.xpath(<span class="string">"//div[@class='pagination']//a[text()='&gt;']/@href"</span>).extract_first()</span><br><span class="line">        <span class="comment"># print(next_url)</span></span><br><span class="line">        <span class="keyword">if</span> next_url <span class="keyword">is</span> <span class="keyword">not</span> <span class="literal">None</span>:</span><br><span class="line">            <span class="keyword">yield</span> scrapy.Request(</span><br><span class="line">                next_url,</span><br><span class="line">                callback=self.parse</span><br><span class="line">            )</span><br></pre></td></tr></table></figure>
+<p>xpath之后一定要记得使用<code>.extract_first()</code>或者<code>.extract()</code>。<br><code>a[text()=&#39;&gt;&#39;</code>表示提取文本内容为<code>&gt;</code>的a标签。</p>
+
+    </div>
+
+    
+    
+    
+        
+
+<div>
+<ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者： </strong>Dana Shaw
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="https://dana5haw.com/posts/Scrapy_Spider_Sunshine.html" title="scrapy爬虫实例之爬取阳光政务网的问题反映模块">https://dana5haw.com/posts/Scrapy_Spider_Sunshine.html</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" rel="noopener" target="_blank"><i class="fa fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+
+      <div>   
+         
+        <div>     
+             
+    <div style="text-align:center;color: #ccc;font-size:14px;">
+        -------------本文结束<i class="fa fa-paw"></i>感谢您的阅读-------------
+    </div>     
+     
+</div>   
+     
+      </div>
+
+      <footer class="post-footer">
+          
+          <div class="post-tags">
+              <a href="/tags/scrapy%E7%88%AC%E8%99%AB%E5%AE%9E%E4%BE%8B/" rel="tag"><i class="fa fa-tag"></i> scrapy爬虫实例</a>
+              <a href="/tags/%E7%88%AC%E5%8F%96%E9%98%B3%E5%85%89%E6%94%BF%E5%8A%A1%E7%BD%91%E7%9A%84%E9%97%AE%E9%A2%98%E5%8F%8D%E6%98%A0%E6%A8%A1%E5%9D%97/" rel="tag"><i class="fa fa-tag"></i> 爬取阳光政务网的问题反映模块</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/posts/My_First_Java.html" rel="prev" title="我的第一个java程序">
+      <i class="fa fa-chevron-left"></i> 我的第一个java程序
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/posts/Scrapy_Spider_Sunning_Book.html" rel="next" title="scrapy爬虫实例之爬取苏宁图书的图书信息">
+      scrapy爬虫实例之爬取苏宁图书的图书信息 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+  </div>
+
+
+          </div>
+          
+    <div class="comments" id="gitalk-container"></div>
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let activeClass = CONFIG.comments.activeClass;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#需求"><span class="nav-number">1.</span> <span class="nav-text">需求</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#怎么做"><span class="nav-number">2.</span> <span class="nav-text">怎么做</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#代码"><span class="nav-number">3.</span> <span class="nav-text">代码</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#爬取的结果"><span class="nav-number">4.</span> <span class="nav-text">爬取的结果</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#总结"><span class="nav-number">5.</span> <span class="nav-text">总结</span></a></li></ol></div>
+      </div>
+        <div id="">
+	  <canvas id="canvas" style="width:60%;">
+	    </div>
+	      <script type="text/javascript" src="/js/canvas-dance-time.js"></script>
+      <!--/noindex-->
+
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Dana Shaw"
+      src="/./images/photo.jpg">
+  <p class="site-author-name" itemprop="name">Dana Shaw</p>
+  <div class="site-description" itemprop="description">连尘埃也想收藏</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">209</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">74</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">347</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/DanaShaw" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;DanaShaw" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:danaxkj@gmail.com" title="E-Mail → mailto:danaxkj@gmail.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://weibo.com/u/5742631593" title="Weibo → https:&#x2F;&#x2F;weibo.com&#x2F;u&#x2F;5742631593" rel="noopener" target="_blank"><i class="fa fa-fw fa-weibo"></i>Weibo</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="/atom.xml" title="RSS → &#x2F;atom.xml"><i class="fa fa-fw fa-rss"></i>RSS</a>
+      </span>
+  </div>
+
+
+  <div class="links-of-blogroll motion-element">
+    <div class="links-of-blogroll-title">
+      <i class="fa fa-fw fa-link"></i>
+      友情链接
+    </div>
+    <ul class="links-of-blogroll-list">
+        <li class="links-of-blogroll-item">
+          <a href="https://whale3070.github.io/" title="https:&#x2F;&#x2F;whale3070.github.io&#x2F;" rel="noopener" target="_blank">windows提权学习</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://www.ghtwf01.cn/" title="https:&#x2F;&#x2F;www.ghtwf01.cn&#x2F;" rel="noopener" target="_blank">渗透实战学习</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="http://shuaiguoer.com/" title="http:&#x2F;&#x2F;shuaiguoer.com&#x2F;" rel="noopener" target="_blank">shell学习</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://xxs2.cn/" title="https:&#x2F;&#x2F;xxs2.cn&#x2F;" rel="noopener" target="_blank">安全工具学习</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://www.liaoxuefeng.com/" title="https:&#x2F;&#x2F;www.liaoxuefeng.com&#x2F;" rel="noopener" target="_blank">编程入门学习</a>
+        </li>
+    </ul>
+  </div>
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+<span id="timeDate">载入天数...</span>
+<span id="times">载入时分秒...</span>
+<script>
+    var now = new Date();
+        function createtime() {
+	        var grt= new Date("01/07/2020 21:49:45");//此处修改你的建站时间或者网站上线时间
+		        now.setTime(now.getTime()+250);
+			        days = (now - grt ) / 1000 / 60 / 60 / 24; dnum = Math.floor(days);
+				        hours = (now - grt ) / 1000 / 60 / 60 - (24 * dnum); hnum = Math.floor(hours);
+					        if(String(hnum).length ==1 ){hnum = "0" + hnum;} minutes = (now - grt ) / 1000 /60 - (24 * 60 * dnum) - (60 * hnum);
+						        mnum = Math.floor(minutes); if(String(mnum).length ==1 ){mnum = "0" + mnum;}
+							        seconds = (now - grt ) / 1000 - (24 * 60 * 60 * dnum) - (60 * 60 * hnum) - (60 * mnum);
+								        snum = Math.round(seconds); if(String(snum).length ==1 ){snum = "0" + snum;}
+									        document.getElementById("timeDate").innerHTML = "本站已安全运行 "+dnum+" 天 ";
+										        document.getElementById("times").innerHTML = hnum + " 小时 " + mnum + " 分 " + snum + " 秒";
+											    }
+											    setInterval("createtime()",250);
+											    </script>
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Dana Shaw</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    <span title="站点总字数">479k</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="站点阅读时长">7:16</span>
+</div>
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  
+  <script color='0,0,255' opacity='0.5' zIndex='-1' count='99' src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  <script src="/lib/anime.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js"></script>
+  <script src="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+<script src="/js/bookmark.js"></script>
+
+
+
+
+  
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.css">
+
+<script>
+NexT.utils.loadComments(document.querySelector('#gitalk-container'), () => {
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js', () => {
+    var gitalk = new Gitalk({
+      clientID: '2dc357f83ef2282cb7cb',
+      clientSecret: '64ad793540c649b1f67bcbd2fc4c648b631176c5',
+      repo: 'DanaShaw.github.io',
+      owner: 'DanaShaw',
+      admin: ['DanaShaw'],
+      id: '69690494d7bc39d1aad07bc8ba6686c1',
+        language: 'zh-CN',
+      distractionFreeMode: true
+    });
+    gitalk.render('gitalk-container');
+  }, window.Gitalk);
+});
+</script>
+
+  
+  <script type="text/javascript" src="//cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js"></script>
+  
+  
+   <canvas class="fireworks" style="position: fixed;left: 0;top: 0;z-index: 1; pointer-events: none;" ></canvas> 
+   <script type="text/javascript" src="//cdn.bootcss.com/animejs/2.2.0/anime.min.js"></script> 
+   <script type="text/javascript" src="/js/fireworks.js"></script>
+
+</body>
+</html>
