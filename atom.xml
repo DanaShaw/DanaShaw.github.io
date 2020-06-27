@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://dana5haw.com/"/>
-  <updated>2020-06-27T15:48:55.840Z</updated>
+  <updated>2020-06-27T15:57:09.685Z</updated>
   <id>https://dana5haw.com/</id>
   
   <author>
@@ -21,16 +21,13 @@
     <link href="https://dana5haw.com/posts/google-chrome-crx-failed-zip.html"/>
     <id>https://dana5haw.com/posts/google-chrome-crx-failed-zip.html</id>
     <published>2020-06-27T15:40:08.000Z</published>
-    <updated>2020-06-27T15:48:55.840Z</updated>
+    <updated>2020-06-27T15:57:09.685Z</updated>
     
-    <content type="html"><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>新电脑用不了谷歌浏览器，我想的是，先把omega-proxy这个扩展程序装上，就可以代理上网，登录谷歌账号并开启冲浪之旅。但是把crx扩展程序拖到扩展程序安装，居然安装失败。怎么办？</p><h2 id="解决方法"><a href="#解决方法" class="headerlink" title="解决方法"></a>解决方法</h2><p>在网上查到，有这样的解决方法：把crx文件重命名为zip或者rar，拖到扩展程序里面，自动解压，就可以安装成功。<br><img src="https://v2ray.dana5haw.com:8008/images/2020/06/27/image.png" alt="image.png"></p><h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><p>参考了<a href="https://blog.csdn.net/wst0717/article/details/88867047" target="_blank" rel="noopener">这篇文章</a></p>]]></content>
+    <content type="html"><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>新电脑用不了谷歌浏览器，我想的是，先把omega-proxy这个扩展程序装上，就可以代理上网，登录谷歌账号并开启冲浪之旅。但是把crx扩展程序拖到扩展程序安装，居然安装失败。怎么办？</p><a id="more"></a><h2 id="解决方法"><a href="#解决方法" class="headerlink" title="解决方法"></a>解决方法</h2><p>在网上查到，有这样的解决方法：把crx文件重命名为zip或者rar，拖到扩展程序里面，自动解压，就可以安装成功。<br><img src="https://v2ray.dana5haw.com:8008/images/2020/06/27/image.png" alt="image.png"></p><h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><p>参考了<a href="https://blog.csdn.net/wst0717/article/details/88867047" target="_blank" rel="noopener">这篇文章</a></p>]]></content>
     
     <summary type="html">
     
-      
-      
-        &lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h2&gt;&lt;p&gt;新电脑用不了谷歌浏览器，我想的是，先把omega-proxy这个扩展程序装上，就可以代理上网，登录谷歌账号并开启冲浪之旅。但是把crx扩展程
-      
+      &lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h2&gt;&lt;p&gt;新电脑用不了谷歌浏览器，我想的是，先把omega-proxy这个扩展程序装上，就可以代理上网，登录谷歌账号并开启冲浪之旅。但是把crx扩展程序拖到扩展程序安装，居然安装失败。怎么办？&lt;/p&gt;
     
     </summary>
     
