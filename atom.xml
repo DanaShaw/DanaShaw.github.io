@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://dana5haw.com/"/>
-  <updated>2020-06-27T14:12:28.847Z</updated>
+  <updated>2020-06-27T15:48:55.840Z</updated>
   <id>https://dana5haw.com/</id>
   
   <author>
@@ -15,6 +15,36 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>谷歌浏览器安装crx扩展程序失败，怎么解决</title>
+    <link href="https://dana5haw.com/posts/google-chrome-crx-failed-zip.html"/>
+    <id>https://dana5haw.com/posts/google-chrome-crx-failed-zip.html</id>
+    <published>2020-06-27T15:40:08.000Z</published>
+    <updated>2020-06-27T15:48:55.840Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>新电脑用不了谷歌浏览器，我想的是，先把omega-proxy这个扩展程序装上，就可以代理上网，登录谷歌账号并开启冲浪之旅。但是把crx扩展程序拖到扩展程序安装，居然安装失败。怎么办？</p><h2 id="解决方法"><a href="#解决方法" class="headerlink" title="解决方法"></a>解决方法</h2><p>在网上查到，有这样的解决方法：把crx文件重命名为zip或者rar，拖到扩展程序里面，自动解压，就可以安装成功。<br><img src="https://v2ray.dana5haw.com:8008/images/2020/06/27/image.png" alt="image.png"></p><h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><p>参考了<a href="https://blog.csdn.net/wst0717/article/details/88867047" target="_blank" rel="noopener">这篇文章</a></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h2&gt;&lt;p&gt;新电脑用不了谷歌浏览器，我想的是，先把omega-proxy这个扩展程序装上，就可以代理上网，登录谷歌账号并开启冲浪之旅。但是把crx扩展程
+      
+    
+    </summary>
+    
+    
+      <category term="问题解决" scheme="https://dana5haw.com/categories/%E9%97%AE%E9%A2%98%E8%A7%A3%E5%86%B3/"/>
+    
+      <category term="谷歌浏览器" scheme="https://dana5haw.com/categories/%E8%B0%B7%E6%AD%8C%E6%B5%8F%E8%A7%88%E5%99%A8/"/>
+    
+    
+      <category term="谷歌浏览器" scheme="https://dana5haw.com/tags/%E8%B0%B7%E6%AD%8C%E6%B5%8F%E8%A7%88%E5%99%A8/"/>
+    
+      <category term="扩展程序安装失败" scheme="https://dana5haw.com/tags/%E6%89%A9%E5%B1%95%E7%A8%8B%E5%BA%8F%E5%AE%89%E8%A3%85%E5%A4%B1%E8%B4%A5/"/>
+    
+  </entry>
   
   <entry>
     <title>今天父亲节</title>
@@ -502,31 +532,6 @@
       <category term="su" scheme="https://dana5haw.com/tags/su/"/>
     
       <category term="sudo" scheme="https://dana5haw.com/tags/sudo/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Nginx的pid进程消失，服务突然挂掉怎么办</title>
-    <link href="https://dana5haw.com/posts/Nginx-pid-disappear.html"/>
-    <id>https://dana5haw.com/posts/Nginx-pid-disappear.html</id>
-    <published>2020-05-10T13:35:36.000Z</published>
-    <updated>2020-06-27T14:12:28.442Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>最近遇到一个奇葩问题，nginx神不知鬼不觉地挂掉了，检查配置文件失败，发现是pid文件缺失。怎么办呢？</p><a id="more"></a><h2 id="pid文件缺失怎么办"><a href="#pid文件缺失怎么办" class="headerlink" title="pid文件缺失怎么办"></a>pid文件缺失怎么办</h2><p>自己创建一个pid文件，随意写一个进程id放到文件里面，重启Nginx服务。另外，Keepalived服务也不知道为啥挂掉了，也得重启。</p><h2 id="参考文章"><a href="#参考文章" class="headerlink" title="参考文章"></a>参考文章</h2><p>参考了这篇<a href="https://blog.51cto.com/10950710/2309265" target="_blank" rel="noopener">教程</a></p>]]></content>
-    
-    <summary type="html">
-    
-      &lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h2&gt;&lt;p&gt;最近遇到一个奇葩问题，nginx神不知鬼不觉地挂掉了，检查配置文件失败，发现是pid文件缺失。怎么办呢？&lt;/p&gt;
-    
-    </summary>
-    
-    
-      <category term="nginx" scheme="https://dana5haw.com/categories/nginx/"/>
-    
-    
-      <category term="nginx反向代理" scheme="https://dana5haw.com/tags/nginx%E5%8F%8D%E5%90%91%E4%BB%A3%E7%90%86/"/>
-    
-      <category term="pid文件消失" scheme="https://dana5haw.com/tags/pid%E6%96%87%E4%BB%B6%E6%B6%88%E5%A4%B1/"/>
     
   </entry>
   
