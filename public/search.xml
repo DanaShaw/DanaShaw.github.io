@@ -8766,6 +8766,23 @@ I heard the echo, <span class="label default">from the valleys and the heart</sp
       </tags>
   </entry>
   <entry>
+    <title>怎么下载官方win10的安装镜像</title>
+    <url>//posts/download-windows10-iso-mirror.html</url>
+    <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>想装一个win10专业版的虚拟机 使用一下，win10的官方镜像还是去官网下载比较纯净。</p>
+<a id="more"></a>
+
+<h2 id="下载渠道"><a href="#下载渠道" class="headerlink" title="下载渠道"></a>下载渠道</h2><p>win10镜像官网下载地址：<a href="https://www.microsoft.com/zh-cn/software-download/windows10ISO/" target="_blank" rel="noopener">https://www.microsoft.com/zh-cn/software-download/windows10ISO/</a><br>这个地址，要在手机端打开，才可以进入到iso镜像下载页面。<br>于是在PC浏览器设置为手机模式，任选一款手机型号，刷新页面即可进入iso镜像下载页面。<br><img src="https://v2ray.dana5haw.com:8008/images/2020/06/29/image.png" alt="image.png"><br><img src="https://v2ray.dana5haw.com:8008/images/2020/06/29/image954b028096a46b59.png" alt="image954b028096a46b59.png"></p>
+<h2 id="下载工具"><a href="#下载工具" class="headerlink" title="下载工具"></a>下载工具</h2><p>测试了几款下载软件，最好用的是motrix。好用的定义：不用注册账号、下载速度快。</p>
+<h2 id="参考文章"><a href="#参考文章" class="headerlink" title="参考文章"></a>参考文章</h2><p>参考了<a href="https://windows10.pro/microsoft-com-software-download-windows10-iso/" target="_blank" rel="noopener">这篇文章</a></p>
+]]></content>
+      <categories>
+        <category>windows</category>
+      </categories>
+      <tags>
+        <tag>win10官方iso镜像</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>tags</title>
     <url>/tags/index.html</url>
     <content><![CDATA[]]></content>

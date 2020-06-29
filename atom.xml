@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://dana5haw.com/"/>
-  <updated>2020-06-27T15:57:09.685Z</updated>
+  <updated>2020-06-29T10:49:40.941Z</updated>
   <id>https://dana5haw.com/</id>
   
   <author>
@@ -15,6 +15,29 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>怎么下载官方win10的安装镜像</title>
+    <link href="https://dana5haw.com/posts/download-windows10-iso-mirror.html"/>
+    <id>https://dana5haw.com/posts/download-windows10-iso-mirror.html</id>
+    <published>2020-06-29T10:37:45.000Z</published>
+    <updated>2020-06-29T10:49:40.941Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>想装一个win10专业版的虚拟机 使用一下，win10的官方镜像还是去官网下载比较纯净。</p><a id="more"></a><h2 id="下载渠道"><a href="#下载渠道" class="headerlink" title="下载渠道"></a>下载渠道</h2><p>win10镜像官网下载地址：<a href="https://www.microsoft.com/zh-cn/software-download/windows10ISO/" target="_blank" rel="noopener">https://www.microsoft.com/zh-cn/software-download/windows10ISO/</a><br>这个地址，要在手机端打开，才可以进入到iso镜像下载页面。<br>于是在PC浏览器设置为手机模式，任选一款手机型号，刷新页面即可进入iso镜像下载页面。<br><img src="https://v2ray.dana5haw.com:8008/images/2020/06/29/image.png" alt="image.png"><br><img src="https://v2ray.dana5haw.com:8008/images/2020/06/29/image954b028096a46b59.png" alt="image954b028096a46b59.png"></p><h2 id="下载工具"><a href="#下载工具" class="headerlink" title="下载工具"></a>下载工具</h2><p>测试了几款下载软件，最好用的是motrix。好用的定义：不用注册账号、下载速度快。</p><h2 id="参考文章"><a href="#参考文章" class="headerlink" title="参考文章"></a>参考文章</h2><p>参考了<a href="https://windows10.pro/microsoft-com-software-download-windows10-iso/" target="_blank" rel="noopener">这篇文章</a></p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h2&gt;&lt;p&gt;想装一个win10专业版的虚拟机 使用一下，win10的官方镜像还是去官网下载比较纯净。&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="windows" scheme="https://dana5haw.com/categories/windows/"/>
+    
+    
+      <category term="win10官方iso镜像" scheme="https://dana5haw.com/tags/win10%E5%AE%98%E6%96%B9iso%E9%95%9C%E5%83%8F/"/>
+    
+  </entry>
   
   <entry>
     <title>谷歌浏览器安装crx扩展程序失败，怎么解决</title>
@@ -500,35 +523,6 @@
       <category term="ScreentoGif制作gif动图" scheme="https://dana5haw.com/tags/ScreentoGif%E5%88%B6%E4%BD%9Cgif%E5%8A%A8%E5%9B%BE/"/>
     
       <category term="母亲节" scheme="https://dana5haw.com/tags/%E6%AF%8D%E4%BA%B2%E8%8A%82/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>linux中的wheel用户组</title>
-    <link href="https://dana5haw.com/posts/Linux-wheel-group-sudo-su.html"/>
-    <id>https://dana5haw.com/posts/Linux-wheel-group-sudo-su.html</id>
-    <published>2020-05-10T15:33:45.000Z</published>
-    <updated>2020-06-27T14:12:28.408Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>第一次接触到wheel用户组。网上许多资料说，不在wheel用户组的用户无法su登录到root用户，经过亲身测试，这种说法是不对的。</p><a id="more"></a><h2 id="wheel用户组"><a href="#wheel用户组" class="headerlink" title="wheel用户组"></a>wheel用户组</h2><p>wheel用户组的id值是10。<br><a href="https://v2ray.dana5haw.com:8008/image/Zos7" target="_blank" rel="noopener"><img src="https://v2ray.dana5haw.com:8008/images/2020/05/10/image91a90f2d72a75f06.png" alt="image91a90f2d72a75f06.png"></a><br>经测试，不在wheel组的用户，可以su登录到root用户。<br><a href="https://v2ray.dana5haw.com:8008/image/Z3dY" target="_blank" rel="noopener"><img src="https://v2ray.dana5haw.com:8008/images/2020/05/10/imagebd498e4fd8deced2.png" alt="imagebd498e4fd8deced2.png"></a></p><h2 id="不在wheel组无法执行sudo权限"><a href="#不在wheel组无法执行sudo权限" class="headerlink" title="不在wheel组无法执行sudo权限"></a>不在wheel组无法执行sudo权限</h2><p>不在wheel组的用户，无法执行sudo权限。<br><a href="https://v2ray.dana5haw.com:8008/image/Zcox" target="_blank" rel="noopener"><img src="https://v2ray.dana5haw.com:8008/images/2020/05/10/imagec0afbd8ef7a31a77.png" alt="imagec0afbd8ef7a31a77.png"></a></p><h2 id="将普通用户添加到wheel用户组"><a href="#将普通用户添加到wheel用户组" class="headerlink" title="将普通用户添加到wheel用户组"></a>将普通用户添加到wheel用户组</h2><p>命令语法：<code>usermod -G wheel 用户名</code><br><a href="https://v2ray.dana5haw.com:8008/image/Z0XS" target="_blank" rel="noopener"><img src="https://v2ray.dana5haw.com:8008/images/2020/05/10/image2243ef85ece1ed74.png" alt="image2243ef85ece1ed74.png"></a></p><h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><p>将普通用户添加到wheel用户组，参考这篇<a href="https://blog.csdn.net/cbbbc/article/details/51712913" target="_blank" rel="noopener">文章</a></p>]]></content>
-    
-    <summary type="html">
-    
-      &lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h2&gt;&lt;p&gt;第一次接触到wheel用户组。网上许多资料说，不在wheel用户组的用户无法su登录到root用户，经过亲身测试，这种说法是不对的。&lt;/p&gt;
-    
-    </summary>
-    
-    
-      <category term="linux" scheme="https://dana5haw.com/categories/linux/"/>
-    
-    
-      <category term="linux" scheme="https://dana5haw.com/tags/linux/"/>
-    
-      <category term="wheel用户组" scheme="https://dana5haw.com/tags/wheel%E7%94%A8%E6%88%B7%E7%BB%84/"/>
-    
-      <category term="su" scheme="https://dana5haw.com/tags/su/"/>
-    
-      <category term="sudo" scheme="https://dana5haw.com/tags/sudo/"/>
     
   </entry>
   
