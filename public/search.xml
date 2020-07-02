@@ -8895,11 +8895,12 @@ I heard the echo, <span class="label default">from the valleys and the heart</sp
 <li>服务端和客户端安装cifs-utils：切记，在机器重启之后，必须重新挂载yum仓库，否则yu无法正常使用！并且服务端一定要清除防火墙规则：<code>iptables -F</code>、<code>service iptables save</code><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">yum install cifs-utils</span><br></pre></td></tr></table></figure></li>
 <li>客户端创建共享目录挂载点<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">mkdir &#x2F;xkj</span><br><span class="line">chmod -Rf 777 &#x2F;xkj</span><br></pre></td></tr></table></figure></li>
 <li>客户端设置samba密码文件，用于连接服务端samba服务<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">cd &#x2F;root</span><br><span class="line">vi auth.smb</span><br></pre></td></tr></table></figure>
-<details><summary>点击展开配置文件内容</summary>
-<p>
 
 </li>
 </ol>
+<details><summary>点击展开配置文件内容</summary>
+<p>
+
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">username&#x3D;sambaxkj</span><br><span class="line">password&#x3D;redhat</span><br><span class="line">domain&#x3D;WORKGROUP #samba服务端设置的工作组名称</span><br></pre></td></tr></table></figure>
 
 </p>
@@ -8963,6 +8964,31 @@ I heard the echo, <span class="label default">from the valleys and the heart</sp
       <tags>
         <tag>redhat7</tag>
         <tag>NFS服务</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>autofs自动挂载服务</title>
+    <url>//posts/redhat7-autofs.html</url>
+    <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>重启机器使用yum之前，都得挂载一下yum仓库，实在很费时间。</p>
+<a id="more"></a>
+
+<h2 id="autofs自动挂载服务设置"><a href="#autofs自动挂载服务设置" class="headerlink" title="autofs自动挂载服务设置"></a>autofs自动挂载服务设置</h2><ol>
+<li>安装autofs软件<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">yum install autofs</span><br></pre></td></tr></table></figure></li>
+<li>编辑autofs主配置文件<code>/etc/auto.master</code><br>增加这一句：<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#x2F;media &#x2F;etc&#x2F;iso.misc</span><br></pre></td></tr></table></figure></li>
+<li>编辑配置文件<code>/etc/iso.misc</code><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">iso -fstype&#x3D;iso9660 :&#x2F;dev&#x2F;cdrom</span><br></pre></td></tr></table></figure>
+<div class="note [class]">
+            <p>解析：linux系统中，<code>iso</code>指的是挂载点：<code>/media/iso</code>。<br><code>-fstype=iso9660</code>指的是文件类型。<br><code>:/dev/cdrom</code>指的是设备名称。</p>
+          </div></li>
+<li>重启autofs服务生效<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">systemctl restart autofs</span><br></pre></td></tr></table></figure>
+<h2 id="实验现象"><a href="#实验现象" class="headerlink" title="实验现象"></a>实验现象</h2>进入到iso目录时，自动挂载设备到iso目录。目的是在需要挂载的时候去挂载设备，节省服务器的带宽资源。<br><img src="https://v2ray.dana5haw.com:8008/images/2020/07/03/image.png" alt="image.png"></li>
+</ol>
+]]></content>
+      <categories>
+        <category>RHCE</category>
+      </categories>
+      <tags>
+        <tag>autofs</tag>
+        <tag>自动挂载</tag>
       </tags>
   </entry>
   <entry>

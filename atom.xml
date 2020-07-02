@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://dana5haw.com/"/>
-  <updated>2020-07-02T16:39:08.736Z</updated>
+  <updated>2020-07-02T17:02:17.391Z</updated>
   <id>https://dana5haw.com/</id>
   
   <author>
@@ -15,6 +15,31 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>autofs自动挂载服务</title>
+    <link href="https://dana5haw.com/posts/redhat7-autofs.html"/>
+    <id>https://dana5haw.com/posts/redhat7-autofs.html</id>
+    <published>2020-07-02T16:41:13.000Z</published>
+    <updated>2020-07-02T17:02:17.391Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>重启机器使用yum之前，都得挂载一下yum仓库，实在很费时间。</p><a id="more"></a><h2 id="autofs自动挂载服务设置"><a href="#autofs自动挂载服务设置" class="headerlink" title="autofs自动挂载服务设置"></a>autofs自动挂载服务设置</h2><ol><li>安装autofs软件<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum install autofs</span><br></pre></td></tr></table></figure></li><li>编辑autofs主配置文件<code>/etc/auto.master</code><br>增加这一句：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;media &#x2F;etc&#x2F;iso.misc</span><br></pre></td></tr></table></figure></li><li>编辑配置文件<code>/etc/iso.misc</code><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">iso -fstype&#x3D;iso9660 :&#x2F;dev&#x2F;cdrom</span><br></pre></td></tr></table></figure><div class="note [class]">            <p>解析：linux系统中，<code>iso</code>指的是挂载点：<code>/media/iso</code>。<br><code>-fstype=iso9660</code>指的是文件类型。<br><code>:/dev/cdrom</code>指的是设备名称。</p>          </div></li><li>重启autofs服务生效<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl restart autofs</span><br></pre></td></tr></table></figure><h2 id="实验现象"><a href="#实验现象" class="headerlink" title="实验现象"></a>实验现象</h2>进入到iso目录时，自动挂载设备到iso目录。目的是在需要挂载的时候去挂载设备，节省服务器的带宽资源。<br><img src="https://v2ray.dana5haw.com:8008/images/2020/07/03/image.png" alt="image.png"></li></ol>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h2&gt;&lt;p&gt;重启机器使用yum之前，都得挂载一下yum仓库，实在很费时间。&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="RHCE" scheme="https://dana5haw.com/categories/RHCE/"/>
+    
+    
+      <category term="autofs" scheme="https://dana5haw.com/tags/autofs/"/>
+    
+      <category term="自动挂载" scheme="https://dana5haw.com/tags/%E8%87%AA%E5%8A%A8%E6%8C%82%E8%BD%BD/"/>
+    
+  </entry>
   
   <entry>
     <title>redhat7自带的NFS服务实现Linux主机之间的目录共享</title>
@@ -46,9 +71,9 @@
     <link href="https://dana5haw.com/posts/redhat7-build-samba-server-linux-to-linux.html"/>
     <id>https://dana5haw.com/posts/redhat7-build-samba-server-linux-to-linux.html</id>
     <published>2020-07-02T15:28:09.000Z</published>
-    <updated>2020-07-02T16:39:02.593Z</updated>
+    <updated>2020-07-02T17:10:33.523Z</updated>
     
-    <content type="html"><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>利用cifs加密协议，samba服务实现linux和linux之间的文件共享。服务端和客户端都需要安装cifs-utils软件。</p><a id="more"></a><h2 id="设置cifs实现目录共享"><a href="#设置cifs实现目录共享" class="headerlink" title="设置cifs实现目录共享"></a>设置cifs实现目录共享</h2><p>环境：samba服务端已搭建好。</p><ol><li>服务端和客户端安装cifs-utils：切记，在机器重启之后，必须重新挂载yum仓库，否则yu无法正常使用！并且服务端一定要清除防火墙规则：<code>iptables -F</code>、<code>service iptables save</code><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum install cifs-utils</span><br></pre></td></tr></table></figure></li><li>客户端创建共享目录挂载点<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">mkdir &#x2F;xkj</span><br><span class="line">chmod -Rf 777 &#x2F;xkj</span><br></pre></td></tr></table></figure></li><li>客户端设置samba密码文件，用于连接服务端samba服务<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cd &#x2F;root</span><br><span class="line">vi auth.smb</span><br></pre></td></tr></table></figure><details><summary>点击展开配置文件内容</summary><p></li></ol><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">username&#x3D;sambaxkj</span><br><span class="line">password&#x3D;redhat</span><br><span class="line">domain&#x3D;WORKGROUP #samba服务端设置的工作组名称</span><br></pre></td></tr></table></figure></p></details><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">chmod 600 auth.smb #权限设置为只允许自己读写</span><br></pre></td></tr></table></figure><ol start="4"><li>客户端设置挂载信息，将服务端的共享目录挂载到本地<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vi &#x2F;etc&#x2F;fstab</span><br></pre></td></tr></table></figure>新增这个挂载信息：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F;192.168.0.106&#x2F;sambaxkj &#x2F;xkj cifs credentials&#x3D;&#x2F;root&#x2F;auth.smb 0 0</span><br></pre></td></tr></table></figure><div class="note [class]">            <p>解析：linux系统中，<code>//</code>用于访问samba服务；windows系统中，<code>\\</code>用于访问samba服务。<br><code>credentials</code>指的是挂载到samba服务端的凭据。</p>          </div>挂载即可生效：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mount -a</span><br></pre></td></tr></table></figure></li></ol>]]></content>
+    <content type="html"><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>利用cifs加密协议，samba服务实现linux和linux之间的文件共享。服务端和客户端都需要安装cifs-utils软件。</p><a id="more"></a><h2 id="设置cifs实现目录共享"><a href="#设置cifs实现目录共享" class="headerlink" title="设置cifs实现目录共享"></a>设置cifs实现目录共享</h2><p>环境：samba服务端已搭建好。</p><ol><li>服务端和客户端安装cifs-utils：切记，在机器重启之后，必须重新挂载yum仓库，否则yu无法正常使用！并且服务端一定要清除防火墙规则：<code>iptables -F</code>、<code>service iptables save</code><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum install cifs-utils</span><br></pre></td></tr></table></figure></li><li>客户端创建共享目录挂载点<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">mkdir &#x2F;xkj</span><br><span class="line">chmod -Rf 777 &#x2F;xkj</span><br></pre></td></tr></table></figure></li><li>客户端设置samba密码文件，用于连接服务端samba服务<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cd &#x2F;root</span><br><span class="line">vi auth.smb</span><br></pre></td></tr></table></figure></li></ol><details><summary>点击展开配置文件内容</summary><p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">username&#x3D;sambaxkj</span><br><span class="line">password&#x3D;redhat</span><br><span class="line">domain&#x3D;WORKGROUP #samba服务端设置的工作组名称</span><br></pre></td></tr></table></figure></p></details><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">chmod 600 auth.smb #权限设置为只允许自己读写</span><br></pre></td></tr></table></figure><ol start="4"><li>客户端设置挂载信息，将服务端的共享目录挂载到本地<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vi &#x2F;etc&#x2F;fstab</span><br></pre></td></tr></table></figure>新增这个挂载信息：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F;192.168.0.106&#x2F;sambaxkj &#x2F;xkj cifs credentials&#x3D;&#x2F;root&#x2F;auth.smb 0 0</span><br></pre></td></tr></table></figure><div class="note [class]">            <p>解析：linux系统中，<code>//</code>用于访问samba服务；windows系统中，<code>\\</code>用于访问samba服务。<br><code>credentials</code>指的是挂载到samba服务端的凭据。</p>          </div>挂载即可生效：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mount -a</span><br></pre></td></tr></table></figure></li></ol>]]></content>
     
     <summary type="html">
     
@@ -498,31 +523,6 @@
       <category term="linux" scheme="https://dana5haw.com/tags/linux/"/>
     
       <category term="加密算法" scheme="https://dana5haw.com/tags/%E5%8A%A0%E5%AF%86%E7%AE%97%E6%B3%95/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>读取json数据并写入excel</title>
-    <link href="https://dana5haw.com/posts/json-convert-excel-python.html"/>
-    <id>https://dana5haw.com/posts/json-convert-excel-python.html</id>
-    <published>2020-05-14T08:21:04.000Z</published>
-    <updated>2020-06-27T14:12:29.015Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>工作中整理数据需要把json文件转为excel数据。用python来做。</p><a id="more"></a><h2 id="脚本"><a href="#脚本" class="headerlink" title="脚本"></a>脚本</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># -*- coding: utf-8 -*-</span></span><br><span class="line"><span class="keyword">import</span> xlwt</span><br><span class="line"><span class="keyword">import</span> json</span><br><span class="line"></span><br><span class="line"><span class="comment"># 创建excel工作表</span></span><br><span class="line">workbook = xlwt.Workbook(encoding=<span class="string">'utf-8'</span>)</span><br><span class="line">worksheet = workbook.add_sheet(<span class="string">'sheet1'</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 设置表头</span></span><br><span class="line">worksheet.write(<span class="number">0</span>, <span class="number">0</span>, label=<span class="string">'备注'</span>)</span><br><span class="line">worksheet.write(<span class="number">0</span>, <span class="number">1</span>, label=<span class="string">'App包名'</span>)</span><br><span class="line">worksheet.write(<span class="number">0</span>, <span class="number">2</span>, label=<span class="string">'App签名'</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># 读取json文件</span></span><br><span class="line"><span class="keyword">with</span> open(<span class="string">'b.json'</span>, <span class="string">'r'</span>) <span class="keyword">as</span> f:</span><br><span class="line">    data = json.load(f)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 将json字典写入excel</span></span><br><span class="line"><span class="comment"># 变量用来循环时控制写入单元格，感觉有更好的表达方式</span></span><br><span class="line">val = <span class="number">1</span></span><br><span class="line"><span class="keyword">for</span> list_item <span class="keyword">in</span> data:</span><br><span class="line">    <span class="keyword">for</span> key, value <span class="keyword">in</span> list_item.items():</span><br><span class="line">        <span class="keyword">if</span> key == <span class="string">"description"</span>:</span><br><span class="line">            worksheet.write(val, <span class="number">0</span>, value)</span><br><span class="line">        <span class="keyword">elif</span> key == <span class="string">"app_pkgname"</span>:</span><br><span class="line">            worksheet.write(val, <span class="number">1</span>, value)</span><br><span class="line">        <span class="keyword">elif</span> key == <span class="string">"app_cer"</span>:</span><br><span class="line">            worksheet.write(val, <span class="number">2</span>, value)</span><br><span class="line">    val = val + <span class="number">1</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 保存</span></span><br><span class="line">workbook.save(<span class="string">'b-App.xls'</span>)</span><br></pre></td></tr></table></figure><h2 id="效果"><a href="#效果" class="headerlink" title="效果"></a>效果</h2><p>json文件格式：<br><a href="https://v2ray.dana5haw.com:8008/image/ZaJu" target="_blank" rel="noopener"><img src="https://v2ray.dana5haw.com:8008/images/2020/05/14/image570b0a9c6b7fbd99.png" alt="image570b0a9c6b7fbd99.png"></a><br>转换为excel之后：<br><a href="https://v2ray.dana5haw.com:8008/image/Znuc" target="_blank" rel="noopener"><img src="https://v2ray.dana5haw.com:8008/images/2020/05/14/image81096c3f92e00df9.png" alt="image81096c3f92e00df9.png"></a></p><h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><p>基本上是抄了这个文章的<a href="https://blog.csdn.net/destinymf/article/details/78096678" target="_blank" rel="noopener">代码</a></p>]]></content>
-    
-    <summary type="html">
-    
-      &lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h2&gt;&lt;p&gt;工作中整理数据需要把json文件转为excel数据。用python来做。&lt;/p&gt;
-    
-    </summary>
-    
-    
-      <category term="实用python脚本" scheme="https://dana5haw.com/categories/%E5%AE%9E%E7%94%A8python%E8%84%9A%E6%9C%AC/"/>
-    
-    
-      <category term="python" scheme="https://dana5haw.com/tags/python/"/>
-    
-      <category term="json写入excel" scheme="https://dana5haw.com/tags/json%E5%86%99%E5%85%A5excel/"/>
     
   </entry>
   
