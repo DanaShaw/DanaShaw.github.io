@@ -8892,7 +8892,7 @@ I heard the echo, <span class="label default">from the valleys and the heart</sp
 
 <h2 id="设置cifs实现目录共享"><a href="#设置cifs实现目录共享" class="headerlink" title="设置cifs实现目录共享"></a>设置cifs实现目录共享</h2><p>环境：samba服务端已搭建好。</p>
 <ol>
-<li>服务端和客户端安装cifs-utils：切记，在机器重启 之后，必须重新挂载yum仓库，否则yu无法正常使用！<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">yum install cifs-utils</span><br></pre></td></tr></table></figure></li>
+<li>服务端和客户端安装cifs-utils：切记，在机器重启之后，必须重新挂载yum仓库，否则yu无法正常使用！并且服务端一定要清除防火墙规则：<code>iptables -F</code>、<code>service iptables save</code><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">yum install cifs-utils</span><br></pre></td></tr></table></figure></li>
 <li>客户端创建共享目录挂载点<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">mkdir &#x2F;xkj</span><br><span class="line">chmod -Rf 777 &#x2F;xkj</span><br></pre></td></tr></table></figure></li>
 <li>客户端设置samba密码文件，用于连接服务端samba服务<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">cd &#x2F;root</span><br><span class="line">vi auth.smb</span><br></pre></td></tr></table></figure>
 <details><summary>点击展开配置文件内容</summary>
@@ -8922,6 +8922,47 @@ I heard the echo, <span class="label default">from the valleys and the heart</sp
       <tags>
         <tag>redhat</tag>
         <tag>samba服务</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>redhat7自带的NFS服务实现Linux主机之间的目录共享</title>
+    <url>//posts/redhat7-NFS-linux-share.html</url>
+    <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>redhat7自带的NFS服务可以实现linux主机之间的目录共享，不需要额外安装其他服务。</p>
+<a id="more"></a>
+
+<h2 id="NFS实现linux主机之间的目录共享"><a href="#NFS实现linux主机之间的目录共享" class="headerlink" title="NFS实现linux主机之间的目录共享"></a>NFS实现linux主机之间的目录共享</h2><p>redhat7默认安装了nfs-utils软件，只需要使用即可。</p>
+<ol>
+<li>服务端创建共享目录，设置共享范围，清空防火墙规则，并重启服务</li>
+</ol>
+<ul>
+<li><p>创建共享目录</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">mkdir &#x2F;linuxshare</span><br><span class="line">chmod -Rf 777 &#x2F;linuxshare</span><br></pre></td></tr></table></figure></li>
+<li><p>设置共享范围：编辑<code>/etc/exports</code>文件<br>配置文件内容，只有一行：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#x2F;linuxshare *(sync,rw,root_squash)</span><br></pre></td></tr></table></figure>
+<div class="note [class]">
+            <p>解析：linux系统中，<code>*</code>指的是共享范围是所有人。<br><code>root_squash</code>是把客户端的root用户映射为匿名用户。举例：金正恩到中国，就没有中国主席的权限。</p>
+          </div>
+</li>
+<li><p>清空防火墙规则</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">iptables -F</span><br><span class="line">service iptables save</span><br></pre></td></tr></table></figure></li>
+<li><p>重启服务</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">systemctl restart nfs-server</span><br></pre></td></tr></table></figure></li>
+</ul>
+<ol start="2">
+<li>客户端创建挂载点<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">mkdir &#x2F;linuxshareclient</span><br><span class="line">chmod -Rf 777 &#x2F;linuxshareclient</span><br></pre></td></tr></table></figure></li>
+<li>客户端挂载服务端的共享目录，即可实现linux主机之间的目录共享<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">vi &#x2F;etc&#x2F;fstab</span><br></pre></td></tr></table></figure></li>
+</ol>
+<ul>
+<li>新增这一句，挂载上服务端的共享目录：<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">192.168.0.106:&#x2F;linuxshare &#x2F;linuxshareclient nfs defaults 0 0</span><br></pre></td></tr></table></figure></li>
+<li>挂载，重启服务即可生效：<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">mount -a</span><br><span class="line">systemctl restart nfs-server</span><br></pre></td></tr></table></figure></li>
+</ul>
+]]></content>
+      <categories>
+        <category>RHCE</category>
+      </categories>
+      <tags>
+        <tag>redhat7</tag>
+        <tag>NFS服务</tag>
       </tags>
   </entry>
   <entry>

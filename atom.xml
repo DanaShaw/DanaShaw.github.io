@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://dana5haw.com/"/>
-  <updated>2020-07-02T15:41:47.885Z</updated>
+  <updated>2020-07-02T16:39:08.736Z</updated>
   <id>https://dana5haw.com/</id>
   
   <author>
@@ -17,13 +17,38 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>redhat7自带的NFS服务实现Linux主机之间的目录共享</title>
+    <link href="https://dana5haw.com/posts/redhat7-NFS-linux-share.html"/>
+    <id>https://dana5haw.com/posts/redhat7-NFS-linux-share.html</id>
+    <published>2020-07-02T16:04:51.000Z</published>
+    <updated>2020-07-02T16:39:08.736Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>redhat7自带的NFS服务可以实现linux主机之间的目录共享，不需要额外安装其他服务。</p><a id="more"></a><h2 id="NFS实现linux主机之间的目录共享"><a href="#NFS实现linux主机之间的目录共享" class="headerlink" title="NFS实现linux主机之间的目录共享"></a>NFS实现linux主机之间的目录共享</h2><p>redhat7默认安装了nfs-utils软件，只需要使用即可。</p><ol><li>服务端创建共享目录，设置共享范围，清空防火墙规则，并重启服务</li></ol><ul><li><p>创建共享目录</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">mkdir &#x2F;linuxshare</span><br><span class="line">chmod -Rf 777 &#x2F;linuxshare</span><br></pre></td></tr></table></figure></li><li><p>设置共享范围：编辑<code>/etc/exports</code>文件<br>配置文件内容，只有一行：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;linuxshare *(sync,rw,root_squash)</span><br></pre></td></tr></table></figure><div class="note [class]">            <p>解析：linux系统中，<code>*</code>指的是共享范围是所有人。<br><code>root_squash</code>是把客户端的root用户映射为匿名用户。举例：金正恩到中国，就没有中国主席的权限。</p>          </div></li><li><p>清空防火墙规则</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">iptables -F</span><br><span class="line">service iptables save</span><br></pre></td></tr></table></figure></li><li><p>重启服务</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl restart nfs-server</span><br></pre></td></tr></table></figure></li></ul><ol start="2"><li>客户端创建挂载点<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">mkdir &#x2F;linuxshareclient</span><br><span class="line">chmod -Rf 777 &#x2F;linuxshareclient</span><br></pre></td></tr></table></figure></li><li>客户端挂载服务端的共享目录，即可实现linux主机之间的目录共享<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vi &#x2F;etc&#x2F;fstab</span><br></pre></td></tr></table></figure></li></ol><ul><li>新增这一句，挂载上服务端的共享目录：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">192.168.0.106:&#x2F;linuxshare &#x2F;linuxshareclient nfs defaults 0 0</span><br></pre></td></tr></table></figure></li><li>挂载，重启服务即可生效：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">mount -a</span><br><span class="line">systemctl restart nfs-server</span><br></pre></td></tr></table></figure></li></ul>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h2&gt;&lt;p&gt;redhat7自带的NFS服务可以实现linux主机之间的目录共享，不需要额外安装其他服务。&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="RHCE" scheme="https://dana5haw.com/categories/RHCE/"/>
+    
+    
+      <category term="redhat7" scheme="https://dana5haw.com/tags/redhat7/"/>
+    
+      <category term="NFS服务" scheme="https://dana5haw.com/tags/NFS%E6%9C%8D%E5%8A%A1/"/>
+    
+  </entry>
+  
+  <entry>
     <title>redhat7搭建samba服务-linux与linux主机共享</title>
     <link href="https://dana5haw.com/posts/redhat7-build-samba-server-linux-to-linux.html"/>
     <id>https://dana5haw.com/posts/redhat7-build-samba-server-linux-to-linux.html</id>
     <published>2020-07-02T15:28:09.000Z</published>
-    <updated>2020-07-02T15:41:47.885Z</updated>
+    <updated>2020-07-02T16:39:02.593Z</updated>
     
-    <content type="html"><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>利用cifs加密协议，samba服务实现linux和linux之间的文件共享。服务端和客户端都需要安装cifs-utils软件。</p><a id="more"></a><h2 id="设置cifs实现目录共享"><a href="#设置cifs实现目录共享" class="headerlink" title="设置cifs实现目录共享"></a>设置cifs实现目录共享</h2><p>环境：samba服务端已搭建好。</p><ol><li>服务端和客户端安装cifs-utils：切记，在机器重启 之后，必须重新挂载yum仓库，否则yu无法正常使用！<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum install cifs-utils</span><br></pre></td></tr></table></figure></li><li>客户端创建共享目录挂载点<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">mkdir &#x2F;xkj</span><br><span class="line">chmod -Rf 777 &#x2F;xkj</span><br></pre></td></tr></table></figure></li><li>客户端设置samba密码文件，用于连接服务端samba服务<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cd &#x2F;root</span><br><span class="line">vi auth.smb</span><br></pre></td></tr></table></figure><details><summary>点击展开配置文件内容</summary><p></li></ol><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">username&#x3D;sambaxkj</span><br><span class="line">password&#x3D;redhat</span><br><span class="line">domain&#x3D;WORKGROUP #samba服务端设置的工作组名称</span><br></pre></td></tr></table></figure></p></details><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">chmod 600 auth.smb #权限设置为只允许自己读写</span><br></pre></td></tr></table></figure><ol start="4"><li>客户端设置挂载信息，将服务端的共享目录挂载到本地<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vi &#x2F;etc&#x2F;fstab</span><br></pre></td></tr></table></figure>新增这个挂载信息：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F;192.168.0.106&#x2F;sambaxkj &#x2F;xkj cifs credentials&#x3D;&#x2F;root&#x2F;auth.smb 0 0</span><br></pre></td></tr></table></figure><div class="note [class]">            <p>解析：linux系统中，<code>//</code>用于访问samba服务；windows系统中，<code>\\</code>用于访问samba服务。<br><code>credentials</code>指的是挂载到samba服务端的凭据。</p>          </div>挂载即可生效：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mount -a</span><br></pre></td></tr></table></figure></li></ol>]]></content>
+    <content type="html"><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>利用cifs加密协议，samba服务实现linux和linux之间的文件共享。服务端和客户端都需要安装cifs-utils软件。</p><a id="more"></a><h2 id="设置cifs实现目录共享"><a href="#设置cifs实现目录共享" class="headerlink" title="设置cifs实现目录共享"></a>设置cifs实现目录共享</h2><p>环境：samba服务端已搭建好。</p><ol><li>服务端和客户端安装cifs-utils：切记，在机器重启之后，必须重新挂载yum仓库，否则yu无法正常使用！并且服务端一定要清除防火墙规则：<code>iptables -F</code>、<code>service iptables save</code><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum install cifs-utils</span><br></pre></td></tr></table></figure></li><li>客户端创建共享目录挂载点<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">mkdir &#x2F;xkj</span><br><span class="line">chmod -Rf 777 &#x2F;xkj</span><br></pre></td></tr></table></figure></li><li>客户端设置samba密码文件，用于连接服务端samba服务<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cd &#x2F;root</span><br><span class="line">vi auth.smb</span><br></pre></td></tr></table></figure><details><summary>点击展开配置文件内容</summary><p></li></ol><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">username&#x3D;sambaxkj</span><br><span class="line">password&#x3D;redhat</span><br><span class="line">domain&#x3D;WORKGROUP #samba服务端设置的工作组名称</span><br></pre></td></tr></table></figure></p></details><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">chmod 600 auth.smb #权限设置为只允许自己读写</span><br></pre></td></tr></table></figure><ol start="4"><li>客户端设置挂载信息，将服务端的共享目录挂载到本地<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vi &#x2F;etc&#x2F;fstab</span><br></pre></td></tr></table></figure>新增这个挂载信息：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F;192.168.0.106&#x2F;sambaxkj &#x2F;xkj cifs credentials&#x3D;&#x2F;root&#x2F;auth.smb 0 0</span><br></pre></td></tr></table></figure><div class="note [class]">            <p>解析：linux系统中，<code>//</code>用于访问samba服务；windows系统中，<code>\\</code>用于访问samba服务。<br><code>credentials</code>指的是挂载到samba服务端的凭据。</p>          </div>挂载即可生效：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mount -a</span><br></pre></td></tr></table></figure></li></ol>]]></content>
     
     <summary type="html">
     
@@ -498,31 +523,6 @@
       <category term="python" scheme="https://dana5haw.com/tags/python/"/>
     
       <category term="json写入excel" scheme="https://dana5haw.com/tags/json%E5%86%99%E5%85%A5excel/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>长ping测试网络状态</title>
-    <link href="https://dana5haw.com/posts/long-ping.html"/>
-    <id>https://dana5haw.com/posts/long-ping.html</id>
-    <published>2020-05-14T08:19:53.000Z</published>
-    <updated>2020-06-27T14:12:29.054Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>工作中，需要测试两台机器之间的网络状态，使用长ping查看一下网络状态。</p><a id="more"></a><h2 id="windows服务器怎么长ping"><a href="#windows服务器怎么长ping" class="headerlink" title="windows服务器怎么长ping"></a>windows服务器怎么长ping</h2><p>命令：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ping -t [IP地址]</span><br></pre></td></tr></table></figure><p><a href="https://v2ray.dana5haw.com:8008/image/Zwaf" target="_blank" rel="noopener"><img src="https://v2ray.dana5haw.com:8008/images/2020/05/14/imagee3dd53d84d22d73e.png" alt="imagee3dd53d84d22d73e.png"></a></p><h2 id="linux机器怎么长ping"><a href="#linux机器怎么长ping" class="headerlink" title="linux机器怎么长ping"></a>linux机器怎么长ping</h2><p>命令：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">ping -s 1500 -c 4 [IP地址]</span><br><span class="line">-s 指定数据包大小为1500Byte</span><br><span class="line">-c 指定ping的次数</span><br></pre></td></tr></table></figure><p><a href="https://v2ray.dana5haw.com:8008/image/ZAyj" target="_blank" rel="noopener"><img src="https://v2ray.dana5haw.com:8008/images/2020/05/14/image1dd4a13afd54e986.png" alt="image1dd4a13afd54e986.png"></a></p><h2 id="windows死亡之ping"><a href="#windows死亡之ping" class="headerlink" title="windows死亡之ping"></a>windows死亡之ping</h2><p>命令：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ping -t -l 65500 [IP地址]</span><br></pre></td></tr></table></figure><p><a href="https://v2ray.dana5haw.com:8008/image/ZC9Q" target="_blank" rel="noopener"><img src="https://v2ray.dana5haw.com:8008/images/2020/05/14/image97e342f531c052fd.png" alt="image97e342f531c052fd.png"></a></p>]]></content>
-    
-    <summary type="html">
-    
-      &lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h2&gt;&lt;p&gt;工作中，需要测试两台机器之间的网络状态，使用长ping查看一下网络状态。&lt;/p&gt;
-    
-    </summary>
-    
-    
-      <category term="工具" scheme="https://dana5haw.com/categories/%E5%B7%A5%E5%85%B7/"/>
-    
-    
-      <category term="长ping" scheme="https://dana5haw.com/tags/%E9%95%BFping/"/>
-    
-      <category term="网络状态" scheme="https://dana5haw.com/tags/%E7%BD%91%E7%BB%9C%E7%8A%B6%E6%80%81/"/>
     
   </entry>
   
