@@ -8885,6 +8885,46 @@ I heard the echo, <span class="label default">from the valleys and the heart</sp
       </tags>
   </entry>
   <entry>
+    <title>redhat7搭建samba服务-linux与linux主机共享</title>
+    <url>//posts/redhat7-build-samba-server-linux-to-linux.html</url>
+    <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>利用cifs加密协议，samba服务实现linux和linux之间的文件共享。服务端和客户端都需要安装cifs-utils软件。</p>
+<a id="more"></a>
+
+<h2 id="设置cifs实现目录共享"><a href="#设置cifs实现目录共享" class="headerlink" title="设置cifs实现目录共享"></a>设置cifs实现目录共享</h2><p>环境：samba服务端已搭建好。</p>
+<ol>
+<li>服务端和客户端安装cifs-utils：切记，在机器重启 之后，必须重新挂载yum仓库，否则yu无法正常使用！<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">yum install cifs-utils</span><br></pre></td></tr></table></figure></li>
+<li>客户端创建共享目录挂载点<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">mkdir &#x2F;xkj</span><br><span class="line">chmod -Rf 777 &#x2F;xkj</span><br></pre></td></tr></table></figure></li>
+<li>客户端设置samba密码文件，用于连接服务端samba服务<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">cd &#x2F;root</span><br><span class="line">vi auth.smb</span><br></pre></td></tr></table></figure>
+<details><summary>点击展开配置文件内容</summary>
+<p>
+
+</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">username&#x3D;sambaxkj</span><br><span class="line">password&#x3D;redhat</span><br><span class="line">domain&#x3D;WORKGROUP #samba服务端设置的工作组名称</span><br></pre></td></tr></table></figure>
+
+</p>
+</details>
+
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">chmod 600 auth.smb #权限设置为只允许自己读写</span><br></pre></td></tr></table></figure>
+<ol start="4">
+<li>客户端设置挂载信息，将服务端的共享目录挂载到本地<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">vi &#x2F;etc&#x2F;fstab</span><br></pre></td></tr></table></figure>
+新增这个挂载信息：<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#x2F;&#x2F;192.168.0.106&#x2F;sambaxkj &#x2F;xkj cifs credentials&#x3D;&#x2F;root&#x2F;auth.smb 0 0</span><br></pre></td></tr></table></figure>
+<div class="note [class]">
+            <p>解析：linux系统中，<code>//</code>用于访问samba服务；windows系统中，<code>\\</code>用于访问samba服务。<br><code>credentials</code>指的是挂载到samba服务端的凭据。</p>
+          </div>
+挂载即可生效：<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">mount -a</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+]]></content>
+      <categories>
+        <category>RHCE</category>
+      </categories>
+      <tags>
+        <tag>redhat</tag>
+        <tag>samba服务</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>categories</title>
     <url>/categories/index.html</url>
     <content><![CDATA[]]></content>

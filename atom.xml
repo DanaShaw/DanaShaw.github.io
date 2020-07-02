@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://dana5haw.com/"/>
-  <updated>2020-07-02T15:04:28.323Z</updated>
+  <updated>2020-07-02T15:41:47.885Z</updated>
   <id>https://dana5haw.com/</id>
   
   <author>
@@ -15,6 +15,31 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>redhat7搭建samba服务-linux与linux主机共享</title>
+    <link href="https://dana5haw.com/posts/redhat7-build-samba-server-linux-to-linux.html"/>
+    <id>https://dana5haw.com/posts/redhat7-build-samba-server-linux-to-linux.html</id>
+    <published>2020-07-02T15:28:09.000Z</published>
+    <updated>2020-07-02T15:41:47.885Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>利用cifs加密协议，samba服务实现linux和linux之间的文件共享。服务端和客户端都需要安装cifs-utils软件。</p><a id="more"></a><h2 id="设置cifs实现目录共享"><a href="#设置cifs实现目录共享" class="headerlink" title="设置cifs实现目录共享"></a>设置cifs实现目录共享</h2><p>环境：samba服务端已搭建好。</p><ol><li>服务端和客户端安装cifs-utils：切记，在机器重启 之后，必须重新挂载yum仓库，否则yu无法正常使用！<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum install cifs-utils</span><br></pre></td></tr></table></figure></li><li>客户端创建共享目录挂载点<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">mkdir &#x2F;xkj</span><br><span class="line">chmod -Rf 777 &#x2F;xkj</span><br></pre></td></tr></table></figure></li><li>客户端设置samba密码文件，用于连接服务端samba服务<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cd &#x2F;root</span><br><span class="line">vi auth.smb</span><br></pre></td></tr></table></figure><details><summary>点击展开配置文件内容</summary><p></li></ol><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">username&#x3D;sambaxkj</span><br><span class="line">password&#x3D;redhat</span><br><span class="line">domain&#x3D;WORKGROUP #samba服务端设置的工作组名称</span><br></pre></td></tr></table></figure></p></details><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">chmod 600 auth.smb #权限设置为只允许自己读写</span><br></pre></td></tr></table></figure><ol start="4"><li>客户端设置挂载信息，将服务端的共享目录挂载到本地<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vi &#x2F;etc&#x2F;fstab</span><br></pre></td></tr></table></figure>新增这个挂载信息：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F;192.168.0.106&#x2F;sambaxkj &#x2F;xkj cifs credentials&#x3D;&#x2F;root&#x2F;auth.smb 0 0</span><br></pre></td></tr></table></figure><div class="note [class]">            <p>解析：linux系统中，<code>//</code>用于访问samba服务；windows系统中，<code>\\</code>用于访问samba服务。<br><code>credentials</code>指的是挂载到samba服务端的凭据。</p>          </div>挂载即可生效：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mount -a</span><br></pre></td></tr></table></figure></li></ol>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h2&gt;&lt;p&gt;利用cifs加密协议，samba服务实现linux和linux之间的文件共享。服务端和客户端都需要安装cifs-utils软件。&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="RHCE" scheme="https://dana5haw.com/categories/RHCE/"/>
+    
+    
+      <category term="redhat" scheme="https://dana5haw.com/tags/redhat/"/>
+    
+      <category term="samba服务" scheme="https://dana5haw.com/tags/samba%E6%9C%8D%E5%8A%A1/"/>
+    
+  </entry>
   
   <entry>
     <title>redhat7搭建samba服务-linux与windows主机共享</title>
@@ -498,31 +523,6 @@
       <category term="长ping" scheme="https://dana5haw.com/tags/%E9%95%BFping/"/>
     
       <category term="网络状态" scheme="https://dana5haw.com/tags/%E7%BD%91%E7%BB%9C%E7%8A%B6%E6%80%81/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>nginx反向代理-设置获取用户真实端口</title>
-    <link href="https://dana5haw.com/posts/Nginx-get-real-port.html"/>
-    <id>https://dana5haw.com/posts/Nginx-get-real-port.html</id>
-    <published>2020-05-14T06:33:46.000Z</published>
-    <updated>2020-06-27T14:12:28.430Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>工作上的需要，nginx作为反向代理，需要获取到用户的源端口，并传递给应用服务器。</p><a id="more"></a><h2 id="怎么设置"><a href="#怎么设置" class="headerlink" title="怎么设置"></a>怎么设置</h2><p>在nginx配置文件加上这一句即可。</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">proxy_set_header        X-Real-Port     $remote_port;</span><br></pre></td></tr></table></figure><p><a href="https://v2ray.dana5haw.com:8008/image/ZjxH" target="_blank" rel="noopener"><img src="https://v2ray.dana5haw.com:8008/images/2020/05/14/image.png" alt="image.png"></a></p>]]></content>
-    
-    <summary type="html">
-    
-      &lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h2&gt;&lt;p&gt;工作上的需要，nginx作为反向代理，需要获取到用户的源端口，并传递给应用服务器。&lt;/p&gt;
-    
-    </summary>
-    
-    
-      <category term="nginx" scheme="https://dana5haw.com/categories/nginx/"/>
-    
-    
-      <category term="nginx反向代理" scheme="https://dana5haw.com/tags/nginx%E5%8F%8D%E5%90%91%E4%BB%A3%E7%90%86/"/>
-    
-      <category term="获取用户真实端口" scheme="https://dana5haw.com/tags/%E8%8E%B7%E5%8F%96%E7%94%A8%E6%88%B7%E7%9C%9F%E5%AE%9E%E7%AB%AF%E5%8F%A3/"/>
     
   </entry>
   
