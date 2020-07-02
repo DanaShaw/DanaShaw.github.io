@@ -8783,9 +8783,9 @@ I heard the echo, <span class="label default">from the valleys and the heart</sp
       </tags>
   </entry>
   <entry>
-    <title>redhat7搭建samba服务</title>
+    <title>redhat7搭建samba服务-linux与windows主机共享</title>
     <url>//posts/redhat7-build-samba-server.html</url>
-    <content><![CDATA[<p>##　前言<br>redhat7搭建samba服务，实现linux和windows之间的文件共享。</p>
+    <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>redhat7搭建samba服务，实现linux和windows之间的文件共享。</p>
 <a id="more"></a>
 
 <h2 id="搭建samba服务"><a href="#搭建samba服务" class="headerlink" title="搭建samba服务"></a>搭建samba服务</h2><ol>
@@ -8830,7 +8830,14 @@ I heard the echo, <span class="label default">from the valleys and the heart</sp
 </ul>
 <h2 id="测试文件共享服务"><a href="#测试文件共享服务" class="headerlink" title="测试文件共享服务"></a>测试文件共享服务</h2><p>在windows主机进入“运行”，输入<code>\\192.168.0.106</code>，（IP地址为linux虚拟机的IP地址），即可使用samba用户登录到linux主机的共享目录。<br><img src="https://v2ray.dana5haw.com:8008/images/2020/07/02/image3737797bcaf9fc47.png" alt="image3737797bcaf9fc47.png"><br><img src="https://v2ray.dana5haw.com:8008/images/2020/07/02/imagebad2fbf34f95b501.png" alt="imagebad2fbf34f95b501.png"><br>可实现linux主机和windows主机的目录共享，任意一方都可增删改共享目录里面的内容。</p>
 <hr>
-<p>打开selinux之后（setenforce 1），无法进入共享目录。<br><img src="https://v2ray.dana5haw.com:8008/images/2020/07/02/image3b2eafe2f3714179.png" alt="image3b2eafe2f3714179.png"><br>这是什么原因导致的？<br>是selinux上下文的限制还是域的限制？</p>
+<p>打开selinux之后（setenforce 1），无法进入共享目录。<br><img src="https://v2ray.dana5haw.com:8008/images/2020/07/02/image3b2eafe2f3714179.png" alt="image3b2eafe2f3714179.png"><br>这是什么原因导致的？<br>是selinux上下文的限制还是域的限制？<br>答案：是上下文的限制。</p>
+<ul>
+<li>查看与samba服务相关的sebool设置：<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">getsebool -a |grep samba</span><br></pre></td></tr></table></figure>
+<img src="https://v2ray.dana5haw.com:8008/images/2020/07/02/image45dd94e9b113c328.png" alt="image45dd94e9b113c328.png"></li>
+<li>打开samba_export_all_rw上下文，允许samba用户对共享目录可读可写<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">setsebool -P samba_export_all_rw&#x3D;on</span><br></pre></td></tr></table></figure></li>
+<li>重启samba服务，现在samba用户就可以对共享目录做读写操作了<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">systemctl restart smb</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
 ]]></content>
       <categories>
         <category>RHCE</category>
