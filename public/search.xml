@@ -9015,7 +9015,7 @@ I heard the echo, <span class="label default">from the valleys and the heart</sp
             <p>解析：第二行<code>linuxprobe.com.</code>指的是DNS的区域，必须写域名的完整格式（最后一个<code>.</code>号不能漏写）。<code>root.linuxprobe.com</code>指的是域名管理员的邮箱。</p>
           </div></li>
 <li>启动DNS服务并加入开机启动项<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">systemctl start named</span><br><span class="line">systemctl enable named</span><br></pre></td></tr></table></figure></li>
-<li>测试DNS服务<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">nmtui #进入图形化配置界面设置网卡信息，将DNS服务器设置为本机IP地址&#96;192.168.0.106&#96;</span><br><span class="line">systemctl restart network #重启网卡</span><br><span class="line">ping www.linuxprobe.com #测试域名解析结果，解析的IP是192.168.0.106说明DNS正向解析生效</span><br></pre></td></tr></table></figure></li>
+<li>测试DNS服务<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">nmtui #进入图形化配置界面设置网卡信息，将DNS服务器设置为本机IP地址192.168.0.106</span><br><span class="line">systemctl restart network #重启网卡</span><br><span class="line">ping www.linuxprobe.com #测试域名解析结果，解析的IP是192.168.0.106说明DNS正向解析生效</span><br></pre></td></tr></table></figure></li>
 </ul>
 <ol start="5">
 <li>反向解析实验</li>
@@ -9086,6 +9086,52 @@ I heard the echo, <span class="label default">from the valleys and the heart</sp
       <tags>
         <tag>DNS服务</tag>
         <tag>主从DNS服务同步</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>使用TISG加密机制增强DNS服务器之间数据传输的安全性</title>
+    <url>//posts/TISG-DNS-master-slave-safe-transfer.html</url>
+    <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>为了确保DNS主从服务器之间数据传输的安全性，可使用TISG加密机制传输数据。</p>
+<a id="more"></a>
+
+<h2 id="TISG加密机制传输数据"><a href="#TISG加密机制传输数据" class="headerlink" title="TISG加密机制传输数据"></a>TISG加密机制传输数据</h2><p>主服务器：192.168.0.106<br>从服务器：192.168.0.102</p>
+<ol>
+<li>主服务器配置</li>
+</ol>
+<ul>
+<li>使用dnssec-keygen生成密钥<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">cd ~</span><br><span class="line">dnssec-keygen -a HMAC-MD5 -b 128 -n HOST master-slave</span><br></pre></td></tr></table></figure>
+<div class="note [class]">
+            <p>解析：<code>-a</code>参数，指的是加密算法类型。<br><code>-b</code>参数，指的是密钥长度。<br><code>-n</code>参数，指的是密钥类型。<br><code>master-salve</code>是自定义的密钥名称。</p>
+          </div>
+我们需要用到私钥的key。<br><img src="https://v2ray.dana5haw.com:8008/images/2020/07/04/image35d6b3e9c4032c01.png" alt="image35d6b3e9c4032c01.png"></li>
+<li>编辑密钥传输文件<code>/var/named/chroot/etc/tansfer.key</code><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">key &quot;master-slave&quot; &#123;</span><br><span class="line">algorithm hmac-md5;</span><br><span class="line">secret &quot;1g7++KPRr3ZIbf7szGO2gw&#x3D;&#x3D;&quot;; #刚刚生成的私钥的key</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<img src="https://v2ray.dana5haw.com:8008/images/2020/07/04/image05527506e3684c3f.png" alt="image05527506e3684c3f.png"></li>
+<li>设置密钥传输文件的权限<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">chmod 640 &#x2F;var&#x2F;named&#x2F;chroot&#x2F;etc&#x2F;transfer.key</span><br><span class="line">chown root:named &#x2F;var&#x2F;named&#x2F;chroot&#x2F;etc&#x2F;transfer.key</span><br></pre></td></tr></table></figure></li>
+<li>将密钥传输文件链接到/etc目录 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">ln &#x2F;var&#x2F;named&#x2F;chroot&#x2F;etc&#x2F;transfer.key &#x2F;etc</span><br></pre></td></tr></table></figure></li>
+<li>编辑主配置文件/etc/named.conf，增加以下两句<br><img src="https://v2ray.dana5haw.com:8008/images/2020/07/04/image8992a90ca8278ac8.png" alt="image8992a90ca8278ac8.png"></li>
+<li>清除iptables规则<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">iptables -F</span><br><span class="line">service iptables save</span><br></pre></td></tr></table></figure></li>
+<li>重启DNS服务<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">systemctl restart named</span><br></pre></td></tr></table></figure></li>
+</ul>
+<ol start="2">
+<li>从服务器配置</li>
+</ol>
+<ul>
+<li>删除已从主服务器同步的正向解析文件和反向解析文件<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">rm -rf &#x2F;var&#x2F;named&#x2F;slaves&#x2F;*</span><br></pre></td></tr></table></figure></li>
+<li>从主服务器拷贝transfer.key文件，放到/va/named/chroot/etc目录</li>
+<li>设置密钥传输文件的权限<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">chmod 640 &#x2F;var&#x2F;named&#x2F;chroot&#x2F;etc&#x2F;transfer.key</span><br><span class="line">chown root:named &#x2F;var&#x2F;named&#x2F;chroot&#x2F;etc&#x2F;transfer.key</span><br></pre></td></tr></table></figure></li>
+<li>将密钥传输文件链接到/etc目录 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">ln &#x2F;var&#x2F;named&#x2F;chroot&#x2F;etc&#x2F;transfer.key &#x2F;etc</span><br></pre></td></tr></table></figure></li>
+<li>编辑主配置文件/etc/named.conf，增加以下部分<br><img src="https://v2ray.dana5haw.com:8008/images/2020/07/04/image4f1df0f4771bdc68.png" alt="image4f1df0f4771bdc68.png"><br><img src="https://v2ray.dana5haw.com:8008/images/2020/07/04/imagedb0144bcba5c4a67.png" alt="imagedb0144bcba5c4a67.png"></li>
+<li>重启DNS服务<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">systemctl restart named</span><br></pre></td></tr></table></figure></li>
+<li>检查是否成功从主服务器同步正向解析文件和反向解析文件<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">ls &#x2F;var&#x2F;named&#x2F;slaves</span><br></pre></td></tr></table></figure>
+<img src="https://v2ray.dana5haw.com:8008/images/2020/07/04/image44d442f2657c8a1b.png" alt="image44d442f2657c8a1b.png"></li>
+</ul>
+]]></content>
+      <categories>
+        <category>RHCE</category>
+      </categories>
+      <tags>
+        <tag>TISG加密</tag>
+        <tag>DNS服务数据传输安全</tag>
       </tags>
   </entry>
   <entry>

@@ -1,13 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>https://dana5haw.com//posts/TISG-DNS-master-slave-safe-transfer.html</loc>
+    <lastmod>2020-07-04</lastmod>
+  </url>  <url>
+    <loc>https://dana5haw.com//posts/rehat7-DNS-bind-chroot.html</loc>
+    <lastmod>2020-07-04</lastmod>
+  </url>  <url>
     <loc>https://dana5haw.com//posts/redhat7-DNS-master-slave-sync.html</loc>
     <lastmod>2020-07-04</lastmod>
   </url>  <url>
     <loc>https://dana5haw.com//posts/redhat7-autofs.html</loc>
-    <lastmod>2020-07-04</lastmod>
-  </url>  <url>
-    <loc>https://dana5haw.com//posts/rehat7-DNS-bind-chroot.html</loc>
     <lastmod>2020-07-04</lastmod>
   </url>  <url>
     <loc>https://dana5haw.com//posts/redhat7-build-samba-server-linux-to-linux.html</loc>
