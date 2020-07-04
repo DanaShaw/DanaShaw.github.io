@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://dana5haw.com/"/>
-  <updated>2020-07-04T07:57:11.007Z</updated>
+  <updated>2020-07-04T10:54:20.218Z</updated>
   <id>https://dana5haw.com/</id>
   
   <author>
@@ -15,6 +15,52 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>DNS分离解析服务搭建</title>
+    <link href="https://dana5haw.com/posts/DNS-seperate-explanation.html"/>
+    <id>https://dana5haw.com/posts/DNS-seperate-explanation.html</id>
+    <published>2020-07-04T09:21:34.000Z</published>
+    <updated>2020-07-04T10:54:20.218Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>DNS分离解析实现的效果就是，同一个域名，在不同地区解析出的IP地址不同。很常用，目的是加快用户访问网站的速度，比如：cdn加速。</p><a id="more"></a><h2 id="DNS分离解析服务搭建"><a href="#DNS分离解析服务搭建" class="headerlink" title="DNS分离解析服务搭建"></a>DNS分离解析服务搭建</h2><p>DNS服务器：</p><ul><li>北京网络：122.71.115.1</li><li>美国网络：106.185.25.1<br>客户端：</li><li>北京用户：122.71.115.10</li><li>美国用户：106.185.25.10</li></ul><ol><li>安装bind-chroot<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum install bind-chroot</span><br></pre></td></tr></table></figure></li><li>编辑主配置文件<code>/etc/named.conf</code>，改为any，并删除根域信息。<br><img src="https://v2ray.dana5haw.com:8008/images/2020/07/04/image3b61f8066837cf2b.png" alt="image3b61f8066837cf2b.png"><br><img src="https://v2ray.dana5haw.com:8008/images/2020/07/04/image5efa1af0d50dd0be.png" alt="image5efa1af0d50dd0be.png"></li><li>编辑区域配置文件<code>/etc/named.rfc1912.zones</code><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">acl &quot;china&quot; &#123; 122.71.115.0&#x2F;24; &#125;;</span><br><span class="line">acl &quot;america&quot; &#123; 106.185.25.0&#x2F;24; &#125;;</span><br><span class="line">view &quot;china&quot; &#123;</span><br><span class="line">match-clients &#123; &quot;china&quot;; &#125;;</span><br><span class="line">zone &quot;linuxprobe.com&quot; &#123;</span><br><span class="line">type master;</span><br><span class="line">file &quot;linuxprobe.com.china&quot;;</span><br><span class="line">&#125;;</span><br><span class="line">&#125;;</span><br><span class="line">view &quot;america&quot; &#123;</span><br><span class="line">match-clients &#123; &quot;america&quot;; &#125;;</span><br><span class="line">zone &quot;linuxprobe.com&quot; &#123;</span><br><span class="line">type master;</span><br><span class="line">file &quot;linuxprobe.com.america&quot;;</span><br><span class="line">&#125;;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></li><li>拷贝正向解析模板<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cp -a &#x2F;var&#x2F;named&#x2F;named.local &#x2F;var&#x2F;named&#x2F;linuxprobe.com.china #北京用户正向解析文件</span><br><span class="line">cp -a &#x2F;var&#x2F;named&#x2F;named.local &#x2F;var&#x2F;named&#x2F;linuxprobe.com.america #美国用户正向解析文件</span><br></pre></td></tr></table></figure></li><li>编辑正向解析文件</li></ol><ul><li>编辑北京用户正向解析文件<code>/var/named/linuxprobe.com.china</code><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">$TTL 1D</span><br><span class="line">@       IN SOA  linuxprobe.com. root.linuxprobe.com. (</span><br><span class="line">                                        0       ; serial</span><br><span class="line">                                        1D      ; refresh</span><br><span class="line">                                        1H      ; retry</span><br><span class="line">                                        1W      ; expire</span><br><span class="line">                                        3H )    ; minimum</span><br><span class="line">        NS      ns.linuxprobe.com.</span><br><span class="line">ns      IN A    122.71.115.1</span><br><span class="line">www     IN A    122.71.115.1</span><br></pre></td></tr></table></figure></li><li>编辑美国用户正向解析文件<code>/var/named/linuxprobe.com.america</code><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">$TTL 1D</span><br><span class="line">@       IN SOA  linuxprobe.com. root.linuxprobe.com. (</span><br><span class="line">                                        0       ; serial</span><br><span class="line">                                        1D      ; refresh</span><br><span class="line">                                        1H      ; retry</span><br><span class="line">                                        1W      ; expire</span><br><span class="line">                                        3H )    ; minimum</span><br><span class="line">        NS      ns.linuxprobe.com.</span><br><span class="line">ns      IN A    106.185.25.1</span><br><span class="line">www     IN A    106.185.25.1</span><br></pre></td></tr></table></figure></li></ul><ol start="6"><li>清空防火墙规则<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">iptables -F</span><br><span class="line">service iptables save</span><br></pre></td></tr></table></figure></li><li>设置网卡信息<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">nmtui #进入图形化界面配置网卡信息</span><br><span class="line">systemctl restart network #重启网卡使配置生效</span><br></pre></td></tr></table></figure><img src="https://v2ray.dana5haw.com:8008/images/2020/07/04/imagedf8d626ac2a67a74.png" alt="imagedf8d626ac2a67a74.png"></li><li>开启DNS服务并加入开机启动项<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">systemctl start named</span><br><span class="line">systemctl enable named</span><br></pre></td></tr></table></figure></li></ol><h2 id="验证DNS分离解析服务的效果"><a href="#验证DNS分离解析服务的效果" class="headerlink" title="验证DNS分离解析服务的效果"></a>验证DNS分离解析服务的效果</h2><p>开启一台可以连外网的客户端（网卡为桥接模式），更改IP地址分别模拟北京用户和美国用户，观察域名<a href="http://www.linuxprobe.com解析出的IP地址是多少。" target="_blank" rel="noopener">www.linuxprobe.com解析出的IP地址是多少。</a></p><ul><li>模拟北京用户<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">nmtui #进入图形化界面配置网卡信息</span><br><span class="line">systemctl restart network #重启网卡使配置生效</span><br></pre></td></tr></table></figure><img src="https://v2ray.dana5haw.com:8008/images/2020/07/04/image3c70a91180774d01.png" alt="image3c70a91180774d01.png"><br>测试分离解析是否成功<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ping www.linuxprobe.com #解析出的IP是北京网络，就说明分离解析成功</span><br></pre></td></tr></table></figure><img src="https://v2ray.dana5haw.com:8008/images/2020/07/04/image02894ecf9a80b752.png" alt="image02894ecf9a80b752.png"></li><li>模拟美国用户<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">nmtui #进入图形化界面配置网卡信息</span><br><span class="line">systemctl restart network #重启网卡使配置生效</span><br></pre></td></tr></table></figure><img src="https://v2ray.dana5haw.com:8008/images/2020/07/04/image804c56d8f8973430.png" alt="image804c56d8f8973430.png"><br>测试分离解析是否成功<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ping www.linuxprobe.com #解析出的IP是美国网络，就说明分离解析成功</span><br></pre></td></tr></table></figure><img src="https://v2ray.dana5haw.com:8008/images/2020/07/04/image502a16fd9de744a5.png" alt="image502a16fd9de744a5.png"></li></ul>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h2&gt;&lt;p&gt;DNS分离解析实现的效果就是，同一个域名，在不同地区解析出的IP地址不同。很常用，目的是加快用户访问网站的速度，比如：cdn加速。&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="RHCE" scheme="https://dana5haw.com/categories/RHCE/"/>
+    
+    
+      <category term="DNS分离解析" scheme="https://dana5haw.com/tags/DNS%E5%88%86%E7%A6%BB%E8%A7%A3%E6%9E%90/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>DNS缓存服务搭建</title>
+    <link href="https://dana5haw.com/posts/DNS-cache-server.html"/>
+    <id>https://dana5haw.com/posts/DNS-cache-server.html</id>
+    <published>2020-07-04T09:21:15.000Z</published>
+    <updated>2020-07-04T10:02:57.685Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>DNS缓存服务是为了加快用户访问网站的速度。</p><a id="more"></a><h2 id="DNS缓存服务器搭建"><a href="#DNS缓存服务器搭建" class="headerlink" title="DNS缓存服务器搭建"></a>DNS缓存服务器搭建</h2><p>缓存服务器(双网卡)：</p><ul><li>网卡一：桥接模式</li><li>网卡二：仅主机模式，192.168.0.106<br>客户端（仅主机模式）：192.168.0.102</li></ul><ol><li>缓存服务器设置</li></ol><ul><li>添加双网卡，一个连外网、一个连内网<br>连外网的网卡：设置为桥接模式<br>连内网的网卡：设置为仅主机模式，IP地址设置为192.168.0.106</li><li>安装bind-chroot<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum install bind-chroot</span><br></pre></td></tr></table></figure></li><li>编辑主配置文件<code>/etc/named.conf</code><br><img src="https://v2ray.dana5haw.com:8008/images/2020/07/04/image78b27f29415d80dc.png" alt="image78b27f29415d80dc.png"></li><li>编辑配置文件<code>/etc/sysctl.conf</code>，写入下面这句，开启ipv4转发功能<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">net.ipv4.ip_forward &#x3D; 1</span><br></pre></td></tr></table></figure>输入命令<code>sysctl -p</code>立即生效</li><li>清除防火墙规则<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">iptables -F</span><br><span class="line">service iptables save</span><br></pre></td></tr></table></figure></li><li>开启DNS服务并加入开机启动项<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">systemctl start named</span><br><span class="line">systemctl enable named</span><br></pre></td></tr></table></figure></li></ul><ol start="2"><li>客户端配置</li></ol><ul><li>设置网卡信息，网关和DNS服务器设置为缓存服务器的IP地址192.168.0.106<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nm-connection-editor #进入图形化界面配置IP信息</span><br></pre></td></tr></table></figure><img src="https://v2ray.dana5haw.com:8008/images/2020/07/04/image5e5effb880c24fdc.png" alt="image5e5effb880c24fdc.png"></li><li>验证DNS缓存服务的效果<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ping 192.168.0.106 #保证能够ping通DNS缓存服务器的IP地址</span><br><span class="line">nslookup www.baidu.com #目前无法获取到缓存DNS信息，应该是DNS服务器（114.114.114.114）有限制</span><br></pre></td></tr></table></figure><img src="https://v2ray.dana5haw.com:8008/images/2020/07/04/image09493880cf1839e6.png" alt="image09493880cf1839e6.png"></li></ul>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h2&gt;&lt;p&gt;DNS缓存服务是为了加快用户访问网站的速度。&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="RHCE" scheme="https://dana5haw.com/categories/RHCE/"/>
+    
+    
+      <category term="DNS缓存服务" scheme="https://dana5haw.com/tags/DNS%E7%BC%93%E5%AD%98%E6%9C%8D%E5%8A%A1/"/>
+    
+  </entry>
   
   <entry>
     <title>使用TISG加密机制增强DNS服务器之间数据传输的安全性</title>
@@ -473,60 +519,6 @@
       <category term="hexo" scheme="https://dana5haw.com/tags/hexo/"/>
     
       <category term="connection timeout" scheme="https://dana5haw.com/tags/connection-timeout/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>将excel每行内容导出为单个文件并以特定列的内容作为文件名</title>
-    <link href="https://dana5haw.com/posts/excel-vba-convert.html"/>
-    <id>https://dana5haw.com/posts/excel-vba-convert.html</id>
-    <published>2020-06-16T05:31:07.000Z</published>
-    <updated>2020-06-27T14:12:28.882Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>为了提高效率，我需要把excel每行的数据转存为单个文件。google告诉我可使用vba代码实现，就找到了一个简单方法，一个表转多个文件，一秒搞定。</p><a id="more"></a><h2 id="vba代码"><a href="#vba代码" class="headerlink" title="vba代码"></a>vba代码</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">Sub t()</span><br><span class="line">For i &#x3D; 2 To 204 </span><br><span class="line">Open &quot;d:\&quot; &amp; Cells(i, 2) For Append As #1</span><br><span class="line">Print #1, Cells(i, 3)</span><br><span class="line">Close #1</span><br><span class="line">Next</span><br><span class="line">End Sub</span><br></pre></td></tr></table></figure><p>代码解释：<br>1、将第2行到第204行的数据转存为单个文件<br>2、打开D盘，每行内容以第二列数据作为文件名<br>3、打印第三列数据作为文件内容</p><h2 id="效果"><a href="#效果" class="headerlink" title="效果"></a>效果</h2><p><a href="https://v2ray.dana5haw.com:8008/image/ZzoT" target="_blank" rel="noopener"><img src="https://v2ray.dana5haw.com:8008/images/2020/06/16/image.png" alt="image.png"></a><br><img src="https://v2ray.dana5haw.com:8008/images/2020/06/16/image318502281bf2ce85.png" alt="image318502281bf2ce85.png"></p><h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><p>参考<a href="https://zhidao.baidu.com/question/1860550641232376387.html?qbpn=1_1&fr=newsearchlist&word=%E5%A6%82%E4%BD%95%E6%8A%8Aexcel%E6%AF%8F%E4%B8%80%E8%A1%8C%E5%90%84%E5%AF%BC%E5%87%BA%E4%B8%BA%E4%B8%80%E4%B8%AAtxt%E6%96%87%E6%9C%AC%2C%E5%B9%B6%E4%B8%94%E4%BB%A5%E5%AF%B9%E5%BA%94%E6%AF%8F%E8%A1%8C%E7%9A%84%E6%A0%87%E9%A2%98%E5%91%BD%E5%90%8D&aup=1" target="_blank" rel="noopener">这篇文章</a></p>]]></content>
-    
-    <summary type="html">
-    
-      &lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h2&gt;&lt;p&gt;为了提高效率，我需要把excel每行的数据转存为单个文件。google告诉我可使用vba代码实现，就找到了一个简单方法，一个表转多个文件，一秒搞定。&lt;/p&gt;
-    
-    </summary>
-    
-    
-      <category term="excel" scheme="https://dana5haw.com/categories/excel/"/>
-    
-      <category term="vba编程" scheme="https://dana5haw.com/categories/vba%E7%BC%96%E7%A8%8B/"/>
-    
-    
-      <category term="excel" scheme="https://dana5haw.com/tags/excel/"/>
-    
-      <category term="vba代码" scheme="https://dana5haw.com/tags/vba%E4%BB%A3%E7%A0%81/"/>
-    
-      <category term="excel每行数据转存为单个文件" scheme="https://dana5haw.com/tags/excel%E6%AF%8F%E8%A1%8C%E6%95%B0%E6%8D%AE%E8%BD%AC%E5%AD%98%E4%B8%BA%E5%8D%95%E4%B8%AA%E6%96%87%E4%BB%B6/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>linux批量修改文件后缀</title>
-    <link href="https://dana5haw.com/posts/linux-modify-file-suffix.html"/>
-    <id>https://dana5haw.com/posts/linux-modify-file-suffix.html</id>
-    <published>2020-06-13T10:52:37.000Z</published>
-    <updated>2020-06-27T14:12:28.413Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>批量修改目录下面的所有文件名后缀。</p><a id="more"></a><h2 id="怎么做"><a href="#怎么做" class="headerlink" title="怎么做"></a>怎么做</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rename  .txt  .bk *</span><br></pre></td></tr></table></figure><p>将txt后缀改为bk后缀。</p><h2 id="参考文章"><a href="#参考文章" class="headerlink" title="参考文章"></a>参考文章</h2><p><a href="https://blog.mimvp.com/article/15218.html" target="_blank" rel="noopener">参考文章</a></p>]]></content>
-    
-    <summary type="html">
-    
-      &lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h2&gt;&lt;p&gt;批量修改目录下面的所有文件名后缀。&lt;/p&gt;
-    
-    </summary>
-    
-    
-      <category term="shell" scheme="https://dana5haw.com/categories/shell/"/>
-    
-    
-      <category term="linux shell" scheme="https://dana5haw.com/tags/linux-shell/"/>
-    
-      <category term="批量修改文件后缀" scheme="https://dana5haw.com/tags/%E6%89%B9%E9%87%8F%E4%BF%AE%E6%94%B9%E6%96%87%E4%BB%B6%E5%90%8E%E7%BC%80/"/>
     
   </entry>
   
