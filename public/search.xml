@@ -8982,7 +8982,8 @@ I heard the echo, <span class="label default">from the valleys and the heart</sp
 <li>重启autofs服务生效<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">systemctl restart autofs</span><br></pre></td></tr></table></figure>
 <h2 id="实验现象"><a href="#实验现象" class="headerlink" title="实验现象"></a>实验现象</h2>进入到iso目录时，自动挂载设备到iso目录。目的是在需要挂载的时候去挂载设备，节省服务器的带宽资源。<br><img src="https://v2ray.dana5haw.com:8008/images/2020/07/03/image.png" alt="image.png"></li>
 </ol>
-]]></content>
+<h2 id="补充-开机自动挂载镜像"><a href="#补充-开机自动挂载镜像" class="headerlink" title="补充-开机自动挂载镜像"></a>补充-开机自动挂载镜像</h2><p>以上设置完成之后，还需要做一步操作，才可以实现镜像自动挂载。<br>那就是修改yum仓库配置文件<code>/etc/yum.repo.d/rhel7.repo</code>，把本机的挂载点改为/media/iso。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">[rhel7]</span><br><span class="line">name&#x3D;rhel7</span><br><span class="line">baseurl&#x3D;file:&#x2F;&#x2F;&#x2F;media&#x2F;iso</span><br><span class="line">enabled&#x3D;1</span><br><span class="line">gpgcheck&#x3D;0</span><br></pre></td></tr></table></figure>]]></content>
       <categories>
         <category>RHCE</category>
       </categories>
@@ -9046,7 +9047,7 @@ I heard the echo, <span class="label default">from the valleys and the heart</sp
   <entry>
     <title>redhat7搭建DNS服务-主从DNS服务器同步</title>
     <url>//posts/redhat7-DNS-master-slave-sync.html</url>
-    <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>搭建DNS主从服务同步，基于<a href="https://dana5haw.com/rehat7-DNS-bind-chroot">上一篇</a></p>
+    <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>搭建DNS主从服务同步，基于<a href="https://dana5haw.com/posts/rehat7-DNS-bind-chroot">上一篇</a></p>
 <h2 id="搭建DNS主从服务"><a href="#搭建DNS主从服务" class="headerlink" title="搭建DNS主从服务"></a>搭建DNS主从服务</h2><p>主服务器：192.168.0.106<br>从服务器：192.168.0.102</p>
 <ol>
 <li>从服务器配置</li>
