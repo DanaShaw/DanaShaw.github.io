@@ -9048,6 +9048,8 @@ I heard the echo, <span class="label default">from the valleys and the heart</sp
     <title>redhat7搭建DNS服务-主从DNS服务器同步</title>
     <url>//posts/redhat7-DNS-master-slave-sync.html</url>
     <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>搭建DNS主从服务同步，基于<a href="https://dana5haw.com/posts/rehat7-DNS-bind-chroot">上一篇</a></p>
+<a id="more"></a>
+
 <h2 id="搭建DNS主从服务"><a href="#搭建DNS主从服务" class="headerlink" title="搭建DNS主从服务"></a>搭建DNS主从服务</h2><p>主服务器：192.168.0.106<br>从服务器：192.168.0.102</p>
 <ol>
 <li>从服务器配置</li>
