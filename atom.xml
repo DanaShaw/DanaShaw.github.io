@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://dana5haw.com/"/>
-  <updated>2020-07-02T17:02:17.391Z</updated>
+  <updated>2020-07-04T06:46:06.317Z</updated>
   <id>https://dana5haw.com/</id>
   
   <author>
@@ -15,6 +15,61 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>redhat7搭建DNS服务-主从DNS服务器同步</title>
+    <link href="https://dana5haw.com/posts/redhat7-DNS-master-slave-sync.html"/>
+    <id>https://dana5haw.com/posts/redhat7-DNS-master-slave-sync.html</id>
+    <published>2020-07-04T06:22:24.000Z</published>
+    <updated>2020-07-04T06:46:06.317Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>搭建DNS主从服务同步，基于<a href="https://dana5haw.com/rehat7-DNS-bind-chroot">上一篇</a></p><h2 id="搭建DNS主从服务"><a href="#搭建DNS主从服务" class="headerlink" title="搭建DNS主从服务"></a>搭建DNS主从服务</h2><p>主服务器：192.168.0.106<br>从服务器：192.168.0.102</p><ol><li>从服务器配置</li></ol><ul><li>安装bind-chroot<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum install bind-chroot</span><br></pre></td></tr></table></figure></li><li>编辑主配置文件<code>/etc/named.conf</code><br><img src="https://v2ray.dana5haw.com:8008/images/2020/07/04/image0d91dbc7dcdc6728.png" alt="image0d91dbc7dcdc6728.png"><br>改为any：<br><img src="https://v2ray.dana5haw.com:8008/images/2020/07/04/image.png" alt="image.png"></li><li>编辑区域配置文件<code>/etc/named.rfc1912.zones</code>，从主服务器同步DNS正向解析配置文件和反向解析配置文件<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">zone &quot;linuxprobe.com&quot; IN &#123;</span><br><span class="line">type slave;</span><br><span class="line">file &quot;slaves&#x2F;linuxprobe.com.zone&quot;; #主从同步成功后，将会在&#x2F;var&#x2F;named&#x2F;slaves目录生成正向解析文件</span><br><span class="line">&#125;; #这部分区域是正向解析</span><br><span class="line">zone &quot;0.168.192.in-addr.arpa&quot; IN &#123;</span><br><span class="line">type slave;</span><br><span class="line">file &quot;slaves&#x2F;192.168.0.arpa&quot;; #主从同步成功后，将会在&#x2F;var&#x2F;named&#x2F;slaves目录生成反向解析文件</span><br><span class="line">&#125;; #这部分区域是反向解析</span><br></pre></td></tr></table></figure></li></ul><ol start="2"><li>主服务器配置</li></ol><ul><li>修改区域配置文件<code>/etc/named.rfc1912.zones</code>，允许从服务器同步DNS正向解析配置文件和反向解析配置文件<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">zone &quot;linuxprobe.com&quot; IN &#123;</span><br><span class="line">type master;</span><br><span class="line">file &quot;linuxprobe.com.zone&quot;;</span><br><span class="line">allow-update &#123; 192.168.0.102; &#125;; #这是从服务器的IP地址</span><br><span class="line">&#125;; #这部分区域是正向解析</span><br><span class="line">zone &quot;0.168.192.in-addr.arpa&quot; IN &#123;</span><br><span class="line">type master;</span><br><span class="line">file &quot;192.168.0.arpa&quot;;</span><br><span class="line">allow-update &#123; 192.168.0.102; &#125;; #这是从服务器的IP地址</span><br><span class="line">&#125;; #这部分区域是反向解析</span><br></pre></td></tr></table></figure></li></ul><ol start="3"><li>测试DNS主从服务</li></ol><ul><li>主服务器清空iptables规则<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">iptables -F</span><br><span class="line">service iptables save</span><br></pre></td></tr></table></figure></li><li>主服务器重启DNS服务<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl restart named</span><br></pre></td></tr></table></figure></li><li>从服务器设置DNS服务器为本机192.168.0.102<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">nmtui #进入图形化界面配置网卡信息，修改DNS服务器为本机IP地址</span><br><span class="line">systemctl restart network #重启网卡使DNS服务配置生效</span><br></pre></td></tr></table></figure></li><li>从服务器启动DNS服务并加入开机启动项<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">systemctl start named</span><br><span class="line">systemctl enable named</span><br></pre></td></tr></table></figure></li><li>检查从服务器是否成功同步主服务器的正向解析文件和反向解析文件<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ls  &#x2F;var&#x2F;named&#x2F;slaves</span><br></pre></td></tr></table></figure><img src="https://v2ray.dana5haw.com:8008/images/2020/07/04/image9d5229b33cfee0af.png" alt="image9d5229b33cfee0af.png"><div class="note [class]">            <p>注意：从主服务器同步的正向解析文件和反向解析文件，在从服务器上看到是乱码。<br><img src="https://v2ray.dana5haw.com:8008/images/2020/07/04/image0158f96fd8b78464.png" alt="image0158f96fd8b78464.png"></p>          </div></li><li>检查从服务器是否能够成功使用主服务器的DNS服务<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ping www.linuxprobe.com #测试域名解析结果，解析的IP是192.168.0.106说明DNS正向解析生效</span><br><span class="line">host 192.168.0.106 #测试反向解析结果，解析的域名是www.linuxprobe.com说明DNS反向解析生效</span><br></pre></td></tr></table></figure></li></ul>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h2&gt;&lt;p&gt;搭建DNS主从服务同步，基于&lt;a href=&quot;https://dana5haw.com/rehat7-DNS-bind-chroot&quot;&gt;上一
+      
+    
+    </summary>
+    
+    
+      <category term="RHCE" scheme="https://dana5haw.com/categories/RHCE/"/>
+    
+    
+      <category term="DNS服务" scheme="https://dana5haw.com/tags/DNS%E6%9C%8D%E5%8A%A1/"/>
+    
+      <category term="主从DNS服务同步" scheme="https://dana5haw.com/tags/%E4%B8%BB%E4%BB%8EDNS%E6%9C%8D%E5%8A%A1%E5%90%8C%E6%AD%A5/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>redhat7搭建DNS服务-正向解析、反向解析</title>
+    <link href="https://dana5haw.com/posts/rehat7-DNS-bind-chroot.html"/>
+    <id>https://dana5haw.com/posts/rehat7-DNS-bind-chroot.html</id>
+    <published>2020-07-04T05:50:03.000Z</published>
+    <updated>2020-07-04T06:21:55.479Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>搭建DNS服务，实现正向解析和反向解析。正向解析：将域名解析为IP。反向解析：将IP解析为域名。</p><a id="more"></a><h2 id="搭建DNS服务"><a href="#搭建DNS服务" class="headerlink" title="搭建DNS服务"></a>搭建DNS服务</h2><ol><li>安装bind-chroot<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum install bind-chroot</span><br></pre></td></tr></table></figure></li><li>编辑主配置文件<code>/etc/named.conf</code><br><img src="https://v2ray.dana5haw.com:8008/images/2020/07/04/image0d91dbc7dcdc6728.png" alt="image0d91dbc7dcdc6728.png"><br>改为any：<br><img src="https://v2ray.dana5haw.com:8008/images/2020/07/04/image.png" alt="image.png"></li><li>编辑区域配置文件<code>/etc/named.rfc1912.zones</code><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">zone &quot;linuxprobe.com&quot; IN &#123;</span><br><span class="line">type master;</span><br><span class="line">file &quot;linuxprobe.com.zone&quot;;</span><br><span class="line">allow-update &#123; none; &#125;;</span><br><span class="line">&#125;; #这部分区域是正向解析</span><br><span class="line">zone &quot;0.168.192.in-addr.arpa&quot; IN &#123;</span><br><span class="line">type master;</span><br><span class="line">file &quot;192.168.0.arpa&quot;;</span><br><span class="line">allow-update &#123; none; &#125;;</span><br><span class="line">&#125;; #这部分区域是反向解析</span><br></pre></td></tr></table></figure></li><li>正向解析实验</li></ol><ul><li>将正向解析模板配置文件<code>/var/named/named.localhost</code>复制到<code>/var/named/linuxprobe.com.zone</code><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cp -a &#x2F;var&#x2F;named&#x2F;named.localhost &#x2F;var&#x2F;named&#x2F;linuxprobe.com.zone</span><br></pre></td></tr></table></figure><div class="note [class]">            <p>注意：这里的cp命令带上了<code>-a</code>参数，指的是拷贝模板文件的所有属性，包括 所属主、所属组。</p>          </div><img src="https://v2ray.dana5haw.com:8008/images/2020/07/04/image1bd5c450d28cdc83.png" alt="image1bd5c450d28cdc83.png"></li><li>编辑正向解析配置文件<code>/var/named/linuxprobe.com.zone</code><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">$TTL 1D</span><br><span class="line">@       IN SOA  linuxprobe.com. root.linuxprobe.com (</span><br><span class="line">                                        0       ; serial</span><br><span class="line">                                        1D      ; refresh</span><br><span class="line">                                        1H      ; retry</span><br><span class="line">                                        1W      ; expire</span><br><span class="line">                                        3H )    ; minimum</span><br><span class="line">        NS      ns.linuxprobe.com.</span><br><span class="line">ns      IN A    192.168.0.106</span><br><span class="line">www     IN A    192.168.0.106</span><br></pre></td></tr></table></figure><div class="note [class]">            <p>解析：第二行<code>linuxprobe.com.</code>指的是DNS的区域，必须写域名的完整格式（最后一个<code>.</code>号不能漏写）。<code>root.linuxprobe.com</code>指的是域名管理员的邮箱。</p>          </div></li><li>启动DNS服务并加入开机启动项<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">systemctl start named</span><br><span class="line">systemctl enable named</span><br></pre></td></tr></table></figure></li><li>测试DNS服务<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">nmtui #进入图形化配置界面设置网卡信息，将DNS服务器设置为本机IP地址&#96;192.168.0.106&#96;</span><br><span class="line">systemctl restart network #重启网卡</span><br><span class="line">ping www.linuxprobe.com #测试域名解析结果，解析的IP是192.168.0.106说明DNS正向解析生效</span><br></pre></td></tr></table></figure></li></ul><ol start="5"><li>反向解析实验</li></ol><ul><li>将反向解析模板配置文件<code>/var/named/named.loopback</code>复制到<code>/var/named/192.168.0.arpa</code><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cp -a &#x2F;var&#x2F;named&#x2F;named.loopback &#x2F;var&#x2F;named&#x2F;192.168.0.arpa</span><br></pre></td></tr></table></figure><div class="note [class]">            <p>注意：这里的cp命令带上了<code>-a</code>参数，指的是拷贝模板文件的所有属性，包括 所属主、所属组。</p>          </div><img src="https://v2ray.dana5haw.com:8008/images/2020/07/04/image1bd5c450d28cdc83.png" alt="image1bd5c450d28cdc83.png"></li><li>编辑反向解析配置文件<code>/var/named/192.168.0.arpa</code><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">$TTL 1D</span><br><span class="line">@       IN SOA  linuxprobe.com. root.linuxprobe.com (</span><br><span class="line">                                        0       ; serial</span><br><span class="line">                                        1D      ; refresh</span><br><span class="line">                                        1H      ; retry</span><br><span class="line">                                        1W      ; expire</span><br><span class="line">                                        3H )    ; minimum</span><br><span class="line">        NS      ns.linuxprobe.com.</span><br><span class="line">ns      IN A    192.168.0.106</span><br><span class="line">106     PTR     www.linuxprobe.com</span><br></pre></td></tr></table></figure><div class="note [class]">            <p>解析：第二行<code>linuxprobe.com.</code>指的是DNS的区域，必须写域名的完整格式（最后一个<code>.</code>号不能漏写）。<code>root.linuxprobe.com</code>指的是域名管理员的邮箱。<br>PTR是指针记录，仅用于反向解析 </p>          </div></li><li>重启DNS服务<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl restart named</span><br></pre></td></tr></table></figure></li><li>测试DNS服务<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">host 192.168.0.106 #测试反向解析结果，解析的域名是www.linuxprobe.com说明DNS反向解析生效</span><br></pre></td></tr></table></figure></li></ul>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h2&gt;&lt;p&gt;搭建DNS服务，实现正向解析和反向解析。正向解析：将域名解析为IP。反向解析：将IP解析为域名。&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="RHCE" scheme="https://dana5haw.com/categories/RHCE/"/>
+    
+    
+      <category term="DNS服务" scheme="https://dana5haw.com/tags/DNS%E6%9C%8D%E5%8A%A1/"/>
+    
+      <category term="正向解析" scheme="https://dana5haw.com/tags/%E6%AD%A3%E5%90%91%E8%A7%A3%E6%9E%90/"/>
+    
+      <category term="反向解析" scheme="https://dana5haw.com/tags/%E5%8F%8D%E5%90%91%E8%A7%A3%E6%9E%90/"/>
+    
+  </entry>
   
   <entry>
     <title>autofs自动挂载服务</title>
@@ -473,56 +528,6 @@
     
     
       <category term="爱情" scheme="https://dana5haw.com/tags/%E7%88%B1%E6%83%85/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>使用phpstudy验证CSRF漏洞</title>
-    <link href="https://dana5haw.com/posts/phpstudy-verify-csrf.html"/>
-    <id>https://dana5haw.com/posts/phpstudy-verify-csrf.html</id>
-    <published>2020-05-22T08:57:53.000Z</published>
-    <updated>2020-06-27T14:12:28.848Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>可以使用phpstudy建本地网站，将csrf漏洞验证的html放到网站根目录，验证csrf漏洞。</p><a id="more"></a><h2 id="操作步骤"><a href="#操作步骤" class="headerlink" title="操作步骤"></a>操作步骤</h2><ol><li>使用burp生成poc，将html保存到本地，命名为csrf.html。</li><li>将这个html上传到phpstudy网站根目录，输入127.0.0.1/csrf.html进行访问。</li><li>用burp抓包，重放csrf.html。如果能正常返回页面，说明csrf漏洞存在。<br>原理：本质上是修改了网站的referer。修复这个漏洞的方式是限制referer，不允许其他域名的referer访问网站。</li></ol><hr><p>待实操。</p>]]></content>
-    
-    <summary type="html">
-    
-      &lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h2&gt;&lt;p&gt;可以使用phpstudy建本地网站，将csrf漏洞验证的html放到网站根目录，验证csrf漏洞。&lt;/p&gt;
-    
-    </summary>
-    
-    
-      <category term="渗透学习" scheme="https://dana5haw.com/categories/%E6%B8%97%E9%80%8F%E5%AD%A6%E4%B9%A0/"/>
-    
-    
-      <category term="phpstudy" scheme="https://dana5haw.com/tags/phpstudy/"/>
-    
-      <category term="验证csrf漏洞" scheme="https://dana5haw.com/tags/%E9%AA%8C%E8%AF%81csrf%E6%BC%8F%E6%B4%9E/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>查看linux机器使用的加密算法</title>
-    <link href="https://dana5haw.com/posts/linux-encrypt-authconfig.html"/>
-    <id>https://dana5haw.com/posts/linux-encrypt-authconfig.html</id>
-    <published>2020-05-15T13:37:36.000Z</published>
-    <updated>2020-06-27T14:12:28.950Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>/etc/passwd存放了用户名及密码信息，其中的密码是密文。我们怎么看这个密文的加密算法？主要是想试试怎么根据密文破解出用户的密码。</p><a id="more"></a><h2 id="命令"><a href="#命令" class="headerlink" title="命令"></a>命令</h2><p>使用以下命令查看机器使用的加密算法：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">authconfig --test | grep hashing</span><br></pre></td></tr></table></figure><p><a href="https://v2ray.dana5haw.com:8008/image/Zvdd" target="_blank" rel="noopener"><img src="https://v2ray.dana5haw.com:8008/images/2020/05/15/image.png" alt="image.png"></a><br>我看了下自己手里的机器，几乎都是使用sha512加密算法，暂时没破解出来。</p><h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><p>参考了这篇<a href="https://blog.csdn.net/lws123253/article/details/89228589" target="_blank" rel="noopener">文章</a></p>]]></content>
-    
-    <summary type="html">
-    
-      &lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h2&gt;&lt;p&gt;/etc/passwd存放了用户名及密码信息，其中的密码是密文。我们怎么看这个密文的加密算法？主要是想试试怎么根据密文破解出用户的密码。&lt;/p&gt;
-    
-    </summary>
-    
-    
-      <category term="linux" scheme="https://dana5haw.com/categories/linux/"/>
-    
-    
-      <category term="linux" scheme="https://dana5haw.com/tags/linux/"/>
-    
-      <category term="加密算法" scheme="https://dana5haw.com/tags/%E5%8A%A0%E5%AF%86%E7%AE%97%E6%B3%95/"/>
     
   </entry>
   

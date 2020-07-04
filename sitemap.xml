@@ -2,6 +2,20 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://dana5haw.com/posts/redhat7-DNS-master-slave-sync.html</loc>
+    
+    <lastmod>2020-07-04T06:46:06.317Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://dana5haw.com/posts/rehat7-DNS-bind-chroot.html</loc>
+    
+    <lastmod>2020-07-04T06:21:55.479Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://dana5haw.com/posts/redhat7-build-samba-server-linux-to-linux.html</loc>
     
     <lastmod>2020-07-02T17:10:33.523Z</lastmod>
