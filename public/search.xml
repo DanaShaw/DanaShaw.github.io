@@ -9117,7 +9117,7 @@ I heard the echo, <span class="label default">from the valleys and the heart</sp
 </ol>
 <ul>
 <li>删除已从主服务器同步的正向解析文件和反向解析文件<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">rm -rf &#x2F;var&#x2F;named&#x2F;slaves&#x2F;*</span><br></pre></td></tr></table></figure></li>
-<li>从主服务器拷贝transfer.key文件，放到/va/named/chroot/etc目录</li>
+<li>从主服务器拷贝transfer.key文件，放到/var/named/chroot/etc目录</li>
 <li>设置密钥传输文件的权限<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">chmod 640 &#x2F;var&#x2F;named&#x2F;chroot&#x2F;etc&#x2F;transfer.key</span><br><span class="line">chown root:named &#x2F;var&#x2F;named&#x2F;chroot&#x2F;etc&#x2F;transfer.key</span><br></pre></td></tr></table></figure></li>
 <li>将密钥传输文件链接到/etc目录 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">ln &#x2F;var&#x2F;named&#x2F;chroot&#x2F;etc&#x2F;transfer.key &#x2F;etc</span><br></pre></td></tr></table></figure></li>
 <li>编辑主配置文件/etc/named.conf，增加以下部分<br><img src="https://v2ray.dana5haw.com:8008/images/2020/07/04/image4f1df0f4771bdc68.png" alt="image4f1df0f4771bdc68.png"><br><img src="https://v2ray.dana5haw.com:8008/images/2020/07/04/imagedb0144bcba5c4a67.png" alt="imagedb0144bcba5c4a67.png"></li>
@@ -9221,6 +9221,38 @@ I heard the echo, <span class="label default">from the valleys and the heart</sp
       </categories>
       <tags>
         <tag>DNS缓存服务</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>redhat7部署DHCP服务</title>
+    <url>//posts/redhat7-DHCP.html</url>
+    <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>作为DHCP服务器端，需要设置静态IP地址。并且服务端和客户端都得是仅主机模式。</p>
+<a id="more"></a>
+
+<h2 id="服务端部署DHCP服务"><a href="#服务端部署DHCP服务" class="headerlink" title="服务端部署DHCP服务"></a>服务端部署DHCP服务</h2><ul>
+<li>服务端网卡设置，重启网卡使配置生效<br>IP地址：192.168.0.20<br><img src="https://v2ray.dana5haw.com:8008/images/2020/07/09/image.png" alt="image.png"><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">systemctl restart network #重启网卡</span><br></pre></td></tr></table></figure></li>
+<li>安装dhcp软件<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">yum install dhcp</span><br></pre></td></tr></table></figure></li>
+<li>编辑dhcp服务配置文件<code>/etc/dhcp/dhcpd.conf</code><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">ddns-update-style none;</span><br><span class="line">ignore client-updates;</span><br><span class="line">subnet 192.168.0.0 netmask 255.255.255.0 &#123;</span><br><span class="line">range 192.168.0.50 192.168.0.100; #IP地址池</span><br><span class="line">option subnet-mask 255.255.255.0; #子网掩码</span><br><span class="line">option routers 192.168.0.20; #路由器</span><br><span class="line">option domain-name-servers 192.168.0.20; #DHCP服务器的IP地址</span><br><span class="line">default-lease-time 21600; #默认租约</span><br><span class="line">max-lease-time 43200; #最长租约</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li>启动DHCP服务并加入开机启动项<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">systemctl start dhcpd</span><br><span class="line">systemctl enable dhcpd</span><br></pre></td></tr></table></figure></li>
+<li>清除iptables规则<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">iptables -F</span><br><span class="line">service iptables save</span><br></pre></td></tr></table></figure>
+<h2 id="客户端验证DHCP服务器效果"><a href="#客户端验证DHCP服务器效果" class="headerlink" title="客户端验证DHCP服务器效果"></a>客户端验证DHCP服务器效果</h2></li>
+<li>编辑虚拟机网络编辑器，取消DHCP的设置<br><img src="https://v2ray.dana5haw.com:8008/images/2020/07/09/image40d8da1bf24c05d3.png" alt="image40d8da1bf24c05d3.png"></li>
+<li>设置网卡，改成DHCP方式获取IP地址，重启网卡使配置生效<br><img src="https://v2ray.dana5haw.com:8008/images/2020/07/09/image44ab240a1b5043c2.png" alt="image44ab240a1b5043c2.png"><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">systemctl restart network</span><br></pre></td></tr></table></figure></li>
+<li>检查机器获取到的IP地址，已获取到DHCP服务器地址池里面随机分配的地址<br><img src="https://v2ray.dana5haw.com:8008/images/2020/07/09/imageb5b8d32ddb4c1d0d.png" alt="imageb5b8d32ddb4c1d0d.png"><h2 id="服务端可查看客户端的MAC地址"><a href="#服务端可查看客户端的MAC地址" class="headerlink" title="服务端可查看客户端的MAC地址"></a>服务端可查看客户端的MAC地址</h2></li>
+<li>重启客户端的网卡，查看服务端的日志，可找到客户端使用DHCP服务的详情，包括客户端的MAC地址<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">tail -f &#x2F;var&#x2F;log&#x2F;messages</span><br></pre></td></tr></table></figure>
+<img src="https://v2ray.dana5haw.com:8008/images/2020/07/09/imageb3c3b368e25ab25b.png" alt="imageb3c3b368e25ab25b.png"><h2 id="服务端为某个客户端分配固定的IP地址"><a href="#服务端为某个客户端分配固定的IP地址" class="headerlink" title="服务端为某个客户端分配固定的IP地址"></a>服务端为某个客户端分配固定的IP地址</h2></li>
+<li>服务端配置文件添加以下内容，将客户端的MAC地址和固定IP地址做绑定<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">host dana&#123;</span><br><span class="line">        hardware ethernet 00:0c:29:1b:b1:9d;</span><br><span class="line">        fixed-address 192.168.0.66;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<img src="https://v2ray.dana5haw.com:8008/images/2020/07/09/imageca35b36e6528b081.png" alt="imageca35b36e6528b081.png"></li>
+<li>服务端重启dhcp服务<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">systemctl restart dhcpd</span><br></pre></td></tr></table></figure></li>
+<li>客户端重启网卡，检查机器获取的IP地址是否是服务端分配的IP<br><img src="https://v2ray.dana5haw.com:8008/images/2020/07/09/image2494cb3bf40a8e29.png" alt="image2494cb3bf40a8e29.png"></li>
+</ul>
+]]></content>
+      <categories>
+        <category>RHCE</category>
+      </categories>
+      <tags>
+        <tag>redhat7</tag>
+        <tag>DHCP</tag>
       </tags>
   </entry>
   <entry>
