@@ -9392,6 +9392,130 @@ I heard the echo, <span class="label default">from the valleys and the heart</sp
       </tags>
   </entry>
   <entry>
+    <title>redhat7中mariadb的简单使用</title>
+    <url>//posts/redhat7-mariadb-usage.html</url>
+    <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>redhat7默认的数据库是mariadb，使用语法与mysql一致。</p>
+<a id="more"></a>
+
+<h2 id="mariadb的简单使用"><a href="#mariadb的简单使用" class="headerlink" title="mariadb的简单使用"></a>mariadb的简单使用</h2><ol>
+<li>安装mariadb并开启服务，注意安装过程中会设置root密码。<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">yum install mariadb mariadb-server</span><br><span class="line">systemctl restart mariadb</span><br><span class="line">systemctl enable mariadb</span><br></pre></td></tr></table></figure></li>
+<li>数据库初始化<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">mysql_secure_installation</span><br></pre></td></tr></table></figure></li>
+<li>登录到root用户的数据库<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">mysql -u root -p</span><br></pre></td></tr></table></figure>
+进入数据库命令行：<br>MariaDB [(none)]&gt; show databases; #查看当前的数据库<br>MariaDB [(none)]&gt; set password = password(‘linuxprobe’); #修改root密码<br>MariaDB [(none)]&gt; create user edge@localhost identified by ‘redhat’; #新建用户edge，密码为redhat<br>MariaDB [(none)]&gt; grant select,update,delete,insert on mysql.* to edge@localhost; #给edge用户授予权限，可对root用户的数据库进行增删查改<br>MariaDB [(none)]&gt; revoke select,update,delete,insert on mysql.* from edge@localhost; #给edge用户取消权限，该用户将无法看到root用户的数据库<br>MariaDB [(none)]&gt; create database linuxprobe; #创建数据库linuxprobe<br>MariaDB [(none)]&gt; use linuxprobe; #进入数据库linuxprobe<br>MariaDB [(none)]&gt; create table mybook(name char(15),price int,pages int); #创建数据表mybook<br>MariaDB [(none)]&gt; describe mybook; #查看数据表mybook的字段结构<br>MariaDB [(none)]&gt; insert into mybook (name,price,pages) values(‘linuxprobe’,’50’,’300’); #向数据表mybook中插入数据<br>MariaDB [(none)]&gt; update mybook set price=300; #更改数据表的price字段，设置为30<br>MariaDB [(none)]&gt; delete from mybook; #删除数据表mybook的数据内容<br>MariaDB [(none)]&gt; select * from mybook; #查询数据表mybook的所有数据<br>MariaDB [(none)]&gt; select name,price from mybook where price=30; #条件查询，查询price字段值为30的数据<br>MariaDB [(none)]&gt; drop table mybook; #删除数据表mybook</li>
+</ol>
+<hr>
+<p><code>delete from mybook</code>与<code>drop table mybook</code>的区别：delete是清空数据表里面的数据，数据表结构还在；但是drop是直接把数据表销毁，数据表结构也不在了。<br><img src="https://v2ray.dana5haw.com:8008/images/2020/07/12/imagee9e6a6785f528631.png" alt="imagee9e6a6785f528631.png"><br><img src="https://v2ray.dana5haw.com:8008/images/2020/07/12/image3313aa102c23da8f.png" alt="image3313aa102c23da8f.png"><br>4. 数据库备份与恢复</p>
+<ul>
+<li>数据库备份<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">mysqldump -u root -p linuxprobe &gt;  haha.dump</span><br></pre></td></tr></table></figure></li>
+<li>数据库恢复<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">mysql -u root -p linuxprobe &lt; haha.dump</span><br></pre></td></tr></table></figure></li>
+</ul>
+]]></content>
+      <categories>
+        <category>RHCE</category>
+      </categories>
+      <tags>
+        <tag>redhat7</tag>
+        <tag>mariadb</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>redhat7使用iSCSI部署网络存储</title>
+    <url>//posts/rehat7-iSCSI-network-store.html</url>
+    <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>两台电脑之间传输数据，最简单快速的方式，把硬盘拆下来，用iSCSI接口转接，将硬盘变成移动硬盘。</p>
+<a id="more"></a>
+
+<h2 id="服务端部署iSCSI"><a href="#服务端部署iSCSI" class="headerlink" title="服务端部署iSCSI"></a>服务端部署iSCSI</h2><p>服务端IP地址：192.168.0.106</p>
+<ol>
+<li>服务端新增4块硬盘，创建raid10磁盘阵列<br><img src="https://v2ray.dana5haw.com:8008/images/2020/07/11/image6082175f65c8f591.png" alt="image6082175f65c8f591.png"><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">mdadm -Cv &#x2F;dev&#x2F;md0 -n 4 -l 10 &#x2F;dev&#x2F;sd[b-e] #创建raid10阵列</span><br><span class="line">mdadm -D &#x2F;dev&#x2F;md0 #检查磁盘阵列初始化是否完成</span><br></pre></td></tr></table></figure>
+<img src="https://v2ray.dana5haw.com:8008/images/2020/07/11/image9bf4838232ce93ff.png" alt="image9bf4838232ce93ff.png"></li>
+<li>安装target、tarfetd<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">yum install targetd targetcli</span><br></pre></td></tr></table></figure></li>
+<li>命令行输入targetcli进行iSCSI部署操作<br><img src="https://v2ray.dana5haw.com:8008/images/2020/07/11/imagef8de3494ad4f9a20.png" alt="imagef8de3494ad4f9a20.png"><br><img src="https://v2ray.dana5haw.com:8008/images/2020/07/11/image9af18b96fed76baa.png" alt="image9af18b96fed76baa.png"><br><img src="https://v2ray.dana5haw.com:8008/images/2020/07/11/image7e8d0072172e9af6.png" alt="image7e8d0072172e9af6.png"><br><img src="https://v2ray.dana5haw.com:8008/images/2020/07/11/image51376da58243d471.png" alt="image51376da58243d471.png"><br><img src="https://v2ray.dana5haw.com:8008/images/2020/07/11/imagec172eb34c709922d.png" alt="imagec172eb34c709922d.png"><br><img src="https://v2ray.dana5haw.com:8008/images/2020/07/11/image6688416831e6421c.png" alt="image6688416831e6421c.png"><h2 id="验证iSCSI网络存储服务"><a href="#验证iSCSI网络存储服务" class="headerlink" title="验证iSCSI网络存储服务"></a>验证iSCSI网络存储服务</h2></li>
+<li>linux客户端</li>
+</ol>
+<ul>
+<li>编辑配置文件/etc/iscsi/initiatorname.iscsi<br><img src="https://v2ray.dana5haw.com:8008/images/2020/07/11/image312788230cf5cde5.png" alt="image312788230cf5cde5.png"></li>
+<li>重启服务并加入开机启动项<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">systemctl restart iscsid</span><br><span class="line">systemctl renable iscsid</span><br></pre></td></tr></table></figure></li>
+<li>发现服务端<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">iscsiadm -m discovery -t st -p 192.168.0.106</span><br></pre></td></tr></table></figure>
+<img src="https://v2ray.dana5haw.com:8008/images/2020/07/11/image33a37f20605b4266.png" alt="image33a37f20605b4266.png"></li>
+<li>登录到服务端<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">iscsiadm -m node -T iqn.2003-01.org.linux-iscsi.dana.x8664:sn.b6176097698c -p 192.168.0.106 -l</span><br></pre></td></tr></table></figure></li>
+<li>卸载服务端<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">iscsiadm -m node -T iqn.2003-01.org.linux-iscsi.dana.x8664:sn.b6176097698c -u</span><br></pre></td></tr></table></figure></li>
+</ul>
+<ol start="2">
+<li>windows客户端<br><img src="https://v2ray.dana5haw.com:8008/images/2020/07/11/image5fb28d2aa70f8080.png" alt="image5fb28d2aa70f8080.png"><br><img src="https://v2ray.dana5haw.com:8008/images/2020/07/11/image7914279380dd54e0.png" alt="image7914279380dd54e0.png"><br><img src="https://v2ray.dana5haw.com:8008/images/2020/07/11/imagea1a638ee565a432e.png" alt="imagea1a638ee565a432e.png"><br><img src="https://v2ray.dana5haw.com:8008/images/2020/07/11/image064ff2a8506390fe.png" alt="image064ff2a8506390fe.png"><br><img src="https://v2ray.dana5haw.com:8008/images/2020/07/11/image8cdab3925dc9727c.png" alt="image8cdab3925dc9727c.png"><br><img src="https://v2ray.dana5haw.com:8008/images/2020/07/11/image7ecfcc15bbc53f7d.png" alt="image7ecfcc15bbc53f7d.png"><br><img src="https://v2ray.dana5haw.com:8008/images/2020/07/11/image89a05f5e52f08513.png" alt="image89a05f5e52f08513.png"><br><img src="https://v2ray.dana5haw.com:8008/images/2020/07/11/image850319cd5ac9a91f.png" alt="image850319cd5ac9a91f.png"><br><img src="https://v2ray.dana5haw.com:8008/images/2020/07/11/image456a82072f09410a.png" alt="image456a82072f09410a.png"><br><img src="https://v2ray.dana5haw.com:8008/images/2020/07/11/image7ce4903c5d6965df.png" alt="image7ce4903c5d6965df.png"></li>
+</ol>
+]]></content>
+      <categories>
+        <category>RHCE</category>
+      </categories>
+      <tags>
+        <tag>redhat7</tag>
+        <tag>iSCSI</tag>
+        <tag>网络存储</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>redhat7使用PXE+kickstart无人值守安装系统</title>
+    <url>//posts/redhat7-PXE-kickstart-auto-install-system.html</url>
+    <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>redhat配置PXE+kickstart，自动为同网段服务器安装系统。</p>
+<a id="more"></a>
+
+<h2 id="PXE-kickstart配置"><a href="#PXE-kickstart配置" class="headerlink" title="PXE+kickstart配置"></a>PXE+kickstart配置</h2><p>IP地址：192.168.0.106<br>网卡配置：仅主机模式</p>
+<ol>
+<li>配置DHCP服务</li>
+</ol>
+<ul>
+<li>安装dhcp<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">yum install dhcp</span><br></pre></td></tr></table></figure></li>
+<li>编辑配置文件/etc/dhcp/dhcpd.conf<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">allow booting;</span><br><span class="line">allow bootp;</span><br><span class="line">ddns-update-style none;</span><br><span class="line">ignore client-updates;</span><br><span class="line">subnet 192.168.0.0 netmask 255.255.255.0 &#123;</span><br><span class="line">option subnet-mask 255.255.255.0;</span><br><span class="line">option domain-name-servers 8.8.8.8;</span><br><span class="line">range dynamic-bootp 192.168.0.50 192.168.0.250; #为客户端自动分配IP地址，地址范围192.168.0.50~192.168.0.250</span><br><span class="line">default-lease-time 21600;</span><br><span class="line">max-lease-time 43200;</span><br><span class="line">next-server 192.168.0.106; #网关设置为本机IP</span><br><span class="line">filename &quot;pxelinux.0&quot;;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li>重启dhcpd服务并加入开机启动项<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">systemctl restart dhcpd</span><br><span class="line">systemctl enable dhcpd</span><br></pre></td></tr></table></figure></li>
+</ul>
+<ol start="2">
+<li>配置tftp服务</li>
+</ol>
+<ul>
+<li>安装tfp-server<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">yum install tftp-server</span><br></pre></td></tr></table></figure></li>
+<li>修改配置文件/etc/xinetd.d/tftp<br><img src="https://v2ray.dana5haw.com:8008/images/2020/07/12/image.png" alt="image.png"></li>
+<li>重启xinetd服务并加入开机启动项<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">systemctl restart xinetd</span><br><span class="line">systemctl enable xinetd</span><br></pre></td></tr></table></figure></li>
+</ul>
+<ol start="3">
+<li>配置syslinux</li>
+</ol>
+<ul>
+<li>安装syslinux<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">yum install syslinux</span><br></pre></td></tr></table></figure></li>
+<li>将syslinux的配置文件拷贝到tftp服务的目录<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">cp &#x2F;usr&#x2F;share&#x2F;syslinux&#x2F;pxelinux.0 &#x2F;var&#x2F;lib&#x2F;tftpboot&#x2F;</span><br><span class="line">cp &#x2F;media&#x2F;cdrom&#x2F;isolinux&#x2F;&#123;vesamenu.c32,boot.msg&#125; &#x2F;var&#x2F;lib&#x2F;tftpboot&#x2F;</span><br><span class="line">cp &#x2F;media&#x2F;cdrom&#x2F;images&#x2F;pxeboot&#x2F;&#123;vmlinuz,initrd.img&#125; &#x2F;var&#x2F;lib&#x2F;tftpboot&#x2F;</span><br><span class="line">cd &#x2F;var&#x2F;lib&#x2F;tftpboot</span><br><span class="line">mkdir pxelinux.cfg</span><br><span class="line">cp &#x2F;media&#x2F;cdrom&#x2F;isolinux&#x2F;isolinux.cfg pxelinux.cfg&#x2F;default</span><br></pre></td></tr></table></figure></li>
+<li>修改配置文件/var/lib/tftpboot/pxelinux.cfg/default<br><img src="https://v2ray.dana5haw.com:8008/images/2020/07/12/image24ccca6e728ebbaa.png" alt="image24ccca6e728ebbaa.png"><br><img src="https://v2ray.dana5haw.com:8008/images/2020/07/12/image30676559fd011adf.png" alt="image30676559fd011adf.png"></li>
+</ul>
+<ol start="4">
+<li>配置http服务</li>
+</ol>
+<ul>
+<li>安装httpd<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">yum install httpd</span><br></pre></td></tr></table></figure></li>
+<li>拷贝镜像文件到http根目录<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">cp -rf &#x2F;media&#x2F;cdrom&#x2F;* &#x2F;var&#x2F;www&#x2F;html&#x2F;</span><br></pre></td></tr></table></figure></li>
+<li>重启httpd服务并加入开机启动项<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">systemctl restart httpd</span><br><span class="line">systemctl enable httpd</span><br></pre></td></tr></table></figure></li>
+</ul>
+<ol start="5">
+<li>配置kickstart</li>
+</ol>
+<ul>
+<li>编辑配置文件ks.cfg<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">mkdir &#x2F;var&#x2F;www&#x2F;html&#x2F;pub</span><br><span class="line">cp &#x2F;root&#x2F;anaconda-ks.cfg &#x2F;var&#x2F;www&#x2F;html&#x2F;pub</span><br><span class="line">cd &#x2F;var&#x2F;www&#x2F;html&#x2F;pub</span><br><span class="line">mv anaconda-ks.cfg ks.cfg</span><br><span class="line">chmod 755 ks.cfg</span><br></pre></td></tr></table></figure>
+配置文件修改以下内容：<br><img src="https://v2ray.dana5haw.com:8008/images/2020/07/12/image82ca57f4a89f4b62.png" alt="image82ca57f4a89f4b62.png"></li>
+<li>重启httpd服务<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">systemctl restart httpd</span><br></pre></td></tr></table></figure></li>
+</ul>
+<ol start="6">
+<li>清除防火墙规则<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">iptables -F</span><br><span class="line">service iptables save</span><br></pre></td></tr></table></figure>
+<h2 id="客户端验证无人值守安装"><a href="#客户端验证无人值守安装" class="headerlink" title="客户端验证无人值守安装"></a>客户端验证无人值守安装</h2>客户端设置：网卡模式为仅主机模式。设置完成后，即可进入自动安装系统，无需手动操作。<br><img src="https://v2ray.dana5haw.com:8008/images/2020/07/12/imagec9670f281bf93bd6.png" alt="imagec9670f281bf93bd6.png"><br><img src="https://v2ray.dana5haw.com:8008/images/2020/07/12/image1d0956854cc334e2.png" alt="image1d0956854cc334e2.png"><br>客户端分得的IP地址在DHCP地址池范围内：<br><img src="https://v2ray.dana5haw.com:8008/images/2020/07/12/imageed657cda8f51f620.png" alt="imageed657cda8f51f620.png"></li>
+</ol>
+]]></content>
+      <categories>
+        <category>RHCE</category>
+      </categories>
+      <tags>
+        <tag>redhat7</tag>
+        <tag>PXE</tag>
+        <tag>kickstart</tag>
+        <tag>无人值守安装系统</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>categories</title>
     <url>/categories/index.html</url>
     <content><![CDATA[]]></content>

@@ -1,6 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>https://dana5haw.com//posts/redhat7-mariadb-usage.html</loc>
+    <lastmod>2020-07-12</lastmod>
+  </url>  <url>
+    <loc>https://dana5haw.com//posts/redhat7-PXE-kickstart-auto-install-system.html</loc>
+    <lastmod>2020-07-12</lastmod>
+  </url>  <url>
+    <loc>https://dana5haw.com//posts/rehat7-iSCSI-network-store.html</loc>
+    <lastmod>2020-07-11</lastmod>
+  </url>  <url>
     <loc>https://dana5haw.com//posts/redhat7-build-squid-server.html</loc>
     <lastmod>2020-07-11</lastmod>
   </url>  <url>
