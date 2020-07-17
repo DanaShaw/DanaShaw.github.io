@@ -1,0 +1,787 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 4.2.1">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/orange.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/orange.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+  <meta name="google-site-verification" content="HMAT9TapFXG6PRtARF9Qc_fDKANMj-rP3F5FjHjr7kI">
+
+<link rel="stylesheet" href="/css/main.css">
+
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Noto Serif SC:300,300italic,400,400italic,700,700italic|EB Garamond:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.css">
+
+
+<script id="hexo-configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    hostname: new URL('https://dana5haw.com').hostname,
+    root: '/',
+    scheme: 'Gemini',
+    version: '7.7.0',
+    exturl: false,
+    sidebar: {"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},
+    copycode: {"enable":true,"show_result":true,"style":"mac"},
+    back2top: {"enable":true,"sidebar":false,"scrollpercent":true},
+    bookmark: {"enable":true,"color":"#222","save":"auto"},
+    fancybox: true,
+    mediumzoom: false,
+    lazyload: false,
+    pangu: false,
+    comments: {"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},
+    algolia: {
+      appID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    },
+    localsearch: {"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
+    path: './public/search.xml',
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}
+  };
+</script>
+
+
+  <meta name="description" content="前言练习RHCSA题目。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="RHCSA练习">
+<meta property="og:url" content="https://dana5haw.com/posts/RHCSA-practice.html">
+<meta property="og:site_name" content="Dana Shaw&#39;s blog">
+<meta property="og:description" content="前言练习RHCSA题目。">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://v2ray.dana5haw.com:8008/images/2020/07/17/image.png">
+<meta property="og:image" content="https://v2ray.dana5haw.com:8008/images/2020/07/17/image9cebc510014f6486.png">
+<meta property="og:image" content="https://v2ray.dana5haw.com:8008/images/2020/07/17/image84e01cc66367709d.png">
+<meta property="og:image" content="https://v2ray.dana5haw.com:8008/images/2020/07/17/imageae2ef2e0312bef29.png">
+<meta property="og:image" content="https://v2ray.dana5haw.com:8008/images/2020/07/17/imagec2f0a3522027e869.png">
+<meta property="og:image" content="https://v2ray.dana5haw.com:8008/images/2020/07/17/imagedf280f9948188cdc.png">
+<meta property="og:image" content="https://v2ray.dana5haw.com:8008/images/2020/07/17/imagee1f38818b51e09c6.png">
+<meta property="og:image" content="https://v2ray.dana5haw.com:8008/images/2020/07/17/image9adc2e441f5389f9.png">
+<meta property="og:image" content="https://v2ray.dana5haw.com:8008/images/2020/07/17/image6a66760da30e2981.png">
+<meta property="og:image" content="https://v2ray.dana5haw.com:8008/images/2020/07/17/image9f017c72d2afeb2e.png">
+<meta property="og:image" content="https://v2ray.dana5haw.com:8008/images/2020/07/17/image3cc73e52d77c097d.png">
+<meta property="og:image" content="https://v2ray.dana5haw.com:8008/images/2020/07/17/image3fec89fc09b82a7b.png">
+<meta property="og:image" content="https://v2ray.dana5haw.com:8008/images/2020/07/17/image350a6c0804039dfb.png">
+<meta property="og:image" content="https://v2ray.dana5haw.com:8008/images/2020/07/17/image4929cc5c7eb3e5bf.png">
+<meta property="og:image" content="https://v2ray.dana5haw.com:8008/images/2020/07/17/imagea89f653aa9c27150.png">
+<meta property="og:image" content="https://v2ray.dana5haw.com:8008/images/2020/07/17/image2c31dded0e264c27.png">
+<meta property="og:image" content="https://v2ray.dana5haw.com:8008/images/2020/07/17/image19f7b76c2b7cc2d0.png">
+<meta property="og:image" content="https://v2ray.dana5haw.com:8008/images/2020/07/17/image066f9a5d45880297.png">
+<meta property="og:image" content="https://v2ray.dana5haw.com:8008/images/2020/07/17/image7231a44fe49f0d6e.png">
+<meta property="og:image" content="https://v2ray.dana5haw.com:8008/images/2020/07/17/imageb2f337f345b3b924.png">
+<meta property="og:image" content="https://v2ray.dana5haw.com:8008/images/2020/07/17/image047774d561eacf8a.png">
+<meta property="og:image" content="https://v2ray.dana5haw.com:8008/images/2020/07/17/imagee60791cb1bc128df.png">
+<meta property="og:image" content="https://v2ray.dana5haw.com:8008/images/2020/07/17/image6398915c46308c09.png">
+<meta property="og:image" content="https://v2ray.dana5haw.com:8008/images/2020/07/17/image8bcab1c017b294f7.png">
+<meta property="og:image" content="https://v2ray.dana5haw.com:8008/images/2020/07/17/image2f96d0cb1daa2b45.png">
+<meta property="og:image" content="https://v2ray.dana5haw.com:8008/images/2020/07/17/image1725a8cab707a9ff.png">
+<meta property="og:image" content="https://v2ray.dana5haw.com:8008/images/2020/07/17/image83909d7438a7450d.png">
+<meta property="og:image" content="https://v2ray.dana5haw.com:8008/images/2020/07/17/image6b93118afb4ad556.png">
+<meta property="og:image" content="https://v2ray.dana5haw.com:8008/images/2020/07/17/imagefa8438a74df6bfd0.png">
+<meta property="og:image" content="https://v2ray.dana5haw.com:8008/images/2020/07/17/image6e6685c090bcafc0.png">
+<meta property="og:image" content="https://v2ray.dana5haw.com:8008/images/2020/07/17/image7efc95cf539dcd13.png">
+<meta property="og:image" content="https://v2ray.dana5haw.com:8008/images/2020/07/17/image4fd41ecb803e478b.png">
+<meta property="og:image" content="https://v2ray.dana5haw.com:8008/images/2020/07/17/image8d7e1fcef77fc298.png">
+<meta property="og:image" content="https://v2ray.dana5haw.com:8008/images/2020/07/17/image0463563e4587cf22.png">
+<meta property="article:published_time" content="2020-07-17T13:00:07.000Z">
+<meta property="article:modified_time" content="2020-07-17T15:06:51.037Z">
+<meta property="article:author" content="Dana Shaw">
+<meta property="article:tag" content="RHCSA练习">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://v2ray.dana5haw.com:8008/images/2020/07/17/image.png">
+
+<link rel="canonical" href="https://dana5haw.com/posts/RHCSA-practice.html">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome: false,
+    isPost: true
+  };
+</script>
+
+  <title>RHCSA练习 | Dana Shaw's blog</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+<link rel="alternate" href="/atom.xml" title="Dana Shaw's blog" type="application/atom+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-meta">
+
+    <div>
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Dana Shaw's blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+        <p class="site-subtitle">为了去往别处</p>
+  </div>
+
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+</div>
+
+
+<nav class="site-nav">
+  
+  <ul id="menu" class="menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-fw fa-user"></i>关于</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档</a>
+
+  </li>
+        <li class="menu-item menu-item-sitemap">
+
+    <a href="/sitemap.xml" rel="section"><i class="fa fa-fw fa-sitemap"></i>站点地图</a>
+
+  </li>
+        <li class="menu-item menu-item-commonweal">
+
+    <a href="/404/" rel="section"><i class="fa fa-fw fa-heartbeat"></i>公益 404</a>
+
+  </li>
+        <li class="menu-item menu-item-readnotes">
+
+    <a href="/categories/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/" rel="section"><i class="fa fa-fw fa-book"></i>读书笔记</a>
+
+  </li>
+        <li class="menu-item menu-item-movienotes">
+
+    <a href="/categories/%E8%A7%82%E5%BD%B1%E7%AC%94%E8%AE%B0/" rel="section"><i class="fa fa-fw fa-youtube"></i>观影笔记</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+
+</nav>
+  <div class="site-search">
+    <div class="popup search-popup">
+    <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocorrect="off" autocapitalize="none"
+           placeholder="搜索..." spellcheck="false"
+           type="text" id="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result"></div>
+
+</div>
+<div class="search-pop-overlay"></div>
+
+  </div>
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <a role="button" class="book-mark-link book-mark-link-fixed"></a>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content">
+            
+
+  <div class="posts-expand">
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://dana5haw.com/posts/RHCSA-practice.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/./images/photo.jpg">
+      <meta itemprop="name" content="Dana Shaw">
+      <meta itemprop="description" content="连尘埃也想收藏">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Dana Shaw's blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          RHCSA练习
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2020-07-17 21:00:07 / 修改时间：23:06:51" itemprop="dateCreated datePublished" datetime="2020-07-17T21:00:07+08:00">2020-07-17</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/RHCE/" itemprop="url" rel="index">
+                    <span itemprop="name">RHCE</span>
+                  </a>
+                </span>
+            </span>
+
+          
+            <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span><br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>3.3k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-clock-o"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>3 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>练习RHCSA题目。</p>
+<a id="more"></a>
+
+<h2 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">虚拟机的网络配置应该如下：</span><br><span class="line">主机名： station.domain1.example.com</span><br><span class="line">IP地址： 172.24.1.5</span><br><span class="line">子网掩码： 255.255.255.0</span><br><span class="line">网关 172.24.1.254</span><br><span class="line">名称服务： 172.24.1.250</span><br><span class="line">虚拟机的 root 密码是 flectrag</span><br></pre></td></tr></table></figure>
+
+<h2 id="破解root密码"><a href="#破解root密码" class="headerlink" title="破解root密码"></a>破解root密码</h2><ol>
+<li>重启虚拟机，按e进入编辑模式，在linux16这行末尾加上<code>rd.break</code>，按ctrl+x启动。<br><img src="https://v2ray.dana5haw.com:8008/images/2020/07/17/image.png" alt="image.png"></li>
+<li>执行以下命令，重置root密码，重启虚拟机。<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">mount -o remount,rw &#x2F;sysroot</span><br><span class="line">chroot &#x2F;sysroot</span><br><span class="line">echo &quot;flectrag&quot; | passwd --stdin root</span><br><span class="line">touch &#x2F;.autorelabel</span><br><span class="line">exit</span><br><span class="line">reboot</span><br></pre></td></tr></table></figure>
+<img src="https://v2ray.dana5haw.com:8008/images/2020/07/17/image9cebc510014f6486.png" alt="image9cebc510014f6486.png"></li>
+<li>以重置的密码登录到root用户</li>
+</ol>
+<h2 id="配置网卡"><a href="#配置网卡" class="headerlink" title="配置网卡"></a>配置网卡</h2><p>使用nm-connetion-editor配置网卡信息，重启网卡<br><img src="https://v2ray.dana5haw.com:8008/images/2020/07/17/image84e01cc66367709d.png" alt="image84e01cc66367709d.png"><br><img src="https://v2ray.dana5haw.com:8008/images/2020/07/17/imageae2ef2e0312bef29.png" alt="imageae2ef2e0312bef29.png"></p>
+<h2 id="配置SELINUX"><a href="#配置SELINUX" class="headerlink" title="配置SELINUX"></a>配置SELINUX</h2><p>默认配置是enforcing，检查一下配置文件（/etc/selinux/config）的配置就行。<br><img src="https://v2ray.dana5haw.com:8008/images/2020/07/17/imagec2f0a3522027e869.png" alt="imagec2f0a3522027e869.png"></p>
+<h2 id="配置yum仓库"><a href="#配置yum仓库" class="headerlink" title="配置yum仓库"></a>配置yum仓库</h2><ol>
+<li>编辑yum配置文件<code>/etc/yum.repos.d/rhcsa.repo</code><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">[rhcsa]</span><br><span class="line">name&#x3D;rhcsa</span><br><span class="line">baseurl&#x3D;http:&#x2F;&#x2F;rhgls.domain1.example.com&#x2F;rhel</span><br><span class="line">enabled&#x3D;1</span><br><span class="line">gpgcheck&#x3D;0</span><br></pre></td></tr></table></figure></li>
+<li>yum clean all</li>
+<li>yum makecache</li>
+</ol>
+<h2 id="调整逻辑卷大小"><a href="#调整逻辑卷大小" class="headerlink" title="调整逻辑卷大小"></a>调整逻辑卷大小</h2><ol>
+<li>添加一块20G硬盘<br><img src="https://v2ray.dana5haw.com:8008/images/2020/07/17/imagedf280f9948188cdc.png" alt="imagedf280f9948188cdc.png"></li>
+<li>创建一个逻辑卷，大小为200M<br><img src="https://v2ray.dana5haw.com:8008/images/2020/07/17/imagee1f38818b51e09c6.png" alt="imagee1f38818b51e09c6.png"></li>
+<li>将逻辑卷扩容至300M</li>
+</ol>
+<ul>
+<li>逻辑卷挂载到/finance目录<br><img src="https://v2ray.dana5haw.com:8008/images/2020/07/17/image9adc2e441f5389f9.png" alt="image9adc2e441f5389f9.png"><br><img src="https://v2ray.dana5haw.com:8008/images/2020/07/17/image6a66760da30e2981.png" alt="image6a66760da30e2981.png"></li>
+<li>扩容<br><img src="https://v2ray.dana5haw.com:8008/images/2020/07/17/image9f017c72d2afeb2e.png" alt="image9f017c72d2afeb2e.png"></li>
+</ul>
+<h2 id="创建用户账户"><a href="#创建用户账户" class="headerlink" title="创建用户账户"></a>创建用户账户</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">一个名为 adminuser 的组</span><br><span class="line">一个名为 natasha 的用户，其属于 adminuser ，这个组是该用户的从属组</span><br><span class="line">一个名为 harry 的用户，属于 adminuser ，这个组是该用户的从属组</span><br><span class="line">一个名为 sarah 的用户，其在系统中没有可交互的 shell，并且该用户不是 adminuser 组的成员</span><br><span class="line">用户 natasha ， harry ，和 sarah 的密码都要设置为 flectrag</span><br></pre></td></tr></table></figure>
+<p><img src="https://v2ray.dana5haw.com:8008/images/2020/07/17/image3cc73e52d77c097d.png" alt="image3cc73e52d77c097d.png"></p>
+<h2 id="配置文件-var-tmp-fstab的权限"><a href="#配置文件-var-tmp-fstab的权限" class="headerlink" title="配置文件/var/tmp/fstab的权限"></a>配置文件/var/tmp/fstab的权限</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">拷贝文件 &#x2F;etc&#x2F;fstab 到 &#x2F;var&#x2F;tmp&#x2F;fstab。 配置文件 &#x2F;var&#x2F;tmp&#x2F;fstab 的权限：</span><br><span class="line">文件 &#x2F;var&#x2F;tmp&#x2F;fstab 的拥有者是 root 用户</span><br><span class="line">文件 &#x2F;var&#x2F;tmp&#x2F;fstab 属于 root 组</span><br><span class="line">文件 &#x2F;var&#x2F;tmp&#x2F;fstab 对任何人都不可执行</span><br><span class="line">用户 natasha 能够对文件 &#x2F;var&#x2F;tmp&#x2F;fstab 具有读和写的权限</span><br><span class="line">用户 harry 对文件 &#x2F;var&#x2F;tmp&#x2F;fstab 既不能读，也不能写</span><br><span class="line">所有其他用户（当前的和将来的）能够对文件 &#x2F;var&#x2F;tmp&#x2F;fstab 进行读操作</span><br></pre></td></tr></table></figure>
+<p><img src="https://v2ray.dana5haw.com:8008/images/2020/07/17/image3fec89fc09b82a7b.png" alt="image3fec89fc09b82a7b.png"></p>
+<h2 id="配置一个cron任务"><a href="#配置一个cron任务" class="headerlink" title="配置一个cron任务"></a>配置一个cron任务</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">用户 natasha 必须配置一个定时执行任务，每天在本地时间 14:23 时执行命令。</span><br><span class="line">&#x2F;bin&#x2F;echo hiya</span><br></pre></td></tr></table></figure>
+<p><img src="https://v2ray.dana5haw.com:8008/images/2020/07/17/image350a6c0804039dfb.png" alt="image350a6c0804039dfb.png"></p>
+<h2 id="创建一个共享目录"><a href="#创建一个共享目录" class="headerlink" title="创建一个共享目录"></a>创建一个共享目录</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">创建一个共享目录 &#x2F;home&#x2F;admins ，特性如下：</span><br><span class="line">&#x2F;home&#x2F;admins 目录的组所有权是 adminuser</span><br><span class="line">adminuser 组的成员对目录有读写和执行的权限。除此之外的其他所有用户没有任何权限（root 用户能够访问系统中的所有文件和目录）</span><br><span class="line">在 &#x2F;home&#x2F;admins 目录中创建的文件，其组所有权会自动设置为属于 adminuser 组</span><br></pre></td></tr></table></figure>
+<h2 id=""><a href="#" class="headerlink" title=""></a><img src="https://v2ray.dana5haw.com:8008/images/2020/07/17/image4929cc5c7eb3e5bf.png" alt="image4929cc5c7eb3e5bf.png"></h2><p>sgid：该目录创建的文件自动属于目录的所有组</p>
+<h2 id="安装内核的升级"><a href="#安装内核的升级" class="headerlink" title="安装内核的升级"></a>安装内核的升级</h2><ol>
+<li>编辑yum配置文件/etc/yum.repos.d/update.repo<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">[update]</span><br><span class="line">name&#x3D;update</span><br><span class="line">baseurl&#x3D;http:&#x2F;&#x2F;rhgls.domain1.example.com&#x2F;updates</span><br><span class="line">enabled&#x3D;1</span><br><span class="line">gpgcheck&#x3D;0</span><br></pre></td></tr></table></figure></li>
+<li>yum clean all</li>
+<li>yum makecache</li>
+<li>yum update kernel</li>
+</ol>
+<h2 id="绑定到外部验证服务"><a href="#绑定到外部验证服务" class="headerlink" title="绑定到外部验证服务"></a>绑定到外部验证服务</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">系统 host.domain1.example.com 提供了一个 LDAP 验证服务。您的系统需要按照以下要求绑定到这个服务上：</span><br><span class="line">验证服务器的基本 DN 是： dc&#x3D;domain1,dc&#x3D;example,dc&#x3D;com.</span><br><span class="line">帐户信息和验证信息都是由 LDAP 提供的。</span><br><span class="line">连接需要使用证书进行加密，证书可以在下面的链接中下载： ftp:&#x2F;&#x2F;host.domain1.example.com&#x2F;pub&#x2F;domain1.crt</span><br><span class="line">当正确完成配置后，用户 ldapuser1 应该能够登录到您的系统中，但是没有主目录。当您完成 autofs 的题目之后，才能生成主目录。</span><br></pre></td></tr></table></figure>
+<ol>
+<li>安装LDAP相关软件<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum install openldap openldap-clients sssd authconfig-gtk</span><br></pre></td></tr></table></figure></li>
+<li>使用工具authconfig-gtk进入配置界面<br><img src="https://v2ray.dana5haw.com:8008/images/2020/07/17/imagea89f653aa9c27150.png" alt="imagea89f653aa9c27150.png"></li>
+<li>验证：<code>id ldapuser1</code>如果能看到该用户，说明LDAP服务已挂载成功</li>
+</ol>
+<h2 id="配置NTP服务"><a href="#配置NTP服务" class="headerlink" title="配置NTP服务"></a>配置NTP服务</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">让其作为一个 rhgls.domain1.example.com 的 NTP 客户端</span><br></pre></td></tr></table></figure>
+<ol>
+<li>编辑配置文件/etc/chrony.conf<br><img src="https://v2ray.dana5haw.com:8008/images/2020/07/17/image2c31dded0e264c27.png" alt="image2c31dded0e264c27.png"></li>
+<li>重启chronyd并加入开机启动项<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">systemctl restart chronyd</span><br><span class="line">systemctl enable chronyd</span><br></pre></td></tr></table></figure>
+
+</li>
+</ol>
+<h2 id="配置autofs"><a href="#配置autofs" class="headerlink" title="配置autofs"></a>配置autofs</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">让用户可自动挂载由主机 host.domain1.example.com 提供的家目录： &#x2F;home&#x2F;guests&#x2F;ldapuser1。</span><br><span class="line">解题方法：（最新考题nfs版本是3,具体的挂载目录看考题）</span><br></pre></td></tr></table></figure>
+<ol>
+<li>安装autofs<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum install autofs</span><br></pre></td></tr></table></figure></li>
+<li>配置autofs<br><img src="https://v2ray.dana5haw.com:8008/images/2020/07/17/image19f7b76c2b7cc2d0.png" alt="image19f7b76c2b7cc2d0.png"></li>
+</ol>
+<ul>
+<li>主配置文件/etc/auto.master<br><img src="https://v2ray.dana5haw.com:8008/images/2020/07/17/image066f9a5d45880297.png" alt="image066f9a5d45880297.png"></li>
+<li>编辑配置文件/etc/auto.guests<br><img src="https://v2ray.dana5haw.com:8008/images/2020/07/17/image7231a44fe49f0d6e.png" alt="image7231a44fe49f0d6e.png"></li>
+</ul>
+<ol start="3">
+<li>重启autofs并加入开机启动项<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">systemctl restart autofs</span><br><span class="line">systemctl enable autofs</span><br></pre></td></tr></table></figure></li>
+<li>验证：<code>su - ldapuser1</code>可以直接登录，不提示“没有用户家目录”，就说明autofs成功。</li>
+</ol>
+<h2 id="配置一个用户账户"><a href="#配置一个用户账户" class="headerlink" title="配置一个用户账户"></a>配置一个用户账户</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">创建一个UID为2000的用户，用户名称是jack。</span><br></pre></td></tr></table></figure>
+<p><img src="https://v2ray.dana5haw.com:8008/images/2020/07/17/imageb2f337f345b3b924.png" alt="imageb2f337f345b3b924.png"></p>
+<h2 id="添加一个swap分区"><a href="#添加一个swap分区" class="headerlink" title="添加一个swap分区"></a>添加一个swap分区</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">创建一个512M的SWAP分区，开机需要自动挂载</span><br></pre></td></tr></table></figure>
+<ol>
+<li>添加一块20G的硬盘<br><img src="https://v2ray.dana5haw.com:8008/images/2020/07/17/image047774d561eacf8a.png" alt="image047774d561eacf8a.png"></li>
+<li>创建512M的逻辑分区<br><img src="https://v2ray.dana5haw.com:8008/images/2020/07/17/imagee60791cb1bc128df.png" alt="imagee60791cb1bc128df.png"><br><img src="https://v2ray.dana5haw.com:8008/images/2020/07/17/image6398915c46308c09.png" alt="image6398915c46308c09.png"></li>
+<li>创建swap分区<br><img src="https://v2ray.dana5haw.com:8008/images/2020/07/17/image8bcab1c017b294f7.png" alt="image8bcab1c017b294f7.png"><br><img src="https://v2ray.dana5haw.com:8008/images/2020/07/17/image2f96d0cb1daa2b45.png" alt="image2f96d0cb1daa2b45.png"></li>
+</ol>
+<h2 id="查找文件"><a href="#查找文件" class="headerlink" title="查找文件"></a>查找文件</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">查找所有属于ronny用户的文件，并复制到&#x2F;findfiles目录中。</span><br></pre></td></tr></table></figure>
+<ol>
+<li>创建ronny用户，准备一些文件<br><img src="https://v2ray.dana5haw.com:8008/images/2020/07/17/image1725a8cab707a9ff.png" alt="image1725a8cab707a9ff.png"></li>
+<li>创建/findfiles目录<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mkdir &#x2F;findfiles</span><br></pre></td></tr></table></figure></li>
+<li>find命令查找ronny用户的文件，并复制到/findfiles目录<br><img src="https://v2ray.dana5haw.com:8008/images/2020/07/17/image83909d7438a7450d.png" alt="image83909d7438a7450d.png"></li>
+</ol>
+<h2 id="查找一个字符串"><a href="#查找一个字符串" class="headerlink" title="查找一个字符串"></a>查找一个字符串</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">查看&#x2F;usr&#x2F;share&#x2F;dict&#x2F;words文件中所有包含seismic关键词的行，并将找到的行写入到&#x2F;root&#x2F;filelist文件中。</span><br></pre></td></tr></table></figure>
+<p>自己随便举了一个例子，方法就是这样：<br><img src="https://v2ray.dana5haw.com:8008/images/2020/07/17/image6b93118afb4ad556.png" alt="image6b93118afb4ad556.png"></p>
+<h2 id="创建一个归档"><a href="#创建一个归档" class="headerlink" title="创建一个归档"></a>创建一个归档</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">将&#x2F;etc目录打包成压缩包后放置在&#x2F;root&#x2F;backup.tar.bz2.</span><br></pre></td></tr></table></figure>
+<p><img src="https://v2ray.dana5haw.com:8008/images/2020/07/17/imagefa8438a74df6bfd0.png" alt="imagefa8438a74df6bfd0.png"></p>
+<h2 id="创建一个逻辑卷"><a href="#创建一个逻辑卷" class="headerlink" title="创建一个逻辑卷"></a>创建一个逻辑卷</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">创建指定大小的逻辑卷，需要自己创建分区、物理卷、逻辑卷组和逻辑卷。</span><br><span class="line">创建一个名称为database的逻辑卷，卷组名称为datastore。</span><br><span class="line">逻辑卷大小为160M，PE大小为16M。</span><br><span class="line">要求开机后自动挂载到&#x2F;mnt&#x2F;database目录中。</span><br></pre></td></tr></table></figure>
+<p>创建逻辑卷，并设置开机自动挂载<br><img src="https://v2ray.dana5haw.com:8008/images/2020/07/17/image6e6685c090bcafc0.png" alt="image6e6685c090bcafc0.png"><br><img src="https://v2ray.dana5haw.com:8008/images/2020/07/17/image7efc95cf539dcd13.png" alt="image7efc95cf539dcd13.png"><br><img src="https://v2ray.dana5haw.com:8008/images/2020/07/17/image4fd41ecb803e478b.png" alt="image4fd41ecb803e478b.png"><br><img src="https://v2ray.dana5haw.com:8008/images/2020/07/17/image8d7e1fcef77fc298.png" alt="image8d7e1fcef77fc298.png"><br><img src="https://v2ray.dana5haw.com:8008/images/2020/07/17/image0463563e4587cf22.png" alt="image0463563e4587cf22.png"></p>
+<h2 id="最后，重启机器，检查题目"><a href="#最后，重启机器，检查题目" class="headerlink" title="最后，重启机器，检查题目"></a>最后，重启机器，检查题目</h2>
+    </div>
+
+    
+    
+    
+        
+
+<div>
+<ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者： </strong>Dana Shaw
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="https://dana5haw.com/posts/RHCSA-practice.html" title="RHCSA练习">https://dana5haw.com/posts/RHCSA-practice.html</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" rel="noopener" target="_blank"><i class="fa fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+
+      <div>   
+         
+        <div>     
+             
+    <div style="text-align:center;color: #ccc;font-size:14px;">
+        -------------本文结束<i class="fa fa-paw"></i>感谢您的阅读-------------
+    </div>     
+     
+</div>   
+     
+      </div>
+
+      <footer class="post-footer">
+          
+          <div class="post-tags">
+              <a href="/tags/RHCSA%E7%BB%83%E4%B9%A0/" rel="tag"><i class="fa fa-tag"></i> RHCSA练习</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/posts/redhat7-mariadb-usage.html" rel="prev" title="redhat7中mariadb的简单使用">
+      <i class="fa fa-chevron-left"></i> redhat7中mariadb的简单使用
+    </a></div>
+      <div class="post-nav-item"></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+  </div>
+
+
+          </div>
+          
+    <div class="comments" id="gitalk-container"></div>
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let activeClass = CONFIG.comments.activeClass;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#介绍"><span class="nav-number">2.</span> <span class="nav-text">介绍</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#破解root密码"><span class="nav-number">3.</span> <span class="nav-text">破解root密码</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#配置网卡"><span class="nav-number">4.</span> <span class="nav-text">配置网卡</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#配置SELINUX"><span class="nav-number">5.</span> <span class="nav-text">配置SELINUX</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#配置yum仓库"><span class="nav-number">6.</span> <span class="nav-text">配置yum仓库</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#调整逻辑卷大小"><span class="nav-number">7.</span> <span class="nav-text">调整逻辑卷大小</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#创建用户账户"><span class="nav-number">8.</span> <span class="nav-text">创建用户账户</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#配置文件-var-tmp-fstab的权限"><span class="nav-number">9.</span> <span class="nav-text">配置文件&#x2F;var&#x2F;tmp&#x2F;fstab的权限</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#配置一个cron任务"><span class="nav-number">10.</span> <span class="nav-text">配置一个cron任务</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#创建一个共享目录"><span class="nav-number">11.</span> <span class="nav-text">创建一个共享目录</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#"><span class="nav-number">12.</span> <span class="nav-text"></span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#安装内核的升级"><span class="nav-number">13.</span> <span class="nav-text">安装内核的升级</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#绑定到外部验证服务"><span class="nav-number">14.</span> <span class="nav-text">绑定到外部验证服务</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#配置NTP服务"><span class="nav-number">15.</span> <span class="nav-text">配置NTP服务</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#配置autofs"><span class="nav-number">16.</span> <span class="nav-text">配置autofs</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#配置一个用户账户"><span class="nav-number">17.</span> <span class="nav-text">配置一个用户账户</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#添加一个swap分区"><span class="nav-number">18.</span> <span class="nav-text">添加一个swap分区</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#查找文件"><span class="nav-number">19.</span> <span class="nav-text">查找文件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#查找一个字符串"><span class="nav-number">20.</span> <span class="nav-text">查找一个字符串</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#创建一个归档"><span class="nav-number">21.</span> <span class="nav-text">创建一个归档</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#创建一个逻辑卷"><span class="nav-number">22.</span> <span class="nav-text">创建一个逻辑卷</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#最后，重启机器，检查题目"><span class="nav-number">23.</span> <span class="nav-text">最后，重启机器，检查题目</span></a></li></ol></div>
+      </div>
+        <div id="">
+	  <canvas id="canvas" style="width:60%;">
+	    </div>
+	      <script type="text/javascript" src="/js/canvas-dance-time.js"></script>
+      <!--/noindex-->
+
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Dana Shaw"
+      src="/./images/photo.jpg">
+  <p class="site-author-name" itemprop="name">Dana Shaw</p>
+  <div class="site-description" itemprop="description">连尘埃也想收藏</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">228</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">76</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">377</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/DanaShaw" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;DanaShaw" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:danaxkj@gmail.com" title="E-Mail → mailto:danaxkj@gmail.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://weibo.com/u/5742631593" title="Weibo → https:&#x2F;&#x2F;weibo.com&#x2F;u&#x2F;5742631593" rel="noopener" target="_blank"><i class="fa fa-fw fa-weibo"></i>Weibo</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="/atom.xml" title="RSS → &#x2F;atom.xml"><i class="fa fa-fw fa-rss"></i>RSS</a>
+      </span>
+  </div>
+
+
+  <div class="links-of-blogroll motion-element">
+    <div class="links-of-blogroll-title">
+      <i class="fa fa-fw fa-link"></i>
+      友情链接
+    </div>
+    <ul class="links-of-blogroll-list">
+        <li class="links-of-blogroll-item">
+          <a href="https://whale3070.github.io/" title="https:&#x2F;&#x2F;whale3070.github.io&#x2F;" rel="noopener" target="_blank">windows提权学习</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://www.ghtwf01.cn/" title="https:&#x2F;&#x2F;www.ghtwf01.cn&#x2F;" rel="noopener" target="_blank">渗透实战学习</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="http://shuaiguoer.com/" title="http:&#x2F;&#x2F;shuaiguoer.com&#x2F;" rel="noopener" target="_blank">shell学习</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://xxs2.cn/" title="https:&#x2F;&#x2F;xxs2.cn&#x2F;" rel="noopener" target="_blank">安全工具学习</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://www.liaoxuefeng.com/" title="https:&#x2F;&#x2F;www.liaoxuefeng.com&#x2F;" rel="noopener" target="_blank">编程入门学习</a>
+        </li>
+    </ul>
+  </div>
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+<span id="timeDate">载入天数...</span>
+<span id="times">载入时分秒...</span>
+<script>
+    var now = new Date();
+        function createtime() {
+	        var grt= new Date("01/07/2020 21:49:45");//此处修改你的建站时间或者网站上线时间
+		        now.setTime(now.getTime()+250);
+			        days = (now - grt ) / 1000 / 60 / 60 / 24; dnum = Math.floor(days);
+				        hours = (now - grt ) / 1000 / 60 / 60 - (24 * dnum); hnum = Math.floor(hours);
+					        if(String(hnum).length ==1 ){hnum = "0" + hnum;} minutes = (now - grt ) / 1000 /60 - (24 * 60 * dnum) - (60 * hnum);
+						        mnum = Math.floor(minutes); if(String(mnum).length ==1 ){mnum = "0" + mnum;}
+							        seconds = (now - grt ) / 1000 - (24 * 60 * 60 * dnum) - (60 * 60 * hnum) - (60 * mnum);
+								        snum = Math.round(seconds); if(String(snum).length ==1 ){snum = "0" + snum;}
+									        document.getElementById("timeDate").innerHTML = "本站已安全运行 "+dnum+" 天 ";
+										        document.getElementById("times").innerHTML = hnum + " 小时 " + mnum + " 分 " + snum + " 秒";
+											    }
+											    setInterval("createtime()",250);
+											    </script>
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Dana Shaw</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    <span title="站点总字数">501k</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="站点阅读时长">7:36</span>
+</div>
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  
+  <script color='0,0,255' opacity='0.5' zIndex='-1' count='99' src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  <script src="/lib/anime.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js"></script>
+  <script src="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+<script src="/js/bookmark.js"></script>
+
+
+
+
+  
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.css">
+
+<script>
+NexT.utils.loadComments(document.querySelector('#gitalk-container'), () => {
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js', () => {
+    var gitalk = new Gitalk({
+      clientID: '2dc357f83ef2282cb7cb',
+      clientSecret: '64ad793540c649b1f67bcbd2fc4c648b631176c5',
+      repo: 'DanaShaw.github.io',
+      owner: 'DanaShaw',
+      admin: ['DanaShaw'],
+      id: '258daa66896c57d46a324a9e8c43daaa',
+        language: 'zh-CN',
+      distractionFreeMode: true
+    });
+    gitalk.render('gitalk-container');
+  }, window.Gitalk);
+});
+</script>
+
+  
+  <script type="text/javascript" src="//cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js"></script>
+  
+  
+   <canvas class="fireworks" style="position: fixed;left: 0;top: 0;z-index: 1; pointer-events: none;" ></canvas> 
+   <script type="text/javascript" src="//cdn.bootcss.com/animejs/2.2.0/anime.min.js"></script> 
+   <script type="text/javascript" src="/js/fireworks.js"></script>
+
+</body>
+</html>

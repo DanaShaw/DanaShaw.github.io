@@ -9517,6 +9517,104 @@ I heard the echo, <span class="label default">from the valleys and the heart</sp
       </tags>
   </entry>
   <entry>
+    <title>RHCSA练习</title>
+    <url>//posts/RHCSA-practice.html</url>
+    <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>练习RHCSA题目。</p>
+<a id="more"></a>
+
+<h2 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">虚拟机的网络配置应该如下：</span><br><span class="line">主机名： station.domain1.example.com</span><br><span class="line">IP地址： 172.24.1.5</span><br><span class="line">子网掩码： 255.255.255.0</span><br><span class="line">网关 172.24.1.254</span><br><span class="line">名称服务： 172.24.1.250</span><br><span class="line">虚拟机的 root 密码是 flectrag</span><br></pre></td></tr></table></figure>
+
+<h2 id="破解root密码"><a href="#破解root密码" class="headerlink" title="破解root密码"></a>破解root密码</h2><ol>
+<li>重启虚拟机，按e进入编辑模式，在linux16这行末尾加上<code>rd.break</code>，按ctrl+x启动。<br><img src="https://v2ray.dana5haw.com:8008/images/2020/07/17/image.png" alt="image.png"></li>
+<li>执行以下命令，重置root密码，重启虚拟机。<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">mount -o remount,rw &#x2F;sysroot</span><br><span class="line">chroot &#x2F;sysroot</span><br><span class="line">echo &quot;flectrag&quot; | passwd --stdin root</span><br><span class="line">touch &#x2F;.autorelabel</span><br><span class="line">exit</span><br><span class="line">reboot</span><br></pre></td></tr></table></figure>
+<img src="https://v2ray.dana5haw.com:8008/images/2020/07/17/image9cebc510014f6486.png" alt="image9cebc510014f6486.png"></li>
+<li>以重置的密码登录到root用户</li>
+</ol>
+<h2 id="配置网卡"><a href="#配置网卡" class="headerlink" title="配置网卡"></a>配置网卡</h2><p>使用nm-connetion-editor配置网卡信息，重启网卡<br><img src="https://v2ray.dana5haw.com:8008/images/2020/07/17/image84e01cc66367709d.png" alt="image84e01cc66367709d.png"><br><img src="https://v2ray.dana5haw.com:8008/images/2020/07/17/imageae2ef2e0312bef29.png" alt="imageae2ef2e0312bef29.png"></p>
+<h2 id="配置SELINUX"><a href="#配置SELINUX" class="headerlink" title="配置SELINUX"></a>配置SELINUX</h2><p>默认配置是enforcing，检查一下配置文件（/etc/selinux/config）的配置就行。<br><img src="https://v2ray.dana5haw.com:8008/images/2020/07/17/imagec2f0a3522027e869.png" alt="imagec2f0a3522027e869.png"></p>
+<h2 id="配置yum仓库"><a href="#配置yum仓库" class="headerlink" title="配置yum仓库"></a>配置yum仓库</h2><ol>
+<li>编辑yum配置文件<code>/etc/yum.repos.d/rhcsa.repo</code><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">[rhcsa]</span><br><span class="line">name&#x3D;rhcsa</span><br><span class="line">baseurl&#x3D;http:&#x2F;&#x2F;rhgls.domain1.example.com&#x2F;rhel</span><br><span class="line">enabled&#x3D;1</span><br><span class="line">gpgcheck&#x3D;0</span><br></pre></td></tr></table></figure></li>
+<li>yum clean all</li>
+<li>yum makecache</li>
+</ol>
+<h2 id="调整逻辑卷大小"><a href="#调整逻辑卷大小" class="headerlink" title="调整逻辑卷大小"></a>调整逻辑卷大小</h2><ol>
+<li>添加一块20G硬盘<br><img src="https://v2ray.dana5haw.com:8008/images/2020/07/17/imagedf280f9948188cdc.png" alt="imagedf280f9948188cdc.png"></li>
+<li>创建一个逻辑卷，大小为200M<br><img src="https://v2ray.dana5haw.com:8008/images/2020/07/17/imagee1f38818b51e09c6.png" alt="imagee1f38818b51e09c6.png"></li>
+<li>将逻辑卷扩容至300M</li>
+</ol>
+<ul>
+<li>逻辑卷挂载到/finance目录<br><img src="https://v2ray.dana5haw.com:8008/images/2020/07/17/image9adc2e441f5389f9.png" alt="image9adc2e441f5389f9.png"><br><img src="https://v2ray.dana5haw.com:8008/images/2020/07/17/image6a66760da30e2981.png" alt="image6a66760da30e2981.png"></li>
+<li>扩容<br><img src="https://v2ray.dana5haw.com:8008/images/2020/07/17/image9f017c72d2afeb2e.png" alt="image9f017c72d2afeb2e.png"></li>
+</ul>
+<h2 id="创建用户账户"><a href="#创建用户账户" class="headerlink" title="创建用户账户"></a>创建用户账户</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">一个名为 adminuser 的组</span><br><span class="line">一个名为 natasha 的用户，其属于 adminuser ，这个组是该用户的从属组</span><br><span class="line">一个名为 harry 的用户，属于 adminuser ，这个组是该用户的从属组</span><br><span class="line">一个名为 sarah 的用户，其在系统中没有可交互的 shell，并且该用户不是 adminuser 组的成员</span><br><span class="line">用户 natasha ， harry ，和 sarah 的密码都要设置为 flectrag</span><br></pre></td></tr></table></figure>
+<p><img src="https://v2ray.dana5haw.com:8008/images/2020/07/17/image3cc73e52d77c097d.png" alt="image3cc73e52d77c097d.png"></p>
+<h2 id="配置文件-var-tmp-fstab的权限"><a href="#配置文件-var-tmp-fstab的权限" class="headerlink" title="配置文件/var/tmp/fstab的权限"></a>配置文件/var/tmp/fstab的权限</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">拷贝文件 &#x2F;etc&#x2F;fstab 到 &#x2F;var&#x2F;tmp&#x2F;fstab。 配置文件 &#x2F;var&#x2F;tmp&#x2F;fstab 的权限：</span><br><span class="line">文件 &#x2F;var&#x2F;tmp&#x2F;fstab 的拥有者是 root 用户</span><br><span class="line">文件 &#x2F;var&#x2F;tmp&#x2F;fstab 属于 root 组</span><br><span class="line">文件 &#x2F;var&#x2F;tmp&#x2F;fstab 对任何人都不可执行</span><br><span class="line">用户 natasha 能够对文件 &#x2F;var&#x2F;tmp&#x2F;fstab 具有读和写的权限</span><br><span class="line">用户 harry 对文件 &#x2F;var&#x2F;tmp&#x2F;fstab 既不能读，也不能写</span><br><span class="line">所有其他用户（当前的和将来的）能够对文件 &#x2F;var&#x2F;tmp&#x2F;fstab 进行读操作</span><br></pre></td></tr></table></figure>
+<p><img src="https://v2ray.dana5haw.com:8008/images/2020/07/17/image3fec89fc09b82a7b.png" alt="image3fec89fc09b82a7b.png"></p>
+<h2 id="配置一个cron任务"><a href="#配置一个cron任务" class="headerlink" title="配置一个cron任务"></a>配置一个cron任务</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">用户 natasha 必须配置一个定时执行任务，每天在本地时间 14:23 时执行命令。</span><br><span class="line">&#x2F;bin&#x2F;echo hiya</span><br></pre></td></tr></table></figure>
+<p><img src="https://v2ray.dana5haw.com:8008/images/2020/07/17/image350a6c0804039dfb.png" alt="image350a6c0804039dfb.png"></p>
+<h2 id="创建一个共享目录"><a href="#创建一个共享目录" class="headerlink" title="创建一个共享目录"></a>创建一个共享目录</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">创建一个共享目录 &#x2F;home&#x2F;admins ，特性如下：</span><br><span class="line">&#x2F;home&#x2F;admins 目录的组所有权是 adminuser</span><br><span class="line">adminuser 组的成员对目录有读写和执行的权限。除此之外的其他所有用户没有任何权限（root 用户能够访问系统中的所有文件和目录）</span><br><span class="line">在 &#x2F;home&#x2F;admins 目录中创建的文件，其组所有权会自动设置为属于 adminuser 组</span><br></pre></td></tr></table></figure>
+<h2 id=""><a href="#" class="headerlink" title=""></a><img src="https://v2ray.dana5haw.com:8008/images/2020/07/17/image4929cc5c7eb3e5bf.png" alt="image4929cc5c7eb3e5bf.png"></h2><p>sgid：该目录创建的文件自动属于目录的所有组</p>
+<h2 id="安装内核的升级"><a href="#安装内核的升级" class="headerlink" title="安装内核的升级"></a>安装内核的升级</h2><ol>
+<li>编辑yum配置文件/etc/yum.repos.d/update.repo<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">[update]</span><br><span class="line">name&#x3D;update</span><br><span class="line">baseurl&#x3D;http:&#x2F;&#x2F;rhgls.domain1.example.com&#x2F;updates</span><br><span class="line">enabled&#x3D;1</span><br><span class="line">gpgcheck&#x3D;0</span><br></pre></td></tr></table></figure></li>
+<li>yum clean all</li>
+<li>yum makecache</li>
+<li>yum update kernel</li>
+</ol>
+<h2 id="绑定到外部验证服务"><a href="#绑定到外部验证服务" class="headerlink" title="绑定到外部验证服务"></a>绑定到外部验证服务</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">系统 host.domain1.example.com 提供了一个 LDAP 验证服务。您的系统需要按照以下要求绑定到这个服务上：</span><br><span class="line">验证服务器的基本 DN 是： dc&#x3D;domain1,dc&#x3D;example,dc&#x3D;com.</span><br><span class="line">帐户信息和验证信息都是由 LDAP 提供的。</span><br><span class="line">连接需要使用证书进行加密，证书可以在下面的链接中下载： ftp:&#x2F;&#x2F;host.domain1.example.com&#x2F;pub&#x2F;domain1.crt</span><br><span class="line">当正确完成配置后，用户 ldapuser1 应该能够登录到您的系统中，但是没有主目录。当您完成 autofs 的题目之后，才能生成主目录。</span><br></pre></td></tr></table></figure>
+<ol>
+<li>安装LDAP相关软件<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">yum install openldap openldap-clients sssd authconfig-gtk</span><br></pre></td></tr></table></figure></li>
+<li>使用工具authconfig-gtk进入配置界面<br><img src="https://v2ray.dana5haw.com:8008/images/2020/07/17/imagea89f653aa9c27150.png" alt="imagea89f653aa9c27150.png"></li>
+<li>验证：<code>id ldapuser1</code>如果能看到该用户，说明LDAP服务已挂载成功</li>
+</ol>
+<h2 id="配置NTP服务"><a href="#配置NTP服务" class="headerlink" title="配置NTP服务"></a>配置NTP服务</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">让其作为一个 rhgls.domain1.example.com 的 NTP 客户端</span><br></pre></td></tr></table></figure>
+<ol>
+<li>编辑配置文件/etc/chrony.conf<br><img src="https://v2ray.dana5haw.com:8008/images/2020/07/17/image2c31dded0e264c27.png" alt="image2c31dded0e264c27.png"></li>
+<li>重启chronyd并加入开机启动项<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">systemctl restart chronyd</span><br><span class="line">systemctl enable chronyd</span><br></pre></td></tr></table></figure>
+
+</li>
+</ol>
+<h2 id="配置autofs"><a href="#配置autofs" class="headerlink" title="配置autofs"></a>配置autofs</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">让用户可自动挂载由主机 host.domain1.example.com 提供的家目录： &#x2F;home&#x2F;guests&#x2F;ldapuser1。</span><br><span class="line">解题方法：（最新考题nfs版本是3,具体的挂载目录看考题）</span><br></pre></td></tr></table></figure>
+<ol>
+<li>安装autofs<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">yum install autofs</span><br></pre></td></tr></table></figure></li>
+<li>配置autofs<br><img src="https://v2ray.dana5haw.com:8008/images/2020/07/17/image19f7b76c2b7cc2d0.png" alt="image19f7b76c2b7cc2d0.png"></li>
+</ol>
+<ul>
+<li>主配置文件/etc/auto.master<br><img src="https://v2ray.dana5haw.com:8008/images/2020/07/17/image066f9a5d45880297.png" alt="image066f9a5d45880297.png"></li>
+<li>编辑配置文件/etc/auto.guests<br><img src="https://v2ray.dana5haw.com:8008/images/2020/07/17/image7231a44fe49f0d6e.png" alt="image7231a44fe49f0d6e.png"></li>
+</ul>
+<ol start="3">
+<li>重启autofs并加入开机启动项<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">systemctl restart autofs</span><br><span class="line">systemctl enable autofs</span><br></pre></td></tr></table></figure></li>
+<li>验证：<code>su - ldapuser1</code>可以直接登录，不提示“没有用户家目录”，就说明autofs成功。</li>
+</ol>
+<h2 id="配置一个用户账户"><a href="#配置一个用户账户" class="headerlink" title="配置一个用户账户"></a>配置一个用户账户</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">创建一个UID为2000的用户，用户名称是jack。</span><br></pre></td></tr></table></figure>
+<p><img src="https://v2ray.dana5haw.com:8008/images/2020/07/17/imageb2f337f345b3b924.png" alt="imageb2f337f345b3b924.png"></p>
+<h2 id="添加一个swap分区"><a href="#添加一个swap分区" class="headerlink" title="添加一个swap分区"></a>添加一个swap分区</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">创建一个512M的SWAP分区，开机需要自动挂载</span><br></pre></td></tr></table></figure>
+<ol>
+<li>添加一块20G的硬盘<br><img src="https://v2ray.dana5haw.com:8008/images/2020/07/17/image047774d561eacf8a.png" alt="image047774d561eacf8a.png"></li>
+<li>创建512M的逻辑分区<br><img src="https://v2ray.dana5haw.com:8008/images/2020/07/17/imagee60791cb1bc128df.png" alt="imagee60791cb1bc128df.png"><br><img src="https://v2ray.dana5haw.com:8008/images/2020/07/17/image6398915c46308c09.png" alt="image6398915c46308c09.png"></li>
+<li>创建swap分区<br><img src="https://v2ray.dana5haw.com:8008/images/2020/07/17/image8bcab1c017b294f7.png" alt="image8bcab1c017b294f7.png"><br><img src="https://v2ray.dana5haw.com:8008/images/2020/07/17/image2f96d0cb1daa2b45.png" alt="image2f96d0cb1daa2b45.png"></li>
+</ol>
+<h2 id="查找文件"><a href="#查找文件" class="headerlink" title="查找文件"></a>查找文件</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">查找所有属于ronny用户的文件，并复制到&#x2F;findfiles目录中。</span><br></pre></td></tr></table></figure>
+<ol>
+<li>创建ronny用户，准备一些文件<br><img src="https://v2ray.dana5haw.com:8008/images/2020/07/17/image1725a8cab707a9ff.png" alt="image1725a8cab707a9ff.png"></li>
+<li>创建/findfiles目录<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">mkdir &#x2F;findfiles</span><br></pre></td></tr></table></figure></li>
+<li>find命令查找ronny用户的文件，并复制到/findfiles目录<br><img src="https://v2ray.dana5haw.com:8008/images/2020/07/17/image83909d7438a7450d.png" alt="image83909d7438a7450d.png"></li>
+</ol>
+<h2 id="查找一个字符串"><a href="#查找一个字符串" class="headerlink" title="查找一个字符串"></a>查找一个字符串</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">查看&#x2F;usr&#x2F;share&#x2F;dict&#x2F;words文件中所有包含seismic关键词的行，并将找到的行写入到&#x2F;root&#x2F;filelist文件中。</span><br></pre></td></tr></table></figure>
+<p>自己随便举了一个例子，方法就是这样：<br><img src="https://v2ray.dana5haw.com:8008/images/2020/07/17/image6b93118afb4ad556.png" alt="image6b93118afb4ad556.png"></p>
+<h2 id="创建一个归档"><a href="#创建一个归档" class="headerlink" title="创建一个归档"></a>创建一个归档</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">将&#x2F;etc目录打包成压缩包后放置在&#x2F;root&#x2F;backup.tar.bz2.</span><br></pre></td></tr></table></figure>
+<p><img src="https://v2ray.dana5haw.com:8008/images/2020/07/17/imagefa8438a74df6bfd0.png" alt="imagefa8438a74df6bfd0.png"></p>
+<h2 id="创建一个逻辑卷"><a href="#创建一个逻辑卷" class="headerlink" title="创建一个逻辑卷"></a>创建一个逻辑卷</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">创建指定大小的逻辑卷，需要自己创建分区、物理卷、逻辑卷组和逻辑卷。</span><br><span class="line">创建一个名称为database的逻辑卷，卷组名称为datastore。</span><br><span class="line">逻辑卷大小为160M，PE大小为16M。</span><br><span class="line">要求开机后自动挂载到&#x2F;mnt&#x2F;database目录中。</span><br></pre></td></tr></table></figure>
+<p>创建逻辑卷，并设置开机自动挂载<br><img src="https://v2ray.dana5haw.com:8008/images/2020/07/17/image6e6685c090bcafc0.png" alt="image6e6685c090bcafc0.png"><br><img src="https://v2ray.dana5haw.com:8008/images/2020/07/17/image7efc95cf539dcd13.png" alt="image7efc95cf539dcd13.png"><br><img src="https://v2ray.dana5haw.com:8008/images/2020/07/17/image4fd41ecb803e478b.png" alt="image4fd41ecb803e478b.png"><br><img src="https://v2ray.dana5haw.com:8008/images/2020/07/17/image8d7e1fcef77fc298.png" alt="image8d7e1fcef77fc298.png"><br><img src="https://v2ray.dana5haw.com:8008/images/2020/07/17/image0463563e4587cf22.png" alt="image0463563e4587cf22.png"></p>
+<h2 id="最后，重启机器，检查题目"><a href="#最后，重启机器，检查题目" class="headerlink" title="最后，重启机器，检查题目"></a>最后，重启机器，检查题目</h2>]]></content>
+      <categories>
+        <category>RHCE</category>
+      </categories>
+      <tags>
+        <tag>RHCSA练习</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>categories</title>
     <url>/categories/index.html</url>
     <content><![CDATA[]]></content>
