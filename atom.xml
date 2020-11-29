@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://dana5haw.com/"/>
-  <updated>2020-07-19T05:25:28.872Z</updated>
+  <updated>2020-11-29T10:03:05.339Z</updated>
   <id>https://dana5haw.com/</id>
   
   <author>
@@ -15,6 +15,52 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>2021雅思计划</title>
+    <link href="https://dana5haw.com/posts/ielts-plan.html"/>
+    <id>https://dana5haw.com/posts/ielts-plan.html</id>
+    <published>2020-11-29T09:54:49.000Z</published>
+    <updated>2020-11-29T10:03:05.339Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>2021年12月考雅思，目标分数7。<br><img src="https://v2ray.dana5haw.com:8008/images/2020/11/29/image.png" alt="image.png"></p><a id="more"></a><h2 id="口语"><a href="#口语" class="headerlink" title="口语"></a>口语</h2><ul><li>争取在工作中接触欧美客户，在会议中锻炼口语</li><li>每周练习一个话题</li></ul><h2 id="听力"><a href="#听力" class="headerlink" title="听力"></a>听力</h2><ul><li>一周一篇雅思真题</li></ul><h2 id="阅读"><a href="#阅读" class="headerlink" title="阅读"></a>阅读</h2><ul><li>一周两篇雅思真题<ul><li>50*2=100</li><li>坚持做满100篇</li></ul></li><li>参加或组建经济学人阅读计划<ul><li>每周至少一篇精读</li></ul></li></ul><h2 id="写作"><a href="#写作" class="headerlink" title="写作"></a>写作</h2><ul><li>一周背诵一篇范文，并脱稿录制youtube</li></ul>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h2&gt;&lt;p&gt;2021年12月考雅思，目标分数7。&lt;br&gt;&lt;img src=&quot;https://v2ray.dana5haw.com:8008/images/2020/11/29/image.png&quot; alt=&quot;image.png&quot;&gt;&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="plan" scheme="https://dana5haw.com/categories/plan/"/>
+    
+    
+      <category term="plan" scheme="https://dana5haw.com/tags/plan/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>mysql查询练习</title>
+    <link href="https://dana5haw.com/posts/mysql_query.html"/>
+    <id>https://dana5haw.com/posts/mysql_query.html</id>
+    <published>2020-11-03T15:12:32.000Z</published>
+    <updated>2020-11-03T16:08:07.082Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>关于学习Mysql的学习想法已经有一年多了，然而现在还是只会简单的<code>select * from database where id =1</code>这种查询语句，很惭愧。很久没有写博客了，转眼间博客已经运行近1年时间。</p><a id="more"></a><h2 id="查询语法"><a href="#查询语法" class="headerlink" title="查询语法"></a>查询语法</h2><ol><li>基础语法</li></ol><ul><li><p>创建数据库</p><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">create</span> <span class="keyword">database</span> <span class="string">`my_data`</span> <span class="keyword">charset</span>=utf8;</span><br></pre></td></tr></table></figure></li><li><p>使用一个数据库</p><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">use</span> my_data;</span><br></pre></td></tr></table></figure></li><li><p>显示当前数据库是哪一个</p><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> <span class="keyword">database</span>();</span><br></pre></td></tr></table></figure></li><li><p>显示当前表的创建语句</p><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">show</span> <span class="keyword">create</span> <span class="keyword">table</span> my_data;</span><br></pre></td></tr></table></figure></li><li><p>通过as给表起别名</p><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> s.name, s.age <span class="keyword">from</span> students <span class="keyword">as</span> s;</span><br></pre></td></tr></table></figure></li><li><p>通过distinct消除重复行</p><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> <span class="keyword">distinct</span> s.name, s.age <span class="keyword">from</span> students <span class="keyword">as</span> s;</span><br></pre></td></tr></table></figure></li></ul><ol start="2"><li>where条件查询</li></ol><ul><li>比较运算符<ul><li><code>&gt;</code>,<code>&lt;</code>,<code>=</code>,<code>!=</code>,<code>&lt;&gt;</code>,<code>&gt;=</code>,<code>&lt;=</code></li></ul></li><li>逻辑运算符<ul><li>and</li><li>or</li><li>not</li></ul></li><li>模糊查询<ul><li>like<ul><li><code>%</code>替换1个或多个字符</li><li><code>_</code>替换1个字符</li></ul></li><li>rlike<ul><li>正则匹配</li></ul></li></ul></li><li>范围查询<ul><li>in</li><li>not in</li><li>between and</li><li>not between and</li></ul></li><li>空判断<ul><li>is null</li><li>is not null</li></ul></li></ul><ol start="3"><li>排序</li></ol><ul><li>升序，asc（默认）</li><li>降序，desc</li></ul>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h2&gt;&lt;p&gt;关于学习Mysql的学习想法已经有一年多了，然而现在还是只会简单的&lt;code&gt;select * from database where id =1&lt;/code&gt;这种查询语句，很惭愧。很久没有写博客了，转眼间博客已经运行近1年时间。&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="mysql" scheme="https://dana5haw.com/categories/mysql/"/>
+    
+    
+      <category term="mysql" scheme="https://dana5haw.com/tags/mysql/"/>
+    
+  </entry>
   
   <entry>
     <title>RHCE练习</title>
@@ -467,56 +513,6 @@
       <category term="redhat7" scheme="https://dana5haw.com/tags/redhat7/"/>
     
       <category term="yum仓库" scheme="https://dana5haw.com/tags/yum%E4%BB%93%E5%BA%93/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>怎么下载官方win10的安装镜像</title>
-    <link href="https://dana5haw.com/posts/download-windows10-iso-mirror.html"/>
-    <id>https://dana5haw.com/posts/download-windows10-iso-mirror.html</id>
-    <published>2020-06-29T10:37:45.000Z</published>
-    <updated>2020-07-01T11:43:38.707Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>想装一个win10专业版的虚拟机 使用一下，win10的官方镜像还是去官网下载比较纯净。</p><a id="more"></a><h2 id="下载渠道"><a href="#下载渠道" class="headerlink" title="下载渠道"></a>下载渠道</h2><p>win10镜像官网下载地址：<a href="https://www.microsoft.com/zh-cn/software-download/windows10ISO/" target="_blank" rel="noopener">https://www.microsoft.com/zh-cn/software-download/windows10ISO/</a><br>这个地址，要在手机端打开，才可以进入到iso镜像下载页面。<br>于是在PC浏览器设置为手机模式，任选一款手机型号，刷新页面即可进入iso镜像下载页面。<br><img src="https://v2ray.dana5haw.com:8008/images/2020/06/29/image.png" alt="image.png"><br><img src="https://v2ray.dana5haw.com:8008/images/2020/06/29/image954b028096a46b59.png" alt="image954b028096a46b59.png"></p><h2 id="下载工具"><a href="#下载工具" class="headerlink" title="下载工具"></a>下载工具</h2><p>测试了几款下载软件，最好用的是motrix。好用的定义：不用注册账号、下载速度快。</p><h2 id="参考文章"><a href="#参考文章" class="headerlink" title="参考文章"></a>参考文章</h2><p>参考了<a href="https://windows10.pro/microsoft-com-software-download-windows10-iso/" target="_blank" rel="noopener">这篇文章</a></p>]]></content>
-    
-    <summary type="html">
-    
-      &lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h2&gt;&lt;p&gt;想装一个win10专业版的虚拟机 使用一下，win10的官方镜像还是去官网下载比较纯净。&lt;/p&gt;
-    
-    </summary>
-    
-    
-      <category term="windows" scheme="https://dana5haw.com/categories/windows/"/>
-    
-    
-      <category term="win10官方iso镜像" scheme="https://dana5haw.com/tags/win10%E5%AE%98%E6%96%B9iso%E9%95%9C%E5%83%8F/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>谷歌浏览器安装crx扩展程序失败，怎么解决</title>
-    <link href="https://dana5haw.com/posts/google-chrome-crx-failed-zip.html"/>
-    <id>https://dana5haw.com/posts/google-chrome-crx-failed-zip.html</id>
-    <published>2020-06-27T15:40:08.000Z</published>
-    <updated>2020-06-27T15:57:09.685Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>新电脑用不了谷歌浏览器，我想的是，先把omega-proxy这个扩展程序装上，就可以代理上网，登录谷歌账号并开启冲浪之旅。但是把crx扩展程序拖到扩展程序安装，居然安装失败。怎么办？</p><a id="more"></a><h2 id="解决方法"><a href="#解决方法" class="headerlink" title="解决方法"></a>解决方法</h2><p>在网上查到，有这样的解决方法：把crx文件重命名为zip或者rar，拖到扩展程序里面，自动解压，就可以安装成功。<br><img src="https://v2ray.dana5haw.com:8008/images/2020/06/27/image.png" alt="image.png"></p><h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><p>参考了<a href="https://blog.csdn.net/wst0717/article/details/88867047" target="_blank" rel="noopener">这篇文章</a></p>]]></content>
-    
-    <summary type="html">
-    
-      &lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h2&gt;&lt;p&gt;新电脑用不了谷歌浏览器，我想的是，先把omega-proxy这个扩展程序装上，就可以代理上网，登录谷歌账号并开启冲浪之旅。但是把crx扩展程序拖到扩展程序安装，居然安装失败。怎么办？&lt;/p&gt;
-    
-    </summary>
-    
-    
-      <category term="问题解决" scheme="https://dana5haw.com/categories/%E9%97%AE%E9%A2%98%E8%A7%A3%E5%86%B3/"/>
-    
-      <category term="谷歌浏览器" scheme="https://dana5haw.com/categories/%E8%B0%B7%E6%AD%8C%E6%B5%8F%E8%A7%88%E5%99%A8/"/>
-    
-    
-      <category term="谷歌浏览器" scheme="https://dana5haw.com/tags/%E8%B0%B7%E6%AD%8C%E6%B5%8F%E8%A7%88%E5%99%A8/"/>
-    
-      <category term="扩展程序安装失败" scheme="https://dana5haw.com/tags/%E6%89%A9%E5%B1%95%E7%A8%8B%E5%BA%8F%E5%AE%89%E8%A3%85%E5%A4%B1%E8%B4%A5/"/>
     
   </entry>
   

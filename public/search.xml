@@ -9736,6 +9736,119 @@ I heard the echo, <span class="label default">from the valleys and the heart</sp
       </tags>
   </entry>
   <entry>
+    <title>mysql查询练习</title>
+    <url>//posts/mysql_query.html</url>
+    <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>关于学习Mysql的学习想法已经有一年多了，然而现在还是只会简单的<code>select * from database where id =1</code>这种查询语句，很惭愧。很久没有写博客了，转眼间博客已经运行近1年时间。</p>
+<a id="more"></a>
+
+<h2 id="查询语法"><a href="#查询语法" class="headerlink" title="查询语法"></a>查询语法</h2><ol>
+<li>基础语法</li>
+</ol>
+<ul>
+<li><p>创建数据库</p>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">create</span> <span class="keyword">database</span> <span class="string">`my_data`</span> <span class="keyword">charset</span>=utf8;</span><br></pre></td></tr></table></figure></li>
+<li><p>使用一个数据库</p>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">use</span> my_data;</span><br></pre></td></tr></table></figure></li>
+<li><p>显示当前数据库是哪一个</p>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">select</span> <span class="keyword">database</span>();</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>显示当前表的创建语句</p>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">show</span> <span class="keyword">create</span> <span class="keyword">table</span> my_data;</span><br></pre></td></tr></table></figure></li>
+<li><p>通过as给表起别名</p>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">select</span> s.name, s.age <span class="keyword">from</span> students <span class="keyword">as</span> s;</span><br></pre></td></tr></table></figure></li>
+<li><p>通过distinct消除重复行</p>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">select</span> <span class="keyword">distinct</span> s.name, s.age <span class="keyword">from</span> students <span class="keyword">as</span> s;</span><br></pre></td></tr></table></figure></li>
+</ul>
+<ol start="2">
+<li>where条件查询</li>
+</ol>
+<ul>
+<li>比较运算符<ul>
+<li><code>&gt;</code>,<code>&lt;</code>,<code>=</code>,<code>!=</code>,<code>&lt;&gt;</code>,<code>&gt;=</code>,<code>&lt;=</code></li>
+</ul>
+</li>
+<li>逻辑运算符<ul>
+<li>and</li>
+<li>or</li>
+<li>not</li>
+</ul>
+</li>
+<li>模糊查询<ul>
+<li>like<ul>
+<li><code>%</code>替换1个或多个字符</li>
+<li><code>_</code>替换1个字符</li>
+</ul>
+</li>
+<li>rlike<ul>
+<li>正则匹配</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>范围查询<ul>
+<li>in</li>
+<li>not in</li>
+<li>between and</li>
+<li>not between and</li>
+</ul>
+</li>
+<li>空判断<ul>
+<li>is null</li>
+<li>is not null</li>
+</ul>
+</li>
+</ul>
+<ol start="3">
+<li>排序</li>
+</ol>
+<ul>
+<li>升序，asc（默认）</li>
+<li>降序，desc</li>
+</ul>
+]]></content>
+      <categories>
+        <category>mysql</category>
+      </categories>
+      <tags>
+        <tag>mysql</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>2021雅思计划</title>
+    <url>//posts/ielts-plan.html</url>
+    <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>2021年12月考雅思，目标分数7。<br><img src="https://v2ray.dana5haw.com:8008/images/2020/11/29/image.png" alt="image.png"></p>
+<a id="more"></a>
+
+<h2 id="口语"><a href="#口语" class="headerlink" title="口语"></a>口语</h2><ul>
+<li>争取在工作中接触欧美客户，在会议中锻炼口语</li>
+<li>每周练习一个话题</li>
+</ul>
+<h2 id="听力"><a href="#听力" class="headerlink" title="听力"></a>听力</h2><ul>
+<li>一周一篇雅思真题</li>
+</ul>
+<h2 id="阅读"><a href="#阅读" class="headerlink" title="阅读"></a>阅读</h2><ul>
+<li>一周两篇雅思真题<ul>
+<li>50*2=100</li>
+<li>坚持做满100篇</li>
+</ul>
+</li>
+<li>参加或组建经济学人阅读计划<ul>
+<li>每周至少一篇精读</li>
+</ul>
+</li>
+</ul>
+<h2 id="写作"><a href="#写作" class="headerlink" title="写作"></a>写作</h2><ul>
+<li>一周背诵一篇范文，并脱稿录制youtube</li>
+</ul>
+]]></content>
+      <categories>
+        <category>plan</category>
+      </categories>
+      <tags>
+        <tag>plan</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>categories</title>
     <url>/categories/index.html</url>
     <content><![CDATA[]]></content>
