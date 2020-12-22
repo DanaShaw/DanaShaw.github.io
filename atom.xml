@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://dana5haw.com/"/>
-  <updated>2020-12-01T14:28:06.262Z</updated>
+  <updated>2020-12-22T13:56:19.029Z</updated>
   <id>https://dana5haw.com/</id>
   
   <author>
@@ -15,6 +15,52 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>挑战万岁</title>
+    <link href="https://dana5haw.com/posts/challenge-i-am-coming.html"/>
+    <id>https://dana5haw.com/posts/challenge-i-am-coming.html</id>
+    <published>2020-12-22T13:46:27.000Z</published>
+    <updated>2020-12-22T13:56:19.029Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>激起上进心的源头，其实是虚荣心。</p><a id="more"></a><h2 id="google引发的一场内心戏"><a href="#google引发的一场内心戏" class="headerlink" title="google引发的一场内心戏"></a>google引发的一场内心戏</h2><p>Google是我最喜欢的搜索引擎，然而今天有一道搜索题，要求通过google搜索得出“基于P/V相等换算”的英语译文。然而同事给了他的答案，并且说我的搜索结果肯定不是最优解，好的，成功燃起了我的胜负欲。<br>于是，下班回家第一件事，就是打开google，想办法得出更好的结果以证明他的结果也不是最优解。哈哈，感觉有点小心眼。<br>借鉴这位同事的思路，另辟一条思路，最后自认为我的结果非常具有普遍性和可用性，个人认为比他的结果更好。然后我就兴高采烈地把这些写下来，发给他了。还没收到回复，但是我就是有一种胜利的喜悦感。<br>有时候就是这么好胜。</p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h2&gt;&lt;p&gt;激起上进心的源头，其实是虚荣心。&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="personal" scheme="https://dana5haw.com/categories/personal/"/>
+    
+    
+      <category term="personal" scheme="https://dana5haw.com/tags/personal/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>怎么制作word模板</title>
+    <link href="https://dana5haw.com/posts/word-template.html"/>
+    <id>https://dana5haw.com/posts/word-template.html</id>
+    <published>2020-12-22T12:44:54.000Z</published>
+    <updated>2020-12-22T13:45:51.653Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>本文记录制作word模板的方法以备忘。</p><a id="more"></a><h2 id="制作模板"><a href="#制作模板" class="headerlink" title="制作模板"></a>制作模板</h2><p>按照自己的需求，列出各级标题及意义，并设置好自己需要的格式。</p><h3 id="设置各级标题格式"><a href="#设置各级标题格式" class="headerlink" title="设置各级标题格式"></a>设置各级标题格式</h3><p>各级标题格式，主要包括字体、字号。<br><img src="https://v2ray.dana5haw.com:8008/images/2020/12/22/image.png" alt="image.png"><br><img src="https://v2ray.dana5haw.com:8008/images/2020/12/22/imagebf4ac89e35acc2de.png" alt="imagebf4ac89e35acc2de.png"></p><h3 id="设置多级列表"><a href="#设置多级列表" class="headerlink" title="设置多级列表"></a>设置多级列表</h3><p>为了使各级标题自动标号，我们设置多级列表。以下举例一级标题到三级标题的列表设置。<br><img src="https://v2ray.dana5haw.com:8008/images/2020/12/22/image716f63755315f9b5.png" alt="image716f63755315f9b5.png"><br><img src="https://v2ray.dana5haw.com:8008/images/2020/12/22/imagea96c791e0f0b6dd4.png" alt="imagea96c791e0f0b6dd4.png"><br><img src="https://v2ray.dana5haw.com:8008/images/2020/12/22/image8689cc40083505e9.png" alt="image8689cc40083505e9.png"><br><img src="https://v2ray.dana5haw.com:8008/images/2020/12/22/image71f80c6cedaf7713.png" alt="image71f80c6cedaf7713.png"></p><h3 id="设置正文格式"><a href="#设置正文格式" class="headerlink" title="设置正文格式"></a>设置正文格式</h3><p>提醒一下，设置字体格式时，需要设置两次。选择“中文”设置一次，选择“西文”设置一次。注意看最终的字体格式信息。<br><img src="https://v2ray.dana5haw.com:8008/images/2020/12/22/imagea26468698c635c4c.png" alt="imagea26468698c635c4c.png"></p><h2 id="另存为模板"><a href="#另存为模板" class="headerlink" title="另存为模板"></a>另存为模板</h2><p>以上是简单模板，另存为dotx格式，就自动存到了word自定义模板库。<br><img src="https://v2ray.dana5haw.com:8008/images/2020/12/22/image789c8eee1b129e50.png" alt="image789c8eee1b129e50.png"></p><h2 id="使用word模板"><a href="#使用word模板" class="headerlink" title="使用word模板"></a>使用word模板</h2><p>在创建新文档时，选择“个人”，即可看到自定义的模板，点击模板即可根据模板创建文档。<br><img src="https://v2ray.dana5haw.com:8008/images/2020/12/22/image6c5758c07eb3cbdb.png" alt="image6c5758c07eb3cbdb.png"></p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h2&gt;&lt;p&gt;本文记录制作word模板的方法以备忘。&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="office" scheme="https://dana5haw.com/categories/office/"/>
+    
+    
+      <category term="office" scheme="https://dana5haw.com/tags/office/"/>
+    
+  </entry>
   
   <entry>
     <title>trados学习之翻译编辑</title>
@@ -459,56 +505,6 @@
       <category term="autofs" scheme="https://dana5haw.com/tags/autofs/"/>
     
       <category term="自动挂载" scheme="https://dana5haw.com/tags/%E8%87%AA%E5%8A%A8%E6%8C%82%E8%BD%BD/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>redhat7自带的NFS服务实现Linux主机之间的目录共享</title>
-    <link href="https://dana5haw.com/posts/redhat7-NFS-linux-share.html"/>
-    <id>https://dana5haw.com/posts/redhat7-NFS-linux-share.html</id>
-    <published>2020-07-02T16:04:51.000Z</published>
-    <updated>2020-07-02T16:39:08.736Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>redhat7自带的NFS服务可以实现linux主机之间的目录共享，不需要额外安装其他服务。</p><a id="more"></a><h2 id="NFS实现linux主机之间的目录共享"><a href="#NFS实现linux主机之间的目录共享" class="headerlink" title="NFS实现linux主机之间的目录共享"></a>NFS实现linux主机之间的目录共享</h2><p>redhat7默认安装了nfs-utils软件，只需要使用即可。</p><ol><li>服务端创建共享目录，设置共享范围，清空防火墙规则，并重启服务</li></ol><ul><li><p>创建共享目录</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">mkdir &#x2F;linuxshare</span><br><span class="line">chmod -Rf 777 &#x2F;linuxshare</span><br></pre></td></tr></table></figure></li><li><p>设置共享范围：编辑<code>/etc/exports</code>文件<br>配置文件内容，只有一行：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;linuxshare *(sync,rw,root_squash)</span><br></pre></td></tr></table></figure><div class="note [class]">            <p>解析：linux系统中，<code>*</code>指的是共享范围是所有人。<br><code>root_squash</code>是把客户端的root用户映射为匿名用户。举例：金正恩到中国，就没有中国主席的权限。</p>          </div></li><li><p>清空防火墙规则</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">iptables -F</span><br><span class="line">service iptables save</span><br></pre></td></tr></table></figure></li><li><p>重启服务</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl restart nfs-server</span><br></pre></td></tr></table></figure></li></ul><ol start="2"><li>客户端创建挂载点<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">mkdir &#x2F;linuxshareclient</span><br><span class="line">chmod -Rf 777 &#x2F;linuxshareclient</span><br></pre></td></tr></table></figure></li><li>客户端挂载服务端的共享目录，即可实现linux主机之间的目录共享<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vi &#x2F;etc&#x2F;fstab</span><br></pre></td></tr></table></figure></li></ol><ul><li>新增这一句，挂载上服务端的共享目录：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">192.168.0.106:&#x2F;linuxshare &#x2F;linuxshareclient nfs defaults 0 0</span><br></pre></td></tr></table></figure></li><li>挂载，重启服务即可生效：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">mount -a</span><br><span class="line">systemctl restart nfs-server</span><br></pre></td></tr></table></figure></li></ul>]]></content>
-    
-    <summary type="html">
-    
-      &lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h2&gt;&lt;p&gt;redhat7自带的NFS服务可以实现linux主机之间的目录共享，不需要额外安装其他服务。&lt;/p&gt;
-    
-    </summary>
-    
-    
-      <category term="RHCE" scheme="https://dana5haw.com/categories/RHCE/"/>
-    
-    
-      <category term="redhat7" scheme="https://dana5haw.com/tags/redhat7/"/>
-    
-      <category term="NFS服务" scheme="https://dana5haw.com/tags/NFS%E6%9C%8D%E5%8A%A1/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>redhat7搭建samba服务-linux与linux主机共享</title>
-    <link href="https://dana5haw.com/posts/redhat7-build-samba-server-linux-to-linux.html"/>
-    <id>https://dana5haw.com/posts/redhat7-build-samba-server-linux-to-linux.html</id>
-    <published>2020-07-02T15:28:09.000Z</published>
-    <updated>2020-07-02T17:10:33.523Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>利用cifs加密协议，samba服务实现linux和linux之间的文件共享。服务端和客户端都需要安装cifs-utils软件。</p><a id="more"></a><h2 id="设置cifs实现目录共享"><a href="#设置cifs实现目录共享" class="headerlink" title="设置cifs实现目录共享"></a>设置cifs实现目录共享</h2><p>环境：samba服务端已搭建好。</p><ol><li>服务端和客户端安装cifs-utils：切记，在机器重启之后，必须重新挂载yum仓库，否则yu无法正常使用！并且服务端一定要清除防火墙规则：<code>iptables -F</code>、<code>service iptables save</code><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum install cifs-utils</span><br></pre></td></tr></table></figure></li><li>客户端创建共享目录挂载点<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">mkdir &#x2F;xkj</span><br><span class="line">chmod -Rf 777 &#x2F;xkj</span><br></pre></td></tr></table></figure></li><li>客户端设置samba密码文件，用于连接服务端samba服务<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cd &#x2F;root</span><br><span class="line">vi auth.smb</span><br></pre></td></tr></table></figure></li></ol><details><summary>点击展开配置文件内容</summary><p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">username&#x3D;sambaxkj</span><br><span class="line">password&#x3D;redhat</span><br><span class="line">domain&#x3D;WORKGROUP #samba服务端设置的工作组名称</span><br></pre></td></tr></table></figure></p></details><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">chmod 600 auth.smb #权限设置为只允许自己读写</span><br></pre></td></tr></table></figure><ol start="4"><li>客户端设置挂载信息，将服务端的共享目录挂载到本地<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vi &#x2F;etc&#x2F;fstab</span><br></pre></td></tr></table></figure>新增这个挂载信息：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F;192.168.0.106&#x2F;sambaxkj &#x2F;xkj cifs credentials&#x3D;&#x2F;root&#x2F;auth.smb 0 0</span><br></pre></td></tr></table></figure><div class="note [class]">            <p>解析：linux系统中，<code>//</code>用于访问samba服务；windows系统中，<code>\\</code>用于访问samba服务。<br><code>credentials</code>指的是挂载到samba服务端的凭据。</p>          </div>挂载即可生效：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mount -a</span><br></pre></td></tr></table></figure></li></ol>]]></content>
-    
-    <summary type="html">
-    
-      &lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h2&gt;&lt;p&gt;利用cifs加密协议，samba服务实现linux和linux之间的文件共享。服务端和客户端都需要安装cifs-utils软件。&lt;/p&gt;
-    
-    </summary>
-    
-    
-      <category term="RHCE" scheme="https://dana5haw.com/categories/RHCE/"/>
-    
-    
-      <category term="redhat" scheme="https://dana5haw.com/tags/redhat/"/>
-    
-      <category term="samba服务" scheme="https://dana5haw.com/tags/samba%E6%9C%8D%E5%8A%A1/"/>
     
   </entry>
   

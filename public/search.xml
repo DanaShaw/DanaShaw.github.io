@@ -9895,6 +9895,41 @@ I heard the echo, <span class="label default">from the valleys and the heart</sp
       </tags>
   </entry>
   <entry>
+    <title>挑战万岁</title>
+    <url>//posts/challenge-i-am-coming.html</url>
+    <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>激起上进心的源头，其实是虚荣心。</p>
+<a id="more"></a>
+
+<h2 id="google引发的一场内心戏"><a href="#google引发的一场内心戏" class="headerlink" title="google引发的一场内心戏"></a>google引发的一场内心戏</h2><p>Google是我最喜欢的搜索引擎，然而今天有一道搜索题，要求通过google搜索得出“基于P/V相等换算”的英语译文。然而同事给了他的答案，并且说我的搜索结果肯定不是最优解，好的，成功燃起了我的胜负欲。<br>于是，下班回家第一件事，就是打开google，想办法得出更好的结果以证明他的结果也不是最优解。哈哈，感觉有点小心眼。<br>借鉴这位同事的思路，另辟一条思路，最后自认为我的结果非常具有普遍性和可用性，个人认为比他的结果更好。然后我就兴高采烈地把这些写下来，发给他了。还没收到回复，但是我就是有一种胜利的喜悦感。<br>有时候就是这么好胜。</p>
+]]></content>
+      <categories>
+        <category>personal</category>
+      </categories>
+      <tags>
+        <tag>personal</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>怎么制作word模板</title>
+    <url>//posts/word-template.html</url>
+    <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>本文记录制作word模板的方法以备忘。</p>
+<a id="more"></a>
+
+<h2 id="制作模板"><a href="#制作模板" class="headerlink" title="制作模板"></a>制作模板</h2><p>按照自己的需求，列出各级标题及意义，并设置好自己需要的格式。</p>
+<h3 id="设置各级标题格式"><a href="#设置各级标题格式" class="headerlink" title="设置各级标题格式"></a>设置各级标题格式</h3><p>各级标题格式，主要包括字体、字号。<br><img src="https://v2ray.dana5haw.com:8008/images/2020/12/22/image.png" alt="image.png"><br><img src="https://v2ray.dana5haw.com:8008/images/2020/12/22/imagebf4ac89e35acc2de.png" alt="imagebf4ac89e35acc2de.png"></p>
+<h3 id="设置多级列表"><a href="#设置多级列表" class="headerlink" title="设置多级列表"></a>设置多级列表</h3><p>为了使各级标题自动标号，我们设置多级列表。以下举例一级标题到三级标题的列表设置。<br><img src="https://v2ray.dana5haw.com:8008/images/2020/12/22/image716f63755315f9b5.png" alt="image716f63755315f9b5.png"><br><img src="https://v2ray.dana5haw.com:8008/images/2020/12/22/imagea96c791e0f0b6dd4.png" alt="imagea96c791e0f0b6dd4.png"><br><img src="https://v2ray.dana5haw.com:8008/images/2020/12/22/image8689cc40083505e9.png" alt="image8689cc40083505e9.png"><br><img src="https://v2ray.dana5haw.com:8008/images/2020/12/22/image71f80c6cedaf7713.png" alt="image71f80c6cedaf7713.png"></p>
+<h3 id="设置正文格式"><a href="#设置正文格式" class="headerlink" title="设置正文格式"></a>设置正文格式</h3><p>提醒一下，设置字体格式时，需要设置两次。选择“中文”设置一次，选择“西文”设置一次。注意看最终的字体格式信息。<br><img src="https://v2ray.dana5haw.com:8008/images/2020/12/22/imagea26468698c635c4c.png" alt="imagea26468698c635c4c.png"></p>
+<h2 id="另存为模板"><a href="#另存为模板" class="headerlink" title="另存为模板"></a>另存为模板</h2><p>以上是简单模板，另存为dotx格式，就自动存到了word自定义模板库。<br><img src="https://v2ray.dana5haw.com:8008/images/2020/12/22/image789c8eee1b129e50.png" alt="image789c8eee1b129e50.png"></p>
+<h2 id="使用word模板"><a href="#使用word模板" class="headerlink" title="使用word模板"></a>使用word模板</h2><p>在创建新文档时，选择“个人”，即可看到自定义的模板，点击模板即可根据模板创建文档。<br><img src="https://v2ray.dana5haw.com:8008/images/2020/12/22/image6c5758c07eb3cbdb.png" alt="image6c5758c07eb3cbdb.png"></p>
+]]></content>
+      <categories>
+        <category>office</category>
+      </categories>
+      <tags>
+        <tag>office</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>categories</title>
     <url>/categories/index.html</url>
     <content><![CDATA[]]></content>
