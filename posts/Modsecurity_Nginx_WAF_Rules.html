@@ -95,9 +95,10 @@
   
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-LZ3FP7R06M"></script>
     <script>
-      if (CONFIG.hostname === location.hostname) {
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
+      var host = window.location.host;
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      if (host.indexOf("127.0.0.1") == -1 && host.indexOf("localhost") == -1) {
         gtag('js', new Date());
         gtag('config', 'G-LZ3FP7R06M');
       }
