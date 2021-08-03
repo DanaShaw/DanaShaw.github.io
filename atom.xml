@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://dana5haw.com/"/>
-  <updated>2020-12-22T13:56:19.029Z</updated>
+  <updated>2021-08-03T04:16:26.169Z</updated>
   <id>https://dana5haw.com/</id>
   
   <author>
@@ -15,6 +15,31 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>我的微信公众号马上两岁啦</title>
+    <link href="https://dana5haw.com/posts/welcome-to-my-wechat-public-account.html"/>
+    <id>https://dana5haw.com/posts/welcome-to-my-wechat-public-account.html</id>
+    <published>2021-08-03T03:51:06.000Z</published>
+    <updated>2021-08-03T04:16:26.169Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>转眼我的微信公众号也快满两岁了，专注于互联网、英语、创业等领域，欢迎关注~~</p><a id="more"></a><h2 id="开门见山"><a href="#开门见山" class="headerlink" title="开门见山"></a>开门见山</h2><p>我的微信公众号：“肖坤稼”，以自己名字命名没有其他意思，就是想打造个人IP，毕竟从小都想成名^.^<br>二维码在此，请扫描吧，关注之后可以在本文留下一个愿望，博主保证善良的你一定会愿望成真的！！<br><img src="https://v2ray.dana5haw.com:8008/images/2021/08/03/qrcode_for_gh_9b7280eb1edc_258.jpg" alt="qrcode_for_gh_9b7280eb1edc_258.jpg"></p><h2 id="初衷"><a href="#初衷" class="headerlink" title="初衷"></a>初衷</h2><p>刚开始申请公众号纯属猎奇，因为刚关掉QQ空间，总想再找个没人能看到的角落发发牢骚，伤春悲秋。最初写的文章也确实都是些矫情文字。</p><h2 id="定位"><a href="#定位" class="headerlink" title="定位"></a>定位</h2><p>目前公众号定位：互联网+英语。定期推送经济学人Espresso最新原版新闻以拓展国际视野，并和大家一起积累好词佳句。由于博主同时是个互联网爱好者，对IT、建站、网络安全都有所涉猎，不定期也会分享相关教程（教程一定是自己亲自实践过的）以及学习资料，希望可以和大家一起共同进步，成为更好的自己。<br>当然个人也有私心，希望能够通过这种方式监督自己定期更文。</p><h2 id="End"><a href="#End" class="headerlink" title="End"></a>End</h2><p>感谢你看到这里，如果你也对IT、英语感兴趣，关注我，一定能给你不一样的体验。<br>再次亮出二维码，点关注的都是活菩萨。<br><img src="https://v2ray.dana5haw.com:8008/images/2021/08/03/qrcode_for_gh_9b7280eb1edc_258.jpg" alt="qrcode_for_gh_9b7280eb1edc_258.jpg"></p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h2&gt;&lt;p&gt;转眼我的微信公众号也快满两岁了，专注于互联网、英语、创业等领域，欢迎关注~~&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="运营" scheme="https://dana5haw.com/categories/%E8%BF%90%E8%90%A5/"/>
+    
+    
+      <category term="微信公众号" scheme="https://dana5haw.com/tags/%E5%BE%AE%E4%BF%A1%E5%85%AC%E4%BC%97%E5%8F%B7/"/>
+    
+      <category term="庆祝" scheme="https://dana5haw.com/tags/%E5%BA%86%E7%A5%9D/"/>
+    
+  </entry>
   
   <entry>
     <title>挑战万岁</title>
@@ -480,31 +505,6 @@
       <category term="正向解析" scheme="https://dana5haw.com/tags/%E6%AD%A3%E5%90%91%E8%A7%A3%E6%9E%90/"/>
     
       <category term="反向解析" scheme="https://dana5haw.com/tags/%E5%8F%8D%E5%90%91%E8%A7%A3%E6%9E%90/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>autofs自动挂载服务</title>
-    <link href="https://dana5haw.com/posts/redhat7-autofs.html"/>
-    <id>https://dana5haw.com/posts/redhat7-autofs.html</id>
-    <published>2020-07-02T16:41:13.000Z</published>
-    <updated>2020-07-04T06:53:19.892Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>重启机器使用yum之前，都得挂载一下yum仓库，实在很费时间。</p><a id="more"></a><h2 id="autofs自动挂载服务设置"><a href="#autofs自动挂载服务设置" class="headerlink" title="autofs自动挂载服务设置"></a>autofs自动挂载服务设置</h2><ol><li>安装autofs软件<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum install autofs</span><br></pre></td></tr></table></figure></li><li>编辑autofs主配置文件<code>/etc/auto.master</code><br>增加这一句：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;media &#x2F;etc&#x2F;iso.misc</span><br></pre></td></tr></table></figure></li><li>编辑配置文件<code>/etc/iso.misc</code><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">iso -fstype&#x3D;iso9660 :&#x2F;dev&#x2F;cdrom</span><br></pre></td></tr></table></figure><div class="note [class]">            <p>解析：linux系统中，<code>iso</code>指的是挂载点：<code>/media/iso</code>。<br><code>-fstype=iso9660</code>指的是文件类型。<br><code>:/dev/cdrom</code>指的是设备名称。</p>          </div></li><li>重启autofs服务生效<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl restart autofs</span><br></pre></td></tr></table></figure><h2 id="实验现象"><a href="#实验现象" class="headerlink" title="实验现象"></a>实验现象</h2>进入到iso目录时，自动挂载设备到iso目录。目的是在需要挂载的时候去挂载设备，节省服务器的带宽资源。<br><img src="https://v2ray.dana5haw.com:8008/images/2020/07/03/image.png" alt="image.png"></li></ol><h2 id="补充-开机自动挂载镜像"><a href="#补充-开机自动挂载镜像" class="headerlink" title="补充-开机自动挂载镜像"></a>补充-开机自动挂载镜像</h2><p>以上设置完成之后，还需要做一步操作，才可以实现镜像自动挂载。<br>那就是修改yum仓库配置文件<code>/etc/yum.repo.d/rhel7.repo</code>，把本机的挂载点改为/media/iso。</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">[rhel7]</span><br><span class="line">name&#x3D;rhel7</span><br><span class="line">baseurl&#x3D;file:&#x2F;&#x2F;&#x2F;media&#x2F;iso</span><br><span class="line">enabled&#x3D;1</span><br><span class="line">gpgcheck&#x3D;0</span><br></pre></td></tr></table></figure>]]></content>
-    
-    <summary type="html">
-    
-      &lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h2&gt;&lt;p&gt;重启机器使用yum之前，都得挂载一下yum仓库，实在很费时间。&lt;/p&gt;
-    
-    </summary>
-    
-    
-      <category term="RHCE" scheme="https://dana5haw.com/categories/RHCE/"/>
-    
-    
-      <category term="autofs" scheme="https://dana5haw.com/tags/autofs/"/>
-    
-      <category term="自动挂载" scheme="https://dana5haw.com/tags/%E8%87%AA%E5%8A%A8%E6%8C%82%E8%BD%BD/"/>
     
   </entry>
   
