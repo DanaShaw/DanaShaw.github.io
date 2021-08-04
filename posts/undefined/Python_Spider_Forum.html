@@ -1,0 +1,749 @@
+<!DOCTYPE html>
+<html lang="zh-CN,en,default">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 4.2.1">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/orange.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/orange.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+  <meta name="google-site-verification" content="HMAT9TapFXG6PRtARF9Qc_fDKANMj-rP3F5FjHjr7kI">
+
+<link rel="stylesheet" href="/css/main.css">
+
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Noto Serif SC:300,300italic,400,400italic,700,700italic|EB Garamond:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.css">
+
+
+<script id="hexo-configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    hostname: new URL('https://dana5haw.com').hostname,
+    root: '/',
+    scheme: 'Gemini',
+    version: '7.7.0',
+    exturl: false,
+    sidebar: {"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},
+    copycode: {"enable":true,"show_result":true,"style":"mac"},
+    back2top: {"enable":true,"sidebar":false,"scrollpercent":true},
+    bookmark: {"enable":true,"color":"#222","save":"auto"},
+    fancybox: true,
+    mediumzoom: false,
+    lazyload: false,
+    pangu: false,
+    comments: {"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},
+    algolia: {
+      appID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    },
+    localsearch: {"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
+    path: './public/search.xml',
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}
+  };
+</script>
+<script data-ad-client="ca-pub-3938956891324222" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-203752309-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-203752309-1');
+</script>
+  <meta name="description" content="爬什么把百度贴吧【李毅吧】的内容爬取到本地并保存，需要提取用户名称、发表时间、评论数这几个字段，并且把用户头像和发表的图片保存到本地。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="python爬虫实例之爬取贴吧页面">
+<meta property="og:url" content="https://dana5haw.com/posts/undefined/Python_Spider_Forum.html">
+<meta property="og:site_name" content="Dana Shaw&#39;s blog">
+<meta property="og:description" content="爬什么把百度贴吧【李毅吧】的内容爬取到本地并保存，需要提取用户名称、发表时间、评论数这几个字段，并且把用户头像和发表的图片保存到本地。">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://ww1.sinaimg.cn/large/006gDuOdgy1gb54uu0quxj31f60u00y6.jpg">
+<meta property="og:image" content="http://ww1.sinaimg.cn/large/006gDuOdgy1gb5582i4qdj31f60u0446.jpg">
+<meta property="og:image" content="http://ww1.sinaimg.cn/large/006gDuOdgy1gb55e3a9wwj31f60u0af4.jpg">
+<meta property="og:image" content="http://ww1.sinaimg.cn/large/006gDuOdgy1gb55lkb3qej31f60u043v.jpg">
+<meta property="og:image" content="http://ww1.sinaimg.cn/large/006gDuOdgy1gb560k965vj31f60u0n2c.jpg">
+<meta property="og:image" content="http://ww1.sinaimg.cn/large/006gDuOdgy1gb561whg6oj31f60u0dkz.jpg">
+<meta property="og:image" content="http://ww1.sinaimg.cn/large/006gDuOdgy1gb563onrmrj31f60u043c.jpg">
+<meta property="og:image" content="http://ww1.sinaimg.cn/large/006gDuOdgy1gb55rzbip3j31f60u0n2a.jpg">
+<meta property="og:image" content="http://ww1.sinaimg.cn/large/006gDuOdgy1gb56l57zxdj31f60u0gtg.jpg">
+<meta property="article:published_time" content="2020-01-22T01:56:09.000Z">
+<meta property="article:modified_time" content="2020-06-27T14:12:28.497Z">
+<meta property="article:author" content="Dana Shaw">
+<meta property="article:tag" content="python爬虫实例">
+<meta property="article:tag" content="爬取贴吧页面">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://ww1.sinaimg.cn/large/006gDuOdgy1gb54uu0quxj31f60u00y6.jpg">
+
+<link rel="canonical" href="https://dana5haw.com/posts/undefined/Python_Spider_Forum.html">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome: false,
+    isPost: true
+  };
+</script>
+
+  <title>python爬虫实例之爬取贴吧页面 | Dana Shaw's blog</title>
+  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-203752309-1"></script>
+    <script>
+      var host = window.location.host;
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      if (host.indexOf("127.0.0.1") == -1 && host.indexOf("localhost") == -1) {
+        gtag('js', new Date());
+        gtag('config', 'UA-203752309-1');
+      }
+    </script>
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+<link rel="alternate" href="/atom.xml" title="Dana Shaw's blog" type="application/atom+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-meta">
+
+    <div>
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Dana Shaw's blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+        <p class="site-subtitle">为了去往别处</p>
+  </div>
+
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+</div>
+
+
+<nav class="site-nav">
+  
+  <ul id="menu" class="menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-fw fa-user"></i>关于</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档</a>
+
+  </li>
+        <li class="menu-item menu-item-sitemap">
+
+    <a href="/sitemap.xml" rel="section"><i class="fa fa-fw fa-sitemap"></i>站点地图</a>
+
+  </li>
+        <li class="menu-item menu-item-commonweal">
+
+    <a href="/404/" rel="section"><i class="fa fa-fw fa-heartbeat"></i>公益 404</a>
+
+  </li>
+        <li class="menu-item menu-item-readnotes">
+
+    <a href="/categories/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/" rel="section"><i class="fa fa-fw fa-book"></i>读书笔记</a>
+
+  </li>
+        <li class="menu-item menu-item-movienotes">
+
+    <a href="/categories/%E8%A7%82%E5%BD%B1%E7%AC%94%E8%AE%B0/" rel="section"><i class="fa fa-fw fa-youtube"></i>观影笔记</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+
+</nav>
+  <div class="site-search">
+    <div class="popup search-popup">
+    <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocorrect="off" autocapitalize="none"
+           placeholder="搜索..." spellcheck="false"
+           type="text" id="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result"></div>
+
+</div>
+<div class="search-pop-overlay"></div>
+
+  </div>
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <a role="button" class="book-mark-link book-mark-link-fixed"></a>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content">
+            
+
+  <div class="posts-expand">
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://dana5haw.com/posts/undefined/Python_Spider_Forum.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/./images/photo.jpg">
+      <meta itemprop="name" content="Dana Shaw">
+      <meta itemprop="description" content="连尘埃也想收藏">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Dana Shaw's blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          python爬虫实例之爬取贴吧页面
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-01-22 09:56:09" itemprop="dateCreated datePublished" datetime="2020-01-22T09:56:09+08:00">2020-01-22</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-06-27 22:12:28" itemprop="dateModified" datetime="2020-06-27T22:12:28+08:00">2020-06-27</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/python%E7%88%AC%E8%99%AB%E5%AE%9E%E4%BE%8B/" itemprop="url" rel="index">
+                    <span itemprop="name">python爬虫实例</span>
+                  </a>
+                </span>
+            </span>
+
+          
+            <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span><br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>9.9k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-clock-o"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>9 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h2 id="爬什么"><a href="#爬什么" class="headerlink" title="爬什么"></a>爬什么</h2><p>把百度贴吧【李毅吧】的内容爬取到本地并保存，需要提取用户名称、发表时间、评论数这几个字段，并且把用户头像和发表的图片保存到本地。</p>
+<a id="more"></a>
+
+<h2 id="怎么做"><a href="#怎么做" class="headerlink" title="怎么做"></a>怎么做</h2><ul>
+<li>获取url</li>
+<li>发送请求，获取响应</li>
+<li>提取数据</li>
+<li>保存数据</li>
+</ul>
+<h3 id="获取url"><a href="#获取url" class="headerlink" title="获取url"></a>获取url</h3><p>观察可知，目标数据所在的url。<br><img src="http://ww1.sinaimg.cn/large/006gDuOdgy1gb54uu0quxj31f60u00y6.jpg" alt="image.png"><br>页码数和url的规律是这样：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">第0页：https:&#x2F;&#x2F;tieba.baidu.com&#x2F;mo&#x2F;q&#x2F;m?word&#x3D;%E6%9D%8E%E6%AF%85&amp;page_from_search&#x3D;index&amp;tn6&#x3D;bdISP&amp;tn4&#x3D;bdKSW&amp;tn7&#x3D;bdPSB&amp;lm&#x3D;16842752&amp;lp&#x3D;6093&amp;sub4&#x3D;%E8%BF%9B%E5%90%A7&amp;pn&#x3D;0&amp;</span><br><span class="line">第1页：https:&#x2F;&#x2F;tieba.baidu.com&#x2F;mo&#x2F;q&#x2F;m?word&#x3D;%E6%9D%8E%E6%AF%85&amp;page_from_search&#x3D;index&amp;tn6&#x3D;bdISP&amp;tn4&#x3D;bdKSW&amp;tn7&#x3D;bdPSB&amp;lm&#x3D;16842752&amp;lp&#x3D;6093&amp;sub4&#x3D;%E8%BF%9B%E5%90%A7&amp;pn&#x3D;30&amp;</span><br><span class="line">第2页：https:&#x2F;&#x2F;tieba.baidu.com&#x2F;mo&#x2F;q&#x2F;m?word&#x3D;%E6%9D%8E%E6%AF%85&amp;page_from_search&#x3D;index&amp;tn6&#x3D;bdISP&amp;tn4&#x3D;bdKSW&amp;tn7&#x3D;bdPSB&amp;lm&#x3D;16842752&amp;lp&#x3D;6093&amp;sub4&#x3D;%E8%BF%9B%E5%90%A7&amp;pn&#x3D;60&amp;</span><br><span class="line">……</span><br><span class="line">第i页：https:&#x2F;&#x2F;tieba.baidu.com&#x2F;mo&#x2F;q&#x2F;m?word&#x3D;%E6%9D%8E%E6%AF%85&amp;page_from_search&#x3D;index&amp;tn6&#x3D;bdISP&amp;tn4&#x3D;bdKSW&amp;tn7&#x3D;bdPSB&amp;lm&#x3D;16842752&amp;lp&#x3D;6093&amp;sub4&#x3D;%E8%BF%9B%E5%90%A7&amp;pn&#x3D;&#123;30i&#125;&amp;</span><br></pre></td></tr></table></figure>
+<p>看到总共是510699页。页码范围（1~510699）<br><img src="http://ww1.sinaimg.cn/large/006gDuOdgy1gb5582i4qdj31f60u0446.jpg" alt="image.png"></p>
+<h3 id="发送请求，获取响应"><a href="#发送请求，获取响应" class="headerlink" title="发送请求，获取响应"></a>发送请求，获取响应</h3><p>遍历url列表，使用requests库发送请求。</p>
+<h3 id="提取数据"><a href="#提取数据" class="headerlink" title="提取数据"></a>提取数据</h3><p>方法：观察可知，每个用户发表的信息都在相同属性的li标签。这种情况，提取数据最简单的方式就是xpath。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">1. 获取分组的element对象（这里就是对提取的li标签内容做etree）</span><br><span class="line">2. 对element对象做xpath，分别提取各个字段的值</span><br><span class="line">3.（用户名称、发表时间、评论数这三个值可以直接用xpath提取出来，要获取到用户头像和发表的图片，必须先提取到图片对应的url地址之后，再发送请求，获取图片内容）</span><br></pre></td></tr></table></figure>
+<p><img src="http://ww1.sinaimg.cn/large/006gDuOdgy1gb55e3a9wwj31f60u0af4.jpg" alt="image.png"><br><img src="http://ww1.sinaimg.cn/large/006gDuOdgy1gb55lkb3qej31f60u043v.jpg" alt="image.png"></p>
+<ul>
+<li>用户名称</li>
+<li>发表时间</li>
+<li>评论数</li>
+<li>用户头像</li>
+<li>发表的图片</li>
+</ul>
+<h4 id="用户名称"><a href="#用户名称" class="headerlink" title="用户名称"></a>用户名称</h4><p><img src="http://ww1.sinaimg.cn/large/006gDuOdgy1gb560k965vj31f60u0n2c.jpg" alt="image.png"></p>
+<h4 id="发表时间"><a href="#发表时间" class="headerlink" title="发表时间"></a>发表时间</h4><p><img src="http://ww1.sinaimg.cn/large/006gDuOdgy1gb561whg6oj31f60u0dkz.jpg" alt="image.png"></p>
+<h4 id="评论数"><a href="#评论数" class="headerlink" title="评论数"></a>评论数</h4><p><img src="http://ww1.sinaimg.cn/large/006gDuOdgy1gb563onrmrj31f60u043c.jpg" alt="image.png"></p>
+<h4 id="用户头像"><a href="#用户头像" class="headerlink" title="用户头像"></a>用户头像</h4><p><img src="http://ww1.sinaimg.cn/large/006gDuOdgy1gb55rzbip3j31f60u0n2a.jpg" alt="image.png"></p>
+<h4 id="发表的图片"><a href="#发表的图片" class="headerlink" title="发表的图片"></a>发表的图片</h4><p><img src="http://ww1.sinaimg.cn/large/006gDuOdgy1gb56l57zxdj31f60u0gtg.jpg" alt="image.png"></p>
+<h3 id="保存数据"><a href="#保存数据" class="headerlink" title="保存数据"></a>保存数据</h3><p>f.write保存到本地。注意，保存写入图片的时候，参数要加上b，只能以二进制方式写入，写入内容是bytes类型的<code>response.content</code></p>
+<h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><p>太不容易了———这个代码写了至少3个小时—–获取段子的内容并不难，主要是对获取到的url地址再次发起请求，获取响应。在写入图片的时候没有使用bytes类型，花费了很多时间排查这个错误——</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> requests</span><br><span class="line"><span class="keyword">from</span> lxml <span class="keyword">import</span> etree</span><br><span class="line"><span class="keyword">import</span> json</span><br><span class="line"><span class="keyword">from</span> pprint <span class="keyword">import</span> pprint</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">tieba</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self)</span>:</span></span><br><span class="line">        self.url_temp = <span class="string">"https://tieba.baidu.com/mo/q/m?word=%E6%9D%8E%E6%AF%85&amp;page_from_search=index&amp;tn6=bdISP&amp;tn4=bdKSW&amp;tn7=bdPSB&amp;lm=16842752&amp;lp=6093&amp;sub4=%E8%BF%9B%E5%90%A7&amp;pn=&#123;&#125;&amp;"</span></span><br><span class="line">        self.headers = &#123;<span class="string">"User-Agent"</span>: <span class="string">"Mozilla/5.0 (Linux; Android 5.0; SM-G900P Build/LRX21T) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/79.0.3945.130 Mobile Safari/537.36"</span>&#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">get_url_list</span><span class="params">(self)</span>:</span> <span class="comment">#获取url</span></span><br><span class="line">        url_list =  [self.url_temp.format(i*<span class="number">30</span>) <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">2</span>)]</span><br><span class="line">        <span class="comment"># pprint(url_list)</span></span><br><span class="line">        <span class="keyword">return</span> url_list</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">parse_url</span><span class="params">(self,url)</span>:</span> <span class="comment">#发送请求，获取响应</span></span><br><span class="line">        html_str = requests.get(url,headers=self.headers)</span><br><span class="line">        <span class="comment"># print(html_str.status_code)</span></span><br><span class="line">        html_str = html_str.content.decode()</span><br><span class="line">        <span class="keyword">return</span> html_str</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">get_content_list</span><span class="params">(self,html_str)</span>:</span></span><br><span class="line">        html_str = etree.HTML(html_str) <span class="comment">#&lt;li&gt;标签分组</span></span><br><span class="line">        <span class="comment"># pprint(html_str)</span></span><br><span class="line">        grp_str_list = html_str.xpath(<span class="string">"//li[@class='tl_shadow tl_shadow_new ']"</span>)</span><br><span class="line">        <span class="comment"># pprint(grp_str_list)</span></span><br><span class="line">        content_list = []    </span><br><span class="line">        <span class="keyword">for</span> grp_str <span class="keyword">in</span> grp_str_list:    </span><br><span class="line">            item = &#123;&#125;        </span><br><span class="line">            item[<span class="string">"user_name"</span>] = grp_str.xpath(<span class="string">".//span[contains(@class,'ti_author')]/text()"</span>)[<span class="number">0</span>] <span class="comment">#contains用法，定位sapn属性值包含ti_author的span标签</span></span><br><span class="line">            item[<span class="string">"time"</span>] = grp_str.xpath(<span class="string">".//span[@class='ti_time']/text()"</span>)[<span class="number">0</span>]</span><br><span class="line">            item[<span class="string">"comments"</span>] = grp_str.xpath(<span class="string">".//span[@class='btn_icon']/text()"</span>)[<span class="number">0</span>]</span><br><span class="line">            item[<span class="string">"content"</span>] = grp_str.xpath(<span class="string">".//div[@class='ti_title']/span/text()"</span>)</span><br><span class="line">            item[<span class="string">"icon_url"</span>] = grp_str.xpath(<span class="string">".//div[@class='ti_avatar']/img/@src"</span>)[<span class="number">0</span>]</span><br><span class="line">            item[<span class="string">"photo_url"</span>] = grp_str.xpath(<span class="string">".//div[@class='medias_wrap ordinary_thread clearfix']//img/@data-url"</span>)[<span class="number">0</span>] <span class="keyword">if</span> len(grp_str.xpath(<span class="string">".//div[@class='medias_wrap ordinary_thread clearfix']//img/@data-url"</span>))&gt;<span class="number">0</span> <span class="keyword">else</span> <span class="literal">None</span> <span class="comment">#重点：判断xpath是否提取到数据，如果没有提取到，就将值设置为None</span></span><br><span class="line">            <span class="comment"># pprint(item["photo_url"])</span></span><br><span class="line">            content_list.append(item)</span><br><span class="line">        <span class="comment"># pprint(content_list)</span></span><br><span class="line">        <span class="keyword">return</span> content_list</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">save_content_list</span><span class="params">(self,content_list,page_num)</span>:</span> <span class="comment">#保存段子内容</span></span><br><span class="line">        file_path = <span class="string">"第&#123;&#125;页.json"</span>.format(page_num)</span><br><span class="line">        <span class="keyword">for</span> content <span class="keyword">in</span> content_list:</span><br><span class="line">            <span class="keyword">with</span> open(file_path,<span class="string">"a"</span>,encoding=<span class="string">"utf8"</span>) <span class="keyword">as</span> f:</span><br><span class="line">                f.write(json.dumps(content,ensure_ascii=<span class="literal">False</span>,indent=<span class="number">2</span>))          </span><br><span class="line">            <span class="comment"># print(file_path)</span></span><br><span class="line">            </span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">save_icon</span><span class="params">(self,icon_byt,page_num)</span>:</span> <span class="comment">#保存icon图片</span></span><br><span class="line">        file_path = <span class="string">"icon第&#123;&#125;张.jpg"</span>.format(page_num)</span><br><span class="line">        <span class="keyword">with</span> open(file_path,<span class="string">"wb"</span>) <span class="keyword">as</span> f:</span><br><span class="line">            f.write(icon_byt)</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">save_photo</span><span class="params">(self,photo_byt,page_num)</span>:</span> <span class="comment">#保存发表图片</span></span><br><span class="line">        file_path = <span class="string">"photo第&#123;&#125;张.jpg"</span>.format(page_num)</span><br><span class="line">        <span class="keyword">with</span> open(file_path,<span class="string">"wb"</span>) <span class="keyword">as</span> f:</span><br><span class="line">            f.write(photo_byt)</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">parse_photo_url</span><span class="params">(self,url)</span>:</span> <span class="comment">#获取图片url的响应，返回bytes类型的结果</span></span><br><span class="line">        photo_str = requests.get(url,headers=self.headers)</span><br><span class="line">        photo_str = photo_str.content</span><br><span class="line">        <span class="keyword">return</span> photo_str</span><br><span class="line">            </span><br><span class="line">        </span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">run</span><span class="params">(self)</span>:</span> <span class="comment">#实现主逻辑</span></span><br><span class="line">        <span class="comment">#1. 获取url</span></span><br><span class="line">        url_list = self.get_url_list()</span><br><span class="line">        icon_url_list = []</span><br><span class="line">        photo_url_list = []</span><br><span class="line">        <span class="comment">#2. 遍历url列表 </span></span><br><span class="line">        <span class="keyword">for</span> url <span class="keyword">in</span> url_list:           </span><br><span class="line">            <span class="comment">#3. 发送请求，获取响应</span></span><br><span class="line">            html_str = self.parse_url(url)</span><br><span class="line">            <span class="comment">#3. 提取数据</span></span><br><span class="line">            content_list = self.get_content_list(html_str)</span><br><span class="line">            page_num = url_list.index(url)+<span class="number">1</span> <span class="comment">#页码数和url列表元素的下标之间的关系</span></span><br><span class="line">            <span class="comment">#4. 保存内容数据</span></span><br><span class="line">            self.save_content_list(content_list,page_num)</span><br><span class="line">            <span class="comment">#5. 发送图片请求，获取响应</span></span><br><span class="line">            <span class="keyword">for</span> content <span class="keyword">in</span> content_list:</span><br><span class="line">                i = <span class="number">1</span> <span class="comment">#用于计数，表示这个for循环的循环次数</span></span><br><span class="line">                icon_url_list = [] <span class="comment">#初始化icon图片url列表</span></span><br><span class="line">                photo_url_list = [] <span class="comment">#初始化发表图片url列表</span></span><br><span class="line">                icon_num = content_list.index(content)</span><br><span class="line">                icon_url_list.append(content_list[icon_num][<span class="string">"icon_url"</span>]) <span class="comment">#获取头像图片</span></span><br><span class="line">                <span class="comment"># pprint(icon_url_list)  </span></span><br><span class="line">                icon_byt = self.parse_photo_url(icon_url_list[<span class="number">0</span>]) <span class="comment">#发送请求，获取数据</span></span><br><span class="line">                photo_num = page_num*i+icon_num <span class="comment">#用于表示图片的序号，这个值和for循环的循环次数有数学关系</span></span><br><span class="line">                self.save_icon(icon_byt,photo_num) <span class="comment">#保存icon图片</span></span><br><span class="line">                <span class="keyword">while</span> content_list[icon_num][<span class="string">"photo_url"</span>] <span class="keyword">is</span> <span class="keyword">not</span> <span class="literal">None</span>: <span class="comment">#当图片url地址不为None时，才对url地址发送请求 </span></span><br><span class="line">                    photo_url_list.append(content_list[icon_num][<span class="string">"photo_url"</span>]) <span class="comment">#获取发表图片               </span></span><br><span class="line">                    photo_byt = self.parse_photo_url(photo_url_list[<span class="number">0</span>]) <span class="comment">#发送请求，获取数据</span></span><br><span class="line">                    <span class="comment"># photo_num = page_num*icon_num+icon_num</span></span><br><span class="line">                    self.save_photo(photo_byt,photo_num) <span class="comment">#保存发表图片</span></span><br><span class="line">                    <span class="comment"># pprint(photo_url_list[0])    </span></span><br><span class="line">                    <span class="keyword">break</span>  <span class="comment">#这里必须加上break，否则程序要卡死</span></span><br><span class="line">                i = i +<span class="number">1</span>               </span><br><span class="line">                </span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</span><br><span class="line">    my_tieba = tieba()</span><br><span class="line">    my_tieba.run()</span><br></pre></td></tr></table></figure>
+
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>主要还是对数据类型不熟悉。这个练习，涉及了对列表和字典的操作。<br>怎么构造字典，怎么构造列表。这里都用了<code>append</code>的方式将新增的数据添加到空列表。在使用之前，必须记得初始化列表。其中有个错误，就是因为没有初始化列表photo_url_list，也是花了很多时间才找到原因。目标数据的字段多于两个，就可以把数据构造成字典，append到空列表中存储。<br>写入图片，直接使用<code>response.content</code>这种bytes类型的数据，不能再decode。<br>第一次使用while。while就是永远循环，直到条件不成立，就结束循环，这个代码要搭配break，否则程序卡死动不了。<br>用xpath提取数据，不要忘记考虑这个点，有些分组可能提取不到某些字段，这个时候，就要把相应字段的值设置为<code>None</code>，保持字典的完整性。<br><code>item[&quot;photo_url&quot;] = grp_str.xpath(&quot;.//div[@class=&#39;medias_wrap ordinary_thread clearfix&#39;]//img/@data-url&quot;)[0] if len(grp_str.xpath(&quot;.//div[@class=&#39;medias_wrap ordinary_thread clearfix&#39;]//img/@data-url&quot;))&gt;0 else None</code>这个叫做三元表达式。和列表推导式很类似，就是先看条件，条件满足，就赋值给左边，否则赋值到右边。<br>然后就是对于代码里面设置的循环次数这类数学问题，很生疏。虽然日常生活中的加减乘除都没有大问题，代码里面的数学问题，就算只有小学数学的难度，也要把人搞昏……真的挺不喜欢i这个变量。在学校里面学c语言的时候，就是从i的各种加减乘除开始的，什么i++，++i，整得头痛，编程的兴趣就是这么耗尽的，用代码解决纯数学问题太太太枯燥了。<br>还有一个点需要特别注意，在浏览器使用xpath helper的时候，要注意检查响应的内容和页面的element内容有没有差别。今天就被坑了……element里面的代码和url的响应内容有些些差别，这一点细微的差别，导致的结果就是xpath提取不到数据。所以，用xpath helper工具虽然方便，还是要多留心，最好是以响应数据为准，做xpath的时候优先看响应数据。</p>
+<h2 id="更正"><a href="#更正" class="headerlink" title="更正"></a>更正</h2><p>代码的计数方式不对。改为：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> requests</span><br><span class="line"><span class="keyword">from</span> lxml <span class="keyword">import</span> etree</span><br><span class="line"><span class="keyword">import</span> json</span><br><span class="line"><span class="keyword">from</span> pprint <span class="keyword">import</span> pprint</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">tieba</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self)</span>:</span></span><br><span class="line">        self.url_temp = <span class="string">"https://tieba.baidu.com/mo/q/m?word=%E6%9D%8E%E6%AF%85&amp;page_from_search=index&amp;tn6=bdISP&amp;tn4=bdKSW&amp;tn7=bdPSB&amp;lm=16842752&amp;lp=6093&amp;sub4=%E8%BF%9B%E5%90%A7&amp;pn=&#123;&#125;&amp;"</span></span><br><span class="line">        self.headers = &#123;<span class="string">"User-Agent"</span>: <span class="string">"Mozilla/5.0 (Linux; Android 5.0; SM-G900P Build/LRX21T) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/79.0.3945.130 Mobile Safari/537.36"</span>&#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">get_url_list</span><span class="params">(self)</span>:</span> <span class="comment">#获取url</span></span><br><span class="line">        url_list =  [self.url_temp.format(i*<span class="number">30</span>) <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">2</span>)]</span><br><span class="line">        <span class="comment"># pprint(url_list)</span></span><br><span class="line">        <span class="keyword">return</span> url_list</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">parse_url</span><span class="params">(self,url)</span>:</span> <span class="comment">#发送请求，获取响应</span></span><br><span class="line">        html_str = requests.get(url,headers=self.headers)</span><br><span class="line">        <span class="comment"># print(html_str.status_code)</span></span><br><span class="line">        html_str = html_str.content.decode()</span><br><span class="line">        <span class="keyword">return</span> html_str</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">get_content_list</span><span class="params">(self,html_str)</span>:</span></span><br><span class="line">        html_str = etree.HTML(html_str) <span class="comment">#&lt;li&gt;标签分组</span></span><br><span class="line">        <span class="comment"># pprint(html_str)</span></span><br><span class="line">        grp_str_list = html_str.xpath(<span class="string">"//li[@class='tl_shadow tl_shadow_new ']"</span>)</span><br><span class="line">        <span class="comment"># pprint(grp_str_list)</span></span><br><span class="line">        content_list = []    </span><br><span class="line">        <span class="keyword">for</span> grp_str <span class="keyword">in</span> grp_str_list:    </span><br><span class="line">            item = &#123;&#125;        </span><br><span class="line">            item[<span class="string">"user_name"</span>] = grp_str.xpath(<span class="string">".//span[contains(@class,'ti_author')]/text()"</span>)[<span class="number">0</span>] <span class="comment">#contains用法，定位sapn属性值包含ti_author的span标签</span></span><br><span class="line">            item[<span class="string">"time"</span>] = grp_str.xpath(<span class="string">".//span[@class='ti_time']/text()"</span>)[<span class="number">0</span>]</span><br><span class="line">            item[<span class="string">"comments"</span>] = grp_str.xpath(<span class="string">".//span[@class='btn_icon']/text()"</span>)[<span class="number">0</span>]</span><br><span class="line">            item[<span class="string">"content"</span>] = grp_str.xpath(<span class="string">".//div[@class='ti_title']/span/text()"</span>)</span><br><span class="line">            item[<span class="string">"icon_url"</span>] = grp_str.xpath(<span class="string">".//div[@class='ti_avatar']/img/@src"</span>)[<span class="number">0</span>]</span><br><span class="line">            item[<span class="string">"photo_url"</span>] = grp_str.xpath(<span class="string">".//div[@class='medias_wrap ordinary_thread clearfix']//img/@data-url"</span>)[<span class="number">0</span>] <span class="keyword">if</span> len(grp_str.xpath(<span class="string">".//div[@class='medias_wrap ordinary_thread clearfix']//img/@data-url"</span>))&gt;<span class="number">0</span> <span class="keyword">else</span> <span class="literal">None</span></span><br><span class="line">            <span class="comment"># pprint(item["photo_url"])</span></span><br><span class="line">            content_list.append(item)</span><br><span class="line">        <span class="comment"># pprint(content_list)</span></span><br><span class="line">        <span class="keyword">return</span> content_list</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">save_content_list</span><span class="params">(self,content_list,page_num)</span>:</span></span><br><span class="line">        file_path = <span class="string">"第&#123;&#125;页.json"</span>.format(page_num)</span><br><span class="line">        <span class="keyword">for</span> content <span class="keyword">in</span> content_list:</span><br><span class="line">            <span class="keyword">with</span> open(file_path,<span class="string">"a"</span>,encoding=<span class="string">"utf8"</span>) <span class="keyword">as</span> f:</span><br><span class="line">                f.write(json.dumps(content,ensure_ascii=<span class="literal">False</span>,indent=<span class="number">2</span>))          </span><br><span class="line">            <span class="comment"># print(file_path)</span></span><br><span class="line">            </span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">save_icon</span><span class="params">(self,icon_byt,page_num)</span>:</span> <span class="comment">#保存icon图片</span></span><br><span class="line">        file_path = <span class="string">"icon第&#123;&#125;张.jpg"</span>.format(page_num)</span><br><span class="line">        <span class="keyword">with</span> open(file_path,<span class="string">"wb"</span>) <span class="keyword">as</span> f:</span><br><span class="line">            f.write(icon_byt)</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">save_photo</span><span class="params">(self,photo_byt,page_num)</span>:</span> <span class="comment">#保存发表图片</span></span><br><span class="line">        file_path = <span class="string">"photo第&#123;&#125;张.jpg"</span>.format(page_num)</span><br><span class="line">        <span class="keyword">with</span> open(file_path,<span class="string">"wb"</span>) <span class="keyword">as</span> f:</span><br><span class="line">            f.write(photo_byt)</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">parse_photo_url</span><span class="params">(self,url)</span>:</span> <span class="comment">#获取图片url的响应，返回bytes类型的结果</span></span><br><span class="line">        photo_str = requests.get(url,headers=self.headers)</span><br><span class="line">        photo_str = photo_str.content</span><br><span class="line">        <span class="keyword">return</span> photo_str</span><br><span class="line">            </span><br><span class="line">        </span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">run</span><span class="params">(self)</span>:</span> <span class="comment">#实现主逻辑</span></span><br><span class="line">        <span class="comment">#1. 获取url</span></span><br><span class="line">        url_list = self.get_url_list()</span><br><span class="line">        icon_url_list = []</span><br><span class="line">        photo_url_list = []</span><br><span class="line">        <span class="comment">#2. 遍历url列表 </span></span><br><span class="line">        <span class="keyword">for</span> url <span class="keyword">in</span> url_list:           </span><br><span class="line">            <span class="comment">#3. 发送请求，获取响应</span></span><br><span class="line">            html_str = self.parse_url(url)</span><br><span class="line">            <span class="comment">#3. 提取数据</span></span><br><span class="line">            content_list = self.get_content_list(html_str)</span><br><span class="line">            page_num = url_list.index(url)+<span class="number">1</span> <span class="comment">#页码数和url列表元素的下标之间的关系</span></span><br><span class="line">            <span class="comment">#4. 保存内容数据</span></span><br><span class="line">            self.save_content_list(content_list,page_num)</span><br><span class="line">            <span class="comment">#5. 发送图片请求，获取响应</span></span><br><span class="line">            <span class="keyword">for</span> content <span class="keyword">in</span> content_list:</span><br><span class="line">                content_num = content_list.index(content)</span><br><span class="line">                icon_url_list.append(content_list[content_num][<span class="string">"icon_url"</span>]) <span class="comment">#获取头像图片</span></span><br><span class="line">                <span class="comment"># pprint(icon_url_list)  </span></span><br><span class="line">                icon_num = len(icon_url_list)</span><br><span class="line">                icon_byt = self.parse_photo_url(icon_url_list[icon_num<span class="number">-1</span>]) <span class="comment">#发送请求，获取数据</span></span><br><span class="line">                self.save_icon(icon_byt,icon_num) <span class="comment">#保存icon图片</span></span><br><span class="line">                <span class="keyword">while</span> content_list[content_num][<span class="string">"photo_url"</span>] <span class="keyword">is</span> <span class="keyword">not</span> <span class="literal">None</span>: <span class="comment">#当图片url地址不为None时，才对url地址发送请求 </span></span><br><span class="line">                    photo_url_list.append(content_list[content_num][<span class="string">"photo_url"</span>]) <span class="comment">#获取发表图片 </span></span><br><span class="line">                    photo_num = len(photo_url_list)              </span><br><span class="line">                    photo_byt = self.parse_photo_url(photo_url_list[photo_num<span class="number">-1</span>]) <span class="comment">#发送请求，获取数据</span></span><br><span class="line">                    self.save_photo(photo_byt,photo_num) <span class="comment">#保存发表图片  </span></span><br><span class="line">                    <span class="keyword">break</span>  <span class="comment">#这里必须加上break，否则程序要卡死         </span></span><br><span class="line">                </span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</span><br><span class="line">    my_tieba = tieba()</span><br><span class="line">    my_tieba.run()</span><br></pre></td></tr></table></figure>
+<h2 id="灵感来源"><a href="#灵感来源" class="headerlink" title="灵感来源"></a><a href="https://dana5haw.com/2020/01/22/python爬虫实例之爬取糗事百科段子/">灵感来源</a></h2><p>好像每一次的疑问，都一定能找到答案。真的很巧。</p>
+
+    </div>
+
+    
+    
+    
+        
+
+<div>
+<ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者： </strong>Dana Shaw
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="https://dana5haw.com/posts/undefined/Python_Spider_Forum.html" title="python爬虫实例之爬取贴吧页面">https://dana5haw.com/posts/undefined/Python_Spider_Forum.html</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" rel="noopener" target="_blank"><i class="fa fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+
+  <div class="wechat_OA">
+	<span>欢迎关注我的公众号(Welcome to follow me on Wechat)</span>
+	<br>
+    <!-- 这里添加你的二维码图片 -->
+	<img src ="https://v2ray.dana5haw.com:8008/images/2021/08/03/qrcode_for_gh_9b7280eb1edc_258.jpg">
+</div>
+
+</ul>
+</div>
+
+
+      <div>   
+         
+        <div>     
+             
+    <div style="text-align:center;color: #ccc;font-size:14px;">
+        -------------本文结束<i class="fa fa-paw"></i>感谢您的阅读-------------
+    </div>     
+     
+</div>   
+     
+      </div>
+
+      <footer class="post-footer">
+          
+          <div class="post-tags">
+              <a href="/tags/python%E7%88%AC%E8%99%AB%E5%AE%9E%E4%BE%8B/" rel="tag"><i class="fa fa-tag"></i> python爬虫实例</a>
+              <a href="/tags/%E7%88%AC%E5%8F%96%E8%B4%B4%E5%90%A7%E9%A1%B5%E9%9D%A2/" rel="tag"><i class="fa fa-tag"></i> 爬取贴吧页面</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/posts/undefined/Python_SPider_FirstStage_Summary.html" rel="prev" title="python爬虫实例之第一阶段总结">
+      <i class="fa fa-chevron-left"></i> python爬虫实例之第一阶段总结
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/posts/undefined/Python_Spider_Qiubai_Funny.html" rel="next" title="python爬虫实例之爬取糗事百科段子">
+      python爬虫实例之爬取糗事百科段子 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+  </div>
+
+
+          </div>
+          
+    <div class="comments" id="gitalk-container"></div>
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let activeClass = CONFIG.comments.activeClass;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#爬什么"><span class="nav-number">1.</span> <span class="nav-text">爬什么</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#怎么做"><span class="nav-number">2.</span> <span class="nav-text">怎么做</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#获取url"><span class="nav-number">2.1.</span> <span class="nav-text">获取url</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#发送请求，获取响应"><span class="nav-number">2.2.</span> <span class="nav-text">发送请求，获取响应</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#提取数据"><span class="nav-number">2.3.</span> <span class="nav-text">提取数据</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#用户名称"><span class="nav-number">2.3.1.</span> <span class="nav-text">用户名称</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#发表时间"><span class="nav-number">2.3.2.</span> <span class="nav-text">发表时间</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#评论数"><span class="nav-number">2.3.3.</span> <span class="nav-text">评论数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#用户头像"><span class="nav-number">2.3.4.</span> <span class="nav-text">用户头像</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#发表的图片"><span class="nav-number">2.3.5.</span> <span class="nav-text">发表的图片</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#保存数据"><span class="nav-number">2.4.</span> <span class="nav-text">保存数据</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#代码"><span class="nav-number">2.5.</span> <span class="nav-text">代码</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#总结"><span class="nav-number">3.</span> <span class="nav-text">总结</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#更正"><span class="nav-number">4.</span> <span class="nav-text">更正</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#灵感来源"><span class="nav-number">5.</span> <span class="nav-text">灵感来源</span></a></li></ol></div>
+      </div>
+        <div id="">
+	  <canvas id="canvas" style="width:60%;">
+	    </div>
+	      <script type="text/javascript" src="/js/canvas-dance-time.js"></script>
+      <!--/noindex-->
+
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Dana Shaw"
+      src="/./images/photo.jpg">
+  <p class="site-author-name" itemprop="name">Dana Shaw</p>
+  <div class="site-description" itemprop="description">连尘埃也想收藏</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">236</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">81</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">384</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/DanaShaw" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;DanaShaw" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:danaxkj@gmail.com" title="E-Mail → mailto:danaxkj@gmail.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://weibo.com/u/5742631593" title="Weibo → https:&#x2F;&#x2F;weibo.com&#x2F;u&#x2F;5742631593" rel="noopener" target="_blank"><i class="fa fa-fw fa-weibo"></i>Weibo</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="/atom.xml" title="RSS → &#x2F;atom.xml"><i class="fa fa-fw fa-rss"></i>RSS</a>
+      </span>
+  </div>
+
+
+  <div class="links-of-blogroll motion-element">
+    <div class="links-of-blogroll-title">
+      <i class="fa fa-fw fa-link"></i>
+      友情链接
+    </div>
+    <ul class="links-of-blogroll-list">
+        <li class="links-of-blogroll-item">
+          <a href="https://whale3070.github.io/" title="https:&#x2F;&#x2F;whale3070.github.io&#x2F;" rel="noopener" target="_blank">windows提权学习</a>
+        </li>
+    </ul>
+  </div>
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+<span id="timeDate">载入天数...</span>
+<span id="times">载入时分秒...</span>
+<script>
+    var now = new Date();
+        function createtime() {
+	        var grt= new Date("01/07/2020 21:49:45");//此处修改你的建站时间或者网站上线时间
+		        now.setTime(now.getTime()+250);
+			        days = (now - grt ) / 1000 / 60 / 60 / 24; dnum = Math.floor(days);
+				        hours = (now - grt ) / 1000 / 60 / 60 - (24 * dnum); hnum = Math.floor(hours);
+					        if(String(hnum).length ==1 ){hnum = "0" + hnum;} minutes = (now - grt ) / 1000 /60 - (24 * 60 * dnum) - (60 * hnum);
+						        mnum = Math.floor(minutes); if(String(mnum).length ==1 ){mnum = "0" + mnum;}
+							        seconds = (now - grt ) / 1000 - (24 * 60 * 60 * dnum) - (60 * 60 * hnum) - (60 * mnum);
+								        snum = Math.round(seconds); if(String(snum).length ==1 ){snum = "0" + snum;}
+									        document.getElementById("timeDate").innerHTML = "本站已安全运行 "+dnum+" 天 ";
+										        document.getElementById("times").innerHTML = hnum + " 小时 " + mnum + " 分 " + snum + " 秒";
+											    }
+											    setInterval("createtime()",250);
+											    </script>
+
+<div class="copyright">
+  
+  &copy; 2020 – 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Dana Shaw</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    <span title="站点总字数">512k</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="站点阅读时长">7:46</span>
+</div>
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  
+  <script color='0,0,255' opacity='0.5' zIndex='-1' count='99' src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  <script src="/lib/anime.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js"></script>
+  <script src="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+<script src="/js/bookmark.js"></script>
+
+
+
+
+  
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.css">
+
+<script>
+NexT.utils.loadComments(document.querySelector('#gitalk-container'), () => {
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js', () => {
+    var gitalk = new Gitalk({
+      clientID: '2dc357f83ef2282cb7cb',
+      clientSecret: '64ad793540c649b1f67bcbd2fc4c648b631176c5',
+      repo: 'DanaShaw.github.io',
+      owner: 'DanaShaw',
+      admin: ['DanaShaw'],
+      id: '2a49e9934d312e085ed69f316bf00cb1',
+        language: 'zh-CN',
+      distractionFreeMode: true
+    });
+    gitalk.render('gitalk-container');
+  }, window.Gitalk);
+});
+</script>
+
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3938956891324222"
+     crossorigin="anonymous"></script>
+<!-- sidebar -->
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-3938956891324222"
+     data-ad-slot="6163650450"
+     data-ad-format="auto"
+     data-full-width-responsive="true"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+  
+  <script type="text/javascript" src="//cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js"></script>
+  
+  
+   <canvas class="fireworks" style="position: fixed;left: 0;top: 0;z-index: 1; pointer-events: none;" ></canvas> 
+   <script type="text/javascript" src="//cdn.bootcss.com/animejs/2.2.0/anime.min.js"></script> 
+   <script type="text/javascript" src="/js/fireworks.js"></script>
+
+</body>
+</html>

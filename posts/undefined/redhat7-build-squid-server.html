@@ -1,0 +1,788 @@
+<!DOCTYPE html>
+<html lang="zh-CN,en,default">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 4.2.1">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/orange.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/orange.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+  <meta name="google-site-verification" content="HMAT9TapFXG6PRtARF9Qc_fDKANMj-rP3F5FjHjr7kI">
+
+<link rel="stylesheet" href="/css/main.css">
+
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Noto Serif SC:300,300italic,400,400italic,700,700italic|EB Garamond:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.css">
+
+
+<script id="hexo-configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    hostname: new URL('https://dana5haw.com').hostname,
+    root: '/',
+    scheme: 'Gemini',
+    version: '7.7.0',
+    exturl: false,
+    sidebar: {"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},
+    copycode: {"enable":true,"show_result":true,"style":"mac"},
+    back2top: {"enable":true,"sidebar":false,"scrollpercent":true},
+    bookmark: {"enable":true,"color":"#222","save":"auto"},
+    fancybox: true,
+    mediumzoom: false,
+    lazyload: false,
+    pangu: false,
+    comments: {"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},
+    algolia: {
+      appID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    },
+    localsearch: {"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
+    path: './public/search.xml',
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}
+  };
+</script>
+<script data-ad-client="ca-pub-3938956891324222" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-203752309-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-203752309-1');
+</script>
+  <meta name="description" content="前言squid可正向代理、正向透明代理、反向代理。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="redhat7部署squid服务">
+<meta property="og:url" content="https://dana5haw.com/posts/undefined/redhat7-build-squid-server.html">
+<meta property="og:site_name" content="Dana Shaw&#39;s blog">
+<meta property="og:description" content="前言squid可正向代理、正向透明代理、反向代理。">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://v2ray.dana5haw.com:8008/images/2020/07/11/image.png">
+<meta property="og:image" content="https://v2ray.dana5haw.com:8008/images/2020/07/11/image265c2b32707a5a1b.png">
+<meta property="og:image" content="https://v2ray.dana5haw.com:8008/images/2020/07/11/image7140b2e3e4527852.png">
+<meta property="og:image" content="https://v2ray.dana5haw.com:8008/images/2020/07/11/image1600272b0e2e2222.png">
+<meta property="og:image" content="https://v2ray.dana5haw.com:8008/images/2020/07/11/image927d534047159c16.png">
+<meta property="og:image" content="https://v2ray.dana5haw.com:8008/images/2020/07/11/image60c900cb240b5142.png">
+<meta property="og:image" content="https://v2ray.dana5haw.com:8008/images/2020/07/11/image9b4429ed27c3a58b.png">
+<meta property="og:image" content="https://v2ray.dana5haw.com:8008/images/2020/07/11/image70e74e9682a1191a.png">
+<meta property="og:image" content="https://v2ray.dana5haw.com:8008/images/2020/07/11/image49f4a88c22965db1.png">
+<meta property="og:image" content="https://v2ray.dana5haw.com:8008/images/2020/07/11/image4f6951b33296de8a.png">
+<meta property="og:image" content="https://v2ray.dana5haw.com:8008/images/2020/07/11/image0348992fed9143de.png">
+<meta property="og:image" content="https://v2ray.dana5haw.com:8008/images/2020/07/11/imageeb5cb2c90fcdc01b.png">
+<meta property="og:image" content="https://v2ray.dana5haw.com:8008/images/2020/07/11/image5b7d495c01009ca8.png">
+<meta property="og:image" content="https://v2ray.dana5haw.com:8008/images/2020/07/11/image529422e4ac01d2b4.png">
+<meta property="og:image" content="https://v2ray.dana5haw.com:8008/images/2020/07/11/image66787df57652fefe.png">
+<meta property="og:image" content="https://v2ray.dana5haw.com:8008/images/2020/07/11/image82735d8d4a7624b4.png">
+<meta property="og:image" content="https://v2ray.dana5haw.com:8008/images/2020/07/11/image439cf4390b7aa491.png">
+<meta property="og:image" content="https://v2ray.dana5haw.com:8008/images/2020/07/11/image672695e7696f852d.png">
+<meta property="og:image" content="https://v2ray.dana5haw.com:8008/images/2020/07/11/image9f3f73a7e1eed80f.png">
+<meta property="og:image" content="https://v2ray.dana5haw.com:8008/images/2020/07/11/imagecb1b5596770b28bd.png">
+<meta property="og:image" content="https://v2ray.dana5haw.com:8008/images/2020/07/11/image6279dfa426002e43.png">
+<meta property="og:image" content="https://v2ray.dana5haw.com:8008/images/2020/07/11/image629638bce63ab274.png">
+<meta property="og:image" content="https://v2ray.dana5haw.com:8008/images/2020/07/11/imageb623a21ac4f98893.png">
+<meta property="og:image" content="https://v2ray.dana5haw.com:8008/images/2020/07/11/imagea38a90f80016fbd2.png">
+<meta property="article:published_time" content="2020-07-11T02:37:46.000Z">
+<meta property="article:modified_time" content="2020-07-11T09:08:30.372Z">
+<meta property="article:author" content="Dana Shaw">
+<meta property="article:tag" content="redhat7">
+<meta property="article:tag" content="squid">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://v2ray.dana5haw.com:8008/images/2020/07/11/image.png">
+
+<link rel="canonical" href="https://dana5haw.com/posts/undefined/redhat7-build-squid-server.html">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome: false,
+    isPost: true
+  };
+</script>
+
+  <title>redhat7部署squid服务 | Dana Shaw's blog</title>
+  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-203752309-1"></script>
+    <script>
+      var host = window.location.host;
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      if (host.indexOf("127.0.0.1") == -1 && host.indexOf("localhost") == -1) {
+        gtag('js', new Date());
+        gtag('config', 'UA-203752309-1');
+      }
+    </script>
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+<link rel="alternate" href="/atom.xml" title="Dana Shaw's blog" type="application/atom+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-meta">
+
+    <div>
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Dana Shaw's blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+        <p class="site-subtitle">为了去往别处</p>
+  </div>
+
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+</div>
+
+
+<nav class="site-nav">
+  
+  <ul id="menu" class="menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-fw fa-user"></i>关于</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档</a>
+
+  </li>
+        <li class="menu-item menu-item-sitemap">
+
+    <a href="/sitemap.xml" rel="section"><i class="fa fa-fw fa-sitemap"></i>站点地图</a>
+
+  </li>
+        <li class="menu-item menu-item-commonweal">
+
+    <a href="/404/" rel="section"><i class="fa fa-fw fa-heartbeat"></i>公益 404</a>
+
+  </li>
+        <li class="menu-item menu-item-readnotes">
+
+    <a href="/categories/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/" rel="section"><i class="fa fa-fw fa-book"></i>读书笔记</a>
+
+  </li>
+        <li class="menu-item menu-item-movienotes">
+
+    <a href="/categories/%E8%A7%82%E5%BD%B1%E7%AC%94%E8%AE%B0/" rel="section"><i class="fa fa-fw fa-youtube"></i>观影笔记</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+
+</nav>
+  <div class="site-search">
+    <div class="popup search-popup">
+    <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocorrect="off" autocapitalize="none"
+           placeholder="搜索..." spellcheck="false"
+           type="text" id="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result"></div>
+
+</div>
+<div class="search-pop-overlay"></div>
+
+  </div>
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <a role="button" class="book-mark-link book-mark-link-fixed"></a>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content">
+            
+
+  <div class="posts-expand">
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://dana5haw.com/posts/undefined/redhat7-build-squid-server.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/./images/photo.jpg">
+      <meta itemprop="name" content="Dana Shaw">
+      <meta itemprop="description" content="连尘埃也想收藏">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Dana Shaw's blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          redhat7部署squid服务
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2020-07-11 10:37:46 / 修改时间：17:08:30" itemprop="dateCreated datePublished" datetime="2020-07-11T10:37:46+08:00">2020-07-11</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/RHCE/" itemprop="url" rel="index">
+                    <span itemprop="name">RHCE</span>
+                  </a>
+                </span>
+            </span>
+
+          
+            <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span><br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>1.8k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-clock-o"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>2 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>squid可正向代理、正向透明代理、反向代理。</p>
+<a id="more"></a>
+
+<h2 id="squid正向代理"><a href="#squid正向代理" class="headerlink" title="squid正向代理"></a>squid正向代理</h2><p>正向代理和SNAT原理类似。<br>服务端：两块网卡，一块连外网，一块连内网</p>
+<ul>
+<li>网卡一：桥接模式，连外网 </li>
+<li>网卡二：仅主机模式，连内网，IP地址（192.168.0.106）<br>客户端：单网卡，仅主机模式，IP地址（192.168.0.102）<br>正向代理搭建过程：</li>
+</ul>
+<ol>
+<li>配置双网卡</li>
+</ol>
+<ul>
+<li>新增网卡<br><img src="https://v2ray.dana5haw.com:8008/images/2020/07/11/image.png" alt="image.png"></li>
+<li>开启新增网卡<br><img src="https://v2ray.dana5haw.com:8008/images/2020/07/11/image265c2b32707a5a1b.png" alt="image265c2b32707a5a1b.png"></li>
+<li>配置网卡<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nm-connection-editor #进入图形化界面配置网卡</span><br></pre></td></tr></table></figure></li>
+<li>外网网卡配置<br><img src="https://v2ray.dana5haw.com:8008/images/2020/07/11/image7140b2e3e4527852.png" alt="image7140b2e3e4527852.png"></li>
+<li>内网网卡配置<br><img src="https://v2ray.dana5haw.com:8008/images/2020/07/11/image1600272b0e2e2222.png" alt="image1600272b0e2e2222.png"><br><img src="https://v2ray.dana5haw.com:8008/images/2020/07/11/image927d534047159c16.png" alt="image927d534047159c16.png"><br><img src="https://v2ray.dana5haw.com:8008/images/2020/07/11/image60c900cb240b5142.png" alt="image60c900cb240b5142.png"></li>
+<li>重启网卡使配置生效<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl restart network</span><br></pre></td></tr></table></figure>
+<img src="https://v2ray.dana5haw.com:8008/images/2020/07/11/image9b4429ed27c3a58b.png" alt="image9b4429ed27c3a58b.png"></li>
+</ul>
+<ol start="2">
+<li>安装squid<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum install squid</span><br></pre></td></tr></table></figure></li>
+<li>清除防火墙规则<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">iptables -F</span><br><span class="line">service iptables save</span><br></pre></td></tr></table></figure></li>
+<li>重启squid并加入开机启动项<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">systemctl restart squid</span><br><span class="line">systemctl enable squid</span><br></pre></td></tr></table></figure></li>
+<li>客户端验证正向代理<br>客户端是仅主机模式，本身无法访问互联网网站，但是经过服务端的正向代理后，就可以访问互联网。</li>
+</ol>
+<ul>
+<li>客户端浏览器设置代理：设置为服务端的3128端口（squid服务默认端口）<br><img src="https://v2ray.dana5haw.com:8008/images/2020/07/11/image70e74e9682a1191a.png" alt="image70e74e9682a1191a.png"></li>
+<li>检查客户端是否能访问互联网网站<br><img src="https://v2ray.dana5haw.com:8008/images/2020/07/11/image49f4a88c22965db1.png" alt="image49f4a88c22965db1.png"></li>
+</ul>
+<ol start="6">
+<li>正向代理设置访问控制</li>
+</ol>
+<ul>
+<li>禁止url含有特定词的访问</li>
+</ul>
+<p>（1）修改配置文件/etc/squid/squid.conf，增加以下语句：<br><img src="https://v2ray.dana5haw.com:8008/images/2020/07/11/image4f6951b33296de8a.png" alt="image4f6951b33296de8a.png"><br>（2）重启squid服务使配置生效</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl restart squid</span><br></pre></td></tr></table></figure>
+<p>（3）验证：url里面含有linux，已被squid拦截。<br><img src="https://v2ray.dana5haw.com:8008/images/2020/07/11/image0348992fed9143de.png" alt="image0348992fed9143de.png"></p>
+<ul>
+<li>仅允许某个IP使用正向代理服务</li>
+</ul>
+<p>（1）修改配置文件/etc/squid/squid.conf，增加以下语句：<br><img src="https://v2ray.dana5haw.com:8008/images/2020/07/11/imageeb5cb2c90fcdc01b.png" alt="imageeb5cb2c90fcdc01b.png"><br>（2）重启squid服务使配置生效</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl restart squid</span><br></pre></td></tr></table></figure>
+<p>（3）验证：将客户端的IP改为其他IP地址，则无法使用正向代理访问互联网<br><img src="https://v2ray.dana5haw.com:8008/images/2020/07/11/image5b7d495c01009ca8.png" alt="image5b7d495c01009ca8.png"><br><img src="https://v2ray.dana5haw.com:8008/images/2020/07/11/image529422e4ac01d2b4.png" alt="image529422e4ac01d2b4.png"></p>
+<ol start="7">
+<li>服务端设置正向透明代理<br>透明代理是对客户端而言，客户端不用在浏览器设置代理，就是透明代理。以下是正向透明代理的设置方法：</li>
+</ol>
+<ul>
+<li>修改配置文件/etc/squid/squid.conf，修改以下语句：<br><img src="https://v2ray.dana5haw.com:8008/images/2020/07/11/image66787df57652fefe.png" alt="image66787df57652fefe.png"><br><img src="https://v2ray.dana5haw.com:8008/images/2020/07/11/image82735d8d4a7624b4.png" alt="image82735d8d4a7624b4.png"></li>
+<li>检查配置文件语法是否正确<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">squid -k parse</span><br></pre></td></tr></table></figure></li>
+<li>停止squid服务，初始化透明模式的squid配置<br><img src="https://v2ray.dana5haw.com:8008/images/2020/07/11/image439cf4390b7aa491.png" alt="image439cf4390b7aa491.png"></li>
+<li>重启squid服务<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl restart squid</span><br></pre></td></tr></table></figure></li>
+<li>服务端设置防火墙策略，使客户端与服务端共用外网网卡访问互联网<br>（1）方法一：通过iptables设置转发策略<br>开启DNS服务的数据转发功能，允许squid转发IPv4数据包<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">iptables -F</span><br><span class="line">iptables -t nat -A POSTROUTING -p udp --dport 53 -o eno16777736 -j MASQUERADE</span><br></pre></td></tr></table></figure>
+<img src="https://v2ray.dana5haw.com:8008/images/2020/07/11/image672695e7696f852d.png" alt="image672695e7696f852d.png"><br>把客户端的80端口请求转发到服务端的3128端口（squid服务的端口），并且对客户端的IP做SNAT（源地址转换，使得客户端与服务端共用外网网卡）<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">iptables -t nat -A PREROUTING -p tcp -m tcp --dport 80 -j  REDIRECT --to-ports 3128</span><br><span class="line">iptables -t nat -A POSTROUTING -s 192.168.0.102 -o eno16777736 -j SNAT --to 192.168.43.208</span><br><span class="line">service iptables save</span><br></pre></td></tr></table></figure>
+<img src="https://v2ray.dana5haw.com:8008/images/2020/07/11/image9f3f73a7e1eed80f.png" alt="image9f3f73a7e1eed80f.png"><br>（2）方法二：通过firewalld-config设置转发策略<br><img src="https://v2ray.dana5haw.com:8008/images/2020/07/11/imagecb1b5596770b28bd.png" alt="imagecb1b5596770b28bd.png"></li>
+<li>客户端修改网卡配置，将网关设置为服务端IP地址192.168.0.106，DNS服务设置为8.8.8.8。浏览器不设置代理，即可访问互联网网站。<br><img src="https://v2ray.dana5haw.com:8008/images/2020/07/11/image6279dfa426002e43.png" alt="image6279dfa426002e43.png"></li>
+</ul>
+<h2 id="squid反向代理"><a href="#squid反向代理" class="headerlink" title="squid反向代理"></a>squid反向代理</h2><p>就是可以在用代理服务器的IP地址访问到网站内容，看起来这个网站就是代理服务器自己做的一样。说得通俗一点，就是偷别人的作品，冠上自己的姓名。以下是squid反向代理的配置方法：<br>重新做一台squid代理服务器，只需要一张桥接网卡，可连外网。</p>
+<ul>
+<li>安装squid<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum install squid</span><br></pre></td></tr></table></figure></li>
+<li>修改配置文件/etc/squid/squid.conf<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">http_port 192.168.43.208:80 vhost #将本机外网网卡地址设置为虚拟主机</span><br><span class="line">cache_peer 122.142.74.150 parent 80 0  originserver #同步目标服务器的网站内容</span><br></pre></td></tr></table></figure>
+<img src="https://v2ray.dana5haw.com:8008/images/2020/07/11/image629638bce63ab274.png" alt="image629638bce63ab274.png"></li>
+<li>重启squid服务并 加入开机启动项<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">systemctl restart squid</span><br><span class="line">systemctl enable squid</span><br></pre></td></tr></table></figure></li>
+<li>在浏览器输入本机地址，即可访问到目标网站（<a href="http://www.jldaren.com）的内容，和原站一模一样" target="_blank" rel="noopener">www.jldaren.com）的内容，和原站一模一样</a><br><img src="https://v2ray.dana5haw.com:8008/images/2020/07/11/imageb623a21ac4f98893.png" alt="imageb623a21ac4f98893.png"><br><img src="https://v2ray.dana5haw.com:8008/images/2020/07/11/imagea38a90f80016fbd2.png" alt="imagea38a90f80016fbd2.png"></li>
+</ul>
+
+    </div>
+
+    
+    
+    
+        
+
+<div>
+<ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者： </strong>Dana Shaw
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="https://dana5haw.com/posts/undefined/redhat7-build-squid-server.html" title="redhat7部署squid服务">https://dana5haw.com/posts/undefined/redhat7-build-squid-server.html</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" rel="noopener" target="_blank"><i class="fa fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+
+  <div class="wechat_OA">
+	<span>欢迎关注我的公众号(Welcome to follow me on Wechat)</span>
+	<br>
+    <!-- 这里添加你的二维码图片 -->
+	<img src ="https://v2ray.dana5haw.com:8008/images/2021/08/03/qrcode_for_gh_9b7280eb1edc_258.jpg">
+</div>
+
+</ul>
+</div>
+
+
+      <div>   
+         
+        <div>     
+             
+    <div style="text-align:center;color: #ccc;font-size:14px;">
+        -------------本文结束<i class="fa fa-paw"></i>感谢您的阅读-------------
+    </div>     
+     
+</div>   
+     
+      </div>
+
+      <footer class="post-footer">
+          
+          <div class="post-tags">
+              <a href="/tags/redhat7/" rel="tag"><i class="fa fa-tag"></i> redhat7</a>
+              <a href="/tags/squid/" rel="tag"><i class="fa fa-tag"></i> squid</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/posts/undefined/redhat7-postfix-dovecot-outlook.html" rel="prev" title="redhat7搭建邮局postfix+dovecot+outlook">
+      <i class="fa fa-chevron-left"></i> redhat7搭建邮局postfix+dovecot+outlook
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/posts/undefined/rehat7-iSCSI-network-store.html" rel="next" title="redhat7使用iSCSI部署网络存储">
+      redhat7使用iSCSI部署网络存储 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+  </div>
+
+
+          </div>
+          
+    <div class="comments" id="gitalk-container"></div>
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let activeClass = CONFIG.comments.activeClass;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#squid正向代理"><span class="nav-number">2.</span> <span class="nav-text">squid正向代理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#squid反向代理"><span class="nav-number">3.</span> <span class="nav-text">squid反向代理</span></a></li></ol></div>
+      </div>
+        <div id="">
+	  <canvas id="canvas" style="width:60%;">
+	    </div>
+	      <script type="text/javascript" src="/js/canvas-dance-time.js"></script>
+      <!--/noindex-->
+
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Dana Shaw"
+      src="/./images/photo.jpg">
+  <p class="site-author-name" itemprop="name">Dana Shaw</p>
+  <div class="site-description" itemprop="description">连尘埃也想收藏</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">236</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">81</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">384</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/DanaShaw" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;DanaShaw" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:danaxkj@gmail.com" title="E-Mail → mailto:danaxkj@gmail.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://weibo.com/u/5742631593" title="Weibo → https:&#x2F;&#x2F;weibo.com&#x2F;u&#x2F;5742631593" rel="noopener" target="_blank"><i class="fa fa-fw fa-weibo"></i>Weibo</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="/atom.xml" title="RSS → &#x2F;atom.xml"><i class="fa fa-fw fa-rss"></i>RSS</a>
+      </span>
+  </div>
+
+
+  <div class="links-of-blogroll motion-element">
+    <div class="links-of-blogroll-title">
+      <i class="fa fa-fw fa-link"></i>
+      友情链接
+    </div>
+    <ul class="links-of-blogroll-list">
+        <li class="links-of-blogroll-item">
+          <a href="https://whale3070.github.io/" title="https:&#x2F;&#x2F;whale3070.github.io&#x2F;" rel="noopener" target="_blank">windows提权学习</a>
+        </li>
+    </ul>
+  </div>
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+<span id="timeDate">载入天数...</span>
+<span id="times">载入时分秒...</span>
+<script>
+    var now = new Date();
+        function createtime() {
+	        var grt= new Date("01/07/2020 21:49:45");//此处修改你的建站时间或者网站上线时间
+		        now.setTime(now.getTime()+250);
+			        days = (now - grt ) / 1000 / 60 / 60 / 24; dnum = Math.floor(days);
+				        hours = (now - grt ) / 1000 / 60 / 60 - (24 * dnum); hnum = Math.floor(hours);
+					        if(String(hnum).length ==1 ){hnum = "0" + hnum;} minutes = (now - grt ) / 1000 /60 - (24 * 60 * dnum) - (60 * hnum);
+						        mnum = Math.floor(minutes); if(String(mnum).length ==1 ){mnum = "0" + mnum;}
+							        seconds = (now - grt ) / 1000 - (24 * 60 * 60 * dnum) - (60 * 60 * hnum) - (60 * mnum);
+								        snum = Math.round(seconds); if(String(snum).length ==1 ){snum = "0" + snum;}
+									        document.getElementById("timeDate").innerHTML = "本站已安全运行 "+dnum+" 天 ";
+										        document.getElementById("times").innerHTML = hnum + " 小时 " + mnum + " 分 " + snum + " 秒";
+											    }
+											    setInterval("createtime()",250);
+											    </script>
+
+<div class="copyright">
+  
+  &copy; 2020 – 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Dana Shaw</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    <span title="站点总字数">512k</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="站点阅读时长">7:46</span>
+</div>
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  
+  <script color='0,0,255' opacity='0.5' zIndex='-1' count='99' src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  <script src="/lib/anime.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js"></script>
+  <script src="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+<script src="/js/bookmark.js"></script>
+
+
+
+
+  
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.css">
+
+<script>
+NexT.utils.loadComments(document.querySelector('#gitalk-container'), () => {
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js', () => {
+    var gitalk = new Gitalk({
+      clientID: '2dc357f83ef2282cb7cb',
+      clientSecret: '64ad793540c649b1f67bcbd2fc4c648b631176c5',
+      repo: 'DanaShaw.github.io',
+      owner: 'DanaShaw',
+      admin: ['DanaShaw'],
+      id: '096dea371034de3795da423562150c1c',
+        language: 'zh-CN',
+      distractionFreeMode: true
+    });
+    gitalk.render('gitalk-container');
+  }, window.Gitalk);
+});
+</script>
+
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3938956891324222"
+     crossorigin="anonymous"></script>
+<!-- sidebar -->
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-3938956891324222"
+     data-ad-slot="6163650450"
+     data-ad-format="auto"
+     data-full-width-responsive="true"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+  
+  <script type="text/javascript" src="//cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js"></script>
+  
+  
+   <canvas class="fireworks" style="position: fixed;left: 0;top: 0;z-index: 1; pointer-events: none;" ></canvas> 
+   <script type="text/javascript" src="//cdn.bootcss.com/animejs/2.2.0/anime.min.js"></script> 
+   <script type="text/javascript" src="/js/fireworks.js"></script>
+
+</body>
+</html>

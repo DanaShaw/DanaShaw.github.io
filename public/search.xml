@@ -2,7 +2,7 @@
 <search>
   <entry>
     <title>modsecurity防护crs规则学习之SQL注入-ruleid=942160</title>
-    <url>//posts/Modsecurity-Crs-Rules-SQLInjection-Ruleid-942160.html</url>
+    <url>//posts/undefined/Modsecurity-Crs-Rules-SQLInjection-Ruleid-942160.html</url>
     <content><![CDATA[<h2 id="防护规则学习之SQL注入"><a href="#防护规则学习之SQL注入" class="headerlink" title="防护规则学习之SQL注入"></a>防护规则学习之SQL注入</h2><div class="note info">
             <ul><li>攻击类型：注入攻击</li><li>ruleid: 942160</li></ul>
           </div>
@@ -37,7 +37,7 @@
   </entry>
   <entry>
     <title>modsecurity防护crs规则学习之SQL注入-ruleid=942140</title>
-    <url>//posts/Modsecurity-Crs-Rules-SQLInjection-Ruleid-942140.html</url>
+    <url>//posts/undefined/Modsecurity-Crs-Rules-SQLInjection-Ruleid-942140.html</url>
     <content><![CDATA[<h2 id="防护规则学习之SQL注入"><a href="#防护规则学习之SQL注入" class="headerlink" title="防护规则学习之SQL注入"></a>防护规则学习之SQL注入</h2><div class="note info">
             <ul><li>攻击类型：注入攻击</li><li>ruleid: 942140</li></ul>
           </div>
@@ -80,7 +80,7 @@
   </entry>
   <entry>
     <title>vps加固之通过Nginx动态加载modesucurity自制WAF</title>
-    <url>//posts/Nginx_Dynamic_Modsecurity_WAF.html</url>
+    <url>//posts/undefined/Nginx_Dynamic_Modsecurity_WAF.html</url>
     <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>v2ray搭的梯子，我用了一个web模板页面掩人耳目，但是开放的web给vps增加了安全风险。得想个办法，把这个开放的web防护起来。那就自制一个WAF咯，我的梯子本身是v2ray+ws+tls+web这个模式，已经安装了Nginx软件（用于反向代理，及搭建web服务）。自制WAF基于Nginx，再安装Modsecurity软件，配置一下就完事。</p>
 <a id="more"></a>
 
@@ -167,7 +167,7 @@
   </entry>
   <entry>
     <title>2019-nCov病毒</title>
-    <url>//posts/2019-nCov.html</url>
+    <url>//posts/undefined/2019-nCov.html</url>
     <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>鉴于对2019-nCov病毒的关注，最近得知印度科学家发表了一篇论文，论证该病毒被插入了HIV病毒的氨基酸序列，新闻报导很多。为了辨别这些新闻的真伪，在网上找了论文原版，自己尝试着翻译一下。</p>
 <a id="more"></a>
 
@@ -201,7 +201,7 @@
   </entry>
   <entry>
     <title>modsecurity防护crs规则学习之SQL注入-ruleid=942240</title>
-    <url>//posts/Modsecurity-Crs-Rules-SQLInjection-Ruleid-942240.html</url>
+    <url>//posts/undefined/Modsecurity-Crs-Rules-SQLInjection-Ruleid-942240.html</url>
     <content><![CDATA[<h2 id="防护规则学习之SQL注入"><a href="#防护规则学习之SQL注入" class="headerlink" title="防护规则学习之SQL注入"></a>防护规则学习之SQL注入</h2><div class="note info">
             <ul><li>攻击类型：注入攻击</li><li>ruleid: 942240</li></ul>
           </div>
@@ -244,7 +244,7 @@
   </entry>
   <entry>
     <title>modsecurity防护crs规则学习之SQL注入-ruleid=942220</title>
-    <url>//posts/Modsecurity-Crs-Rules-SQLInjection-Ruleid-942220.html</url>
+    <url>//posts/undefined/Modsecurity-Crs-Rules-SQLInjection-Ruleid-942220.html</url>
     <content><![CDATA[<h2 id="防护规则学习之SQL注入"><a href="#防护规则学习之SQL注入" class="headerlink" title="防护规则学习之SQL注入"></a>防护规则学习之SQL注入</h2><div class="note info">
             <ul><li>攻击类型：注入攻击</li><li>ruleid: 942220</li></ul>
           </div>
@@ -282,7 +282,7 @@
   </entry>
   <entry>
     <title>modsecurity防护crs规则学习之SQL注入-ruleid=942230</title>
-    <url>//posts/Modsecurity-Crs-Rules-SQLInjection-Ruleid-942230.html</url>
+    <url>//posts/undefined/Modsecurity-Crs-Rules-SQLInjection-Ruleid-942230.html</url>
     <content><![CDATA[<h2 id="防护规则学习之SQL注入"><a href="#防护规则学习之SQL注入" class="headerlink" title="防护规则学习之SQL注入"></a>防护规则学习之SQL注入</h2><div class="note info">
             <ul><li>攻击类型：注入攻击</li><li>ruleid: 942230</li></ul>
           </div>
@@ -323,7 +323,7 @@
   </entry>
   <entry>
     <title>modsecurity防护crs规则学习之SQL注入-ruleid=942270</title>
-    <url>//posts/Modsecurity-Crs-Rules-SQLInjection-Ruleid-942270.html</url>
+    <url>//posts/undefined/Modsecurity-Crs-Rules-SQLInjection-Ruleid-942270.html</url>
     <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>继续学习SQL注入规则。</p>
 <a id="more"></a>
 
@@ -362,7 +362,7 @@
   </entry>
   <entry>
     <title>modsecurity防护crs规则学习之SQL注入-ruleid=942190</title>
-    <url>//posts/Modsecurity-Crs-Rules-SQLInjection-Ruleid-942190.html</url>
+    <url>//posts/undefined/Modsecurity-Crs-Rules-SQLInjection-Ruleid-942190.html</url>
     <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>接下来，深入研究modsecurity的防护规则及原理。从SQL注入开始，顺便加强对SQL注入的理解。</p>
 <a id="more"></a>
 
@@ -434,7 +434,7 @@
   </entry>
   <entry>
     <title>modsecurity防护crs规则学习之SQL注入-ruleid=942280</title>
-    <url>//posts/Modsecurity-Crs-Rules-SQLInjection-Ruleid-942280.html</url>
+    <url>//posts/undefined/Modsecurity-Crs-Rules-SQLInjection-Ruleid-942280.html</url>
     <content><![CDATA[<h2 id="防护规则学习之SQL注入"><a href="#防护规则学习之SQL注入" class="headerlink" title="防护规则学习之SQL注入"></a>防护规则学习之SQL注入</h2><div class="note info">
             <ul><li>攻击类型：注入攻击</li><li>ruleid: 942280</li></ul>
           </div>
@@ -477,7 +477,7 @@
   </entry>
   <entry>
     <title>modsecurity防护crs规则学习之SQL注入-ruleid=942360</title>
-    <url>//posts/Modsecurity-Crs-Rules-SQLInjection-Ruleid-942360.html</url>
+    <url>//posts/undefined/Modsecurity-Crs-Rules-SQLInjection-Ruleid-942360.html</url>
     <content><![CDATA[<h2 id="防护规则学习之SQL注入"><a href="#防护规则学习之SQL注入" class="headerlink" title="防护规则学习之SQL注入"></a>防护规则学习之SQL注入</h2><div class="note info">
             <ul><li>攻击类型：注入攻击</li><li>ruleid: 942360</li></ul>
           </div>
@@ -539,7 +539,7 @@
   </entry>
   <entry>
     <title>30天自制操作系统-工具准备</title>
-    <url>//posts/Os_Tool.html</url>
+    <url>//posts/undefined/Os_Tool.html</url>
     <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>主要是学习操作系统知识。</p>
 <a id="more"></a>
 
@@ -555,7 +555,7 @@
   </entry>
   <entry>
     <title>modsecurity防护crs规则学习之SQL注入-ruleid=942350</title>
-    <url>//posts/Modsecurity-Crs-Rules-SQLInjection-Ruleid-942350.html</url>
+    <url>//posts/undefined/Modsecurity-Crs-Rules-SQLInjection-Ruleid-942350.html</url>
     <content><![CDATA[<h2 id="防护规则学习之SQL注入"><a href="#防护规则学习之SQL注入" class="headerlink" title="防护规则学习之SQL注入"></a>防护规则学习之SQL注入</h2><div class="note info">
             <ul><li>攻击类型：注入攻击</li><li>ruleid: 942350</li></ul>
           </div>
@@ -598,7 +598,7 @@
   </entry>
   <entry>
     <title>30天自制操作系统-汇编程序制作软盘进阶</title>
-    <url>//posts/Os_Softdisk_Pro.html</url>
+    <url>//posts/undefined/Os_Softdisk_Pro.html</url>
     <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>我们刚刚用的汇编程序，不过是把0x00的书写简化了，程序内容依然是看不懂的十六进制字符串。现在我们把汇编程序写得更易懂一些。</p>
 <a id="more"></a>
 
@@ -635,7 +635,7 @@
   </entry>
   <entry>
     <title>30天自制操作系统-vmware添加二进制img镜像跑起来</title>
-    <url>//posts/Os_Vmware_Img.html</url>
+    <url>//posts/undefined/Os_Vmware_Img.html</url>
     <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>玩一把，用二进制文件制作软盘驱动镜像，放到vmware里面跑起来。</p>
 <a id="more"></a>
 
@@ -667,7 +667,7 @@
   </entry>
   <entry>
     <title>2020学习计划</title>
-    <url>//posts/2020_Study_Plan.html</url>
+    <url>//posts/undefined/2020_Study_Plan.html</url>
     <content><![CDATA[<h2 id="学习什么"><a href="#学习什么" class="headerlink" title="学习什么"></a>学习什么</h2><ul>
 <li>渗透学习<ul>
 <li>基础知识：<ul>
@@ -974,7 +974,7 @@
   </entry>
   <entry>
     <title>30天自制操作系统-用汇编语言制作软盘镜像</title>
-    <url>//posts/Os_Softdisk_Basic.html</url>
+    <url>//posts/undefined/Os_Softdisk_Basic.html</url>
     <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>除了直接使用二进制编辑器写机器码之外，我们可以用汇编语言来制作软盘镜像。写出的汇编语言，以<code>.nas</code>为后缀，我们用nask这个汇编工具将汇编语言转为机器码（即软盘镜像<code>*.img</code>）。</p>
 <a id="more"></a>
 
@@ -1009,7 +1009,7 @@
   </entry>
   <entry>
     <title>Java-RMI反序列化</title>
-    <url>//posts/Bug_Java-RMI.html</url>
+    <url>//posts/undefined/Bug_Java-RMI.html</url>
     <content><![CDATA[<h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><p>本文讲述了Java RMI Registry 远程bind对象所带来的反序列化问题，包括两个level。</p>
 <a id="more"></a>
 
@@ -1026,7 +1026,7 @@
   </entry>
   <entry>
     <title>Excel冻结前几行窗格</title>
-    <url>//posts/Excel-freeze-rows.html</url>
+    <url>//posts/undefined/Excel-freeze-rows.html</url>
     <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>制作了一个多行的excel表头，现在我需要冻结住表头，方便在滑动鼠标的时候看到表头信息。</p>
 <a id="more"></a>
 
@@ -1047,7 +1047,7 @@
   </entry>
   <entry>
     <title>Nginx的pid进程消失，服务突然挂掉怎么办</title>
-    <url>//posts/Nginx-pid-disappear.html</url>
+    <url>//posts/undefined/Nginx-pid-disappear.html</url>
     <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>最近遇到一个奇葩问题，nginx神不知鬼不觉地挂掉了，检查配置文件失败，发现是pid文件缺失。怎么办呢？</p>
 <a id="more"></a>
 
@@ -1064,7 +1064,7 @@
   </entry>
   <entry>
     <title>Excel批量填充相同数据</title>
-    <url>//posts/Excel-batch-insert-data.html</url>
+    <url>//posts/undefined/Excel-batch-insert-data.html</url>
     <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>我需要做一个假表，表里面的数据都填写为xxx。</p>
 <a id="more"></a>
 
@@ -1094,7 +1094,7 @@
   </entry>
   <entry>
     <title>The InfoSec Handbook翻译（目录）</title>
-    <url>//posts/The_InfoSec_Handbook_Content.html</url>
+    <url>//posts/undefined/The_InfoSec_Handbook_Content.html</url>
     <content><![CDATA[<h2 id="Contents-at-a-Glance"><a href="#Contents-at-a-Glance" class="headerlink" title="Contents at a Glance"></a>Contents at a Glance</h2><p><img src="http://ww1.sinaimg.cn/large/006gDuOdgy1gbwfngq4duj30l70ohjuf.jpg" alt="image.png"><br><img src="http://ww1.sinaimg.cn/large/006gDuOdgy1gbwfnv9ro8j30l50pcta6.jpg" alt="image.png"></p>
 <a id="more"></a>
 
@@ -1147,7 +1147,7 @@
   </entry>
   <entry>
     <title>VirtualBox安装</title>
-    <url>//posts/VirtualBox_Installation.html</url>
+    <url>//posts/undefined/VirtualBox_Installation.html</url>
     <content><![CDATA[<h2 id="下载地址"><a href="#下载地址" class="headerlink" title="下载地址"></a>下载地址</h2><p><a href="https://www.virtualbox.org/wiki/Downloads" target="_blank" rel="noopener">点这里下载</a>。龟速下载中……</p>
 <a id="more"></a>
 
@@ -1165,7 +1165,7 @@
   </entry>
   <entry>
     <title>The InfoSec Handbook翻译（介绍）</title>
-    <url>//posts/The_InfoSec_Handbook_Intro.html</url>
+    <url>//posts/undefined/The_InfoSec_Handbook_Intro.html</url>
     <content><![CDATA[<h2 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h2><p><img src="http://ww1.sinaimg.cn/large/006gDuOdgy1gbwg40lfnaj30oy0pitcg.jpg" alt="image.png"></p>
 <a id="more"></a>
 
@@ -1182,7 +1182,7 @@
   </entry>
   <entry>
     <title>OTP工具安装visio</title>
-    <url>//posts/OTP_Install_Visio.html</url>
+    <url>//posts/undefined/OTP_Install_Visio.html</url>
     <content><![CDATA[<h2 id="需求"><a href="#需求" class="headerlink" title="需求"></a>需求</h2><p>安装了office365专业版之后，使用OTP工具安装visio。</p>
 <a id="more"></a>
 
@@ -1199,7 +1199,7 @@
   </entry>
   <entry>
     <title>VScode创建工作空间</title>
-    <url>//posts/VScode-workspace.html</url>
+    <url>//posts/undefined/VScode-workspace.html</url>
     <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>我需要编辑多个文件夹里面的文件，每次只能打开一个文件夹，这样很不方便。于是，我们需要创建一个工作空间，把需要编辑的不同文件夹放到一个工作空间，就可以直接切换文件夹。</p>
 <a id="more"></a>
 
@@ -1216,7 +1216,7 @@
   </entry>
   <entry>
     <title>Tips之win10设置java多版本共存如何快速切换java版本</title>
-    <url>//posts/Tips_Win10_Java_Switch_Version.html</url>
+    <url>//posts/undefined/Tips_Win10_Java_Switch_Version.html</url>
     <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>电脑本地的burpsuite只能用<code>java version &quot;1.8.0_191&quot;</code>这个版本的java，而最近学习java编程又是用java13。他俩可以和平共处就好了。于是在网上搜罗到了一个方法，能帮助我们快速切换java版本，设置超简单。</p>
 <a id="more"></a>
 
@@ -1234,7 +1234,7 @@
   </entry>
   <entry>
     <title>dynadot买的域名怎么增加二级域名</title>
-    <url>//posts/Dynadot_Add_SubDomain.html</url>
+    <url>//posts/undefined/Dynadot_Add_SubDomain.html</url>
     <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>v2ray使用WS+TLS这种方式更加确保梯子的安全性，但是需要我们手里面有域名可用。年初在dynadot买了一个域名，主域名绑定了博客，还有二级域名可以使用。怎么添加二级域名，操作方法是什么？</p>
 <a id="more"></a>
 
@@ -1251,7 +1251,7 @@
   </entry>
   <entry>
     <title>burp抓取https流量</title>
-    <url>//posts/burp-https-setting.html</url>
+    <url>//posts/undefined/burp-https-setting.html</url>
     <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>使用burp代理后，https的请求会显示不安全。<br><a href="https://v2ray.dana5haw.com:8008/image/x9hG" target="_blank" rel="noopener"><img src="https://v2ray.dana5haw.com:8008/images/2020/04/12/imageeeb2e4899772a699.png" alt="imageeeb2e4899772a699.png"></a></p>
 <a id="more"></a>
 
@@ -1267,7 +1267,7 @@
   </entry>
   <entry>
     <title>docker常用命令之终止容器、删除容器</title>
-    <url>//posts/docker-stop-delete-container.html</url>
+    <url>//posts/undefined/docker-stop-delete-container.html</url>
     <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>docker虽然使用方便，但是着实很吃内存。我需要把不用的容器终止并删除掉。</p>
 <a id="more"></a>
 
@@ -1290,7 +1290,7 @@
   </entry>
   <entry>
     <title>burp拦截服务器返回的数据包并改包</title>
-    <url>//posts/burp-intercept-server-package.html</url>
+    <url>//posts/undefined/burp-intercept-server-package.html</url>
     <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>遇到某系统的一个逻辑漏洞，修改服务器返回的数据包就能够查看到原本登录之后才看得到的信息。但是怎么修改服务器返回的数据包呢？</p>
 <a id="more"></a>
 
@@ -1312,7 +1312,7 @@
   </entry>
   <entry>
     <title>hexo+next主题博客怎么添加友情链接</title>
-    <url>//posts/Hexo_Next_FriendLink.html</url>
+    <url>//posts/undefined/Hexo_Next_FriendLink.html</url>
     <content><![CDATA[<h2 id="需求"><a href="#需求" class="headerlink" title="需求"></a>需求</h2><p>友情链接其实是个人的博客收藏夹，把喜欢的博客加到这儿来，方便随时访问，随时激励自己。</p>
 <a id="more"></a>
 
@@ -1329,7 +1329,7 @@
   </entry>
   <entry>
     <title>excel之合并计算多个csv源数据</title>
-    <url>//posts/excel-csv-data.html</url>
+    <url>//posts/undefined/excel-csv-data.html</url>
     <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>现在有一个需求，将导出的多个csv数据源进行合并分析。直接使用csv源数据，不必把csv转换为excel。</p>
 <a id="more"></a>
 
@@ -1350,7 +1350,7 @@
   </entry>
   <entry>
     <title>excel快捷键之快速统一添加域名后缀</title>
-    <url>//posts/Excel_Ctrl_E.html</url>
+    <url>//posts/undefined/Excel_Ctrl_E.html</url>
     <content><![CDATA[<h2 id="需求"><a href="#需求" class="headerlink" title="需求"></a>需求</h2><p>统一给二级域名补全后缀。<br><img src="http://ww1.sinaimg.cn/large/006gDuOdgy1gc9xzki5f4j305p04zwec.jpg" alt="image.png"></p>
 <a id="more"></a>
 
@@ -1366,7 +1366,7 @@
   </entry>
   <entry>
     <title>excel之如果单元格包含特定文本则返回指定值</title>
-    <url>//posts/excel-if-isnumber-search.html</url>
+    <url>//posts/undefined/excel-if-isnumber-search.html</url>
     <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>我需要做一个条件判断，如果一个单元格包含特定的文本，就返回指定值。</p>
 <a id="more"></a>
 
@@ -1384,7 +1384,7 @@
   </entry>
   <entry>
     <title>hexo+next主题设置版本声明：修改本文链接中显示的url</title>
-    <url>//posts/Hexo_Next_Statement.html</url>
+    <url>//posts/undefined/Hexo_Next_Statement.html</url>
     <content><![CDATA[<h2 id="问题现象"><a href="#问题现象" class="headerlink" title="问题现象"></a>问题现象</h2><p>设置了next主题的版权声明之后，显示的本文链接域名是默认<a href="http://yoursite/，强迫症绝对无法忍受这种事情。" target="_blank" rel="noopener">http://yoursite/，强迫症绝对无法忍受这种事情。</a><br><img src="http://ww1.sinaimg.cn/large/006gDuOdgy1gawikmr2e0j30qn04itd1.jpg" alt="image.png"></p>
 <a id="more"></a>
 
@@ -1401,7 +1401,7 @@
   </entry>
   <entry>
     <title>hexo博客之更改permalink的格式为.html</title>
-    <url>//posts/Hexo_Permalink_Html.html</url>
+    <url>//posts/undefined/Hexo_Permalink_Html.html</url>
     <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>文章的访问链接默认的是这种格式<code>https://danashaw.gitee.io/2020/03/12/nginx%E4%B9%8Bhttps302%E8%B7%B3%E8%BD%AC%E4%B8%BAhttp%E6%80%8E%E4%B9%88%E5%8A%9E/#more</code>，我希望把这个链接改为.html结尾的，这样对搜索引擎更加友好。</p>
 <a id="more"></a>
 
@@ -1418,7 +1418,7 @@
   </entry>
   <entry>
     <title>hexo写博客如何设置多个标签和多个分类</title>
-    <url>//posts/Hexo_MultiTag_MultiCategorie.html</url>
+    <url>//posts/undefined/Hexo_MultiTag_MultiCategorie.html</url>
     <content><![CDATA[<h2 id="需求"><a href="#需求" class="headerlink" title="需求"></a>需求</h2><p>写了一篇博客，它可以划分到多个类别，可以打上多个标签，便于我们以后检索。就像描述一个苹果，我们可以打上标签：红富士、红苹果。可以分类：水果、健康生活。</p>
 <a id="more"></a>
 
@@ -1436,7 +1436,7 @@
   </entry>
   <entry>
     <title>hexo博客修改字体设置</title>
-    <url>//posts/Hexo_Font.html</url>
+    <url>//posts/undefined/Hexo_Font.html</url>
     <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>hexo+next主题，默认的字体太大了，不太好看。</p>
 <a id="more"></a>
 
@@ -1453,7 +1453,7 @@
   </entry>
   <entry>
     <title>hexo博客同步部署到github和gitee-傻瓜式导入仓库</title>
-    <url>//posts/Hexo_Github_Gitee_Deploy.html</url>
+    <url>//posts/undefined/Hexo_Github_Gitee_Deploy.html</url>
     <content><![CDATA[<h2 id="需求"><a href="#需求" class="headerlink" title="需求"></a>需求</h2><p>目前的博客是部署到github，考虑到github在国内的访问速度可能受到网络环境影响，就在国内gitee上也注册个号，把hexo博客的代码同步上去。（虽然我用谷歌浏览器访问，访问速度体验并不差，反正把鸡蛋分到多个篮子总是保险一点<em>-</em>）</p>
 <a id="more"></a>
 
@@ -1474,7 +1474,7 @@
   </entry>
   <entry>
     <title>githubpages+hexo博客搭建教程</title>
-    <url>//posts/Githubpages_Hexo_Start.html</url>
+    <url>//posts/undefined/Githubpages_Hexo_Start.html</url>
     <content><![CDATA[<div id="hexo-blog-encrypt" data-wpm="Oh, this is an invalid password. Check and try again, please." data-whm="OOPS, these decrypted content may changed, but you can still have a look.">
   <div class="hbe-input-container">
   <input type="password" id="hbePass" placeholder="" />
@@ -1494,7 +1494,7 @@
   </entry>
   <entry>
     <title>hexo博客增加菜单项</title>
-    <url>//posts/Hexo_Add_Menu.html</url>
+    <url>//posts/undefined/Hexo_Add_Menu.html</url>
     <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>我们增加【读书笔记】和【观影笔记】这两个菜单项。</p>
 <a id="more"></a>
 
@@ -1524,7 +1524,7 @@
   </entry>
   <entry>
     <title>hexo博客常用内置标签</title>
-    <url>//posts/Hexo_Tag_Builtin.html</url>
+    <url>//posts/undefined/Hexo_Tag_Builtin.html</url>
     <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>一个月以前就注意到这些稍微进阶的用法，当时没仔细研究。</p>
 <a id="more"></a>
 
@@ -1571,7 +1571,7 @@
   </entry>
   <entry>
     <title>hexo博客开启标签的icon</title>
-    <url>//posts/Hexo_Tag_Icon.html</url>
+    <url>//posts/undefined/Hexo_Tag_Icon.html</url>
     <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>hexo+next主题，默认标签的符号是<code>#</code>，我想把这个<code>#</code>改成标签的icon。默认的标签符号像这样：<br><img src="http://ww1.sinaimg.cn/large/006gDuOdgy1gco0lpphm9j31f60u0n7g.jpg" alt="image.png"></p>
 <a id="more"></a>
 
@@ -1588,7 +1588,7 @@
   </entry>
   <entry>
     <title>hexo博客美化url格式</title>
-    <url>//posts/Hexo_Permalink_Beautiful.html</url>
+    <url>//posts/undefined/Hexo_Permalink_Beautiful.html</url>
     <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>刚刚改的那种格式，也不太好看，url里面含有中文，看起来始终不是那么回事。</p>
 <a id="more"></a>
 
@@ -1606,7 +1606,7 @@
   </entry>
   <entry>
     <title>hexo博客插入网易云音乐外链</title>
-    <url>//posts/Hexo_MusicLink.html</url>
+    <url>//posts/undefined/Hexo_MusicLink.html</url>
     <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>给博客文章插入音乐，也是非常酷炫的操作。</p>
 <a id="more"></a>
 
@@ -1628,7 +1628,7 @@
   </entry>
   <entry>
     <title>hexo博客设置MacPanel特效的代码框</title>
-    <url>//posts/Hexo_MacPanel_CodeBlock.html</url>
+    <url>//posts/undefined/Hexo_MacPanel_CodeBlock.html</url>
     <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>MacPanel特效的代码框挺好看的。</p>
 <a id="more"></a>
 
@@ -1646,7 +1646,7 @@
   </entry>
   <entry>
     <title>hexo博客设置gitalk评论功能</title>
-    <url>//posts/Hexo_Gitalk_Comment.html</url>
+    <url>//posts/undefined/Hexo_Gitalk_Comment.html</url>
     <content><![CDATA[<h2 id="需求"><a href="#需求" class="headerlink" title="需求"></a>需求</h2><p>看到大家的博客做得那么好看，各种功能丰富多彩的，心里甚是羡慕啊。评论功能怎么也不能少滴！装13和交流的桥梁！<br>hexo+next主题的博客，可以使用的评论插件很多，包括valine、来必力、多说、gitalk……等等。尝试弄过来必力、gitment，放弃了。来必力是韩国的，我注册这道坎就没过，不知道为啥，填写的邮件验证码老不对，国内访问来必力官网的网速也是堪忧，遂放弃之。弄gitment的过程也是心酸，不晓得为啥，就是装不上这个插件，在网上各个角落找锦囊，最后放弃。最后终于找到了最心水的评论插件，那就是gitalk。<br>为啥用gitalk？这个博客我就是基于github做的，gitalk评论的内容将显示到github仓库的issue里面，像图中这样。一站式服务不挺好吗，所有东西一股脑交给github，放心、省心。<br><img src="http://ww1.sinaimg.cn/large/006gDuOdgy1gaylnjsmd1j310d0otdi7.jpg" alt="image.png"></p>
 <a id="more"></a>
 
@@ -1666,7 +1666,7 @@
   </entry>
   <entry>
     <title>hexo博客设置首页折叠</title>
-    <url>//posts/Hexo_FirstPage_Fold.html</url>
+    <url>//posts/undefined/Hexo_FirstPage_Fold.html</url>
     <content><![CDATA[<h2 id="需求"><a href="#需求" class="headerlink" title="需求"></a>需求</h2><p>看到别人的博客首页可以折叠全文，作为强迫症，必须拥有这种简洁的界面！</p>
 <a id="more"></a>
 
@@ -1682,7 +1682,7 @@
   </entry>
   <entry>
     <title>hexo博客部署失败-报错SSL证书问题</title>
-    <url>//posts/Hexo_SSL_Error.html</url>
+    <url>//posts/undefined/Hexo_SSL_Error.html</url>
     <content><![CDATA[<h2 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h2><p>今天晚上部署博客，突然遇到这个错误，由于ssl证书的问题，导致部署失败。</p>
 <a id="more"></a>
 
@@ -1700,7 +1700,7 @@
   </entry>
   <entry>
     <title>hexo博客设置canvas粒子时钟</title>
-    <url>//posts/Hexo_Canvas_Clock.html</url>
+    <url>//posts/undefined/Hexo_Canvas_Clock.html</url>
     <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>主要是觉得这个canvas粒子时钟很炫酷。</p>
 <a id="more"></a>
 
@@ -1742,7 +1742,7 @@
   </entry>
   <entry>
     <title>hexo突然无法deploy报错connection timeout</title>
-    <url>//posts/hexo-deploy-failed-connection-timeout.html</url>
+    <url>//posts/undefined/hexo-deploy-failed-connection-timeout.html</url>
     <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>不晓得为啥，hexo突然无法deploy本地的文章，头疼……搁置了几天，今天终于腾出精力来google。</p>
 <a id="more"></a>
 
@@ -1766,7 +1766,7 @@
   </entry>
   <entry>
     <title>hexo博客设置页面底部显示博客运行时间</title>
-    <url>//posts/Hexo_Bottom_Runingtime.html</url>
+    <url>//posts/undefined/Hexo_Bottom_Runingtime.html</url>
     <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>给博客页面底部设置网站运行时间。</p>
 <a id="more"></a>
 
@@ -1790,7 +1790,7 @@
   </entry>
   <entry>
     <title>linux中的wheel用户组</title>
-    <url>//posts/Linux-wheel-group-sudo-su.html</url>
+    <url>//posts/undefined/Linux-wheel-group-sudo-su.html</url>
     <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>第一次接触到wheel用户组。网上许多资料说，不在wheel用户组的用户无法su登录到root用户，经过亲身测试，这种说法是不对的。</p>
 <a id="more"></a>
 
@@ -1811,7 +1811,7 @@
   </entry>
   <entry>
     <title>kali进行源码包升级</title>
-    <url>//posts/Kali_Upgrade.html</url>
+    <url>//posts/undefined/Kali_Upgrade.html</url>
     <content><![CDATA[<h2 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h2><p>wpscan使用的时候，报错<code>403</code>：<br><img src="http://ww1.sinaimg.cn/large/006gDuOdgy1gc0yv5qi17j30ka0d8777.jpg" alt="image.png"><br>在网上找了很多，还是没有找到有效的方法。</p>
 <a id="more"></a>
 
@@ -1838,7 +1838,7 @@
   </entry>
   <entry>
     <title>java编程之快速入门</title>
-    <url>//posts/Java_Basic.html</url>
+    <url>//posts/undefined/Java_Basic.html</url>
     <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>学习一门语言，快速入门是给我们增加学习信心的法门。如果门槛都跨不进去，学习就是不可能的事。学习能力实际上体现的是一个人跳出舒适圈的意愿程度。</p>
 <a id="more"></a>
 
@@ -2001,7 +2001,7 @@ switch语句还可以匹配字符串。字符串匹配时，是比较“内容�
   </entry>
   <entry>
     <title>linux命令-查询TCP并发数</title>
-    <url>//posts/Linux_TCP_Mux.html</url>
+    <url>//posts/undefined/Linux_TCP_Mux.html</url>
     <content><![CDATA[<h2 id="查询TCP并发数"><a href="#查询TCP并发数" class="headerlink" title="查询TCP并发数"></a>查询TCP并发数</h2><ol>
 <li>方法一：使用ss命令<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">ss -an</span><br></pre></td></tr></table></figure>
 举例：<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">[root@dana ~]# ss -an |wc -l</span><br><span class="line">8586</span><br></pre></td></tr></table></figure>
@@ -2033,7 +2033,7 @@ switch语句还可以匹配字符串。字符串匹配时，是比较“内容�
   </entry>
   <entry>
     <title>markdown语法学习-表格、删除线、超链接、底纹</title>
-    <url>//posts/Markdown_Grammer.html</url>
+    <url>//posts/undefined/Markdown_Grammer.html</url>
     <content><![CDATA[<h2 id="需求"><a href="#需求" class="headerlink" title="需求"></a>需求</h2><p>写这博客就用的markdown语法。说语法其实有点过了。就算我没学过markdown语法，也能使用markdown写东西。因为纯txt也属于markdown的一部分语法，哈哈哈。为了排版好看，必要的基本知识还得学。怎么给文字加底纹来强调特定的文字？怎么做超链接，别人点击文字就能访问网址，而不用复制粘贴到浏览器去访问？怎么做出删除线的效果？怎么画一个简单的表格？这些都是基本得不能再基本的语法，学会了，就能装13了，给页面显示效果提升level。</p>
 <a id="more"></a>
 
@@ -2079,7 +2079,7 @@ switch语句还可以匹配字符串。字符串匹配时，是比较“内容�
   </entry>
   <entry>
     <title>java编程学习之面向对象编程</title>
-    <url>//posts/Java_Object.html</url>
+    <url>//posts/undefined/Java_Object.html</url>
     <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>昨天我们快速入门了，今天继续学习基础知识，面向对象编程到底是怎么面向的？</p>
 <a id="more"></a>
 
@@ -2204,7 +2204,7 @@ switch语句还可以匹配字符串。字符串匹配时，是比较“内容�
   </entry>
   <entry>
     <title>linux批量修改文件后缀</title>
-    <url>//posts/linux-modify-file-suffix.html</url>
+    <url>//posts/undefined/linux-modify-file-suffix.html</url>
     <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>批量修改目录下面的所有文件名后缀。</p>
 <a id="more"></a>
 
@@ -2223,7 +2223,7 @@ switch语句还可以匹配字符串。字符串匹配时，是比较“内容�
   </entry>
   <entry>
     <title>modsecurity+nginx组装WAF之配置防护策略</title>
-    <url>//posts/Modsecurity_Nginx_WAF_Rules.html</url>
+    <url>//posts/undefined/Modsecurity_Nginx_WAF_Rules.html</url>
     <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>刚刚我们只是完成了WAF的组装和简单测试，接下来，我们针对网站做相应的防护策略。</p>
 <a id="more"></a>
 
@@ -2268,7 +2268,7 @@ switch语句还可以匹配字符串。字符串匹配时，是比较“内容�
   </entry>
   <entry>
     <title>mysql架构体系</title>
-    <url>//posts/mysql-framework.html</url>
+    <url>//posts/undefined/mysql-framework.html</url>
     <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>mysql架构体系。</p>
 <a id="more"></a>
 
@@ -2285,7 +2285,7 @@ switch语句还可以匹配字符串。字符串匹配时，是比较“内容�
   </entry>
   <entry>
     <title>nginx之https302跳转为http怎么办</title>
-    <url>//posts/Nginx_Https_Jump.html</url>
+    <url>//posts/undefined/Nginx_Https_Jump.html</url>
     <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>今天遇到的问题，https的请求经过Nginx反向代理之后，302跳转为了http，导致访问不通，返回400。<br><img src="http://ww1.sinaimg.cn/large/006gDuOdgy1gcr73w1l7sj31f60u0jtw.jpg" alt="image.png"></p>
 <a id="more"></a>
 
@@ -2303,7 +2303,7 @@ switch语句还可以匹配字符串。字符串匹配时，是比较“内容�
   </entry>
   <entry>
     <title>navicat连接mysql数据库并且向数据库导入sql文件</title>
-    <url>//posts/navicat-mysql-import-sqlfile.html</url>
+    <url>//posts/undefined/navicat-mysql-import-sqlfile.html</url>
     <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>数据库存储了许多数据，我们需要一个工具界面化显示数据库的数据内容，比如navicat。</p>
 <a id="more"></a>
 
@@ -2325,7 +2325,7 @@ switch语句还可以匹配字符串。字符串匹配时，是比较“内容�
   </entry>
   <entry>
     <title>nginx反向代理upstream配置backup的方法</title>
-    <url>//posts/Nginx_Upstream_Backup.html</url>
+    <url>//posts/undefined/Nginx_Upstream_Backup.html</url>
     <content><![CDATA[<h2 id="需求"><a href="#需求" class="headerlink" title="需求"></a>需求</h2><p>nginx作为反向代理，需要设置两个后端服务器（backend），其中一台backend作为备机（backup），另外一台backend作为24小时在线的小贴心，只有这台backend不小心挂了，才由备机接管服务。</p>
 <a id="more"></a>
 
@@ -2356,7 +2356,7 @@ switch语句还可以匹配字符串。字符串匹配时，是比较“内容�
   </entry>
   <entry>
     <title>nginx反向代理-设置获取用户真实端口</title>
-    <url>//posts/Nginx-get-real-port.html</url>
+    <url>//posts/undefined/Nginx-get-real-port.html</url>
     <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>工作上的需要，nginx作为反向代理，需要获取到用户的源端口，并传递给应用服务器。</p>
 <a id="more"></a>
 
@@ -2374,7 +2374,7 @@ switch语句还可以匹配字符串。字符串匹配时，是比较“内容�
   </entry>
   <entry>
     <title>onedrive的隐藏功能-pdf快速转换为word</title>
-    <url>//posts/onedrive-pdf-convert-word.html</url>
+    <url>//posts/undefined/onedrive-pdf-convert-word.html</url>
     <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>无意间发现了onedrive的一个隐藏功能，登录到onedrive的web端，我们可以把pdf直接转换为word。</p>
 <a id="more"></a>
 
@@ -2391,7 +2391,7 @@ switch语句还可以匹配字符串。字符串匹配时，是比较“内容�
   </entry>
   <entry>
     <title>nginx反向代理设置禁止curl和wget</title>
-    <url>//posts/Nginx_Ban_Curl_Wget.html</url>
+    <url>//posts/undefined/Nginx_Ban_Curl_Wget.html</url>
     <content><![CDATA[<h2 id="需求"><a href="#需求" class="headerlink" title="需求"></a>需求</h2><p>不让客户端使用curl或者wget访问nginx代理的网站。</p>
 <a id="more"></a>
 
@@ -2419,7 +2419,7 @@ switch语句还可以匹配字符串。字符串匹配时，是比较“内容�
   </entry>
   <entry>
     <title>phantomjs安装教程</title>
-    <url>//posts/Install_Phantomjs.html</url>
+    <url>//posts/undefined/Install_Phantomjs.html</url>
     <content><![CDATA[<h2 id="下载地址"><a href="#下载地址" class="headerlink" title="下载地址"></a>下载地址</h2><p>官网在国内的网速比龟速还慢，所以在淘宝镜像下载安装包，<a href="https://npm.taobao.org/mirrors/phantomjs" target="_blank" rel="noopener">下载链接</a>这里，选择最新版本下载。<br><img src="http://ww1.sinaimg.cn/large/006gDuOdgy1gbw5bftxovj31f60u00y0.jpg" alt="image.png"></p>
 <a id="more"></a>
 
@@ -2437,7 +2437,7 @@ switch语句还可以匹配字符串。字符串匹配时，是比较“内容�
   </entry>
   <entry>
     <title>powershell查看文件的MD5值</title>
-    <url>//posts/powershell-file-md5.html</url>
+    <url>//posts/undefined/powershell-file-md5.html</url>
     <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>下载大文件之后，怎么确认这个文件是否完整可用？对比md5值即可，md5值和下载源给出的一致就说明文件完整可用。</p>
 <a id="more"></a>
 
@@ -2453,7 +2453,7 @@ switch语句还可以匹配字符串。字符串匹配时，是比较“内容�
   </entry>
   <entry>
     <title>python爬虫实例之requests使用小技巧</title>
-    <url>//posts/Python_Spider_Requests_Skills.html</url>
+    <url>//posts/undefined/Python_Spider_Requests_Skills.html</url>
     <content><![CDATA[<h2 id="cookies对象转为字典"><a href="#cookies对象转为字典" class="headerlink" title="cookies对象转为字典"></a>cookies对象转为字典</h2><p>把cookies对象转为字典：<code>requests.utils.dict_from_cookiejar</code><br>把字典转为cookies对象：<code>requests.utils.cookiejar_from_dict</code><br><img src="http://ww1.sinaimg.cn/large/006gDuOdgy1gb127vv0fcj316s08zwfo.jpg" alt="image.png"><br><img src="http://ww1.sinaimg.cn/large/006gDuOdgy1gb129rav33j316o0483z5.jpg" alt="image.png"></p>
 <a id="more"></a>
 
@@ -2479,7 +2479,7 @@ switch语句还可以匹配字符串。字符串匹配时，是比较“内容�
   </entry>
   <entry>
     <title>python和redis的交互</title>
-    <url>//posts/Python_Redis_Trans.html</url>
+    <url>//posts/undefined/Python_Redis_Trans.html</url>
     <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>学习使用python来操作redis数据库。python3需要先安装redis模块：<code>pip3 install redis</code>。</p>
 <a id="more"></a>
 
@@ -2505,7 +2505,7 @@ switch语句还可以匹配字符串。字符串匹配时，是比较“内容�
   </entry>
   <entry>
     <title>python爬虫实例之Xpath使用</title>
-    <url>//posts/Python_Spider_Xpath_Usage.html</url>
+    <url>//posts/undefined/Python_Spider_Xpath_Usage.html</url>
     <content><![CDATA[<h2 id="xpath是什么"><a href="#xpath是什么" class="headerlink" title="xpath是什么"></a>xpath是什么</h2><p>XPath (XML Path Language) 是一门在 HTML\XML 文档中查找信息的语言，可用来在 HTML\XML 文档中对元素和属性进行遍历。</p>
 <a id="more"></a>
 
@@ -2533,7 +2533,7 @@ switch语句还可以匹配字符串。字符串匹配时，是比较“内容�
   </entry>
   <entry>
     <title>python爬虫实例之retry装饰器和timeout设置</title>
-    <url>//posts/Python_Spider_Retry_Timeout.html</url>
+    <url>//posts/undefined/Python_Spider_Retry_Timeout.html</url>
     <content><![CDATA[<h2 id="需求"><a href="#需求" class="headerlink" title="需求"></a>需求</h2><p>爬取url序列时，难免出现部分url请求超时。我们可以设置requests模块发送请求的timeout时间，超过timeout就停止等待。设置这个timeout，就是防止requests傻等，不让它吊死在一棵树上，还有大片森林等着它呢—-<br>我们手动访问url时，如果出现访问超时了，我们一般会刷新网站。不抛弃不放弃，是我们冲浪的基本准则~~<br>python语言，也有类似的做法，使用retrying模块的retry装饰器，就可以达到刷新的效果。（即：程序抛出异常后，发送多次url请求）</p>
 <a id="more"></a>
 
@@ -2559,7 +2559,7 @@ switch语句还可以匹配字符串。字符串匹配时，是比较“内容�
   </entry>
   <entry>
     <title>python爬虫实例之使用session发送请求-抓取登录后的页面</title>
-    <url>//posts/Python_Spider_Session_Login.html</url>
+    <url>//posts/undefined/Python_Spider_Session_Login.html</url>
     <content><![CDATA[<h2 id="爬什么"><a href="#爬什么" class="headerlink" title="爬什么"></a>爬什么</h2><p>把人人网的个人主页爬取到本地。注册个人人网先~难得找到这样简单登录方式的网站，只需要输入用户名和密码。</p>
 <a id="more"></a>
 
@@ -2590,7 +2590,7 @@ switch语句还可以匹配字符串。字符串匹配时，是比较“内容�
   </entry>
   <entry>
     <title>python爬虫实例之处理json格式的数据</title>
-    <url>//posts/Python_Spider_Json.html</url>
+    <url>//posts/undefined/Python_Spider_Json.html</url>
     <content><![CDATA[<h2 id="爬什么"><a href="#爬什么" class="headerlink" title="爬什么"></a>爬什么</h2><p>爬取豆瓣手机版【英美剧】类别，将爬取结果保存为美观的json格式。</p>
 <a id="more"></a>
 
@@ -2617,7 +2617,7 @@ switch语句还可以匹配字符串。字符串匹配时，是比较“内容�
   </entry>
   <entry>
     <title>python爬虫实例之正则表达式匹配数据</title>
-    <url>//posts/Python_Spider_Reg_Match.html</url>
+    <url>//posts/undefined/Python_Spider_Reg_Match.html</url>
     <content><![CDATA[<h2 id="正则表达式是什么"><a href="#正则表达式是什么" class="headerlink" title="正则表达式是什么"></a>正则表达式是什么</h2><p>正则表达式，就是用事先定义好的一些特定字符、及这些特定字符的组合，组成一个”规则字符串”，这个”规则字符串”用来表达对字符串的一种过滤逻辑。</p>
 <a id="more"></a>
 
@@ -2656,7 +2656,7 @@ switch语句还可以匹配字符串。字符串匹配时，是比较“内容�
   </entry>
   <entry>
     <title>python爬虫实例之爬取36kr的新闻</title>
-    <url>//posts/Python_Spider_36kr.html</url>
+    <url>//posts/undefined/Python_Spider_36kr.html</url>
     <content><![CDATA[<h2 id="爬什么"><a href="#爬什么" class="headerlink" title="爬什么"></a>爬什么</h2><p>把36kr的新闻爬取到本地并保存为json格式。</p>
 <a id="more"></a>
 
@@ -2685,7 +2685,7 @@ switch语句还可以匹配字符串。字符串匹配时，是比较“内容�
   </entry>
   <entry>
     <title>python爬虫实例之爬取豆瓣上的日剧</title>
-    <url>//posts/Python_Spider_Douban_Jp.html</url>
+    <url>//posts/undefined/Python_Spider_Douban_Jp.html</url>
     <content><![CDATA[<h2 id="爬什么"><a href="#爬什么" class="headerlink" title="爬什么"></a>爬什么</h2><p>把豆瓣的日剧爬取到本地，需要标题，电视剧类型，剧评这三个信息。</p>
 <a id="more"></a>
 
@@ -2714,7 +2714,7 @@ switch语句还可以匹配字符串。字符串匹配时，是比较“内容�
   </entry>
   <entry>
     <title>python爬虫实例之爬取糗事百科段子</title>
-    <url>//posts/Python_Spider_Qiubai_Funny.html</url>
+    <url>//posts/undefined/Python_Spider_Qiubai_Funny.html</url>
     <content><![CDATA[<h2 id="爬什么"><a href="#爬什么" class="headerlink" title="爬什么"></a>爬什么</h2><p>复习<a href="https://dana5haw.com/2020/01/22/python爬虫实例之爬取贴吧页面/">贴吧爬取的方法</a>，熟练掌握数据提取方式。</p>
 <a id="more"></a>
 
@@ -2761,7 +2761,7 @@ I heard the echo, <span class="label default">from the valleys and the heart</sp
   </entry>
   <entry>
     <title>python爬虫实例之爬取贴吧页面</title>
-    <url>//posts/Python_Spider_Forum.html</url>
+    <url>//posts/undefined/Python_Spider_Forum.html</url>
     <content><![CDATA[<h2 id="爬什么"><a href="#爬什么" class="headerlink" title="爬什么"></a>爬什么</h2><p>把百度贴吧【李毅吧】的内容爬取到本地并保存，需要提取用户名称、发表时间、评论数这几个字段，并且把用户头像和发表的图片保存到本地。</p>
 <a id="more"></a>
 
@@ -2809,7 +2809,7 @@ I heard the echo, <span class="label default">from the valleys and the heart</sp
   </entry>
   <entry>
     <title>python爬虫实例之第一阶段总结</title>
-    <url>//posts/Python_SPider_FirstStage_Summary.html</url>
+    <url>//posts/undefined/Python_SPider_FirstStage_Summary.html</url>
     <content><![CDATA[<h2 id="知识树"><a href="#知识树" class="headerlink" title="知识树"></a>知识树</h2><p><img src="http://ww1.sinaimg.cn/large/006gDuOdgy1gb4ni0zutoj31v326l7cw.jpg" alt="python爬虫实例（一）.png"></p>
 <a id="more"></a>
 
@@ -2826,7 +2826,7 @@ I heard the echo, <span class="label default">from the valleys and the heart</sp
   </entry>
   <entry>
     <title>python爬虫实例之百度贴吧爬虫</title>
-    <url>//posts/Python_Baidu_Spider.html</url>
+    <url>//posts/undefined/Python_Baidu_Spider.html</url>
     <content><![CDATA[<h2 id="爬什么"><a href="#爬什么" class="headerlink" title="爬什么"></a>爬什么</h2><p>把李毅吧的网页爬取下来，并保存到本地。</p>
 <a id="more"></a>
 
@@ -2853,7 +2853,7 @@ I heard the echo, <span class="label default">from the valleys and the heart</sp
   </entry>
   <entry>
     <title>python爬虫实例之用xpath提取段子</title>
-    <url>//posts/Python_Spider_Xpath_Funny.html</url>
+    <url>//posts/undefined/Python_Spider_Xpath_Funny.html</url>
     <content><![CDATA[<h2 id="爬什么"><a href="#爬什么" class="headerlink" title="爬什么"></a>爬什么</h2><p>把百思不得姐网站的所有段子爬取下来，并保存到本地。本来是要爬内涵段子的，可惜访问不到这个网站了。</p>
 <a id="more"></a>
 
@@ -2888,7 +2888,7 @@ I heard the echo, <span class="label default">from the valleys and the heart</sp
   </entry>
   <entry>
     <title>python爬虫实例之翻译接口</title>
-    <url>//posts/Python_Spider_Translation_Api.html</url>
+    <url>//posts/undefined/Python_Spider_Translation_Api.html</url>
     <content><![CDATA[<h2 id="爬什么"><a href="#爬什么" class="headerlink" title="爬什么"></a>爬什么</h2><p>使用翻译接口，用python代码做一个翻译小工具。</p>
 <a id="more"></a>
 
@@ -2913,7 +2913,7 @@ I heard the echo, <span class="label default">from the valleys and the heart</sp
   </entry>
   <entry>
     <title>python脚本+qqwry纯真离线IP库实现批量查询IP归属地</title>
-    <url>//posts/Python_Qqwry_IP_Query.html</url>
+    <url>//posts/undefined/Python_Qqwry_IP_Query.html</url>
     <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>工作上需要批量查询IP归属，但是在线接口有访问频率限制，查询频次一增加就获取不到结果。于是在网上找到了纯真离线IP信息库，可实现本地查询。结合python脚本，可实现快速批量查询IP归属地。</p>
 <a id="more"></a>
 
@@ -2933,7 +2933,7 @@ I heard the echo, <span class="label default">from the valleys and the heart</sp
   </entry>
   <entry>
     <title>python零碎知识之format</title>
-    <url>//posts/Python_Format.html</url>
+    <url>//posts/undefined/Python_Format.html</url>
     <content><![CDATA[<h2 id="format格式化"><a href="#format格式化" class="headerlink" title="format格式化"></a>format格式化</h2><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="string">"&#123;&#125;,how are &#123;&#125;"</span>.format(<span class="string">"hello"</span>,<span class="string">"you"</span>)</span><br></pre></td></tr></table></figure>
 <p>.format搭配大括号{}使用，可以将任何格式的内容填入format里面。format就是个大筐筐，什么都能往里装。</p>
 ]]></content>
@@ -2947,7 +2947,7 @@ I heard the echo, <span class="label default">from the valleys and the heart</sp
   </entry>
   <entry>
     <title>python零碎知识之推导式-扁平胜于嵌套</title>
-    <url>//posts/Python_Comprehension.html</url>
+    <url>//posts/undefined/Python_Comprehension.html</url>
     <content><![CDATA[<h2 id="推导式"><a href="#推导式" class="headerlink" title="推导式"></a>推导式</h2><h3 id="列表推导式"><a href="#列表推导式" class="headerlink" title="列表推导式"></a>列表推导式</h3><figure class="highlight python"><table><tr><td class="code"><pre><span class="line">[i <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">3</span>)]</span><br></pre></td></tr></table></figure>
 <p>等价于</p>
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">3</span>)</span><br><span class="line">    print(i)</span><br></pre></td></tr></table></figure>
@@ -2967,7 +2967,7 @@ I heard the echo, <span class="label default">from the valleys and the heart</sp
   </entry>
   <entry>
     <title>python读取复杂json并取值</title>
-    <url>//posts/python-read-complex-json.html</url>
+    <url>//posts/undefined/python-read-complex-json.html</url>
     <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>工作中需要读取复杂json，并取需要的值写入excel，整理配置。</p>
 <a id="more"></a>
 
@@ -2989,7 +2989,7 @@ I heard the echo, <span class="label default">from the valleys and the heart</sp
   </entry>
   <entry>
     <title>redis数据库学习总结</title>
-    <url>//posts/Redis_Summary.html</url>
+    <url>//posts/undefined/Redis_Summary.html</url>
     <content><![CDATA[<h2 id="安装redis-server"><a href="#安装redis-server" class="headerlink" title="安装redis-server"></a>安装redis-server</h2><p><code>sudo apt-get install redis-server</code></p>
 <a id="more"></a>
 
@@ -3013,7 +3013,7 @@ I heard the echo, <span class="label default">from the valleys and the heart</sp
   </entry>
   <entry>
     <title>redis数据类型之hash命令</title>
-    <url>//posts/Redis_Hash.html</url>
+    <url>//posts/undefined/Redis_Hash.html</url>
     <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>hash类型存储结构对象，对象包括属性和属性值，值的类型是string。</p>
 <a id="more"></a>
 
@@ -3039,7 +3039,7 @@ I heard the echo, <span class="label default">from the valleys and the heart</sp
   </entry>
   <entry>
     <title>redis数据类型之list命令</title>
-    <url>//posts/Redis_List.html</url>
+    <url>//posts/undefined/Redis_List.html</url>
     <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>list是redis数据库中的列表，列表元素的数据类型是string。</p>
 <a id="more"></a>
 
@@ -3063,7 +3063,7 @@ I heard the echo, <span class="label default">from the valleys and the heart</sp
   </entry>
   <entry>
     <title>redis数据类型之string和键命令</title>
-    <url>//posts/Redis_String_Key.html</url>
+    <url>//posts/undefined/Redis_String_Key.html</url>
     <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>redis数据库装好之后，我们练习一下数据库的常用操作。</p>
 <a id="more"></a>
 
@@ -3092,7 +3092,7 @@ I heard the echo, <span class="label default">from the valleys and the heart</sp
   </entry>
   <entry>
     <title>redis数据类型之set和zset命令</title>
-    <url>//posts/Redis_Set_Zset.html</url>
+    <url>//posts/undefined/Redis_Set_Zset.html</url>
     <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>set是无序集合，而zset是有序集合。</p>
 <a id="more"></a>
 
@@ -3118,7 +3118,7 @@ I heard the echo, <span class="label default">from the valleys and the heart</sp
   </entry>
   <entry>
     <title>scrapy爬虫实例之发送post请求登录github</title>
-    <url>//posts/Scrapy_Spider_Post_Github.html</url>
+    <url>//posts/undefined/Scrapy_Spider_Post_Github.html</url>
     <content><![CDATA[<h2 id="爬什么"><a href="#爬什么" class="headerlink" title="爬什么"></a>爬什么</h2><p>使用scrapy发送post请求登录到<a href="https://github.com/" target="_blank" rel="noopener">github</a>。</p>
 <a id="more"></a>
 
@@ -3150,7 +3150,7 @@ I heard the echo, <span class="label default">from the valleys and the heart</sp
   </entry>
   <entry>
     <title>scrapy爬虫实例之爬取师资信息</title>
-    <url>//posts/Scrapy_Spider_Teachers.html</url>
+    <url>//posts/undefined/Scrapy_Spider_Teachers.html</url>
     <content><![CDATA[<h2 id="scrapy是什么"><a href="#scrapy是什么" class="headerlink" title="scrapy是什么"></a>scrapy是什么</h2><p>Scrapy是一个为了爬取网站数据，提取结构性数据而编写的应用框架，我们只需要实现少量的代码，就能够快速的抓取。使用了Twisted异步网络框架，可以加快我们的下载速度。<br><img src="http://ww1.sinaimg.cn/large/006gDuOdgy1gbzfm0t9qyj30mz0dltbh.jpg" alt="image.png"></p>
 <a id="more"></a>
 
@@ -3199,7 +3199,7 @@ I heard the echo, <span class="label default">from the valleys and the heart</sp
   </entry>
   <entry>
     <title>scrapy爬虫实例之爬取苏宁图书的图书信息</title>
-    <url>//posts/Scrapy_Spider_Sunning_Book.html</url>
+    <url>//posts/undefined/Scrapy_Spider_Sunning_Book.html</url>
     <content><![CDATA[<h2 id="爬什么"><a href="#爬什么" class="headerlink" title="爬什么"></a>爬什么</h2><p>把<a href="https://book.suning.com/" target="_blank" rel="noopener">苏宁图书</a>的子分类图书信息全部爬取下来。爬取的数据字段包括大分类名称、子分类名称、子分类下的图书信息。<br><img src="http://ww1.sinaimg.cn/large/006gDuOdgy1gc0g90wjofj31f60u0wsl.jpg" alt="image.png"></p>
 <a id="more"></a>
 
@@ -3231,7 +3231,7 @@ I heard the echo, <span class="label default">from the valleys and the heart</sp
   </entry>
   <entry>
     <title>scrapy爬虫实例之携带cookie登录人人网</title>
-    <url>//posts/Scrapy_Spider_Cookie_Renren.html</url>
+    <url>//posts/undefined/Scrapy_Spider_Cookie_Renren.html</url>
     <content><![CDATA[<h2 id="爬什么"><a href="#爬什么" class="headerlink" title="爬什么"></a>爬什么</h2><p>爬取<a href="http://www.renren.com/" target="_blank" rel="noopener">人人网</a>的个人档案页面。由于这个页面是登录之后才能够访问的，我们爬虫的时候必须要携带cookie。</p>
 <a id="more"></a>
 
@@ -3255,7 +3255,7 @@ I heard the echo, <span class="label default">from the valleys and the heart</sp
   </entry>
   <entry>
     <title>scrapy爬虫实例之爬取阳光政务网的问题反映模块</title>
-    <url>//posts/Scrapy_Spider_Sunshine.html</url>
+    <url>//posts/undefined/Scrapy_Spider_Sunshine.html</url>
     <content><![CDATA[<h2 id="需求"><a href="#需求" class="headerlink" title="需求"></a>需求</h2><p>爬取<a href="http://wz.sun0769.com/" target="_blank" rel="noopener">阳光政务网</a>的问题反映模块。主要练习翻页请求是怎么实现的。</p>
 <a id="more"></a>
 
@@ -3292,7 +3292,7 @@ I heard the echo, <span class="label default">from the valleys and the heart</sp
   </entry>
   <entry>
     <title>ubuntu18.04用apt安装的nginx默认切割日志</title>
-    <url>//posts/Ubuntu18.04_Apt_Nginx_Log.html</url>
+    <url>//posts/undefined/Ubuntu18.04_Apt_Nginx_Log.html</url>
     <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>只是查看一下访问日志，无意发现ubuntu18.04用apt安装的nginx1.14默认就设置了日志切割。本来还有点担心日志多了会影响vps的性能。</p>
 <a id="more"></a>
 
@@ -3311,7 +3311,7 @@ I heard the echo, <span class="label default">from the valleys and the heart</sp
   </entry>
   <entry>
     <title>scrapy爬虫实例之用crawl spider爬取阳光政务网</title>
-    <url>//posts/Scrapy_Spider_Crawl_Sunshine.html</url>
+    <url>//posts/undefined/Scrapy_Spider_Crawl_Sunshine.html</url>
     <content><![CDATA[<h2 id="爬什么"><a href="#爬什么" class="headerlink" title="爬什么"></a>爬什么</h2><p>还是爬取<a href="http://wz.sun0769.com/" target="_blank" rel="noopener">阳光政务网</a>的问题反映模块。主要练习crawl spider的使用方法。</p>
 <a id="more"></a>
 
@@ -3344,7 +3344,7 @@ I heard the echo, <span class="label default">from the valleys and the heart</sp
   </entry>
   <entry>
     <title>selenium模块实现web自动化测试</title>
-    <url>//posts/Selenium_Web_Automation.html</url>
+    <url>//posts/undefined/Selenium_Web_Automation.html</url>
     <content><![CDATA[<h2 id="什么是selenium"><a href="#什么是selenium" class="headerlink" title="什么是selenium"></a>什么是selenium</h2><p>Selenium是一个Web的自动化测试工具，最初是为网站自动化测试而开发的，Selenium可以直接运行在浏览器上，它支持所有主流的浏览器（包括PhantomJS这些无界面的浏览器），可以接收指令，让浏览器自动加载页面，获取需要的数据，甚至页面截屏。<br><a href="https://zhuanlan.zhihu.com/p/41235936" target="_blank" rel="noopener">这里是个有趣的解释</a></p>
 <a id="more"></a>
 
@@ -3426,7 +3426,7 @@ I heard the echo, <span class="label default">from the valleys and the heart</sp
   </entry>
   <entry>
     <title>ubuntu修改root密码</title>
-    <url>//posts/Ubuntu_Root_Modify.html</url>
+    <url>//posts/undefined/Ubuntu_Root_Modify.html</url>
     <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>安装ubuntu的时候没有设置root用户的密码，现在需要设置root密码。</p>
 <a id="more"></a>
 
@@ -3443,7 +3443,7 @@ I heard the echo, <span class="label default">from the valleys and the heart</sp
   </entry>
   <entry>
     <title>ubuntu18.04自建邮件服务器</title>
-    <url>//posts/ubuntu18.04-mailserver-diy.html</url>
+    <url>//posts/undefined/ubuntu18.04-mailserver-diy.html</url>
     <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>在freenom新申请了一个顶级域名（一年的免费使用时间），恰好申请到<code>.ml</code>后缀的，就理解为mail的缩写好咯……我打算用这个域名建一个邮件服务系统。</p>
 <a id="more"></a>
 
@@ -3532,7 +3532,7 @@ I heard the echo, <span class="label default">from the valleys and the heart</sp
   </entry>
   <entry>
     <title>ubuntu机器安装pip3</title>
-    <url>//posts/ubuntu_Install_Pip3.html</url>
+    <url>//posts/undefined/ubuntu_Install_Pip3.html</url>
     <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>我装的ubuntu机器自带了Python3，但是没有安装pip3，不方便安装第三方模块。于是需要安装pip3。</p>
 <a id="more"></a>
 
@@ -3550,7 +3550,7 @@ I heard the echo, <span class="label default">from the valleys and the heart</sp
   </entry>
   <entry>
     <title>ubuntu镜像源改为国内清华源</title>
-    <url>//posts/Ubuntu_Img_Modify.html</url>
+    <url>//posts/undefined/Ubuntu_Img_Modify.html</url>
     <content><![CDATA[<h2 id="查看ubuntu版本号"><a href="#查看ubuntu版本号" class="headerlink" title="查看ubuntu版本号"></a>查看ubuntu版本号</h2><p><code>lsb_release -a</code></p>
 <a id="more"></a>
 
@@ -3568,7 +3568,7 @@ I heard the echo, <span class="label default">from the valleys and the heart</sp
   </entry>
   <entry>
     <title>ubuntu命令学习-防火墙ufw</title>
-    <url>//posts/Ubuntu_Ufw.html</url>
+    <url>//posts/undefined/Ubuntu_Ufw.html</url>
     <content><![CDATA[<h2 id="查看防火墙状态"><a href="#查看防火墙状态" class="headerlink" title="查看防火墙状态"></a>查看防火墙状态</h2><p><code>sudo ufw status</code></p>
 <a id="more"></a>
 
@@ -3585,7 +3585,7 @@ I heard the echo, <span class="label default">from the valleys and the heart</sp
   </entry>
   <entry>
     <title>ubuntu设置允许root远程登录ssh</title>
-    <url>//posts/Ubuntu_Root_Ssh_Login.html</url>
+    <url>//posts/undefined/Ubuntu_Root_Ssh_Login.html</url>
     <content><![CDATA[<h2 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h2><p>无法用root用户登录ssh。</p>
 <a id="more"></a>
 
@@ -3602,7 +3602,7 @@ I heard the echo, <span class="label default">from the valleys and the heart</sp
   </entry>
   <entry>
     <title>问题解决-ubuntu机器的redis进程杀不完怎么办</title>
-    <url>//posts/TroubleShoot_Ubuntu_Redis_Process.html</url>
+    <url>//posts/undefined/TroubleShoot_Ubuntu_Redis_Process.html</url>
     <content><![CDATA[<h2 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h2><p>重启redis-server发现这样一个问题，尝试查找redis进程id（ps -ef|grep redis），用<code>kill -9 进程id</code>杀死redis服务进程，未果。进程杀不完，杀了一个又来一个🙃🙃🙃🙃</p>
 <a id="more"></a>
 
@@ -3621,7 +3621,7 @@ I heard the echo, <span class="label default">from the valleys and the heart</sp
   </entry>
   <entry>
     <title>vmware黑苹果无法从win10宿主机复制文件</title>
-    <url>//posts/Vmware_Win10_Copy_File.html</url>
+    <url>//posts/undefined/Vmware_Win10_Copy_File.html</url>
     <content><![CDATA[<h2 id="题外话"><a href="#题外话" class="headerlink" title="题外话"></a>题外话</h2><p>太喜欢这个背景图了~<br><img src="http://ww1.sinaimg.cn/large/006gDuOdgy1gcsamv5vxbj31f60pd1kz.jpg" alt="image.png"></p>
 <a id="more"></a>
 
@@ -3640,7 +3640,7 @@ I heard the echo, <span class="label default">from the valleys and the heart</sp
   </entry>
   <entry>
     <title>vmware workstation怎么打开vmdk格式的虚拟机</title>
-    <url>//posts/Vmware_Vmdk.html</url>
+    <url>//posts/undefined/Vmware_Vmdk.html</url>
     <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>从网上下载了Kioptrix level 4的镜像，解压出来是<code>.vmdk</code>后缀的文件，这个文件无法直接用vmware workstation打开。</p>
 <a id="more"></a>
 
@@ -3657,7 +3657,7 @@ I heard the echo, <span class="label default">from the valleys and the heart</sp
   </entry>
   <entry>
     <title>v2ray+ws+tls+web加固梯子</title>
-    <url>//posts/V2ray_Ws_Tls_Web.html</url>
+    <url>//posts/undefined/V2ray_Ws_Tls_Web.html</url>
     <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>v2ray默认的vmess协议，流量特征太明显，容易被识别，安全性低。于是找了一个相对安全的方式：https。前提是手里有一个域名用来做伪装站点。</p>
 <a id="more"></a>
 
@@ -3791,7 +3791,7 @@ I heard the echo, <span class="label default">from the valleys and the heart</sp
   </entry>
   <entry>
     <title>vmware黑苹果调整分辨率</title>
-    <url>//posts/Vmware_BlackApple_Resolution.html</url>
+    <url>//posts/undefined/Vmware_BlackApple_Resolution.html</url>
     <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>黑苹果虽然装好了，但是分辨率需要调整，字体显得太大了</p>
 <a id="more"></a>
 
@@ -3810,7 +3810,7 @@ I heard the echo, <span class="label default">from the valleys and the heart</sp
   </entry>
   <entry>
     <title>vmware workstation 15安装unbuntu19.10</title>
-    <url>//posts/Vmware15_Install_Ubuntu19.10.html</url>
+    <url>//posts/undefined/Vmware15_Install_Ubuntu19.10.html</url>
     <content><![CDATA[<h2 id="虚拟机设置"><a href="#虚拟机设置" class="headerlink" title="虚拟机设置"></a>虚拟机设置</h2><p><img src="http://ww1.sinaimg.cn/large/006gDuOdgy1gc8fpkwpn9j30fu0fbq42.jpg" alt="image.png"></p>
 <a id="more"></a>
 
@@ -3831,7 +3831,7 @@ I heard the echo, <span class="label default">from the valleys and the heart</sp
   </entry>
   <entry>
     <title>vps内存优化之清理内存</title>
-    <url>//posts/vps-memory-better.html</url>
+    <url>//posts/undefined/vps-memory-better.html</url>
     <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>vps的内存本身不大，缓存就占了1.4G，必须得清理了。</p>
 <a id="more"></a>
 
@@ -3865,7 +3865,7 @@ I heard the echo, <span class="label default">from the valleys and the heart</sp
   </entry>
   <entry>
     <title>vps使用docker+aria2自建离线下载并推送到onedrive和googledrive</title>
-    <url>//posts/vps-personal-cloud-aria2-docker-onedrive-googledrive.html</url>
+    <url>//posts/undefined/vps-personal-cloud-aria2-docker-onedrive-googledrive.html</url>
     <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>aria2是一款常用的离线下载软件，我们利用aria2离线下载的特点，在vps（vps在国外）安装aria2，就可以飞速下载各种资源。这里我们用大神制作的docker镜像。</p>
 <a id="more"></a>
 
@@ -3897,7 +3897,7 @@ I heard the echo, <span class="label default">from the valleys and the heart</sp
   </entry>
   <entry>
     <title>vps自建私人网盘-开源软件ZFile</title>
-    <url>//posts/vps-personal-cloud-ZFile.html</url>
+    <url>//posts/undefined/vps-personal-cloud-ZFile.html</url>
     <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>有一台vps，就老想着玩，装一个私人网盘玩一玩，使用了一款新秀开源软件ZFile。</p>
 <a id="more"></a>
 
@@ -3926,7 +3926,7 @@ I heard the echo, <span class="label default">from the valleys and the heart</sp
   </entry>
   <entry>
     <title>vps（ubuntu18.04）防火墙设置-仅开启v2ray端口</title>
-    <url>//posts/Vps_Firewall_Rule.html</url>
+    <url>//posts/undefined/Vps_Firewall_Rule.html</url>
     <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>为了增加vps的安全性，防止互联网的恶意扫描，我们需要以最小开放的原则给vps做防火墙策略。</p>
 <a id="more"></a>
 
@@ -3947,7 +3947,7 @@ I heard the echo, <span class="label default">from the valleys and the heart</sp
   </entry>
   <entry>
     <title>vulnhub靶机练习之Kioptix Level 1</title>
-    <url>//posts/Vulnhub_Kioptrix_One.html</url>
+    <url>//posts/undefined/Vulnhub_Kioptrix_One.html</url>
     <content><![CDATA[<h2 id="探测靶机IP"><a href="#探测靶机IP" class="headerlink" title="探测靶机IP"></a>探测靶机IP</h2><p>用<code>sudo arp-scan</code>和<code>netdiscover -i eth0</code>都探测不到靶机IP。<a href="https://blog.csdn.net/Viv233/article/details/104103628" target="_blank" rel="noopener">参考</a>解决方法：将虚拟机文件<code>Kioptix Level 1.vmx</code>的<code>ethernet0.networkName = &quot;Bridged&quot;</code>改成<code>ethernet0.networkName = &quot;Nat&quot;</code>。</p>
 <a id="more"></a>
 
@@ -3996,7 +3996,7 @@ I heard the echo, <span class="label default">from the valleys and the heart</sp
   </entry>
   <entry>
     <title>vulnhub靶机渗透学习计划</title>
-    <url>//posts/Vulnhub_Study_Plan.html</url>
+    <url>//posts/undefined/Vulnhub_Study_Plan.html</url>
     <content><![CDATA[<h2 id="靶机渗透练习计划"><a href="#靶机渗透练习计划" class="headerlink" title="靶机渗透练习计划"></a>靶机渗透练习计划</h2><p>用靶机渗透练习入门渗透，先实践，再了解理论。我这人有一股执着劲，不管什么，都希望先做，不太喜欢听空洞的大道理。一件事的结局好不好，只有做了才知道。就算判断错了，也是自己亲自获取的经验。</p>
 <a id="more"></a>
 
@@ -4080,7 +4080,7 @@ I heard the echo, <span class="label default">from the valleys and the heart</sp
   </entry>
   <entry>
     <title>vulnhub靶机练习之Kioptix Level 2</title>
-    <url>//posts/Vulnhub_Kioptrix_Two.html</url>
+    <url>//posts/undefined/Vulnhub_Kioptrix_Two.html</url>
     <content><![CDATA[<h2 id="探测靶机"><a href="#探测靶机" class="headerlink" title="探测靶机"></a>探测靶机</h2><p>这台靶机的版本是centos4.5，要更改虚拟机文件<code>CentOs4.5.vmx</code>，将<code>ethernet0.networkName = &quot;Bridged&quot;</code>改成<code>ethernet0.networkName = &quot;Nat&quot;</code>。这样改了之后，我们就能探测到靶机IP了。</p>
 <a id="more"></a>
 
@@ -4112,7 +4112,7 @@ I heard the echo, <span class="label default">from the valleys and the heart</sp
   </entry>
   <entry>
     <title>vulnhub靶机练习之FristiLeaks_1.3</title>
-    <url>//posts/Vulnhub_FristiLeaks.html</url>
+    <url>//posts/undefined/Vulnhub_FristiLeaks.html</url>
     <content><![CDATA[<h2 id="探测靶机"><a href="#探测靶机" class="headerlink" title="探测靶机"></a>探测靶机</h2><p>首先修改虚拟机的mac地址。<a href="https://docs.vmware.com/cn/VMware-Workstation-Pro/12.0/com.vmware.ws.using.doc/GUID-5C55C285-79B0-404F-95A5-87F64C41E3DC.html" target="_blank" rel="noopener">vmware修改虚拟机MAC地址的方法</a><br><img src="http://ww1.sinaimg.cn/large/006gDuOdgy1gceuhdjd7cj30nw0q3406.jpg" alt="image.png"></p>
 <a id="more"></a>
 <p>记得，虚拟机要改成NAT模式。<br>靶机IP为：192.168.80.21</p>
@@ -4165,7 +4165,7 @@ I heard the echo, <span class="label default">from the valleys and the heart</sp
   </entry>
   <entry>
     <title>vulnhub靶机练习之TommyBoy1dot0</title>
-    <url>//posts/Vulnhub_TommyBoy1.0.html</url>
+    <url>//posts/undefined/Vulnhub_TommyBoy1.0.html</url>
     <content><![CDATA[<h2 id="搭建靶机环境"><a href="#搭建靶机环境" class="headerlink" title="搭建靶机环境"></a>搭建靶机环境</h2><p><img src="http://ww1.sinaimg.cn/large/006gDuOdgy1gc0pjxaba7j30e408q0ss.jpg" alt="image.png"><br><img src="http://ww1.sinaimg.cn/large/006gDuOdgy1gc0qq9ca3rj31f60u0mzc.jpg" alt="image.png"></p>
 <a id="more"></a>
 
@@ -4230,7 +4230,7 @@ I heard the echo, <span class="label default">from the valleys and the heart</sp
   </entry>
   <entry>
     <title>vulnhub靶机练习之Kioptrix2014</title>
-    <url>//posts/Vulnhub_Kioptrix_2014.html</url>
+    <url>//posts/undefined/Vulnhub_Kioptrix_2014.html</url>
     <content><![CDATA[<h2 id="探测靶机"><a href="#探测靶机" class="headerlink" title="探测靶机"></a>探测靶机</h2><p>修改vmdx文件，将<code>ethernet0.connectionType = &quot;bridged&quot;</code>改为<code>ethernet0.connectionType = &quot;nat&quot;</code>。<br><img src="http://ww1.sinaimg.cn/large/006gDuOdgy1gcazov7krkj313d0lldh9.jpg" alt="image.png"><br>改了网卡连接模式之后，居然还是探测不到这个靶机的IP。</p>
 <a id="more"></a>
 
@@ -4267,7 +4267,7 @@ I heard the echo, <span class="label default">from the valleys and the heart</sp
   </entry>
   <entry>
     <title>vulnhub靶机练习之Stapler 1</title>
-    <url>//posts/Vulnhub_Stapler1.html</url>
+    <url>//posts/undefined/Vulnhub_Stapler1.html</url>
     <content><![CDATA[<h2 id="探测靶机"><a href="#探测靶机" class="headerlink" title="探测靶机"></a>探测靶机</h2><p>将ovf文件导入VirtualBox：<br><img src="http://ww1.sinaimg.cn/large/006gDuOdgy1gckftc3cohj31f60u0gqc.jpg" alt="image.png"></p>
 <a id="more"></a>
 
@@ -4307,7 +4307,7 @@ I heard the echo, <span class="label default">from the valleys and the heart</sp
   </entry>
   <entry>
     <title>vulnhub靶机练习之Kioptix Level 3</title>
-    <url>//posts/Vulnhub_Kioptrix_Three.html</url>
+    <url>//posts/undefined/Vulnhub_Kioptrix_Three.html</url>
     <content><![CDATA[<h2 id="探测靶机"><a href="#探测靶机" class="headerlink" title="探测靶机"></a>探测靶机</h2><p>同样需要更改虚拟机文件<code>KioptrixVM3.vmx</code>，把<code>ethernet0.connectionType = &quot;bridged&quot;</code>改为<code>ethernet0.connectionType = &quot;nat&quot;</code>。<br><img src="http://ww1.sinaimg.cn/large/006gDuOdgy1gc8jk1lvhxj313d0llwft.jpg" alt="image.png"><br>使用<code>sudo arp-scan -l</code>扫描内网，发现靶机IP是192.168.80.18。</p>
 <a id="more"></a>
 
@@ -4352,7 +4352,7 @@ I heard the echo, <span class="label default">from the valleys and the heart</sp
   </entry>
   <entry>
     <title>vultr购买VPS自建v2ray详细过程</title>
-    <url>//posts/Vultr_Vps_V2ray.html</url>
+    <url>//posts/undefined/Vultr_Vps_V2ray.html</url>
     <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>科学上网越来越难。自建梯子的想法很早就有，今天实践一盘。搜罗网上各种教程，最终买的是vultr的VPS。</p>
 <a id="more"></a>
 
@@ -4416,7 +4416,7 @@ I heard the echo, <span class="label default">from the valleys and the heart</sp
   </entry>
   <entry>
     <title>vulnhub靶机练习之Kioptrix level 4</title>
-    <url>//posts/Vulnhub_Kioptrix_Four.html</url>
+    <url>//posts/undefined/Vulnhub_Kioptrix_Four.html</url>
     <content><![CDATA[<h2 id="探测靶机"><a href="#探测靶机" class="headerlink" title="探测靶机"></a>探测靶机</h2><p>使用<code>sudo arp-scan -l</code>扫描，发现靶机IP是192.168.80.19。</p>
 <a id="more"></a>
 
@@ -4448,7 +4448,7 @@ I heard the echo, <span class="label default">from the valleys and the heart</sp
   </entry>
   <entry>
     <title>win10+vmware15安装黑苹果</title>
-    <url>//posts/Win10_Vmware15_Install_BlackApple.html</url>
+    <url>//posts/undefined/Win10_Vmware15_Install_BlackApple.html</url>
     <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>就是想体验一下MacOS系统嘛。</p>
 <a id="more"></a>
 
@@ -4469,7 +4469,7 @@ I heard the echo, <span class="label default">from the valleys and the heart</sp
   </entry>
   <entry>
     <title>win10电脑查看CPU、内存、硬盘大小</title>
-    <url>//posts/win10-cpu-memory-disk.html</url>
+    <url>//posts/undefined/win10-cpu-memory-disk.html</url>
     <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>查看win10电脑的硬件配置信息。</p>
 <a id="more"></a>
 
@@ -4492,7 +4492,7 @@ I heard the echo, <span class="label default">from the valleys and the heart</sp
   </entry>
   <entry>
     <title>windows10修改mysql密码</title>
-    <url>//posts/windows10-mysql-change-password.html</url>
+    <url>//posts/undefined/windows10-mysql-change-password.html</url>
     <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>忘记了mysql的密码，怎么办？</p>
 <a id="more"></a>
 
@@ -4513,7 +4513,7 @@ I heard the echo, <span class="label default">from the valleys and the heart</sp
   </entry>
   <entry>
     <title>windows10运行mysql报错</title>
-    <url>//posts/windows10-mysql-start-error.html</url>
+    <url>//posts/undefined/windows10-mysql-start-error.html</url>
     <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>windows10安装的mysql数据库，启动报错。</p>
 <a id="more"></a>
 
@@ -4531,7 +4531,7 @@ I heard the echo, <span class="label default">from the valleys and the heart</sp
   </entry>
   <entry>
     <title>wpscan申请API TOKEN的坎坷过程</title>
-    <url>//posts/Wpscan_Apply_API_TOKEN.html</url>
+    <url>//posts/undefined/Wpscan_Apply_API_TOKEN.html</url>
     <content><![CDATA[<h2 id="注册过程"><a href="#注册过程" class="headerlink" title="注册过程"></a>注册过程</h2><p><a href="https://wpvulndb.com/users/sign_in" target="_blank" rel="noopener">注册地址</a><br>以github注册的，确认邮件发到了我的QQ邮箱……WTF??我已经记不清我的github是用google邮箱还是QQ邮箱注册的了。行吧，算是我记错了。但是为嘛QQ邮箱要把wpscan发过来的确认邮件放到垃圾箱？？？我一直怀疑应该是发到了谷歌邮箱，就是不见新的邮件发过来。后来脑袋转个弯，才想起这个可能被腾讯放到垃圾箱了。时间就是这么浪费的。<br>确认邮件验证完之后，登录不进去，密码又被我搞混了，又重置密码折腾了一下。</p>
 <a id="more"></a>
 
@@ -4546,7 +4546,7 @@ I heard the echo, <span class="label default">from the valleys and the heart</sp
   </entry>
   <entry>
     <title>windows服务进程相关学习</title>
-    <url>//posts/windows-service-process-study.html</url>
+    <url>//posts/undefined/windows-service-process-study.html</url>
     <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>学习windows服务进程相关的内容。</p>
 <a id="more"></a>
 
@@ -4565,7 +4565,7 @@ I heard the echo, <span class="label default">from the valleys and the heart</sp
   </entry>
   <entry>
     <title>一的法则观后感-外星人对话</title>
-    <url>//posts/Law_Of_One.html</url>
+    <url>//posts/undefined/Law_Of_One.html</url>
     <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>对于外星人以及我们所处的宇宙充满了好奇心，《一的法则》是Carla作为媒介，人类与外星人Ra进行的通讯内容记录。虽然中文译本语法的易读性实在太差，也先忍耐。以后有机会再找英文原版来看。</p>
 <a id="more"></a>
 
@@ -4581,7 +4581,7 @@ I heard the echo, <span class="label default">from the valleys and the heart</sp
   </entry>
   <entry>
     <title>今天父亲节</title>
-    <url>//posts/father&#39;s-day.html</url>
+    <url>//posts/undefined/father&#39;s-day.html</url>
     <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>今天父亲节，昨天听说今天是世界末日，今天有些地区似乎可以看到日环食。今天可真特殊。</p>
 <a id="more"></a>
 
@@ -4598,7 +4598,7 @@ I heard the echo, <span class="label default">from the valleys and the heart</sp
   </entry>
   <entry>
     <title>使用phpstudy验证CSRF漏洞</title>
-    <url>//posts/phpstudy-verify-csrf.html</url>
+    <url>//posts/undefined/phpstudy-verify-csrf.html</url>
     <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>可以使用phpstudy建本地网站，将csrf漏洞验证的html放到网站根目录，验证csrf漏洞。</p>
 <a id="more"></a>
 
@@ -4620,7 +4620,7 @@ I heard the echo, <span class="label default">from the valleys and the heart</sp
   </entry>
   <entry>
     <title>修改burp的编码格式解决中文显示乱码问题</title>
-    <url>//posts/burp-charset-chinese-display.html</url>
+    <url>//posts/undefined/burp-charset-chinese-display.html</url>
     <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>Burp抓包之后，收到的响应包数据显示中文乱码，怎么办？</p>
 <a id="more"></a>
 
@@ -4637,7 +4637,7 @@ I heard the echo, <span class="label default">from the valleys and the heart</sp
   </entry>
   <entry>
     <title>使用sqlmap测试dvwa的sql注入漏洞</title>
-    <url>//posts/sqlmap-dvwa-sql-injection.html</url>
+    <url>//posts/undefined/sqlmap-dvwa-sql-injection.html</url>
     <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>使用dvwa环境练习一下sql注入。</p>
 <a id="more"></a>
 
@@ -4662,7 +4662,7 @@ I heard the echo, <span class="label default">from the valleys and the heart</sp
   </entry>
   <entry>
     <title>关于恒心的思考</title>
-    <url>//posts/Think_Stick.html</url>
+    <url>//posts/undefined/Think_Stick.html</url>
     <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>这几天在跟着<a href="https://www.liaoxuefeng.com/" target="_blank" rel="noopener">廖雪峰的博客</a>学习java编程入门，发现一个很耐人寻味的现象。</p>
 <a id="more"></a>
 
@@ -4678,7 +4678,7 @@ I heard the echo, <span class="label default">from the valleys and the heart</sp
   </entry>
   <entry>
     <title>冬至日</title>
-    <url>//posts/dongzhiri.html</url>
+    <url>//posts/undefined/dongzhiri.html</url>
     <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>好似当下的末日。</p>
 <a id="more"></a>
 
@@ -4712,7 +4712,7 @@ I heard the echo, <span class="label default">from the valleys and the heart</sp
   </entry>
   <entry>
     <title>制作的第一张母亲节电子贺卡</title>
-    <url>//posts/undefined.html</url>
+    <url>//posts/undefined/undefined.html</url>
     <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>今天母亲节。</p>
 <a id="more"></a>
 
@@ -4728,7 +4728,7 @@ I heard the echo, <span class="label default">from the valleys and the heart</sp
   </entry>
   <entry>
     <title>墨者靶场练习-X-Forwarded-For头注入</title>
-    <url>//posts/mozhe-xff-inject.html</url>
+    <url>//posts/undefined/mozhe-xff-inject.html</url>
     <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>练习X-Forwarded-For头注入，使用sqlmap进行注入。<br>自己注册一个墨者账号，就可以练习里面的在线靶场。</p>
 <a id="more"></a>
 
@@ -4757,7 +4757,7 @@ I heard the echo, <span class="label default">from the valleys and the heart</sp
   </entry>
   <entry>
     <title>墨者靶场练习-SQL手工注入漏洞测试</title>
-    <url>//posts/mozhe-SQL-manual-inject.html</url>
+    <url>//posts/undefined/mozhe-SQL-manual-inject.html</url>
     <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>练习SQL手工注入，字符型注入。</p>
 <a id="more"></a>
 
@@ -4796,7 +4796,7 @@ I heard the echo, <span class="label default">from the valleys and the heart</sp
   </entry>
   <entry>
     <title>墨者靶场练习-host头部注入</title>
-    <url>//posts/mozhe-host-inject.html</url>
+    <url>//posts/undefined/mozhe-host-inject.html</url>
     <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>练习host头部注入。</p>
 <a id="more"></a>
 
@@ -4835,7 +4835,7 @@ I heard the echo, <span class="label default">from the valleys and the heart</sp
   </entry>
   <entry>
     <title>好玩的-识人标准参考</title>
-    <url>//posts/Think_Know_Others.html</url>
+    <url>//posts/undefined/Think_Know_Others.html</url>
     <content><![CDATA[<h2 id="计算机领域识人参考"><a href="#计算机领域识人参考" class="headerlink" title="计算机领域识人参考"></a>计算机领域识人参考</h2><p>在<a href="https://liam.page/notes/" target="_blank" rel="noopener">这个博客</a>看到的，说法很好玩。</p>
 <a id="more"></a>
 
@@ -4852,7 +4852,7 @@ I heard the echo, <span class="label default">from the valleys and the heart</sp
   </entry>
   <entry>
     <title>安全研发学习规划-记录</title>
-    <url>//posts/InfoSec_Study_Plan.html</url>
+    <url>//posts/undefined/InfoSec_Study_Plan.html</url>
     <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>最近，陷入知识焦虑。到底应该怎么学习，看看这些高手怎么说。</p>
 <a id="more"></a>
 
@@ -5011,7 +5011,7 @@ I heard the echo, <span class="label default">from the valleys and the heart</sp
   </entry>
   <entry>
     <title>安装sqlmap</title>
-    <url>//posts/Sqlmap_Installation.html</url>
+    <url>//posts/undefined/Sqlmap_Installation.html</url>
     <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>windows10安装sqlmap。</p>
 <a id="more"></a>
 
@@ -5032,7 +5032,7 @@ I heard the echo, <span class="label default">from the valleys and the heart</sp
   </entry>
   <entry>
     <title>安卓模拟器无法进入adb_shell</title>
-    <url>//posts/Android_Adbshell.html</url>
+    <url>//posts/undefined/Android_Adbshell.html</url>
     <content><![CDATA[<h2 id="问题现象"><a href="#问题现象" class="headerlink" title="问题现象"></a>问题现象</h2><p>安卓模拟器无法进入adb_shell，报错信息为：<em>error: unkown host service</em></p>
 <ul>
 <li>进入adb_shell的方法<blockquote>
@@ -5060,7 +5060,7 @@ I heard the echo, <span class="label default">from the valleys and the heart</sp
   </entry>
   <entry>
     <title>将excel每行内容导出为单个文件并以特定列的内容作为文件名</title>
-    <url>//posts/excel-vba-convert.html</url>
+    <url>//posts/undefined/excel-vba-convert.html</url>
     <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>为了提高效率，我需要把excel每行的数据转存为单个文件。google告诉我可使用vba代码实现，就找到了一个简单方法，一个表转多个文件，一秒搞定。</p>
 <a id="more"></a>
 
@@ -5081,7 +5081,7 @@ I heard the echo, <span class="label default">from the valleys and the heart</sp
   </entry>
   <entry>
     <title>将多个文件内容合并为一个excel，一行写一个文件</title>
-    <url>//posts/file-to-excel-python.html</url>
+    <url>//posts/undefined/file-to-excel-python.html</url>
     <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>整理NG配置文件，每次都去服务器上面去查，很不方便，有时候因为网络限制根本登录不到服务器。于是，就想把服务器的NG配置文件拷贝到本地，集中整理为一张表，就看这张表查各个系统的具体配置。</p>
 <a id="more"></a>
 
@@ -5100,7 +5100,7 @@ I heard the echo, <span class="label default">from the valleys and the heart</sp
   </entry>
   <entry>
     <title>怎么下载官方win10的安装镜像</title>
-    <url>//posts/download-windows10-iso-mirror.html</url>
+    <url>//posts/undefined/download-windows10-iso-mirror.html</url>
     <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>想装一个win10专业版的虚拟机 使用一下，win10的官方镜像还是去官网下载比较纯净。</p>
 <a id="more"></a>
 
@@ -5117,7 +5117,7 @@ I heard the echo, <span class="label default">from the valleys and the heart</sp
   </entry>
   <entry>
     <title>工具（editplus）-批量修改文件编码格式</title>
-    <url>//posts/tool-editplus-file-encoding.html</url>
+    <url>//posts/undefined/tool-editplus-file-encoding.html</url>
     <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>有些csv文件导出来，编码格式不对（unicode编码比较不容易踩雷，其他编码格式用excel打开很可能是乱码）。经常会分析并统计多个csv数据源，能批量修改csv文件的编码格式就好了。editplus这个工具就可以帮助我们进行批量修改。</p>
 <a id="more"></a>
 
@@ -5136,7 +5136,7 @@ I heard the echo, <span class="label default">from the valleys and the heart</sp
   </entry>
   <entry>
     <title>开启ssh服务导致v2ray服务器遭暴力破解</title>
-    <url>//posts/V2ray_Bruteforce.html</url>
+    <url>//posts/undefined/V2ray_Bruteforce.html</url>
     <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>万万没想到，互联网的攻击这么多，离我这么近。刚创建的服务器，就遭到暴力破解。还好发现得早。</p>
 <a id="more"></a>
 
@@ -5158,7 +5158,7 @@ I heard the echo, <span class="label default">from the valleys and the heart</sp
   </entry>
   <entry>
     <title>常用DOS命令</title>
-    <url>//posts/DOS_Cmd.html</url>
+    <url>//posts/undefined/DOS_Cmd.html</url>
     <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>虽然日常用windows电脑，但是对于DOS命令操作并没有比对linux系统的命令行操作更熟悉，有点尴尬🙃</p>
 <a id="more"></a>
 
@@ -5202,7 +5202,7 @@ I heard the echo, <span class="label default">from the valleys and the heart</sp
   </entry>
   <entry>
     <title>怎样把hexo博客同步部署到github和gitee</title>
-    <url>//posts/hexo-meanwhile-deploy-github-gitee.html</url>
+    <url>//posts/undefined/hexo-meanwhile-deploy-github-gitee.html</url>
     <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>虽然很早就设置了同步部署hexo博客到github和gitee，但是后来发现gitee上没有同步博客了。为啥？今天登录到gitee，才发现我并没有设置ssh公钥😓</p>
 <a id="more"></a>
 
@@ -5227,7 +5227,7 @@ I heard the echo, <span class="label default">from the valleys and the heart</sp
   </entry>
   <entry>
     <title>开心的事-太喜欢绚丽的夜景了</title>
-    <url>//posts/Happy_Thing.html</url>
+    <url>//posts/undefined/Happy_Thing.html</url>
     <content><![CDATA[<h2 id="备忘"><a href="#备忘" class="headerlink" title="备忘"></a>备忘</h2><p>跷跷板很好玩，夜景很好看，其实就是在附近走了走，生活充满彩蛋，必须擦亮双眼。此时我所拥有的，我都特别珍惜，我所没有的，我充满热望。必须得经历一些矫情的时刻，才能够明白一些朴素的道理，才能够以轻松的心理状态生活。人生的主题，应该是学会生活。</p>
 <a id="more"></a>
 
@@ -5243,7 +5243,7 @@ I heard the echo, <span class="label default">from the valleys and the heart</sp
   </entry>
   <entry>
     <title>成功把kali机器搞死了</title>
-    <url>//posts/Kali_die.html</url>
+    <url>//posts/undefined/Kali_die.html</url>
     <content><![CDATA[<h2 id="WTF"><a href="#WTF" class="headerlink" title="WTF??"></a>WTF??</h2><p>为了弄wpscan，我给kali升级。也许是电脑性能不够，后面熄屏，我索性把机器down掉。没想到，成了这个样子……😭😭😭😭<br><img src="http://ww1.sinaimg.cn/large/006gDuOdgy1gc11zfrgftj31f60u0wgc.jpg" alt="image.png"></p>
 <a id="more"></a>
 
@@ -5260,7 +5260,7 @@ I heard the echo, <span class="label default">from the valleys and the heart</sp
   </entry>
   <entry>
     <title>我也画出了爱心</title>
-    <url>//posts/Graph_Love.html</url>
+    <url>//posts/undefined/Graph_Love.html</url>
     <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>黑苹果里面自带的软件Gragher很好用，可以画各种函数。</p>
 <a id="more"></a>
 
@@ -5276,7 +5276,7 @@ I heard the echo, <span class="label default">from the valleys and the heart</sp
   </entry>
   <entry>
     <title>我的big plan</title>
-    <url>//posts/My_Big_Plan.html</url>
+    <url>//posts/undefined/My_Big_Plan.html</url>
     <content><![CDATA[<h2 id="自己和自己谈谈"><a href="#自己和自己谈谈" class="headerlink" title="自己和自己谈谈"></a>自己和自己谈谈</h2><p>你想要升级，想要变得优秀，不要光想。首先，我要表扬你，因为你尚有这样的觉悟。但是仅仅有觉悟是不够的，你得行动起来。我知道你很擅长为自己开脱，为自己的不作为找借口。从现在起，你得明白，想法就像我们随意撒下的种子，我们的大脑时时刻刻都在运作（就连你睡着的时候，它都在胡思乱想），所以，你偶然灵机一动、灵光闪现，都是再正常不过的事情。世界上并不缺少这种乍现的灵光，每个人都有灵光乍现的时刻。因为你撒下了种子，不去播种，它只会烂在土壤里面，在它发臭的时候，才提醒你，原来曾经撒下过这样一颗种子啊，这时候除了哀悼，你还能做什么？此时，再说什么早知道就该怎样怎样的话，就太悲哀了。</p>
 <a id="more"></a>
 
@@ -5359,7 +5359,7 @@ I heard the echo, <span class="label default">from the valleys and the heart</sp
   </entry>
   <entry>
     <title>我的第一个java程序</title>
-    <url>//posts/My_First_Java.html</url>
+    <url>//posts/undefined/My_First_Java.html</url>
     <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>一直叨叨了很久，要学习java编程。今天终于到了天时地利人和的时候，跟着<a href="https://www.liaoxuefeng.com" target="_blank" rel="noopener">廖雪峰的博客</a>学小白教程，先入个门。</p>
 <a id="more"></a>
 
@@ -5386,7 +5386,7 @@ I heard the echo, <span class="label default">from the valleys and the heart</sp
   </entry>
   <entry>
     <title>我走过的google地图</title>
-    <url>//posts/My_Footprint.html</url>
+    <url>//posts/undefined/My_Footprint.html</url>
     <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>轨迹—————–</p>
 <a id="more"></a>
 
@@ -5401,7 +5401,7 @@ I heard the echo, <span class="label default">from the valleys and the heart</sp
   </entry>
   <entry>
     <title>批量替换shell脚本的特定字符串</title>
-    <url>//posts/Shell_Sub.html</url>
+    <url>//posts/undefined/Shell_Sub.html</url>
     <content><![CDATA[<h2 id="需求"><a href="#需求" class="headerlink" title="需求"></a>需求</h2><p>nginx的配置文件upstream.conf的内容非常多，需要批量删除”weight=10”这串字符。</p>
 <a id="more"></a>
 
@@ -5422,7 +5422,7 @@ I heard the echo, <span class="label default">from the valleys and the heart</sp
   </entry>
   <entry>
     <title>换了电脑怎样快速迁移hexo博客</title>
-    <url>//posts/change-PC-migrate-hexo-blog.html</url>
+    <url>//posts/undefined/change-PC-migrate-hexo-blog.html</url>
     <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>换了电脑，怎么迁移hexo博客，在新电脑上面继续写博客？折腾半天，终于找到一个简单有效快速的方法。</p>
 <a id="more"></a>
 
@@ -5460,7 +5460,7 @@ I heard the echo, <span class="label default">from the valleys and the heart</sp
   </entry>
   <entry>
     <title>查看linux机器使用的加密算法</title>
-    <url>//posts/linux-encrypt-authconfig.html</url>
+    <url>//posts/undefined/linux-encrypt-authconfig.html</url>
     <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>/etc/passwd存放了用户名及密码信息，其中的密码是密文。我们怎么看这个密文的加密算法？主要是想试试怎么根据密文破解出用户的密码。</p>
 <a id="more"></a>
 
@@ -5479,7 +5479,7 @@ I heard the echo, <span class="label default">from the valleys and the heart</sp
   </entry>
   <entry>
     <title>新大陆-win10内置了ssh服务</title>
-    <url>//posts/Win10_Ssh_Builtin.html</url>
+    <url>//posts/undefined/Win10_Ssh_Builtin.html</url>
     <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>才知道，win10内置了ssh服务，可以用于远程连接服务器。</p>
 <a id="more"></a>
 
@@ -5495,7 +5495,7 @@ I heard the echo, <span class="label default">from the valleys and the heart</sp
   </entry>
   <entry>
     <title>查看win10的用户和用户组</title>
-    <url>//posts/windows10-user-usergroup.html</url>
+    <url>//posts/undefined/windows10-user-usergroup.html</url>
     <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>windows的用户用户组相关的DOS命令。</p>
 <a id="more"></a>
 
@@ -5517,7 +5517,7 @@ I heard the echo, <span class="label default">from the valleys and the heart</sp
   </entry>
   <entry>
     <title>正则表达式-不匹配特定字符串开头的url</title>
-    <url>//posts/Reg-Exclude-url.html</url>
+    <url>//posts/undefined/Reg-Exclude-url.html</url>
     <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>一直都有个需求，写出一个正则表达式，不匹配以某个目录开头的url，主要是工作中需要用到，以前不会写这个表达式，就干脆没有做相关配置，这回终于找到方法了。</p>
 <a id="more"></a>
 
@@ -5538,7 +5538,7 @@ I heard the echo, <span class="label default">from the valleys and the heart</sp
   </entry>
   <entry>
     <title>正则表达式之排除匹配</title>
-    <url>//posts/Reg_Exclude.html</url>
+    <url>//posts/undefined/Reg_Exclude.html</url>
     <content><![CDATA[<h2 id="需求"><a href="#需求" class="headerlink" title="需求"></a>需求</h2><p>排除匹配特定的url地址。并且这些url地址具有相似性，可以使用正则表达式匹配。</p>
 <blockquote>
 <p>例如，我需要排除匹配这些url<br><a href="http://www.baidu.com/source/qqqqq.html" target="_blank" rel="noopener">www.baidu.com/source/qqqqq.html</a><br><a href="http://www.baidu.com/source/mkoihihio.html" target="_blank" rel="noopener">www.baidu.com/source/mkoihihio.html</a><br><a href="http://www.baidu.com/source/test/ooo.html" target="_blank" rel="noopener">www.baidu.com/source/test/ooo.html</a><br><a href="http://www.photo.com/6515423354.jpg" target="_blank" rel="noopener">www.photo.com/6515423354.jpg</a><br><a href="http://www.photo.com/photo/15648412.png" target="_blank" rel="noopener">www.photo.com/photo/15648412.png</a><br><a href="http://www.photo.com/js/9773099.js" target="_blank" rel="noopener">www.photo.com/js/9773099.js</a></p>
@@ -5557,7 +5557,7 @@ I heard the echo, <span class="label default">from the valleys and the heart</sp
   </entry>
   <entry>
     <title>没有iphone也没有mac怎么创建appleid</title>
-    <url>//posts/BlackApple_Appleid.html</url>
+    <url>//posts/undefined/BlackApple_Appleid.html</url>
     <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>装好黑苹果，要使用的话，得有appleid，不然很多功能没法用。</p>
 <a id="more"></a>
 
@@ -5573,7 +5573,7 @@ I heard the echo, <span class="label default">from the valleys and the heart</sp
   </entry>
   <entry>
     <title>浏览器插件-HTTP抓包工具HTTP Header Live</title>
-    <url>//posts/HTTP_Header_Live.html</url>
+    <url>//posts/undefined/HTTP_Header_Live.html</url>
     <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>在今天以前，我抓取实时HTTP请求一般使用浏览器的F12（开发者工具），实在复杂的分析，就用burpsuite代理抓包。用F12，界面小，对视力要求比较高。用burpsuite又显得大材小用了，杀鸡焉用牛刀？何况每次开burpsuite代理还得另外开软件，设置浏览器代理，从操作步骤来说，略繁琐。</p>
 <a id="more"></a>
 
@@ -5594,7 +5594,7 @@ I heard the echo, <span class="label default">from the valleys and the heart</sp
   </entry>
   <entry>
     <title>爬虫进阶总结</title>
-    <url>//posts/Spider_Summary_Pro.html</url>
+    <url>//posts/undefined/Spider_Summary_Pro.html</url>
     <content><![CDATA[<h2 id="知识树"><a href="#知识树" class="headerlink" title="知识树"></a>知识树</h2><p><img src="http://ww1.sinaimg.cn/large/006gDuOdgy1gbwdacyzfij31zb22vdqe.jpg" alt="image.png"></p>
 <a id="more"></a>
 
@@ -5611,7 +5611,7 @@ I heard the echo, <span class="label default">from the valleys and the heart</sp
   </entry>
   <entry>
     <title>python爬虫实例之selenium斗鱼爬虫</title>
-    <url>//posts/Spider_Selenium_Fish.html</url>
+    <url>//posts/undefined/Spider_Selenium_Fish.html</url>
     <content><![CDATA[<h2 id="爬什么"><a href="#爬什么" class="headerlink" title="爬什么"></a>爬什么</h2><p>把斗鱼直播的所有房间信息爬取到本地并保存。</p>
 <a id="more"></a>
 
@@ -5636,7 +5636,7 @@ I heard the echo, <span class="label default">from the valleys and the heart</sp
   </entry>
   <entry>
     <title>爬虫通识</title>
-    <url>//posts/Spider_Normal.html</url>
+    <url>//posts/undefined/Spider_Normal.html</url>
     <content><![CDATA[<h2 id="囫囵吞枣，好像不太难"><a href="#囫囵吞枣，好像不太难" class="headerlink" title="囫囵吞枣，好像不太难"></a>囫囵吞枣，好像不太难</h2><p>一口气看了18个视频。三分钟的热度谁也拦不了我<del>~</del><br><img src="http://ww1.sinaimg.cn/large/006gDuOdgy1gazyt2iy75j30lp0f0wfx.jpg" alt="image.png"></p>
 <a id="more"></a>
 
@@ -5654,7 +5654,7 @@ I heard the echo, <span class="label default">from the valleys and the heart</sp
   </entry>
   <entry>
     <title>爬虫通识（二）总结</title>
-    <url>//posts/Spider_Summary_Two.html</url>
+    <url>//posts/undefined/Spider_Summary_Two.html</url>
     <content><![CDATA[<h2 id="知识树"><a href="#知识树" class="headerlink" title="知识树"></a>知识树</h2><p><img src="http://ww1.sinaimg.cn/large/006gDuOdgy1gb3evjstfgj333h1ej7e3.jpg" alt="通用爬虫通识（二）.png"></p>
 <a id="more"></a>
 
@@ -5671,7 +5671,7 @@ I heard the echo, <span class="label default">from the valleys and the heart</sp
   </entry>
   <entry>
     <title>爱情不过是场权谋游戏</title>
-    <url>//posts/love-game.html</url>
+    <url>//posts/undefined/love-game.html</url>
     <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>前言不搭后语。</p>
 <a id="more"></a>
 
@@ -5686,7 +5686,7 @@ I heard the echo, <span class="label default">from the valleys and the heart</sp
   </entry>
   <entry>
     <title>生育率降低导致什么</title>
-    <url>//posts/Born_Low.html</url>
+    <url>//posts/undefined/Born_Low.html</url>
     <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>范仲淹附体，又到了忧国忧民的时候。</p>
 <a id="more"></a>
 
@@ -5703,7 +5703,7 @@ I heard the echo, <span class="label default">from the valleys and the heart</sp
   </entry>
   <entry>
     <title>爬虫通识（一）总结</title>
-    <url>//posts/Spider_Summary_One.html</url>
+    <url>//posts/undefined/Spider_Summary_One.html</url>
     <content><![CDATA[<h2 id="知识树"><a href="#知识树" class="headerlink" title="知识树"></a>知识树</h2><p><img src="http://ww1.sinaimg.cn/large/006gDuOdgy1gb0je3qzv0j33wb2a3aq0.jpg" alt="通用爬虫通识（一）.png"></p>
 <a id="more"></a>
 
@@ -5773,7 +5773,7 @@ I heard the echo, <span class="label default">from the valleys and the heart</sp
   </entry>
   <entry>
     <title>用浏览器F12的控制台任意调整YTB视频播放速度</title>
-    <url>//posts/F12_YTB_Speed.html</url>
+    <url>//posts/undefined/F12_YTB_Speed.html</url>
     <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>无意看到这个小技巧，F12打开浏览器开发者工具，在控制台输入代码，即可任意调整YTB视频的播放速度。</p>
 <a id="more"></a>
 
@@ -5790,7 +5790,7 @@ I heard the echo, <span class="label default">from the valleys and the heart</sp
   </entry>
   <entry>
     <title>用docker方式自建图床chevereto</title>
-    <url>//posts/Docker-Image-Hosting-Chevereto.html</url>
+    <url>//posts/undefined/Docker-Image-Hosting-Chevereto.html</url>
     <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>之前使用的是公共图床：<code>微博图床</code>，把图片存在其他平台其实风险很高，那就把vps利用起来，自建图床吧。</p>
 <a id="more"></a>
 
@@ -5865,7 +5865,7 @@ I heard the echo, <span class="label default">from the valleys and the heart</sp
   </entry>
   <entry>
     <title>笑死人不偿命的翻译</title>
-    <url>//posts/Funny_Translation.html</url>
+    <url>//posts/undefined/Funny_Translation.html</url>
     <content><![CDATA[<p>这翻译是想把我笑死吗？！</p>
 <a id="more"></a>
 
@@ -5881,7 +5881,7 @@ I heard the echo, <span class="label default">from the valleys and the heart</sp
   </entry>
   <entry>
     <title>科学上网-PC端浏览器直连国内网站、代理国外网站</title>
-    <url>//posts/SwitchyOmega_PC.html</url>
+    <url>//posts/undefined/SwitchyOmega_PC.html</url>
     <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>现在自己搭的v2ray能代理国外网站了，但是一股脑代理了所有网站，国内网站从国外绕一圈，影响访问体验。我们要精益求精，精准代理。</p>
 <a id="more"></a>
 
@@ -5905,7 +5905,7 @@ I heard the echo, <span class="label default">from the valleys and the heart</sp
   </entry>
   <entry>
     <title>笨蛋爆炸</title>
-    <url>//posts/Wiki_Idiot_Boom.html</url>
+    <url>//posts/undefined/Wiki_Idiot_Boom.html</url>
     <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>什么是笨蛋爆炸？</p>
 <a id="more"></a>
 
@@ -5922,7 +5922,7 @@ I heard the echo, <span class="label default">from the valleys and the heart</sp
   </entry>
   <entry>
     <title>范晓萱-自言自语</title>
-    <url>//posts/music-selftalk-mavis-fan.html</url>
+    <url>//posts/undefined/music-selftalk-mavis-fan.html</url>
     <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>最近才认识范晓萱。</p>
 <a id="more"></a>
 
@@ -5975,7 +5975,7 @@ I heard the echo, <span class="label default">from the valleys and the heart</sp
   </entry>
   <entry>
     <title>精准科学上网-安卓手机设置BfrostV软件精准代理</title>
-    <url>//posts/BfrostV.html</url>
+    <url>//posts/undefined/BfrostV.html</url>
     <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>刚才我们用SwitchyOmega这款插件，实现了PC端的精准代理。安卓手机怎么实现精准代理？我们的安卓手机是用的BfrostV软件爬梯子，这款软件也有许多自定义设置可以满足我们精准代理的需要。</p>
 <a id="more"></a>
 
@@ -5996,7 +5996,7 @@ I heard the echo, <span class="label default">from the valleys and the heart</sp
   </entry>
   <entry>
     <title>读取json数据并写入excel</title>
-    <url>//posts/json-convert-excel-python.html</url>
+    <url>//posts/undefined/json-convert-excel-python.html</url>
     <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>工作中整理数据需要把json文件转为excel数据。用python来做。</p>
 <a id="more"></a>
 
@@ -6014,7 +6014,7 @@ I heard the echo, <span class="label default">from the valleys and the heart</sp
   </entry>
   <entry>
     <title>让v2ray更快-加载ubuntu内置的BBR加速模块</title>
-    <url>//posts/V2ray_BBR.html</url>
+    <url>//posts/undefined/V2ray_BBR.html</url>
     <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>让v2ray更快一点~<br>我们可以使用谷歌BBR加速算法，而ubuntu18.04这个版本内置了BBR模块，我们直接加载就行了。</p>
 <a id="more"></a>
 
@@ -6033,7 +6033,7 @@ I heard the echo, <span class="label default">from the valleys and the heart</sp
   </entry>
   <entry>
     <title>谷歌浏览器安装crx扩展程序失败，怎么解决</title>
-    <url>//posts/google-chrome-crx-failed-zip.html</url>
+    <url>//posts/undefined/google-chrome-crx-failed-zip.html</url>
     <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>新电脑用不了谷歌浏览器，我想的是，先把omega-proxy这个扩展程序装上，就可以代理上网，登录谷歌账号并开启冲浪之旅。但是把crx扩展程序拖到扩展程序安装，居然安装失败。怎么办？</p>
 <a id="more"></a>
 
@@ -6051,7 +6051,7 @@ I heard the echo, <span class="label default">from the valleys and the heart</sp
   </entry>
   <entry>
     <title>超棒的输出者-小白领路人</title>
-    <url>//posts/GreenHand.html</url>
+    <url>//posts/undefined/GreenHand.html</url>
     <content><![CDATA[<h2 id="感谢"><a href="#感谢" class="headerlink" title="感谢"></a>感谢</h2><p>互联网拉进了人们的距离，在互联网中成长的一代，是幸运的一代。感谢互联网，感谢乐于分享知识经验的前辈。<br>才发现一座宝藏，叫做廖雪峰的博客。非常适合快速入门编程。</p>
 <a id="more"></a>
 
@@ -6066,7 +6066,7 @@ I heard the echo, <span class="label default">from the valleys and the heart</sp
   </entry>
   <entry>
     <title>输入法之怎么输入特殊符号</title>
-    <url>//posts/How_To_Type.html</url>
+    <url>//posts/undefined/How_To_Type.html</url>
     <content><![CDATA[<h2 id="需求"><a href="#需求" class="headerlink" title="需求"></a>需求</h2><p>想要输入一些特殊符号，比如这种<code>「</code>、<code>」</code>。</p>
 <a id="more"></a>
 
@@ -6084,7 +6084,7 @@ I heard the echo, <span class="label default">from the valleys and the heart</sp
   </entry>
   <entry>
     <title>跳出舒适地带，听听别人的故事</title>
-    <url>//posts/jump-out-of-comfortzone-listen-to-others&#39;-stories.html</url>
+    <url>//posts/undefined/jump-out-of-comfortzone-listen-to-others&#39;-stories.html</url>
     <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>今天见了一个人，感想很多。</p>
 <h2 id="想到啥说啥"><a href="#想到啥说啥" class="headerlink" title="想到啥说啥"></a>想到啥说啥</h2><p>第一印象，像姜思达。比较自然，很懂人际交往。很注重个人形象，聊天时候不会时不时看手机。是个优秀的人吧。至少是我现在尚难企及的。<br>看起来是随便聊聊，不会给人很刻意的感觉，就是趁人放下戒备的时候，试图获取自己想得到的信息。<br>我于他而言究竟有何价值？似乎没有，又似乎有一点点。我是该为自己的那一点点可能存在的价值感到窃喜呢，还是该为此感到失望？<br>是不是人长大之后，就会凡是格外小心，生活好像如履薄冰，一句话，一个举动，可能都会不小心犯错。<br>不知道是不是因为太过袒露自我，已经有好些人给我说过这样的话：“我好像说得太多了，本来不该给你讲这些的”。我并没有因为别人愿意给我讲一些隐私而感到窃喜，反而会感到一些些压力，因为心里装的东西很多，出于道德，不能将别人的隐私泄露出去。<br>人与人之间的关系真的妙不可言。不知道是不是自己过于自信，好像总能感受到他人的感受。有时我觉得自己是一个容器，可以装下世间所有的情绪，感受周围的一切情绪，所以就相对受环境影响多一些。<br>又被问到个人规划问题。有时候觉得目标很清晰，有时候又觉得这些目标都不是自己真正想要的。<br>为什么人要工作呢，世界设定的这个秩序，就是为了让人少去胡思乱想吧，好好玩一场游戏就好了。<br>我也不确定现在是否正在经历hard模式，但是基于爱挑战的个性，如果真的一帆风顺，游戏还会有那么好玩吗？<br>之前我想过，如果自己没有遇到某某某会怎样，如果自己去了另一个地方会怎样，如果自己生在另一个家庭会怎样。这些都不用假设，这些假设已经有其他人正在体验，而我正在体验的，也许正是有些人幻想过的生活。所以，珍惜手中拿到的剧本。角色可能不太好演，还是尽力表演吧。<br>尽力去发现每一天的独特。<br>昨天晚上梦到地震了，震感非常真实。看到大家不慌不忙的样子，心里很焦灼。还好没有造成灾难。<br>很久没有写博客，也很久没有记录自己。<br>佛说，前世五百次回眸才换来今生相见。珍惜现在遇到的每一个人，珍惜每一次经历。<br>最近末日感是很浓烈，如果把每天都当作末日，也许我们的体验感会很不一样。原本纠结的那些东西、那些想不明白的东西，好像突然就清晰了。<br>努力体验这一段不知长短的人生。</p>
 ]]></content>
@@ -6097,7 +6097,7 @@ I heard the echo, <span class="label default">from the valleys and the heart</sp
   </entry>
   <entry>
     <title>这个充满人间大爱的世界容不下小爱</title>
-    <url>//posts/Liar.html</url>
+    <url>//posts/undefined/Liar.html</url>
     <content><![CDATA[<h2 id="20天的双胞胎会说话"><a href="#20天的双胞胎会说话" class="headerlink" title="20天的双胞胎会说话"></a>20天的双胞胎会说话</h2><p>21世纪充满奇迹，人类已经进化到不足月就能讲话的程度。我们宣扬伟大，我们不愿渺小，真好。</p>
 <a id="more"></a>
 
@@ -6113,7 +6113,7 @@ I heard the echo, <span class="label default">from the valleys and the heart</sp
   </entry>
   <entry>
     <title>部署hexo博客报错，账号密码错误，怎么办</title>
-    <url>//posts/hexo-deploy-failed-access-token.html</url>
+    <url>//posts/undefined/hexo-deploy-failed-access-token.html</url>
     <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>部署hexo博客时，输入了错误的账号名，怎么更正这个账号名？google了一下，需要更改windows凭据。</p>
 <a id="more"></a>
 
@@ -6137,7 +6137,7 @@ I heard the echo, <span class="label default">from the valleys and the heart</sp
   </entry>
   <entry>
     <title>金刚经</title>
-    <url>//posts/Think_phylo.html</url>
+    <url>//posts/undefined/Think_phylo.html</url>
     <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>很早就想读《金刚经》，原本以为是一本大书，原来只有32个简短的对话。果然，智者就是不啰嗦。</p>
 <a id="more"></a>
 
@@ -6246,7 +6246,7 @@ I heard the echo, <span class="label default">from the valleys and the heart</sp
   </entry>
   <entry>
     <title>问题解决-github头像无法显示且加载速度慢</title>
-    <url>//posts/TroubleShoot_Github_Avatar.html</url>
+    <url>//posts/undefined/TroubleShoot_Github_Avatar.html</url>
     <content><![CDATA[<h2 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h2><p>github网站的头像总是无法显示，加载速度也比较慢。</p>
 <a id="more"></a>
 
@@ -6265,7 +6265,7 @@ I heard the echo, <span class="label default">from the valleys and the heart</sp
   </entry>
   <entry>
     <title>长ping测试网络状态</title>
-    <url>//posts/long-ping.html</url>
+    <url>//posts/undefined/long-ping.html</url>
     <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>工作中，需要测试两台机器之间的网络状态，使用长ping查看一下网络状态。</p>
 <a id="more"></a>
 
@@ -6289,7 +6289,7 @@ I heard the echo, <span class="label default">from the valleys and the heart</sp
   </entry>
   <entry>
     <title>问题解决-kali的arp-scan用不了</title>
-    <url>//posts/TroubleShoot_Kali_Arpscan.html</url>
+    <url>//posts/undefined/TroubleShoot_Kali_Arpscan.html</url>
     <content><![CDATA[<h2 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h2><p>装了最新版本的kali2020.1，但是arp-scan居然用不了？！<br><img src="http://ww1.sinaimg.cn/large/006gDuOdgy1gc2roi5vf6j30nq08h0vv.jpg" alt="image.png"></p>
 <a id="more"></a>
 
@@ -6306,7 +6306,7 @@ I heard the echo, <span class="label default">from the valleys and the heart</sp
   </entry>
   <entry>
     <title>问题解决-kali的msfconsole突然用不了</title>
-    <url>//posts/TroubleShoot_Kali_Msfconsole.html</url>
+    <url>//posts/undefined/TroubleShoot_Kali_Msfconsole.html</url>
     <content><![CDATA[<h2 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h2><p>更新了kali的镜像源为阿里镜像源之后，msfconsole突然无法使用了。</p>
 <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">kali@kali:~$ msfconsole </span><br><span class="line">[*] Bundler failed to load and returned this error:</span><br><span class="line"></span><br><span class="line">   'cannot load such file -- bundler/setup'</span><br><span class="line"></span><br><span class="line">[*] You may need to uninstall or upgrade bundler</span><br></pre></td></tr></table></figure>
 
@@ -6326,7 +6326,7 @@ I heard the echo, <span class="label default">from the valleys and the heart</sp
   </entry>
   <entry>
     <title>重定向攻击shadowsocks流加密</title>
-    <url>//posts/Shadow_Love_Why.html</url>
+    <url>//posts/undefined/Shadow_Love_Why.html</url>
     <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>这是<a href="http://wiki.ioin.in/" target="_blank" rel="noopener">Sec-News</a>今天发布的消息，就是shadowsocks存在重定向攻击漏洞。这篇文档是英文的，试着翻译一下。</p>
 <a id="more"></a>
 
@@ -6391,7 +6391,7 @@ I heard the echo, <span class="label default">from the valleys and the heart</sp
   </entry>
   <entry>
     <title>问题解决-nessus安装插件失败</title>
-    <url>//posts/troubleshooting-nessus-plugins-fail.html</url>
+    <url>//posts/undefined/troubleshooting-nessus-plugins-fail.html</url>
     <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>安装nessus扫描器，但是插件安装失败了，怎么办？</p>
 <a id="more"></a>
 
@@ -6409,7 +6409,7 @@ I heard the echo, <span class="label default">from the valleys and the heart</sp
   </entry>
   <entry>
     <title>问题解决-pycharm安装lxml模块超时</title>
-    <url>//posts/TroubleShoot_Pycharm_Lxml.html</url>
+    <url>//posts/undefined/TroubleShoot_Pycharm_Lxml.html</url>
     <content><![CDATA[<h2 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h2><p>pycharm安装lxml模块时，提示超时，安装不了。</p>
 <a id="more"></a>
 
@@ -6426,7 +6426,7 @@ I heard the echo, <span class="label default">from the valleys and the heart</sp
   </entry>
   <entry>
     <title>问题解决-pycharm报错找不到selenium模块</title>
-    <url>//posts/TroubleShoot_Pycharm_Selenium.html</url>
+    <url>//posts/undefined/TroubleShoot_Pycharm_Selenium.html</url>
     <content><![CDATA[<h2 id="问题现象"><a href="#问题现象" class="headerlink" title="问题现象"></a>问题现象</h2><p>在电脑上使用命令行<code>pip3 install selenium</code>安装了selenium模块之后，在pycharm里面运行程序报错<code>oduleNotFoundError: No module named &#39;selenium&#39;</code>。</p>
 <a id="more"></a>
 
@@ -6443,7 +6443,7 @@ I heard the echo, <span class="label default">from the valleys and the heart</sp
   </entry>
   <entry>
     <title>问题解决-sqlmap使用报错</title>
-    <url>//posts/TroubleShoot_Sqlmap_Error.html</url>
+    <url>//posts/undefined/TroubleShoot_Sqlmap_Error.html</url>
     <content><![CDATA[<h2 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h2><p>使用python3.8运行sqlmap，报错<code>sqlmap.py: error: missing a mandatory option</code>。<br><img src="http://ww1.sinaimg.cn/large/006gDuOdgy1gbtotq3n8uj30xz0hr0tw.jpg" alt="image.png"></p>
 <a id="more"></a>
 
@@ -6461,7 +6461,7 @@ I heard the echo, <span class="label default">from the valleys and the heart</sp
   </entry>
   <entry>
     <title>问题解决-scrapy安装报错</title>
-    <url>//posts/TroubleShoot_Scrapy.html</url>
+    <url>//posts/undefined/TroubleShoot_Scrapy.html</url>
     <content><![CDATA[<h2 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h2><p>win10安装scrapy时，报错<code>Microsoft Visual C++ 14.0 is required.</code>。<br><img src="http://ww1.sinaimg.cn/large/006gDuOdgy1gbyq7y0gopj30xz0hr419.jpg" alt="image.png"></p>
 <a id="more"></a>
 
@@ -6478,7 +6478,7 @@ I heard the echo, <span class="label default">from the valleys and the heart</sp
   </entry>
   <entry>
     <title>问题解决-ubuntu机器无法远程ssh登录</title>
-    <url>//posts/TroubleShoot_Ubuntu_Ssh.html</url>
+    <url>//posts/undefined/TroubleShoot_Ubuntu_Ssh.html</url>
     <content><![CDATA[<h2 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h2><p>ubuntu机器ssh远程登录失败。</p>
 <a id="more"></a>
 
@@ -6494,7 +6494,7 @@ I heard the echo, <span class="label default">from the valleys and the heart</sp
   </entry>
   <entry>
     <title>问题解决-win10运行phantomjs报错</title>
-    <url>//posts/TroubleShoot_Win10_Phantomjs.html</url>
+    <url>//posts/undefined/TroubleShoot_Win10_Phantomjs.html</url>
     <content><![CDATA[<h2 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h2><p>win10环境下，用python脚本运行phantomjs报错<code>phantomjs.exe unexpectedly exited. Status code was: 4294967295</code>。</p>
 <a id="more"></a>
 
@@ -6511,7 +6511,7 @@ I heard the echo, <span class="label default">from the valleys and the heart</sp
   </entry>
   <entry>
     <title>问题解决-vmware黑苹果登不上appleid</title>
-    <url>//posts/TroubleShoot_Vmware_BlackApple_Appleid.html</url>
+    <url>//posts/undefined/TroubleShoot_Vmware_BlackApple_Appleid.html</url>
     <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>appleid申请下来之后，vmware环境安装的黑苹果始终登不上iCloud和App Store。提示「此apple ID有效 但不是iCloud账户」，「此账户Apple ID 尚未用于 App Store。」</p>
 <a id="more"></a>
 
@@ -6545,7 +6545,7 @@ I heard the echo, <span class="label default">from the valleys and the heart</sp
   </entry>
   <entry>
     <title>问题解决-ubuntu启动redis-server报错</title>
-    <url>//posts/TroubleShoot_Ubuntu_Redis-server.html</url>
+    <url>//posts/undefined/TroubleShoot_Ubuntu_Redis-server.html</url>
     <content><![CDATA[<h2 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h2><p>ubuntu启动redis-server报错。</p>
 <a id="more"></a>
 
@@ -6575,7 +6575,7 @@ I heard the echo, <span class="label default">from the valleys and the heart</sp
   </entry>
   <entry>
     <title>问题解决-hexo+next主题本地搜索框被覆盖</title>
-    <url>//posts/TroubleShoot_Hexo_Next_SearchBox.html</url>
+    <url>//posts/undefined/TroubleShoot_Hexo_Next_SearchBox.html</url>
     <content><![CDATA[<h2 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h2><p>本地搜索框被覆盖，搜索框置于页面底层，无法点击搜索到的链接😥一个月以前就想把这个问题解决了，但是在网上找了很久，无疾而终。今天无意间找到了解决方法。</p>
 <a id="more"></a>
 
@@ -6592,7 +6592,7 @@ I heard the echo, <span class="label default">from the valleys and the heart</sp
   </entry>
   <entry>
     <title>防火墙导致nginx监听端口访问不通</title>
-    <url>//posts/Nginx_Port_Block.html</url>
+    <url>//posts/undefined/Nginx_Port_Block.html</url>
     <content><![CDATA[<h2 id="问题现象"><a href="#问题现象" class="headerlink" title="问题现象"></a>问题现象</h2><p>部署完nginx+keepalived（一主一备模式）高可用架构之后，发现外部无法通过虚IP访问nginx代理的业务。</p>
 <a id="more"></a>
 
@@ -6610,7 +6610,7 @@ I heard the echo, <span class="label default">from the valleys and the heart</sp
   </entry>
   <entry>
     <title>想些啥</title>
-    <url>//posts/Think_About.html</url>
+    <url>//posts/undefined/Think_About.html</url>
     <content><![CDATA[<p>总要留下些什么，才不枉来到这个世界上。我把曾经记录的细碎片段，都搬到这里。很多文字，都加了特有的密码，甚至有很多密码我自己也忘了。现在看到很多记录，自己也觉得无厘头，就成了永远无法解密的档案。就按时间线整理我至今短暂又漫长的心的旅程吧，这个整理的过程，我也不知道自己会怎么看待自己，但是我觉得有必要不带偏见地认识一下过去的自己。</p>
 <a id="more"></a>
 
@@ -8784,7 +8784,7 @@ I heard the echo, <span class="label default">from the valleys and the heart</sp
   </entry>
   <entry>
     <title>redhat7搭建samba服务-linux与windows主机共享</title>
-    <url>//posts/redhat7-build-samba-server.html</url>
+    <url>//posts/undefined/redhat7-build-samba-server.html</url>
     <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>redhat7搭建samba服务，实现linux和windows之间的文件共享。</p>
 <a id="more"></a>
 
@@ -8851,7 +8851,7 @@ I heard the echo, <span class="label default">from the valleys and the heart</sp
   </entry>
   <entry>
     <title>redhat7配置yum仓库的方法</title>
-    <url>//posts/redhat7-config-yum-repo.html</url>
+    <url>//posts/undefined/redhat7-config-yum-repo.html</url>
     <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>老是记不住yum仓库怎么配置，经常遇到yum仓库配置不对引起的错误，在此记下redhat7的yum仓库配置方法。</p>
 <a id="more"></a>
 
@@ -8889,7 +8889,7 @@ I heard the echo, <span class="label default">from the valleys and the heart</sp
   </entry>
   <entry>
     <title>redhat7搭建samba服务-linux与linux主机共享</title>
-    <url>//posts/redhat7-build-samba-server-linux-to-linux.html</url>
+    <url>//posts/undefined/redhat7-build-samba-server-linux-to-linux.html</url>
     <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>利用cifs加密协议，samba服务实现linux和linux之间的文件共享。服务端和客户端都需要安装cifs-utils软件。</p>
 <a id="more"></a>
 
@@ -8930,7 +8930,7 @@ I heard the echo, <span class="label default">from the valleys and the heart</sp
   </entry>
   <entry>
     <title>redhat7自带的NFS服务实现Linux主机之间的目录共享</title>
-    <url>//posts/redhat7-NFS-linux-share.html</url>
+    <url>//posts/undefined/redhat7-NFS-linux-share.html</url>
     <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>redhat7自带的NFS服务可以实现linux主机之间的目录共享，不需要额外安装其他服务。</p>
 <a id="more"></a>
 
@@ -8971,7 +8971,7 @@ I heard the echo, <span class="label default">from the valleys and the heart</sp
   </entry>
   <entry>
     <title>autofs自动挂载服务</title>
-    <url>//posts/redhat7-autofs.html</url>
+    <url>//posts/undefined/redhat7-autofs.html</url>
     <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>重启机器使用yum之前，都得挂载一下yum仓库，实在很费时间。</p>
 <a id="more"></a>
 
@@ -8997,7 +8997,7 @@ I heard the echo, <span class="label default">from the valleys and the heart</sp
   </entry>
   <entry>
     <title>redhat7搭建DNS服务-正向解析、反向解析</title>
-    <url>//posts/rehat7-DNS-bind-chroot.html</url>
+    <url>//posts/undefined/rehat7-DNS-bind-chroot.html</url>
     <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>搭建DNS服务，实现正向解析和反向解析。正向解析：将域名解析为IP。反向解析：将IP解析为域名。</p>
 <a id="more"></a>
 
@@ -9049,7 +9049,7 @@ I heard the echo, <span class="label default">from the valleys and the heart</sp
   </entry>
   <entry>
     <title>redhat7搭建DNS服务-主从DNS服务器同步</title>
-    <url>//posts/redhat7-DNS-master-slave-sync.html</url>
+    <url>//posts/undefined/redhat7-DNS-master-slave-sync.html</url>
     <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>搭建DNS主从服务同步，基于<a href="https://dana5haw.com/posts/rehat7-DNS-bind-chroot">上一篇</a></p>
 <a id="more"></a>
 
@@ -9093,7 +9093,7 @@ I heard the echo, <span class="label default">from the valleys and the heart</sp
   </entry>
   <entry>
     <title>使用TISG加密机制增强DNS服务器之间数据传输的安全性</title>
-    <url>//posts/TISG-DNS-master-slave-safe-transfer.html</url>
+    <url>//posts/undefined/TISG-DNS-master-slave-safe-transfer.html</url>
     <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>为了确保DNS主从服务器之间数据传输的安全性，可使用TISG加密机制传输数据。</p>
 <a id="more"></a>
 
@@ -9139,7 +9139,7 @@ I heard the echo, <span class="label default">from the valleys and the heart</sp
   </entry>
   <entry>
     <title>DNS分离解析服务搭建</title>
-    <url>//posts/DNS-seperate-explanation.html</url>
+    <url>//posts/undefined/DNS-seperate-explanation.html</url>
     <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>DNS分离解析实现的效果就是，同一个域名，在不同地区解析出的IP地址不同。很常用，目的是加快用户访问网站的速度，比如：cdn加速。</p>
 <a id="more"></a>
 
@@ -9188,7 +9188,7 @@ I heard the echo, <span class="label default">from the valleys and the heart</sp
   </entry>
   <entry>
     <title>DNS缓存服务搭建</title>
-    <url>//posts/DNS-cache-server.html</url>
+    <url>//posts/undefined/DNS-cache-server.html</url>
     <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>DNS缓存服务是为了加快用户访问网站的速度。</p>
 <a id="more"></a>
 
@@ -9228,7 +9228,7 @@ I heard the echo, <span class="label default">from the valleys and the heart</sp
   </entry>
   <entry>
     <title>redhat7部署DHCP服务</title>
-    <url>//posts/redhat7-DHCP.html</url>
+    <url>//posts/undefined/redhat7-DHCP.html</url>
     <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>作为DHCP服务器端，需要设置静态IP地址。并且服务端和客户端都得是仅主机模式。</p>
 <a id="more"></a>
 
@@ -9260,7 +9260,7 @@ I heard the echo, <span class="label default">from the valleys and the heart</sp
   </entry>
   <entry>
     <title>redhat7搭建邮局postfix+dovecot+outlook</title>
-    <url>//posts/redhat7-postfix-dovecot-outlook.html</url>
+    <url>//posts/undefined/redhat7-postfix-dovecot-outlook.html</url>
     <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>redhat7搭建邮局：postfix+dovecot+outlook。使用outlook作为收发客户端，postfix作为发件端、dovecot作为收件端。</p>
 <a id="more"></a>
 
@@ -9318,7 +9318,7 @@ I heard the echo, <span class="label default">from the valleys and the heart</sp
   </entry>
   <entry>
     <title>redhat7部署squid服务</title>
-    <url>//posts/redhat7-build-squid-server.html</url>
+    <url>//posts/undefined/redhat7-build-squid-server.html</url>
     <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>squid可正向代理、正向透明代理、反向代理。</p>
 <a id="more"></a>
 
@@ -9396,7 +9396,7 @@ I heard the echo, <span class="label default">from the valleys and the heart</sp
   </entry>
   <entry>
     <title>redhat7中mariadb的简单使用</title>
-    <url>//posts/redhat7-mariadb-usage.html</url>
+    <url>//posts/undefined/redhat7-mariadb-usage.html</url>
     <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>redhat7默认的数据库是mariadb，使用语法与mysql一致。</p>
 <a id="more"></a>
 
@@ -9424,7 +9424,7 @@ I heard the echo, <span class="label default">from the valleys and the heart</sp
   </entry>
   <entry>
     <title>redhat7使用iSCSI部署网络存储</title>
-    <url>//posts/rehat7-iSCSI-network-store.html</url>
+    <url>//posts/undefined/rehat7-iSCSI-network-store.html</url>
     <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>两台电脑之间传输数据，最简单快速的方式，把硬盘拆下来，用iSCSI接口转接，将硬盘变成移动硬盘。</p>
 <a id="more"></a>
 
@@ -9459,7 +9459,7 @@ I heard the echo, <span class="label default">from the valleys and the heart</sp
   </entry>
   <entry>
     <title>redhat7使用PXE+kickstart无人值守安装系统</title>
-    <url>//posts/redhat7-PXE-kickstart-auto-install-system.html</url>
+    <url>//posts/undefined/redhat7-PXE-kickstart-auto-install-system.html</url>
     <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>redhat配置PXE+kickstart，自动为同网段服务器安装系统。</p>
 <a id="more"></a>
 
@@ -9521,7 +9521,7 @@ I heard the echo, <span class="label default">from the valleys and the heart</sp
   </entry>
   <entry>
     <title>RHCSA练习</title>
-    <url>//posts/RHCSA-practice.html</url>
+    <url>//posts/undefined/RHCSA-practice.html</url>
     <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>练习RHCSA题目。</p>
 <a id="more"></a>
 
@@ -9619,7 +9619,7 @@ I heard the echo, <span class="label default">from the valleys and the heart</sp
   </entry>
   <entry>
     <title>RHCE练习</title>
-    <url>//posts/RHCE-practice.html</url>
+    <url>//posts/undefined/RHCE-practice.html</url>
     <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>RHCE练习题目。</p>
 <a id="more"></a>
 
@@ -9737,7 +9737,7 @@ I heard the echo, <span class="label default">from the valleys and the heart</sp
   </entry>
   <entry>
     <title>mysql查询练习</title>
-    <url>//posts/mysql_query.html</url>
+    <url>//posts/undefined/mysql_query.html</url>
     <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>关于学习Mysql的学习想法已经有一年多了，然而现在还是只会简单的<code>select * from database where id =1</code>这种查询语句，很惭愧。很久没有写博客了，转眼间博客已经运行近1年时间。</p>
 <a id="more"></a>
 
@@ -9815,7 +9815,7 @@ I heard the echo, <span class="label default">from the valleys and the heart</sp
   </entry>
   <entry>
     <title>2021雅思计划</title>
-    <url>//posts/ielts-plan.html</url>
+    <url>//posts/undefined/ielts-plan.html</url>
     <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>2021年12月考雅思，目标分数7。<br><img src="https://v2ray.dana5haw.com:8008/images/2020/11/29/image.png" alt="image.png"></p>
 <a id="more"></a>
 
@@ -9850,7 +9850,7 @@ I heard the echo, <span class="label default">from the valleys and the heart</sp
   </entry>
   <entry>
     <title>trados学习之翻译编辑</title>
-    <url>//posts/edit-translation.html</url>
+    <url>//posts/undefined/edit-translation.html</url>
     <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>本文记录trados练习过程，第二步：翻译编辑。</p>
 <a id="more"></a>
 
@@ -9875,7 +9875,7 @@ I heard the echo, <span class="label default">from the valleys and the heart</sp
   </entry>
   <entry>
     <title>trados学习之创建翻译项目</title>
-    <url>//posts/create-translation-project.html</url>
+    <url>//posts/undefined/create-translation-project.html</url>
     <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>本文记录trados练习过程，第一步：创建翻译项目。</p>
 <a id="more"></a>
 
@@ -9896,7 +9896,7 @@ I heard the echo, <span class="label default">from the valleys and the heart</sp
   </entry>
   <entry>
     <title>挑战万岁</title>
-    <url>//posts/challenge-i-am-coming.html</url>
+    <url>//posts/undefined/challenge-i-am-coming.html</url>
     <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>激起上进心的源头，其实是虚荣心。</p>
 <a id="more"></a>
 
@@ -9911,7 +9911,7 @@ I heard the echo, <span class="label default">from the valleys and the heart</sp
   </entry>
   <entry>
     <title>怎么制作word模板</title>
-    <url>//posts/word-template.html</url>
+    <url>//posts/undefined/word-template.html</url>
     <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>本文记录制作word模板的方法以备忘。</p>
 <a id="more"></a>
 
@@ -9931,7 +9931,7 @@ I heard the echo, <span class="label default">from the valleys and the heart</sp
   </entry>
   <entry>
     <title>我的微信公众号马上两岁啦</title>
-    <url>//posts/welcome-to-my-wechat-public-account.html</url>
+    <url>//posts/undefined/welcome-to-my-wechat-public-account.html</url>
     <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>转眼我的微信公众号也快满两岁了，专注于互联网、英语、创业等领域，欢迎关注~~</p>
 <a id="more"></a>
 
