@@ -9954,7 +9954,7 @@ I heard the echo, <span class="label default">from the valleys and the heart</sp
       </tags>
   </entry>
   <entry>
-    <title>20210805-hexo博客怎样自定义404页面</title>
+    <title>hexo博客怎样自定义404页面</title>
     <url>//posts/ZH-CN/how-to-customize-404-page-in-hexo-blog.html</url>
     <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>今天看了下我的博客“长ping”关键词竟然排到了谷歌搜索结果的第一位！但是昨天更新了所有文章的url地址，谷歌并没有及时抓取最新内容。所以导致这个排名第一的网页，用户打开之后看不到内容，这样的用户体验是绝对无法忍受的！于是，就有了自定义404页面的需求。本文记录了将404页面重定向到网站首页，并引导客户在网站内进行搜索的具体操作步骤。</p>
 <a id="more"></a>
