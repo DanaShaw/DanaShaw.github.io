@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
-<meta name="generator" content="Hexo 4.2.1">
+<meta name="generator" content="Hexo 5.4.0">
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/images/orange.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/images/orange.png">
@@ -64,13 +64,13 @@
 <meta property="og:url" content="https://dana5haw.com/posts/ZH-CN/Ubuntu18.04_Apt_Nginx_Log.html">
 <meta property="og:site_name" content="Dana Shaw&#39;s blog">
 <meta property="og:description" content="前言只是查看一下访问日志，无意发现ubuntu18.04用apt安装的nginx1.14默认就设置了日志切割。本来还有点担心日志多了会影响vps的性能。">
-<meta property="og:locale" content="ZH_CN">
+<meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="http://ww1.sinaimg.cn/large/006gDuOdgy1gd0dqvj6x6j30nz03sglw.jpg">
 <meta property="og:image" content="http://ww1.sinaimg.cn/large/006gDuOdgy1gd0e3kes56j30r30clgmi.jpg">
 <meta property="og:image" content="http://ww1.sinaimg.cn/large/006gDuOdgy1gd0ecxdmfij30tm09m75c.jpg">
 <meta property="og:image" content="http://ww1.sinaimg.cn/large/006gDuOdgy1gd0ducy3jjj30zo0fgwif.jpg">
 <meta property="article:published_time" content="2020-03-20T06:33:21.000Z">
-<meta property="article:modified_time" content="2020-06-27T14:12:28.605Z">
+<meta property="article:modified_time" content="2021-08-06T03:56:00.276Z">
 <meta property="article:author" content="Dana Shaw">
 <meta property="article:tag" content="nginx">
 <meta property="article:tag" content="ubuntu18.04">
@@ -292,7 +292,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-06-27 22:12:28" itemprop="dateModified" datetime="2020-06-27T22:12:28+08:00">2020-06-27</time>
+                <time title="修改时间：2021-08-06 11:56:00" itemprop="dateModified" datetime="2021-08-06T11:56:00+08:00">2021-08-06</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -339,11 +339,10 @@
 
       
         <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>只是查看一下访问日志，无意发现ubuntu18.04用apt安装的nginx1.14默认就设置了日志切割。本来还有点担心日志多了会影响vps的性能。</p>
-<a id="more"></a>
-
+<p><escape> <span id="more"></span></escape></p>
 <h2 id="日志切割"><a href="#日志切割" class="headerlink" title="日志切割"></a>日志切割</h2><p>Nginx自带了日志切割的设置：<br><img src="http://ww1.sinaimg.cn/large/006gDuOdgy1gd0dqvj6x6j30nz03sglw.jpg" alt="image.png"><br>日志切割相关的配置：<code>/etc/logrotate.d/nginx</code><br>这个脚本的意思是每天切割，保存最近14天的日志。<br><img src="http://ww1.sinaimg.cn/large/006gDuOdgy1gd0e3kes56j30r30clgmi.jpg" alt="image.png"><br>根据<code>/etc/crontab</code>文件内容，可以查出每天切割日志的时间是6:25。<br><img src="http://ww1.sinaimg.cn/large/006gDuOdgy1gd0ecxdmfij30tm09m75c.jpg" alt="image.png"></p>
 <h2 id="又发现了互联网的扫描"><a href="#又发现了互联网的扫描" class="headerlink" title="又发现了互联网的扫描"></a>又发现了互联网的扫描</h2><p>日志显示攻击者用的是zgrab工具。<br><img src="http://ww1.sinaimg.cn/large/006gDuOdgy1gd0ducy3jjj30zo0fgwif.jpg" alt="image.png"></p>
-<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><p><a href="https://yq.aliyun.com/articles/43303" target="_blank" rel="noopener">对于nginx日志切割的讲解</a></p>
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><p><a target="_blank" rel="noopener" href="https://yq.aliyun.com/articles/43303">对于nginx日志切割的讲解</a></p>
 
     </div>
 
@@ -469,7 +468,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#日志切割"><span class="nav-number">2.</span> <span class="nav-text">日志切割</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#又发现了互联网的扫描"><span class="nav-number">3.</span> <span class="nav-text">又发现了互联网的扫描</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考"><span class="nav-number">4.</span> <span class="nav-text">参考</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%89%8D%E8%A8%80"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%97%A5%E5%BF%97%E5%88%87%E5%89%B2"><span class="nav-number">2.</span> <span class="nav-text">日志切割</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8F%88%E5%8F%91%E7%8E%B0%E4%BA%86%E4%BA%92%E8%81%94%E7%BD%91%E7%9A%84%E6%89%AB%E6%8F%8F"><span class="nav-number">3.</span> <span class="nav-text">又发现了互联网的扫描</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8F%82%E8%80%83"><span class="nav-number">4.</span> <span class="nav-text">参考</span></a></li></ol></div>
       </div>
         <div id="">
 	  <canvas id="canvas" style="width:60%;">
@@ -583,12 +582,12 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-area-chart"></i>
     </span>
-    <span title="站点总字数">515k</span>
+    <span title="站点总字数">520k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">7:48</span>
+    <span title="站点阅读时长">7:53</span>
 </div>
 
         
