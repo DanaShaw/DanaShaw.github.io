@@ -1022,7 +1022,7 @@
     <url>//posts/ZH-CN/how-to-build-an-eShop.html</url>
     <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>上个月就想用wordpress建一个电商网站，初衷很简单，就是发现这是个能赚钱的活。接下来就开始尝试用Wordpress+Woocommerce搭建一个电商网站。<br><escape> <span id="more"></span></escape></p>
 <p>（截图取自一家专做跨境电商的建站平台）</p>
-<p><img src="https://v2ray.dana5haw.com:8008/images/2021/08/15/image.md.png" alt="电商网站功能清单.png"></p>
+<p><img src="https://v2ray.dana5haw.com:8008/images/2021/08/15/image.md.png" alt="Function list.png"></p>
 <h2 id="项目计划"><a href="#项目计划" class="headerlink" title="项目计划"></a>项目计划</h2><pre class="mermaid">gantt
 dateFormat MM-DD
 axisFormat %m-%d
@@ -1044,8 +1044,9 @@ section 3. 配置Woocommerce
 <h2 id="环境准备"><a href="#环境准备" class="headerlink" title="环境准备"></a>环境准备</h2><h3 id="安装VPS服务器"><a href="#安装VPS服务器" class="headerlink" title="安装VPS服务器"></a>安装VPS服务器</h3><p>首先到<a href="vultr.com">vultr官网</a>添加一台VPS服务器（操作系统：CentOS8），我选择的配置信息如图：<br><a href="https://v2ray.dana5haw.com:8008/image/38py"><img src="https://v2ray.dana5haw.com:8008/images/2021/08/15/image9bd2abf153c8950b.md.png" alt="My VPS configuration.png"></a></p>
 <p>使用平台设置的root密码登录到VPS，发现这台机器被尝试过爆破SSH密码。为了服务器的安全，我需要把SSH服务的端口改了，并且修改root密码。<br><a href="https://v2ray.dana5haw.com:8008/image/3XEA"><img src="https://v2ray.dana5haw.com:8008/images/2021/08/15/image3f5915c4d95d6140.md.png" alt="The SSH password has almost been blasted.png"></a></p>
 <ol>
-<li>修改root密码<br>使用远程SSH工具（我一般用MobaXterm免费版作为远程工具），以root账号登录服务器，修改root密码。依次输入以下两条命令。</li>
+<li>修改root密码</li>
 </ol>
+<p>使用远程SSH工具（我一般用MobaXterm免费版作为远程工具），以root账号登录服务器，修改root密码。依次输入以下两条命令。</p>
 <ul>
 <li>passwd root</li>
 <li>reboot</li>
