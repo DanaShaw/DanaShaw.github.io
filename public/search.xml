@@ -1028,8 +1028,8 @@ dateFormat MM-DD
 axisFormat %m-%d
 todayMarker on
 section 1. 环境准备
-1.1 安装VPS服务器: active,des1-1,08-15,1d
-1.2 设置域名DNS: des1-2,after des1-1,1d
+1.1 安装VPS服务器: done,des1-1,08-15,1d
+1.2 设置域名DNS: active,des1-2,after des1-1,1d
 1.3 搭建LNMP环境: crit,des1-3,after des1-2,1d
 
 section 2. 安装Wordpress
@@ -1040,7 +1040,34 @@ section 2. 安装Wordpress
 section 3. 配置Woocommerce
 3.1 调整Wocommerce配置: des3-1,after des2-3,1d
 3.2 网站SEO优化设置: des3-2,after des3-1,3d</pre>
-]]></content>
+
+<h2 id="环境准备"><a href="#环境准备" class="headerlink" title="环境准备"></a>环境准备</h2><h3 id="安装VPS服务器"><a href="#安装VPS服务器" class="headerlink" title="安装VPS服务器"></a>安装VPS服务器</h3><p>首先到<a href="vultr.com">vultr官网</a>添加一台VPS服务器（操作系统：CentOS8），我选择的配置信息如图：<br><a href="https://v2ray.dana5haw.com:8008/image/38py"><img src="https://v2ray.dana5haw.com:8008/images/2021/08/15/image9bd2abf153c8950b.md.png" alt="My VPS configuration.png"></a></p>
+<p>使用平台设置的root密码登录到VPS，发现这台机器被尝试过爆破SSH密码。为了服务器的安全，我需要把SSH服务的端口改了，并且修改root密码。<br><a href="https://v2ray.dana5haw.com:8008/image/3XEA"><img src="https://v2ray.dana5haw.com:8008/images/2021/08/15/image3f5915c4d95d6140.md.png" alt="The SSH password has almost been blasted.png"></a></p>
+<ol>
+<li>修改root密码<br>使用远程SSH工具（我一般用MobaXterm免费版作为远程工具），以root账号登录服务器，修改root密码。依次输入以下两条命令。</li>
+</ol>
+<ul>
+<li>passwd root</li>
+<li>reboot</li>
+</ul>
+<p>现在可以用最新设置的root密码登录服务器了。</p>
+<ol start="2">
+<li>修改SSH服务端口</li>
+</ol>
+<p>接下来修改SSH端口为5位数。<br><a href="https://v2ray.dana5haw.com:8008/image/3419"><img src="https://v2ray.dana5haw.com:8008/images/2021/08/15/image0a867116b267cdf4.md.png" alt="Modify the SSH port.png"></a></p>
+<ul>
+<li>修改ssh服务的配置文件<code>/etc/ssh/sshd_config</code>，修改<code>Port 22</code>这行代码，取消注释，并将端口号改为5位数</li>
+<li>防火墙开放相应端口号(比如的SSH端口改为了11111)：<code>firewall-cmd --add-port=11111/tcp --permanent</code></li>
+<li>防火墙配置改了之后记得reload：<code>firewall-cmd --reload</code></li>
+<li>重启ssh服务：<code>systemctl restart sshd</code></li>
+</ul>
+<p>备注：如果按照以上操作无法重启ssh服务，请将selinux永久关闭。具体操作方法如下：</p>
+<ul>
+<li>编辑SELinux配置文件<code>/etc/selinux/config</code>，修改<code>SELINUX=enforcing</code>这行代码，改为<code>SELINUX=disabled</code></li>
+<li>重启服务器：<code>reboot</code></li>
+</ul>
+<p>现在可以用新的ssh端口和新的root密码远程登录服务器了。</p>
+<h3 id="设置域名DNS"><a href="#设置域名DNS" class="headerlink" title="设置域名DNS"></a>设置域名DNS</h3>]]></content>
       <categories>
         <category>eShop</category>
         <category>电商网站</category>
