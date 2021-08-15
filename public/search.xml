@@ -1020,7 +1020,8 @@
   <entry>
     <title>2021雅思计划</title>
     <url>//posts/ZH-CN/ielts-plan.html</url>
-    <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>2021年12月考雅思，目标分数7。<br><escape> <span id="more"></span></escape><br><img src="https://v2ray.dana5haw.com:8008/images/2020/11/29/image.png" alt="image.png"></p>
+    <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>2021年12月考雅思，目标分数7。<br><escape> <span id="more"></span></escape></p>
+<p><img src="https://v2ray.dana5haw.com:8008/images/2020/11/29/image.png" alt="image.png"></p>
 <h2 id="口语"><a href="#口语" class="headerlink" title="口语"></a>口语</h2><ul>
 <li>争取在工作中接触欧美客户，在会议中锻炼口语</li>
 <li>每周练习一个话题</li>
@@ -5077,8 +5078,15 @@ I heard the echo, <span class="label default">from the valleys and the heart</sp
   </entry>
   <entry>
     <title>学习谷歌SEO（一）</title>
-    <url>//posts/ZH-CN/undefined.html</url>
+    <url>//posts/ZH-CN/Os_Tool.html</url>
     <content><![CDATA[]]></content>
+      <categories>
+        <category>操作系统</category>
+      </categories>
+      <tags>
+        <tag>30天自制操作系统</tag>
+        <tag>二进制编辑器</tag>
+      </tags>
   </entry>
   <entry>
     <title>安全研发学习规划-记录</title>
@@ -9797,6 +9805,176 @@ switch语句还可以匹配字符串。字符串匹配时，是比较“内容�
       </categories>
       <tags>
         <tag>心的旅程</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title></title>
+    <url>//posts/en/undefined.html</url>
+    <content><![CDATA[<!-- 由 Google 结构化数据标记助手生成的 JSON-LD 标记。 -->
+<script type="application/ld+json">
+[ {
+  "@context" : "http://schema.org",
+  "@type" : "Article",
+  "name" : "How to customize your 404 page in hexo blog?",
+  "author" : {
+    "@type" : "Person",
+    "name" : "Dana Shaw"
+  },
+  "datePublished" : "2021-08-06",
+  "url" : "https://dana5haw.com/posts/ZH-CN/how-to-customize-404-page-in-hexo-blog.html",
+  "aggregateRating" : {
+    "@type" : "AggregateRating",
+    "ratingValue" : "Views: 41"
+  }
+}, {
+  "@context" : "http://schema.org",
+  "@type" : "Article",
+  "name" : "How to customize your 404 page in hexo blog?",
+  "author" : {
+    "@type" : "Person",
+    "name" : "Dana Shaw"
+  },
+  "datePublished" : "2021-08-06",
+  "articleSection" : "FOREWORD",
+  "url" : "https://www.zhihu.com/question/21650209",
+  "aggregateRating" : {
+    "@type" : "AggregateRating",
+    "ratingValue" : "Views: 41"
+  }
+}, {
+  "@context" : "http://schema.org",
+  "@type" : "Article",
+  "name" : "How to customize your 404 page in hexo blog?",
+  "author" : {
+    "@type" : "Person",
+    "name" : "Dana Shaw"
+  },
+  "datePublished" : "2021-08-06",
+  "image" : "https://v2ray.dana5haw.com:8008/images/2021/08/05/image.png",
+  "articleSection" : "STEPS",
+  "articleBody" : "Today I checked the keyword 长ping in google, my page ranks number one, so amazing! But I click the page, it’s a 404 page. It suddenly occured to me that I had changed all of my URLs! So Google has not indexed my new URLs yet. It’s so weird that the top one search result is a blank page without any tip guides the users back to home page. This article recorded how to customize the 404 page and guide the users back to home page.",
+  "url" : "https://www.zhihu.com/question/21650209",
+  "aggregateRating" : {
+    "@type" : "AggregateRating",
+    "ratingValue" : "Views: 41"
+  }
+}, {
+  "@context" : "http://schema.org",
+  "@type" : "Article",
+  "name" : "How to customize your 404 page in hexo blog?",
+  "author" : {
+    "@type" : "Person",
+    "name" : "Dana Shaw"
+  },
+  "datePublished" : "2021-08-06",
+  "image" : "https://v2ray.dana5haw.com:8008/images/2021/08/05/image8f94f3a6ef348c9f.png",
+  "articleSection" : "CONCLUSION",
+  "articleBody" : "The following steps are applicable to any themes of your hexo blog. No matter the theme is NEXT or others, you can follow these steps.</P>\n<OL>\n<LI><P>Create a <CODE>404.html</CODE> file on the theme folder. The html file is to customize your 404 page.<BR/>For example, my theme is NEXT, I need to create a <CODE>404.html</CODE> file on this directory: <CODE>\\themes\\next\\source</CODE>.",
+  "url" : "https://www.zhihu.com/question/21650209",
+  "aggregateRating" : {
+    "@type" : "AggregateRating",
+    "ratingValue" : "Views: 41"
+  }
+}, {
+  "@context" : "http://schema.org",
+  "@type" : "Article",
+  "name" : "How to customize your 404 page in hexo blog?",
+  "author" : {
+    "@type" : "Person",
+    "name" : "Dana Shaw"
+  },
+  "datePublished" : "2021-08-06",
+  "articleSection" : "CONCLUSION",
+  "articleBody" : "Then you can edit the html, and write your code to customize the page. I choose <A target=\"_blank\" rel=\"noopener\" href=\"https://www.qq.com/404/\">Tencent 404 page</A> as my 404 page. The code below is for your reference.</P>\n<BLOCKQUOTE>\n<P>Note!! Please replace <CODE>https://dana5haw.com</CODE> with your homePageUrl. And replace <CODE>返回主页（您可以进入首页继续搜索）</CODE> with your own words to guide the users back to home page.</P>\n</BLOCKQUOTE>\n</LI>\n</OL>\n<BLOCKQUOTE>\n<P>The javascript may be updated by Tencent, please refer to Tencent’s official code.<BR/><A class=\"fancybox fancybox.image\" href=\"https://v2ray.dana5haw.com:8008/images/2021/08/05/image845ad54beb3a14e4.png\" itemscope=\"\" itemtype=\"http://schema.org/ImageObject\" itemprop=\"url\" data-fancybox=\"default\" rel=\"default\" title=\"image845ad54beb3a14e4.png\" data-caption=\"image845ad54beb3a14e4.png\"><IMG src=\"https://v2ray.dana5haw.com:8008/images/2021/08/05/image845ad54beb3a14e4.png\" alt=\"image845ad54beb3a14e4.png\"/>",
+  "url" : "https://www.zhihu.com/question/21650209",
+  "aggregateRating" : {
+    "@type" : "AggregateRating",
+    "ratingValue" : "Views: 41"
+  }
+}, {
+  "@context" : "http://schema.org",
+  "@type" : "Article",
+  "name" : "How to customize your 404 page in hexo blog?",
+  "author" : {
+    "@type" : "Person",
+    "name" : "Dana Shaw"
+  },
+  "datePublished" : "2021-08-06",
+  "articleSection" : "CONCLUSION",
+  "articleBody" : "Deploy and update your website by inputing this command: <CODE>hexo g -d</CODE>.",
+  "url" : "https://www.zhihu.com/question/21650209",
+  "aggregateRating" : {
+    "@type" : "AggregateRating",
+    "ratingValue" : "Views: 41"
+  }
+}, {
+  "@context" : "http://schema.org",
+  "@type" : "Article",
+  "name" : "How to customize your 404 page in hexo blog?",
+  "author" : {
+    "@type" : "Person",
+    "name" : "Dana Shaw"
+  },
+  "datePublished" : "2021-08-06",
+  "image" : "https://v2ray.dana5haw.com:8008/images/2021/08/05/image61eb468b2a976a0f.png",
+  "articleSection" : "CONCLUSION",
+  "articleBody" : "Test your 404 page. You can input a non-existed URL in browser to test if your 404 page is successfully updated. For example, my domain is <CODE>dana5haw.com</CODE>, so I may input this non-existed URL <CODE>https://dana5haw.com/111</CODE> to test my 404 page.<BR/>Look what the final 404 page!",
+  "url" : "https://www.zhihu.com/question/21650209",
+  "aggregateRating" : {
+    "@type" : "AggregateRating",
+    "ratingValue" : "Views: 41"
+  }
+}, {
+  "@context" : "http://schema.org",
+  "@type" : "Article",
+  "name" : "How to customize your 404 page in hexo blog?",
+  "author" : {
+    "@type" : "Person",
+    "name" : "Dana Shaw"
+  },
+  "datePublished" : "2021-08-06",
+  "articleSection" : "REFERRENCE",
+  "articleBody" : "You can make the 404 page look more fantastic, since you have known the steps to customize it.",
+  "url" : "https://www.zhihu.com/question/21650209",
+  "aggregateRating" : {
+    "@type" : "AggregateRating",
+    "ratingValue" : "Views: 41"
+  }
+}, {
+  "@context" : "http://schema.org",
+  "@type" : "Article",
+  "name" : "How to customize your 404 page in hexo blog?",
+  "author" : {
+    "@type" : "Person",
+    "name" : "Dana Shaw"
+  },
+  "datePublished" : "2021-08-06",
+  "articleSection" : "RELATED POST",
+  "url" : "https://dana5haw.com/posts/ZH-CN/how-to-customize-404-page-in-hexo-blog.html",
+  "aggregateRating" : {
+    "@type" : "AggregateRating",
+    "ratingValue" : "Views: 41"
+  }
+} ]
+</script>]]></content>
+  </entry>
+  <entry>
+    <title>20210815-如何搭建Wordpress+Woocommerce电商网站</title>
+    <url>//posts/ZH-CN/how-to-build-an-eShop.html</url>
+    <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>上个月就想用wordpress建一个电商网站，初衷很简单，就是发现这是个能赚钱的活。接下来就开始尝试用Wordpress+Woocommerce搭建一个电商网站。<br>（截图取自一家专做跨境电商的建站平台）</p>
+<p><a href="https://v2ray.dana5haw.com:8008/image/3z3V"><img src="https://v2ray.dana5haw.com:8008/images/2021/08/15/image.th.png" alt="电商网站功能清单.png"></a></p>
+<h2 id="项目计划"><a href="#项目计划" class="headerlink" title="项目计划"></a>项目计划</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">gantt</span><br><span class="line">dateFormat MM-DD</span><br><span class="line">axisFormat %m-%d</span><br><span class="line">todayMarker on</span><br><span class="line">section 环境准备</span><br><span class="line">安装VPS服务器: active,des1-1,08-15,1d</span><br><span class="line">设置域名DNS: des1-2,after des1-1,1d</span><br><span class="line">搭建LNMP环境: crit,des1-3,after des1-2,1d</span><br><span class="line"></span><br><span class="line">section 安装Wordpress</span><br><span class="line">安装Wordpress: des2-1,after des1-3,1d</span><br><span class="line">设置Wordpress主题: des2-2,after des2-1,1d</span><br><span class="line">安装Woocommerce插件: des2-3,after des2-2,1d</span><br><span class="line"></span><br><span class="line">section 配置Woocommerce</span><br><span class="line">调整Wocommerce配置: des3-1,after des2-3,1d</span><br><span class="line">网站SEO优化设置: des3-2,after des3-1,3d</span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>eShop</category>
+        <category>电商网站</category>
+      </categories>
+      <tags>
+        <tag>Wordpress</tag>
+        <tag>VPS</tag>
+        <tag>Woocommerce</tag>
+        <tag>eShop</tag>
+        <tag>电商网站</tag>
+        <tag>独立站</tag>
       </tags>
   </entry>
   <entry>

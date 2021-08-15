@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://dana5haw.com/"/>
-  <updated>2021-08-06T04:01:21.012Z</updated>
+  <updated>2021-08-15T01:19:00.891Z</updated>
   <id>https://dana5haw.com/</id>
   
   <author>
@@ -15,6 +15,70 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>20210815-如何搭建Wordpress+Woocommerce电商网站</title>
+    <link href="https://dana5haw.com/posts/ZH-CN/how-to-build-an-eShop.html"/>
+    <id>https://dana5haw.com/posts/ZH-CN/how-to-build-an-eShop.html</id>
+    <published>2021-08-15T00:23:21.000Z</published>
+    <updated>2021-08-15T01:19:00.891Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>上个月就想用wordpress建一个电商网站，初衷很简单，就是发现这是个能赚钱的活。接下来就开始尝试用Wordpress+Woocommerce搭建一个电商网站。<br>（截图取自一家专做跨境电商的建站平台）</p><p><a href="https://v2ray.dana5haw.com:8008/image/3z3V"><img src="https://v2ray.dana5haw.com:8008/images/2021/08/15/image.th.png" alt="电商网站功能清单.png"></a></p><h2 id="项目计划"><a href="#项目计划" class="headerlink" title="项目计划"></a>项目计划</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">gantt</span><br><span class="line">dateFormat MM-DD</span><br><span class="line">axisFormat %m-%d</span><br><span class="line">todayMarker on</span><br><span class="line">section 环境准备</span><br><span class="line">安装VPS服务器: active,des1-1,08-15,1d</span><br><span class="line">设置域名DNS: des1-2,after des1-1,1d</span><br><span class="line">搭建LNMP环境: crit,des1-3,after des1-2,1d</span><br><span class="line"></span><br><span class="line">section 安装Wordpress</span><br><span class="line">安装Wordpress: des2-1,after des1-3,1d</span><br><span class="line">设置Wordpress主题: des2-2,after des2-1,1d</span><br><span class="line">安装Woocommerce插件: des2-3,after des2-2,1d</span><br><span class="line"></span><br><span class="line">section 配置Woocommerce</span><br><span class="line">调整Wocommerce配置: des3-1,after des2-3,1d</span><br><span class="line">网站SEO优化设置: des3-2,after des3-1,3d</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h2&gt;&lt;p&gt;上个月就想用wordpress建一个电商网站，初衷很简单，就是发现这是个能赚钱的活。接下来就开始尝试用Wordpress+Woocommer
+      
+    
+    </summary>
+    
+    
+      <category term="eShop" scheme="https://dana5haw.com/categories/eShop/"/>
+    
+      <category term="电商网站" scheme="https://dana5haw.com/categories/%E7%94%B5%E5%95%86%E7%BD%91%E7%AB%99/"/>
+    
+    
+      <category term="Wordpress" scheme="https://dana5haw.com/tags/Wordpress/"/>
+    
+      <category term="VPS" scheme="https://dana5haw.com/tags/VPS/"/>
+    
+      <category term="Woocommerce" scheme="https://dana5haw.com/tags/Woocommerce/"/>
+    
+      <category term="eShop" scheme="https://dana5haw.com/tags/eShop/"/>
+    
+      <category term="电商网站" scheme="https://dana5haw.com/tags/%E7%94%B5%E5%95%86%E7%BD%91%E7%AB%99/"/>
+    
+      <category term="独立站" scheme="https://dana5haw.com/tags/%E7%8B%AC%E7%AB%8B%E7%AB%99/"/>
+    
+  </entry>
+  
+  <entry>
+    <title></title>
+    <link href="https://dana5haw.com/posts/en/undefined.html"/>
+    <id>https://dana5haw.com/posts/en/undefined.html</id>
+    <published>2021-08-07T15:03:51.963Z</published>
+    <updated>2021-08-07T15:03:53.228Z</updated>
+    
+    <content type="html"><![CDATA[<!-- 由 Google 结构化数据标记助手生成的 JSON-LD 标记。 --><script type="application/ld+json">[ {  "@context" : "http://schema.org",  "@type" : "Article",  "name" : "How to customize your 404 page in hexo blog?",  "author" : {    "@type" : "Person",    "name" : "Dana Shaw"  },  "datePublished" : "2021-08-06",  "url" : "https://dana5haw.com/posts/ZH-CN/how-to-customize-404-page-in-hexo-blog.html",  "aggregateRating" : {    "@type" : "AggregateRating",    "ratingValue" : "Views: 41"  }}, {  "@context" : "http://schema.org",  "@type" : "Article",  "name" : "How to customize your 404 page in hexo blog?",  "author" : {    "@type" : "Person",    "name" : "Dana Shaw"  },  "datePublished" : "2021-08-06",  "articleSection" : "FOREWORD",  "url" : "https://www.zhihu.com/question/21650209",  "aggregateRating" : {    "@type" : "AggregateRating",    "ratingValue" : "Views: 41"  }}, {  "@context" : "http://schema.org",  "@type" : "Article",  "name" : "How to customize your 404 page in hexo blog?",  "author" : {    "@type" : "Person",    "name" : "Dana Shaw"  },  "datePublished" : "2021-08-06",  "image" : "https://v2ray.dana5haw.com:8008/images/2021/08/05/image.png",  "articleSection" : "STEPS",  "articleBody" : "Today I checked the keyword 长ping in google, my page ranks number one, so amazing! But I click the page, it’s a 404 page. It suddenly occured to me that I had changed all of my URLs! So Google has not indexed my new URLs yet. It’s so weird that the top one search result is a blank page without any tip guides the users back to home page. This article recorded how to customize the 404 page and guide the users back to home page.",  "url" : "https://www.zhihu.com/question/21650209",  "aggregateRating" : {    "@type" : "AggregateRating",    "ratingValue" : "Views: 41"  }}, {  "@context" : "http://schema.org",  "@type" : "Article",  "name" : "How to customize your 404 page in hexo blog?",  "author" : {    "@type" : "Person",    "name" : "Dana Shaw"  },  "datePublished" : "2021-08-06",  "image" : "https://v2ray.dana5haw.com:8008/images/2021/08/05/image8f94f3a6ef348c9f.png",  "articleSection" : "CONCLUSION",  "articleBody" : "The following steps are applicable to any themes of your hexo blog. No matter the theme is NEXT or others, you can follow these steps.</P>\n<OL>\n<LI><P>Create a <CODE>404.html</CODE> file on the theme folder. The html file is to customize your 404 page.<BR/>For example, my theme is NEXT, I need to create a <CODE>404.html</CODE> file on this directory: <CODE>\\themes\\next\\source</CODE>.",  "url" : "https://www.zhihu.com/question/21650209",  "aggregateRating" : {    "@type" : "AggregateRating",    "ratingValue" : "Views: 41"  }}, {  "@context" : "http://schema.org",  "@type" : "Article",  "name" : "How to customize your 404 page in hexo blog?",  "author" : {    "@type" : "Person",    "name" : "Dana Shaw"  },  "datePublished" : "2021-08-06",  "articleSection" : "CONCLUSION",  "articleBody" : "Then you can edit the html, and write your code to customize the page. I choose <A target=\"_blank\" rel=\"noopener\" href=\"https://www.qq.com/404/\">Tencent 404 page</A> as my 404 page. The code below is for your reference.</P>\n<BLOCKQUOTE>\n<P>Note!! Please replace <CODE>https://dana5haw.com</CODE> with your homePageUrl. And replace <CODE>返回主页（您可以进入首页继续搜索）</CODE> with your own words to guide the users back to home page.</P>\n</BLOCKQUOTE>\n</LI>\n</OL>\n<BLOCKQUOTE>\n<P>The javascript may be updated by Tencent, please refer to Tencent’s official code.<BR/><A class=\"fancybox fancybox.image\" href=\"https://v2ray.dana5haw.com:8008/images/2021/08/05/image845ad54beb3a14e4.png\" itemscope=\"\" itemtype=\"http://schema.org/ImageObject\" itemprop=\"url\" data-fancybox=\"default\" rel=\"default\" title=\"image845ad54beb3a14e4.png\" data-caption=\"image845ad54beb3a14e4.png\"><IMG src=\"https://v2ray.dana5haw.com:8008/images/2021/08/05/image845ad54beb3a14e4.png\" alt=\"image845ad54beb3a14e4.png\"/>",  "url" : "https://www.zhihu.com/question/21650209",  "aggregateRating" : {    "@type" : "AggregateRating",    "ratingValue" : "Views: 41"  }}, {  "@context" : "http://schema.org",  "@type" : "Article",  "name" : "How to customize your 404 page in hexo blog?",  "author" : {    "@type" : "Person",    "name" : "Dana Shaw"  },  "datePublished" : "2021-08-06",  "articleSection" : "CONCLUSION",  "articleBody" : "Deploy and update your website by inputing this command: <CODE>hexo g -d</CODE>.",  "url" : "https://www.zhihu.com/question/21650209",  "aggregateRating" : {    "@type" : "AggregateRating",    "ratingValue" : "Views: 41"  }}, {  "@context" : "http://schema.org",  "@type" : "Article",  "name" : "How to customize your 404 page in hexo blog?",  "author" : {    "@type" : "Person",    "name" : "Dana Shaw"  },  "datePublished" : "2021-08-06",  "image" : "https://v2ray.dana5haw.com:8008/images/2021/08/05/image61eb468b2a976a0f.png",  "articleSection" : "CONCLUSION",  "articleBody" : "Test your 404 page. You can input a non-existed URL in browser to test if your 404 page is successfully updated. For example, my domain is <CODE>dana5haw.com</CODE>, so I may input this non-existed URL <CODE>https://dana5haw.com/111</CODE> to test my 404 page.<BR/>Look what the final 404 page!",  "url" : "https://www.zhihu.com/question/21650209",  "aggregateRating" : {    "@type" : "AggregateRating",    "ratingValue" : "Views: 41"  }}, {  "@context" : "http://schema.org",  "@type" : "Article",  "name" : "How to customize your 404 page in hexo blog?",  "author" : {    "@type" : "Person",    "name" : "Dana Shaw"  },  "datePublished" : "2021-08-06",  "articleSection" : "REFERRENCE",  "articleBody" : "You can make the 404 page look more fantastic, since you have known the steps to customize it.",  "url" : "https://www.zhihu.com/question/21650209",  "aggregateRating" : {    "@type" : "AggregateRating",    "ratingValue" : "Views: 41"  }}, {  "@context" : "http://schema.org",  "@type" : "Article",  "name" : "How to customize your 404 page in hexo blog?",  "author" : {    "@type" : "Person",    "name" : "Dana Shaw"  },  "datePublished" : "2021-08-06",  "articleSection" : "RELATED POST",  "url" : "https://dana5haw.com/posts/ZH-CN/how-to-customize-404-page-in-hexo-blog.html",  "aggregateRating" : {    "@type" : "AggregateRating",    "ratingValue" : "Views: 41"  }} ]</script>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;!-- 由 Google 结构化数据标记助手生成的 JSON-LD 标记。 --&gt;
+&lt;script type=&quot;application/ld+json&quot;&gt;
+[ {
+  &quot;@context&quot; : &quot;http://schema.org&quot;,
+  &quot;@type&quot; : &quot;Article&quot;
+      
+    
+    </summary>
+    
+    
+    
+  </entry>
   
   <entry>
     <title>How to customize your 404 page in hexo blog?</title>
@@ -88,16 +152,22 @@
   
   <entry>
     <title>学习谷歌SEO（一）</title>
-    <link href="https://dana5haw.com/posts/ZH-CN/undefined.html"/>
-    <id>https://dana5haw.com/posts/ZH-CN/undefined.html</id>
+    <link href="https://dana5haw.com/posts/ZH-CN/Os_Tool.html"/>
+    <id>https://dana5haw.com/posts/ZH-CN/Os_Tool.html</id>
     <published>2021-08-05T11:53:38.000Z</published>
-    <updated>2021-08-05T11:53:38.523Z</updated>
+    <updated>2021-08-15T01:03:52.961Z</updated>
     
     <summary type="html">
     
     </summary>
     
     
+      <category term="操作系统" scheme="https://dana5haw.com/categories/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/"/>
+    
+    
+      <category term="30天自制操作系统" scheme="https://dana5haw.com/tags/30%E5%A4%A9%E8%87%AA%E5%88%B6%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/"/>
+    
+      <category term="二进制编辑器" scheme="https://dana5haw.com/tags/%E4%BA%8C%E8%BF%9B%E5%88%B6%E7%BC%96%E8%BE%91%E5%99%A8/"/>
     
   </entry>
   
@@ -228,9 +298,9 @@
     <link href="https://dana5haw.com/posts/ZH-CN/ielts-plan.html"/>
     <id>https://dana5haw.com/posts/ZH-CN/ielts-plan.html</id>
     <published>2020-11-29T09:54:49.000Z</published>
-    <updated>2021-08-06T03:37:50.328Z</updated>
+    <updated>2021-08-15T01:03:54.721Z</updated>
     
-    <content type="html"><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>2021年12月考雅思，目标分数7。<br><escape> <span id="more"></span></escape><br><img src="https://v2ray.dana5haw.com:8008/images/2020/11/29/image.png" alt="image.png"></p><h2 id="口语"><a href="#口语" class="headerlink" title="口语"></a>口语</h2><ul><li>争取在工作中接触欧美客户，在会议中锻炼口语</li><li>每周练习一个话题</li></ul><h2 id="听力"><a href="#听力" class="headerlink" title="听力"></a>听力</h2><ul><li>一周一篇雅思真题</li></ul><h2 id="阅读"><a href="#阅读" class="headerlink" title="阅读"></a>阅读</h2><ul><li>一周两篇雅思真题<ul><li>50*2=100</li><li>坚持做满100篇</li></ul></li><li>参加或组建经济学人阅读计划<ul><li>每周至少一篇精读</li></ul></li></ul><h2 id="写作"><a href="#写作" class="headerlink" title="写作"></a>写作</h2><ul><li>一周背诵一篇范文，并脱稿录制youtube</li></ul>]]></content>
+    <content type="html"><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>2021年12月考雅思，目标分数7。<br><escape> <span id="more"></span></escape></p><p><img src="https://v2ray.dana5haw.com:8008/images/2020/11/29/image.png" alt="image.png"></p><h2 id="口语"><a href="#口语" class="headerlink" title="口语"></a>口语</h2><ul><li>争取在工作中接触欧美客户，在会议中锻炼口语</li><li>每周练习一个话题</li></ul><h2 id="听力"><a href="#听力" class="headerlink" title="听力"></a>听力</h2><ul><li>一周一篇雅思真题</li></ul><h2 id="阅读"><a href="#阅读" class="headerlink" title="阅读"></a>阅读</h2><ul><li>一周两篇雅思真题<ul><li>50*2=100</li><li>坚持做满100篇</li></ul></li><li>参加或组建经济学人阅读计划<ul><li>每周至少一篇精读</li></ul></li></ul><h2 id="写作"><a href="#写作" class="headerlink" title="写作"></a>写作</h2><ul><li>一周背诵一篇范文，并脱稿录制youtube</li></ul>]]></content>
     
     <summary type="html">
     
@@ -481,54 +551,6 @@
       <category term="redhat7" scheme="https://dana5haw.com/tags/redhat7/"/>
     
       <category term="DHCP" scheme="https://dana5haw.com/tags/DHCP/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>DNS分离解析服务搭建</title>
-    <link href="https://dana5haw.com/posts/ZH-CN/DNS-seperate-explanation.html"/>
-    <id>https://dana5haw.com/posts/ZH-CN/DNS-seperate-explanation.html</id>
-    <published>2020-07-04T09:21:34.000Z</published>
-    <updated>2021-08-06T03:46:38.128Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>DNS分离解析实现的效果就是，同一个域名，在不同地区解析出的IP地址不同。很常用，目的是加快用户访问网站的速度，比如：cdn加速。</p><p><escape> <span id="more"></span></escape></p><h2 id="DNS分离解析服务搭建"><a href="#DNS分离解析服务搭建" class="headerlink" title="DNS分离解析服务搭建"></a>DNS分离解析服务搭建</h2><p>DNS服务器：</p><ul><li>北京网络：122.71.115.1</li><li>美国网络：106.185.25.1<br>客户端：</li><li>北京用户：122.71.115.10</li><li>美国用户：106.185.25.10</li></ul><ol><li>安装bind-chroot<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum install bind-chroot</span><br></pre></td></tr></table></figure></li><li>编辑主配置文件<code>/etc/named.conf</code>，改为any，并删除根域信息。<br><img src="https://v2ray.dana5haw.com:8008/images/2020/07/04/image3b61f8066837cf2b.png" alt="image3b61f8066837cf2b.png"><br><img src="https://v2ray.dana5haw.com:8008/images/2020/07/04/image5efa1af0d50dd0be.png" alt="image5efa1af0d50dd0be.png"></li><li>编辑区域配置文件<code>/etc/named.rfc1912.zones</code><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">acl &quot;china&quot; &#123; 122.71.115.0/24; &#125;;</span><br><span class="line">acl &quot;america&quot; &#123; 106.185.25.0/24; &#125;;</span><br><span class="line">view &quot;china&quot; &#123;</span><br><span class="line">match-clients &#123; &quot;china&quot;; &#125;;</span><br><span class="line">zone &quot;linuxprobe.com&quot; &#123;</span><br><span class="line">type master;</span><br><span class="line">file &quot;linuxprobe.com.china&quot;;</span><br><span class="line">&#125;;</span><br><span class="line">&#125;;</span><br><span class="line">view &quot;america&quot; &#123;</span><br><span class="line">match-clients &#123; &quot;america&quot;; &#125;;</span><br><span class="line">zone &quot;linuxprobe.com&quot; &#123;</span><br><span class="line">type master;</span><br><span class="line">file &quot;linuxprobe.com.america&quot;;</span><br><span class="line">&#125;;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></li><li>拷贝正向解析模板<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cp -a /var/named/named.local /var/named/linuxprobe.com.china #北京用户正向解析文件</span><br><span class="line">cp -a /var/named/named.local /var/named/linuxprobe.com.america #美国用户正向解析文件</span><br></pre></td></tr></table></figure></li><li>编辑正向解析文件</li></ol><ul><li>编辑北京用户正向解析文件<code>/var/named/linuxprobe.com.china</code><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">$TTL 1D</span><br><span class="line">@       IN SOA  linuxprobe.com. root.linuxprobe.com. (</span><br><span class="line">                                        0       ; serial</span><br><span class="line">                                        1D      ; refresh</span><br><span class="line">                                        1H      ; retry</span><br><span class="line">                                        1W      ; expire</span><br><span class="line">                                        3H )    ; minimum</span><br><span class="line">        NS      ns.linuxprobe.com.</span><br><span class="line">ns      IN A    122.71.115.1</span><br><span class="line">www     IN A    122.71.115.1</span><br></pre></td></tr></table></figure></li><li>编辑美国用户正向解析文件<code>/var/named/linuxprobe.com.america</code><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">$TTL 1D</span><br><span class="line">@       IN SOA  linuxprobe.com. root.linuxprobe.com. (</span><br><span class="line">                                        0       ; serial</span><br><span class="line">                                        1D      ; refresh</span><br><span class="line">                                        1H      ; retry</span><br><span class="line">                                        1W      ; expire</span><br><span class="line">                                        3H )    ; minimum</span><br><span class="line">        NS      ns.linuxprobe.com.</span><br><span class="line">ns      IN A    106.185.25.1</span><br><span class="line">www     IN A    106.185.25.1</span><br></pre></td></tr></table></figure></li></ul><ol start="6"><li>清空防火墙规则<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">iptables -F</span><br><span class="line">service iptables save</span><br></pre></td></tr></table></figure></li><li>设置网卡信息<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">nmtui #进入图形化界面配置网卡信息</span><br><span class="line">systemctl restart network #重启网卡使配置生效 </span><br></pre></td></tr></table></figure><img src="https://v2ray.dana5haw.com:8008/images/2020/07/04/imagedf8d626ac2a67a74.png" alt="imagedf8d626ac2a67a74.png"></li><li>开启DNS服务并加入开机启动项<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">systemctl start named</span><br><span class="line">systemctl enable named</span><br></pre></td></tr></table></figure></li></ol><h2 id="验证DNS分离解析服务的效果"><a href="#验证DNS分离解析服务的效果" class="headerlink" title="验证DNS分离解析服务的效果"></a>验证DNS分离解析服务的效果</h2><p>开启一台可以连外网的客户端（网卡为桥接模式），更改IP地址分别模拟北京用户和美国用户，观察域名<a href="http://www.linuxprobe.com解析出的IP地址是多少。">www.linuxprobe.com解析出的IP地址是多少。</a></p><ul><li>模拟北京用户<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">nmtui #进入图形化界面配置网卡信息</span><br><span class="line">systemctl restart network #重启网卡使配置生效 </span><br></pre></td></tr></table></figure><img src="https://v2ray.dana5haw.com:8008/images/2020/07/04/image3c70a91180774d01.png" alt="image3c70a91180774d01.png"><br>测试分离解析是否成功<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ping www.linuxprobe.com #解析出的IP是北京网络，就说明分离解析成功</span><br></pre></td></tr></table></figure><img src="https://v2ray.dana5haw.com:8008/images/2020/07/04/image02894ecf9a80b752.png" alt="image02894ecf9a80b752.png"></li><li>模拟美国用户<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">nmtui #进入图形化界面配置网卡信息</span><br><span class="line">systemctl restart network #重启网卡使配置生效 </span><br></pre></td></tr></table></figure><img src="https://v2ray.dana5haw.com:8008/images/2020/07/04/image804c56d8f8973430.png" alt="image804c56d8f8973430.png"><br>测试分离解析是否成功<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ping www.linuxprobe.com #解析出的IP是美国网络，就说明分离解析成功</span><br></pre></td></tr></table></figure><img src="https://v2ray.dana5haw.com:8008/images/2020/07/04/image502a16fd9de744a5.png" alt="image502a16fd9de744a5.png"></li></ul>]]></content>
-    
-    <summary type="html">
-    
-      &lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h2&gt;&lt;p&gt;DNS分离解析实现的效果就是，同一个域名，在不同地区解析出的IP地址不同。很常用，目的是加快用户访问网站的速度，比如：cdn加速。&lt;/p&gt;
-&lt;p&gt;&lt;escape&gt;
-    
-    </summary>
-    
-    
-      <category term="RHCE" scheme="https://dana5haw.com/categories/RHCE/"/>
-    
-    
-      <category term="DNS分离解析" scheme="https://dana5haw.com/tags/DNS%E5%88%86%E7%A6%BB%E8%A7%A3%E6%9E%90/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>DNS缓存服务搭建</title>
-    <link href="https://dana5haw.com/posts/ZH-CN/DNS-cache-server.html"/>
-    <id>https://dana5haw.com/posts/ZH-CN/DNS-cache-server.html</id>
-    <published>2020-07-04T09:21:15.000Z</published>
-    <updated>2021-08-06T03:46:45.183Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>DNS缓存服务是为了加快用户访问网站的速度。</p><p><escape> <span id="more"></span></escape></p><h2 id="DNS缓存服务器搭建"><a href="#DNS缓存服务器搭建" class="headerlink" title="DNS缓存服务器搭建"></a>DNS缓存服务器搭建</h2><p>缓存服务器(双网卡)：</p><ul><li>网卡一：桥接模式</li><li>网卡二：仅主机模式，192.168.0.106<br>客户端（仅主机模式）：192.168.0.102</li></ul><ol><li>缓存服务器设置</li></ol><ul><li>添加双网卡，一个连外网、一个连内网<br>连外网的网卡：设置为桥接模式<br>连内网的网卡：设置为仅主机模式，IP地址设置为192.168.0.106</li><li>安装bind-chroot<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum install bind-chroot</span><br></pre></td></tr></table></figure></li><li>编辑主配置文件<code>/etc/named.conf</code><br><img src="https://v2ray.dana5haw.com:8008/images/2020/07/04/image78b27f29415d80dc.png" alt="image78b27f29415d80dc.png"></li><li>编辑配置文件<code>/etc/sysctl.conf</code>，写入下面这句，开启ipv4转发功能<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">net.ipv4.ip_forward = 1</span><br></pre></td></tr></table></figure>输入命令<code>sysctl -p</code>立即生效</li><li>清除防火墙规则<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">iptables -F</span><br><span class="line">service iptables save</span><br></pre></td></tr></table></figure></li><li>开启DNS服务并加入开机启动项<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">systemctl start named</span><br><span class="line">systemctl enable named</span><br></pre></td></tr></table></figure></li></ul><ol start="2"><li>客户端配置</li></ol><ul><li>设置网卡信息，网关和DNS服务器设置为缓存服务器的IP地址192.168.0.106<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nm-connection-editor #进入图形化界面配置IP信息</span><br></pre></td></tr></table></figure><img src="https://v2ray.dana5haw.com:8008/images/2020/07/04/image5e5effb880c24fdc.png" alt="image5e5effb880c24fdc.png"></li><li>验证DNS缓存服务的效果<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ping 192.168.0.106 #保证能够ping通DNS缓存服务器的IP地址</span><br><span class="line">nslookup www.baidu.com #目前无法获取到缓存DNS信息，应该是DNS服务器（114.114.114.114）有限制</span><br></pre></td></tr></table></figure><img src="https://v2ray.dana5haw.com:8008/images/2020/07/04/image09493880cf1839e6.png" alt="image09493880cf1839e6.png"></li></ul>]]></content>
-    
-    <summary type="html">
-    
-      &lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h2&gt;&lt;p&gt;DNS缓存服务是为了加快用户访问网站的速度。&lt;/p&gt;
-&lt;p&gt;&lt;escape&gt;
-    
-    </summary>
-    
-    
-      <category term="RHCE" scheme="https://dana5haw.com/categories/RHCE/"/>
-    
-    
-      <category term="DNS缓存服务" scheme="https://dana5haw.com/tags/DNS%E7%BC%93%E5%AD%98%E6%9C%8D%E5%8A%A1/"/>
     
   </entry>
   
