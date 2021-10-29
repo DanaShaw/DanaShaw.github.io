@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://dana5haw.com/"/>
-  <updated>2021-08-15T09:16:25.599Z</updated>
+  <updated>2021-10-29T06:55:57.759Z</updated>
   <id>https://dana5haw.com/</id>
   
   <author>
@@ -15,6 +15,36 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>I期马拉松|坚持100天喝经济学人浓咖啡（-100）</title>
+    <link href="https://dana5haw.com/posts/ZH-CN/Espresso-Economics-Marathon-100day.html"/>
+    <id>https://dana5haw.com/posts/ZH-CN/Espresso-Economics-Marathon-100day.html</id>
+    <published>2021-10-29T06:52:14.000Z</published>
+    <updated>2021-10-29T06:55:57.759Z</updated>
+    
+    <content type="html"><![CDATA[<p>Neural Link:<br>神经元连接:<br>Your brain has a unique signature<br>大脑的独特标识<br>Technology is rapidly changing the way in which people can be identified.<br>技术的快速发展正改变着身份识别的方式。<br>Fingerprints, voices, faces and even retinas can all serve as proof of identity.<br>指纹、声音、人脸，甚至虹膜都可以用作身份证明。<br>In recent years neuroscientists have developed perhaps the most personal method yet: brain fingerprinting.<br>近年来，神经科学家发现了可能最个性化的识别方式：脑指纹。<br>Using MRI scans, they can build a fluctuating model of a person’s brain activity called their connectome.<br>核磁共振扫描可以生成脑部活动的动态模型，称作“连接组”。<br>Despite the fluctuation, scans of the same individual’s brain taken days apart can be matched up with 95% accuracy.<br>尽管模型是动态的，但是在几天内同一个人的扫描结果匹配准确度达到95%。<br>On Friday Science Advances, a journal, reported that neuroscientists have refined the technique further.<br>周五，Science Advances期刊报导，神经科学家已经进一步完善这项技术。<br>A unique neural snapshot can now be obtained in just 100 seconds.<br>现在能够做到在100秒以内捕获一个独特的神经元快照。<br>The authors say brain fingerprinting could be employed to diagnose neurological conditions such as autism early.<br>作者讲到脑指纹可用于诊断神经元病变，例如自闭症。<br>Tests are already under way for Alzheimer’s disease, which seems to entail a loss of the sufferer’s unique neural signature.<br>阿尔兹海默症的相关实验正在进行中，实验表明患者似乎丧失了某个独特的神经元特征。<br>The possibility of an unforgeable mental signature may soon escape the realm of science fiction.<br>不可伪造的神经元标识可能很快就不再专属于科幻小说领域了。</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;Neural Link:&lt;br&gt;神经元连接:&lt;br&gt;Your brain has a unique signature&lt;br&gt;大脑的独特标识&lt;br&gt;Technology is rapidly changing the way in which people can be i
+      
+    
+    </summary>
+    
+    
+      <category term="经济学人" scheme="https://dana5haw.com/categories/%E7%BB%8F%E6%B5%8E%E5%AD%A6%E4%BA%BA/"/>
+    
+    
+      <category term="I期马拉松" scheme="https://dana5haw.com/tags/I%E6%9C%9F%E9%A9%AC%E6%8B%89%E6%9D%BE/"/>
+    
+      <category term="经济学人" scheme="https://dana5haw.com/tags/%E7%BB%8F%E6%B5%8E%E5%AD%A6%E4%BA%BA/"/>
+    
+      <category term="浓咖啡" scheme="https://dana5haw.com/tags/%E6%B5%93%E5%92%96%E5%95%A1/"/>
+    
+  </entry>
   
   <entry>
     <title>如何搭建Wordpress+Woocommerce电商网站</title>
@@ -522,30 +552,6 @@
       <category term="redhat7" scheme="https://dana5haw.com/tags/redhat7/"/>
     
       <category term="DHCP" scheme="https://dana5haw.com/tags/DHCP/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>DNS分离解析服务搭建</title>
-    <link href="https://dana5haw.com/posts/ZH-CN/DNS-seperate-explanation.html"/>
-    <id>https://dana5haw.com/posts/ZH-CN/DNS-seperate-explanation.html</id>
-    <published>2020-07-04T09:21:34.000Z</published>
-    <updated>2021-08-06T03:46:38.128Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>DNS分离解析实现的效果就是，同一个域名，在不同地区解析出的IP地址不同。很常用，目的是加快用户访问网站的速度，比如：cdn加速。</p><p><escape> <span id="more"></span></escape></p><h2 id="DNS分离解析服务搭建"><a href="#DNS分离解析服务搭建" class="headerlink" title="DNS分离解析服务搭建"></a>DNS分离解析服务搭建</h2><p>DNS服务器：</p><ul><li>北京网络：122.71.115.1</li><li>美国网络：106.185.25.1<br>客户端：</li><li>北京用户：122.71.115.10</li><li>美国用户：106.185.25.10</li></ul><ol><li>安装bind-chroot<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum install bind-chroot</span><br></pre></td></tr></table></figure></li><li>编辑主配置文件<code>/etc/named.conf</code>，改为any，并删除根域信息。<br><img src="https://v2ray.dana5haw.com:8008/images/2020/07/04/image3b61f8066837cf2b.png" alt="image3b61f8066837cf2b.png"><br><img src="https://v2ray.dana5haw.com:8008/images/2020/07/04/image5efa1af0d50dd0be.png" alt="image5efa1af0d50dd0be.png"></li><li>编辑区域配置文件<code>/etc/named.rfc1912.zones</code><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">acl &quot;china&quot; &#123; 122.71.115.0/24; &#125;;</span><br><span class="line">acl &quot;america&quot; &#123; 106.185.25.0/24; &#125;;</span><br><span class="line">view &quot;china&quot; &#123;</span><br><span class="line">match-clients &#123; &quot;china&quot;; &#125;;</span><br><span class="line">zone &quot;linuxprobe.com&quot; &#123;</span><br><span class="line">type master;</span><br><span class="line">file &quot;linuxprobe.com.china&quot;;</span><br><span class="line">&#125;;</span><br><span class="line">&#125;;</span><br><span class="line">view &quot;america&quot; &#123;</span><br><span class="line">match-clients &#123; &quot;america&quot;; &#125;;</span><br><span class="line">zone &quot;linuxprobe.com&quot; &#123;</span><br><span class="line">type master;</span><br><span class="line">file &quot;linuxprobe.com.america&quot;;</span><br><span class="line">&#125;;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></li><li>拷贝正向解析模板<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cp -a /var/named/named.local /var/named/linuxprobe.com.china #北京用户正向解析文件</span><br><span class="line">cp -a /var/named/named.local /var/named/linuxprobe.com.america #美国用户正向解析文件</span><br></pre></td></tr></table></figure></li><li>编辑正向解析文件</li></ol><ul><li>编辑北京用户正向解析文件<code>/var/named/linuxprobe.com.china</code><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">$TTL 1D</span><br><span class="line">@       IN SOA  linuxprobe.com. root.linuxprobe.com. (</span><br><span class="line">                                        0       ; serial</span><br><span class="line">                                        1D      ; refresh</span><br><span class="line">                                        1H      ; retry</span><br><span class="line">                                        1W      ; expire</span><br><span class="line">                                        3H )    ; minimum</span><br><span class="line">        NS      ns.linuxprobe.com.</span><br><span class="line">ns      IN A    122.71.115.1</span><br><span class="line">www     IN A    122.71.115.1</span><br></pre></td></tr></table></figure></li><li>编辑美国用户正向解析文件<code>/var/named/linuxprobe.com.america</code><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">$TTL 1D</span><br><span class="line">@       IN SOA  linuxprobe.com. root.linuxprobe.com. (</span><br><span class="line">                                        0       ; serial</span><br><span class="line">                                        1D      ; refresh</span><br><span class="line">                                        1H      ; retry</span><br><span class="line">                                        1W      ; expire</span><br><span class="line">                                        3H )    ; minimum</span><br><span class="line">        NS      ns.linuxprobe.com.</span><br><span class="line">ns      IN A    106.185.25.1</span><br><span class="line">www     IN A    106.185.25.1</span><br></pre></td></tr></table></figure></li></ul><ol start="6"><li>清空防火墙规则<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">iptables -F</span><br><span class="line">service iptables save</span><br></pre></td></tr></table></figure></li><li>设置网卡信息<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">nmtui #进入图形化界面配置网卡信息</span><br><span class="line">systemctl restart network #重启网卡使配置生效 </span><br></pre></td></tr></table></figure><img src="https://v2ray.dana5haw.com:8008/images/2020/07/04/imagedf8d626ac2a67a74.png" alt="imagedf8d626ac2a67a74.png"></li><li>开启DNS服务并加入开机启动项<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">systemctl start named</span><br><span class="line">systemctl enable named</span><br></pre></td></tr></table></figure></li></ol><h2 id="验证DNS分离解析服务的效果"><a href="#验证DNS分离解析服务的效果" class="headerlink" title="验证DNS分离解析服务的效果"></a>验证DNS分离解析服务的效果</h2><p>开启一台可以连外网的客户端（网卡为桥接模式），更改IP地址分别模拟北京用户和美国用户，观察域名<a href="http://www.linuxprobe.com解析出的IP地址是多少。">www.linuxprobe.com解析出的IP地址是多少。</a></p><ul><li>模拟北京用户<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">nmtui #进入图形化界面配置网卡信息</span><br><span class="line">systemctl restart network #重启网卡使配置生效 </span><br></pre></td></tr></table></figure><img src="https://v2ray.dana5haw.com:8008/images/2020/07/04/image3c70a91180774d01.png" alt="image3c70a91180774d01.png"><br>测试分离解析是否成功<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ping www.linuxprobe.com #解析出的IP是北京网络，就说明分离解析成功</span><br></pre></td></tr></table></figure><img src="https://v2ray.dana5haw.com:8008/images/2020/07/04/image02894ecf9a80b752.png" alt="image02894ecf9a80b752.png"></li><li>模拟美国用户<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">nmtui #进入图形化界面配置网卡信息</span><br><span class="line">systemctl restart network #重启网卡使配置生效 </span><br></pre></td></tr></table></figure><img src="https://v2ray.dana5haw.com:8008/images/2020/07/04/image804c56d8f8973430.png" alt="image804c56d8f8973430.png"><br>测试分离解析是否成功<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ping www.linuxprobe.com #解析出的IP是美国网络，就说明分离解析成功</span><br></pre></td></tr></table></figure><img src="https://v2ray.dana5haw.com:8008/images/2020/07/04/image502a16fd9de744a5.png" alt="image502a16fd9de744a5.png"></li></ul>]]></content>
-    
-    <summary type="html">
-    
-      &lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h2&gt;&lt;p&gt;DNS分离解析实现的效果就是，同一个域名，在不同地区解析出的IP地址不同。很常用，目的是加快用户访问网站的速度，比如：cdn加速。&lt;/p&gt;
-&lt;p&gt;&lt;escape&gt;
-    
-    </summary>
-    
-    
-      <category term="RHCE" scheme="https://dana5haw.com/categories/RHCE/"/>
-    
-    
-      <category term="DNS分离解析" scheme="https://dana5haw.com/tags/DNS%E5%88%86%E7%A6%BB%E8%A7%A3%E6%9E%90/"/>
     
   </entry>
   
