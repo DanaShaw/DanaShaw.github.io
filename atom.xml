@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://dana5haw.com/"/>
-  <updated>2021-10-29T06:57:35.913Z</updated>
+  <updated>2021-10-30T16:03:00.751Z</updated>
   <id>https://dana5haw.com/</id>
   
   <author>
@@ -15,6 +15,36 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>I期马拉松-坚持100天喝经济学人浓咖啡（-99）</title>
+    <link href="https://dana5haw.com/posts/ZH-CN/Espresso-Economics-Marathon-99day.html"/>
+    <id>https://dana5haw.com/posts/ZH-CN/Espresso-Economics-Marathon-99day.html</id>
+    <published>2021-10-30T15:59:00.000Z</published>
+    <updated>2021-10-30T16:03:00.751Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>经济学人浓咖啡马拉松计划doing！第-99天。</p><p><escape> <span id="more"></span></escape></p><h2 id="喝吧"><a href="#喝吧" class="headerlink" title="喝吧"></a>喝吧</h2><p>Artificial selection: how evolution could design future robots</p><p>人工选择：如何利用进化设计未来机器人</p><p>What if an algorithm could mimic hundreds of millions of years of evolution?</p><p>如果有一种算法可以模拟数百万年的进化会怎样呢？</p><p>A team from Stanford University tried to do just that.</p><p>斯坦福大学的一支团队正尝试实现这种算法。</p><p>Their results, published in Nature Communications, a journal, could suggest ways to improve artificial intelligence.</p><p>他们在Nature Communications期刊发表论文，并提出了改善人工智能的建议。</p><p>The researchers created virtual environments filled with hundreds of creepy crawlies to test the approach.</p><p>为了测试这种新方法，研究学者创建了包含上百个爬虫的虚拟环境。</p><p>The “unimals” were programmed to learn tasks, such as moving a ball or maneuvering through obstacles, while continuously evolving.</p><p>经过编程的“unimal”（虚拟生物）通过不断迭代来学习任务，这些任务包括移动小球，或者穿越障碍物。</p><p>As in the animal kingdom, the fittest member would reproduce.</p><p>就像动物世界一样，适者生存。</p><p>The offspring, which overwrote the parent, would be a physical mutation involving one genetic tweak: an extra limb for stability or a different joint for flexibility, perhaps.</p><p>后代重写父代基因，这属于物理突变。比如基因微调：增加一个肢体以利于稳定性，或者增加一个关节可能会利于灵活性。</p><p>After 10 generations the most successful unimals could master tasks twice as fast as their ancestors, despite having the same baseline intelligence.</p><p>经过10个迭代之后，在相同智力基线水平下，最成功的“unimal”掌握任务的速度是祖先的两倍。</p><p>Like in nature, a robot could adapt faster if its body and artificial mind evolve in tandem.</p><p>自然情况下，如果机器人的身体和智能同时进化，它会更快适应环境。</p><p>文中所讲的斯坦福大学团队就是李飞飞团队。</p><p>（图源：科学网）<br><img src="https://mmbiz.qpic.cn/mmbiz_png/l4GuGsGLmoroGVQMhxIsfjHgSazxlrNnJo5O2QWTpSEyGwhOlaIhTicPysVhTwZfZuu78VKQPu2wx7ANyLyPQsw/640?wx_fmt=png&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1" alt="lff.jpg"><br><img src="https://v2ray.dana5haw.com:8008/images/2021/10/31/unimal.jpg" alt="unimal.jpg"></p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h2&gt;&lt;p&gt;经济学人浓咖啡马拉松计划doing！第-99天。&lt;/p&gt;
+&lt;p&gt;&lt;escape&gt;
+    
+    </summary>
+    
+    
+      <category term="经济学人" scheme="https://dana5haw.com/categories/%E7%BB%8F%E6%B5%8E%E5%AD%A6%E4%BA%BA/"/>
+    
+    
+      <category term="I期马拉松" scheme="https://dana5haw.com/tags/I%E6%9C%9F%E9%A9%AC%E6%8B%89%E6%9D%BE/"/>
+    
+      <category term="经济学人" scheme="https://dana5haw.com/tags/%E7%BB%8F%E6%B5%8E%E5%AD%A6%E4%BA%BA/"/>
+    
+      <category term="浓咖啡" scheme="https://dana5haw.com/tags/%E6%B5%93%E5%92%96%E5%95%A1/"/>
+    
+      <category term="虚拟生物" scheme="https://dana5haw.com/tags/%E8%99%9A%E6%8B%9F%E7%94%9F%E7%89%A9/"/>
+    
+  </entry>
   
   <entry>
     <title>I期马拉松|坚持100天喝经济学人浓咖啡（-100）</title>
@@ -524,32 +554,6 @@
       <category term="dovecot" scheme="https://dana5haw.com/tags/dovecot/"/>
     
       <category term="outlook" scheme="https://dana5haw.com/tags/outlook/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>redhat7部署DHCP服务</title>
-    <link href="https://dana5haw.com/posts/ZH-CN/redhat7-DHCP.html"/>
-    <id>https://dana5haw.com/posts/ZH-CN/redhat7-DHCP.html</id>
-    <published>2020-07-09T12:54:22.000Z</published>
-    <updated>2021-08-06T03:53:16.869Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>作为DHCP服务器端，需要设置静态IP地址。并且服务端和客户端都得是仅主机模式。</p><p><escape> <span id="more"></span></escape></p><h2 id="服务端部署DHCP服务"><a href="#服务端部署DHCP服务" class="headerlink" title="服务端部署DHCP服务"></a>服务端部署DHCP服务</h2><ul><li>服务端网卡设置，重启网卡使配置生效<br>IP地址：192.168.0.20<br><img src="https://v2ray.dana5haw.com:8008/images/2020/07/09/image.png" alt="image.png"><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl restart network #重启网卡</span><br></pre></td></tr></table></figure></li><li>安装dhcp软件<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum install dhcp</span><br></pre></td></tr></table></figure></li><li>编辑dhcp服务配置文件<code>/etc/dhcp/dhcpd.conf</code><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">ddns-update-style none;</span><br><span class="line">ignore client-updates;</span><br><span class="line">subnet 192.168.0.0 netmask 255.255.255.0 &#123;</span><br><span class="line">range 192.168.0.50 192.168.0.100; #IP地址池</span><br><span class="line">option subnet-mask 255.255.255.0; #子网掩码</span><br><span class="line">option routers 192.168.0.20; #路由器</span><br><span class="line">option domain-name-servers 192.168.0.20; #DHCP服务器的IP地址</span><br><span class="line">default-lease-time 21600; #默认租约</span><br><span class="line">max-lease-time 43200; #最长租约</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li><li>启动DHCP服务并加入开机启动项<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">systemctl start dhcpd</span><br><span class="line">systemctl enable dhcpd</span><br></pre></td></tr></table></figure></li><li>清除iptables规则<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">iptables -F</span><br><span class="line">service iptables save</span><br></pre></td></tr></table></figure><h2 id="客户端验证DHCP服务器效果"><a href="#客户端验证DHCP服务器效果" class="headerlink" title="客户端验证DHCP服务器效果"></a>客户端验证DHCP服务器效果</h2></li><li>编辑虚拟机网络编辑器，取消DHCP的设置<br><img src="https://v2ray.dana5haw.com:8008/images/2020/07/09/image40d8da1bf24c05d3.png" alt="image40d8da1bf24c05d3.png"></li><li>设置网卡，改成DHCP方式获取IP地址，重启网卡使配置生效<br><img src="https://v2ray.dana5haw.com:8008/images/2020/07/09/image44ab240a1b5043c2.png" alt="image44ab240a1b5043c2.png"><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl restart network</span><br></pre></td></tr></table></figure></li><li>检查机器获取到的IP地址，已获取到DHCP服务器地址池里面随机分配的地址<br><img src="https://v2ray.dana5haw.com:8008/images/2020/07/09/imageb5b8d32ddb4c1d0d.png" alt="imageb5b8d32ddb4c1d0d.png"><h2 id="服务端可查看客户端的MAC地址"><a href="#服务端可查看客户端的MAC地址" class="headerlink" title="服务端可查看客户端的MAC地址"></a>服务端可查看客户端的MAC地址</h2></li><li>重启客户端的网卡，查看服务端的日志，可找到客户端使用DHCP服务的详情，包括客户端的MAC地址<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tail -f /var/log/messages</span><br></pre></td></tr></table></figure><img src="https://v2ray.dana5haw.com:8008/images/2020/07/09/imageb3c3b368e25ab25b.png" alt="imageb3c3b368e25ab25b.png"><h2 id="服务端为某个客户端分配固定的IP地址"><a href="#服务端为某个客户端分配固定的IP地址" class="headerlink" title="服务端为某个客户端分配固定的IP地址"></a>服务端为某个客户端分配固定的IP地址</h2></li><li>服务端配置文件添加以下内容，将客户端的MAC地址和固定IP地址做绑定<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">host dana&#123;</span><br><span class="line">        hardware ethernet 00:0c:29:1b:b1:9d;</span><br><span class="line">        fixed-address 192.168.0.66;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><img src="https://v2ray.dana5haw.com:8008/images/2020/07/09/imageca35b36e6528b081.png" alt="imageca35b36e6528b081.png"></li><li>服务端重启dhcp服务<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl restart dhcpd</span><br></pre></td></tr></table></figure></li><li>客户端重启网卡，检查机器获取的IP地址是否是服务端分配的IP<br><img src="https://v2ray.dana5haw.com:8008/images/2020/07/09/image2494cb3bf40a8e29.png" alt="image2494cb3bf40a8e29.png"></li></ul>]]></content>
-    
-    <summary type="html">
-    
-      &lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h2&gt;&lt;p&gt;作为DHCP服务器端，需要设置静态IP地址。并且服务端和客户端都得是仅主机模式。&lt;/p&gt;
-&lt;p&gt;&lt;escape&gt;
-    
-    </summary>
-    
-    
-      <category term="RHCE" scheme="https://dana5haw.com/categories/RHCE/"/>
-    
-    
-      <category term="redhat7" scheme="https://dana5haw.com/tags/redhat7/"/>
-    
-      <category term="DHCP" scheme="https://dana5haw.com/tags/DHCP/"/>
     
   </entry>
   
