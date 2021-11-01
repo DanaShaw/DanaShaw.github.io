@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://dana5haw.com/"/>
-  <updated>2021-10-31T14:20:48.884Z</updated>
+  <updated>2021-11-01T06:06:18.967Z</updated>
   <id>https://dana5haw.com/</id>
   
   <author>
@@ -15,6 +15,34 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>I期马拉松|坚持100天喝经济学人浓咖啡（-97）</title>
+    <link href="https://dana5haw.com/posts/ZH-CN/Espresso-Economics-Marathon-97day.html"/>
+    <id>https://dana5haw.com/posts/ZH-CN/Espresso-Economics-Marathon-97day.html</id>
+    <published>2021-11-01T05:53:56.000Z</published>
+    <updated>2021-11-01T06:06:18.967Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>经济学人浓咖啡马拉松计划doing！第-98天。</p><p><escape> <span id="more"></span></escape></p><h2 id="喝吧"><a href="#喝吧" class="headerlink" title="喝吧"></a>喝吧</h2><p>The kicked can: COP26</p><p>权宜之计：COP26峰会</p><p>As COP26, the United Nations climate change summit, opened in Glasgow on Sunday, world leaders were finishing up the G20 one in Rome.</p><p>世界各国领导人刚开完罗马G20峰会，本周日，在格拉斯哥召开了联合国COP26气候峰会。</p><p>Their closing statement did not bode well for the climate conference.</p><p>各国领导人在罗马G20峰会达成的最终声明对气候峰会而言并不是什么好兆头。</p><p>In it, the G20 countries—responsible for an estimated 80% of greenhouse-gas emissions—reaffirmed their commitment to the agreement, made in Paris in 2015, to “pursue efforts” to keep global temperature increases to 1.5°C above pre-industrial levels.</p><p>在罗马G20峰会上，G20国家—估计占全球温室气体排放的80%—重申了他们在2015年巴黎协定中做出的承诺：“尽力”将全球平均气温相比工业化前水平的增幅限制在1.5℃水平。</p><p>But they prevaricated about how, making only hand-waving commitments to “support” countries phasing out coal and to strengthen national plans to cut emissions “if necessary”.</p><p>但是他们对于具体如何落地却含糊其辞，只是做出华而不实的承诺：“支持”退煤政策，“在必要时”强化国家减排方案。</p><p>Such evasion is at odds with the urgency of Alok Sharma, the COP26 president.</p><p>这些逃避措辞和COP26峰会主席Alok Sharma的紧迫感产生了矛盾。</p><p>His opening speech stressed the need to ensure that “where Paris promised, Glasgow delivers.”</p><p>他在公开演讲中强调要求：“在巴黎承诺的，就得在格拉斯哥交付”。</p><p>Participants at COP26 have two weeks to figure out how to keep the goals of the Paris agreement alive.</p><p>对COP26峰会的参与国而言，他们还有两周时间提出落实巴黎协定的具体方案。</p><p>There is no more time to procrastinate.</p><p>没那么多时间权宜了。</p><p>COP26峰会就是催收作业的课代表，没完成作业的国家还不少。这两周时间各国会想出什么落地方案呢？拭目以待。（可不要是大家一致推出碳税……）</p><p>课代表</p><p><img src="https://v2ray.dana5haw.com:8008/images/2021/11/01/_20211101132044.png" alt="_20211101132044.png"></p><p>紧张的同学们</p><p><img src="https://v2ray.dana5haw.com:8008/images/2021/11/01/_20211101132248.png" alt="_20211101132248.png"></p><p><img src="https://v2ray.dana5haw.com:8008/images/2021/11/01/_20211101132204.png" alt="_20211101132204.png"></p><p><img src="https://v2ray.dana5haw.com:8008/images/2021/11/01/_20211101132329.png" alt="_20211101132329.png"></p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h2&gt;&lt;p&gt;经济学人浓咖啡马拉松计划doing！第-98天。&lt;/p&gt;
+&lt;p&gt;&lt;escape&gt;
+    
+    </summary>
+    
+    
+      <category term="经济学人" scheme="https://dana5haw.com/categories/%E7%BB%8F%E6%B5%8E%E5%AD%A6%E4%BA%BA/"/>
+    
+    
+      <category term="I期马拉松" scheme="https://dana5haw.com/tags/I%E6%9C%9F%E9%A9%AC%E6%8B%89%E6%9D%BE/"/>
+    
+      <category term="经济学人" scheme="https://dana5haw.com/tags/%E7%BB%8F%E6%B5%8E%E5%AD%A6%E4%BA%BA/"/>
+    
+      <category term="浓咖啡" scheme="https://dana5haw.com/tags/%E6%B5%93%E5%92%96%E5%95%A1/"/>
+    
+  </entry>
   
   <entry>
     <title>I期马拉松|坚持100天喝经济学人浓咖啡（-98）</title>
@@ -526,32 +554,6 @@
       <category term="iSCSI" scheme="https://dana5haw.com/tags/iSCSI/"/>
     
       <category term="网络存储" scheme="https://dana5haw.com/tags/%E7%BD%91%E7%BB%9C%E5%AD%98%E5%82%A8/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>redhat7部署squid服务</title>
-    <link href="https://dana5haw.com/posts/ZH-CN/redhat7-build-squid-server.html"/>
-    <id>https://dana5haw.com/posts/ZH-CN/redhat7-build-squid-server.html</id>
-    <published>2020-07-11T02:37:46.000Z</published>
-    <updated>2021-08-06T03:53:21.857Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>squid可正向代理、正向透明代理、反向代理。</p><p><escape> <span id="more"></span></escape></p><h2 id="squid正向代理"><a href="#squid正向代理" class="headerlink" title="squid正向代理"></a>squid正向代理</h2><p>正向代理和SNAT原理类似。<br>服务端：两块网卡，一块连外网，一块连内网</p><ul><li>网卡一：桥接模式，连外网 </li><li>网卡二：仅主机模式，连内网，IP地址（192.168.0.106）<br>客户端：单网卡，仅主机模式，IP地址（192.168.0.102）<br>正向代理搭建过程：</li></ul><ol><li>配置双网卡</li></ol><ul><li>新增网卡<br><img src="https://v2ray.dana5haw.com:8008/images/2020/07/11/image.png" alt="image.png"></li><li>开启新增网卡<br><img src="https://v2ray.dana5haw.com:8008/images/2020/07/11/image265c2b32707a5a1b.png" alt="image265c2b32707a5a1b.png"></li><li>配置网卡<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nm-connection-editor #进入图形化界面配置网卡</span><br></pre></td></tr></table></figure></li><li>外网网卡配置<br><img src="https://v2ray.dana5haw.com:8008/images/2020/07/11/image7140b2e3e4527852.png" alt="image7140b2e3e4527852.png"></li><li>内网网卡配置<br><img src="https://v2ray.dana5haw.com:8008/images/2020/07/11/image1600272b0e2e2222.png" alt="image1600272b0e2e2222.png"><br><img src="https://v2ray.dana5haw.com:8008/images/2020/07/11/image927d534047159c16.png" alt="image927d534047159c16.png"><br><img src="https://v2ray.dana5haw.com:8008/images/2020/07/11/image60c900cb240b5142.png" alt="image60c900cb240b5142.png"></li><li>重启网卡使配置生效<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl restart network</span><br></pre></td></tr></table></figure><img src="https://v2ray.dana5haw.com:8008/images/2020/07/11/image9b4429ed27c3a58b.png" alt="image9b4429ed27c3a58b.png"></li></ul><ol start="2"><li>安装squid<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum install squid</span><br></pre></td></tr></table></figure></li><li>清除防火墙规则<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">iptables -F</span><br><span class="line">service iptables save</span><br></pre></td></tr></table></figure></li><li>重启squid并加入开机启动项<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">systemctl restart squid</span><br><span class="line">systemctl enable squid</span><br></pre></td></tr></table></figure></li><li>客户端验证正向代理<br>客户端是仅主机模式，本身无法访问互联网网站，但是经过服务端的正向代理后，就可以访问互联网。</li></ol><ul><li>客户端浏览器设置代理：设置为服务端的3128端口（squid服务默认端口）<br><img src="https://v2ray.dana5haw.com:8008/images/2020/07/11/image70e74e9682a1191a.png" alt="image70e74e9682a1191a.png"></li><li>检查客户端是否能访问互联网网站<br><img src="https://v2ray.dana5haw.com:8008/images/2020/07/11/image49f4a88c22965db1.png" alt="image49f4a88c22965db1.png"></li></ul><ol start="6"><li>正向代理设置访问控制</li></ol><ul><li>禁止url含有特定词的访问</li></ul><p>（1）修改配置文件/etc/squid/squid.conf，增加以下语句：<br><img src="https://v2ray.dana5haw.com:8008/images/2020/07/11/image4f6951b33296de8a.png" alt="image4f6951b33296de8a.png"><br>（2）重启squid服务使配置生效</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl restart squid</span><br></pre></td></tr></table></figure><p>（3）验证：url里面含有linux，已被squid拦截。<br><img src="https://v2ray.dana5haw.com:8008/images/2020/07/11/image0348992fed9143de.png" alt="image0348992fed9143de.png"></p><ul><li>仅允许某个IP使用正向代理服务</li></ul><p>（1）修改配置文件/etc/squid/squid.conf，增加以下语句：<br><img src="https://v2ray.dana5haw.com:8008/images/2020/07/11/imageeb5cb2c90fcdc01b.png" alt="imageeb5cb2c90fcdc01b.png"><br>（2）重启squid服务使配置生效</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl restart squid</span><br></pre></td></tr></table></figure><p>（3）验证：将客户端的IP改为其他IP地址，则无法使用正向代理访问互联网<br><img src="https://v2ray.dana5haw.com:8008/images/2020/07/11/image5b7d495c01009ca8.png" alt="image5b7d495c01009ca8.png"><br><img src="https://v2ray.dana5haw.com:8008/images/2020/07/11/image529422e4ac01d2b4.png" alt="image529422e4ac01d2b4.png"></p><ol start="7"><li>服务端设置正向透明代理<br>透明代理是对客户端而言，客户端不用在浏览器设置代理，就是透明代理。以下是正向透明代理的设置方法：</li></ol><ul><li>修改配置文件/etc/squid/squid.conf，修改以下语句：<br><img src="https://v2ray.dana5haw.com:8008/images/2020/07/11/image66787df57652fefe.png" alt="image66787df57652fefe.png"><br><img src="https://v2ray.dana5haw.com:8008/images/2020/07/11/image82735d8d4a7624b4.png" alt="image82735d8d4a7624b4.png"></li><li>检查配置文件语法是否正确<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">squid -k parse</span><br></pre></td></tr></table></figure></li><li>停止squid服务，初始化透明模式的squid配置<br><img src="https://v2ray.dana5haw.com:8008/images/2020/07/11/image439cf4390b7aa491.png" alt="image439cf4390b7aa491.png"></li><li>重启squid服务<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl restart squid</span><br></pre></td></tr></table></figure></li><li>服务端设置防火墙策略，使客户端与服务端共用外网网卡访问互联网<br>（1）方法一：通过iptables设置转发策略<br>开启DNS服务的数据转发功能，允许squid转发IPv4数据包<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">iptables -F</span><br><span class="line">iptables -t nat -A POSTROUTING -p udp --dport 53 -o eno16777736 -j MASQUERADE</span><br></pre></td></tr></table></figure><img src="https://v2ray.dana5haw.com:8008/images/2020/07/11/image672695e7696f852d.png" alt="image672695e7696f852d.png"><br>把客户端的80端口请求转发到服务端的3128端口（squid服务的端口），并且对客户端的IP做SNAT（源地址转换，使得客户端与服务端共用外网网卡）<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">iptables -t nat -A PREROUTING -p tcp -m tcp --dport 80 -j  REDIRECT --to-ports 3128</span><br><span class="line">iptables -t nat -A POSTROUTING -s 192.168.0.102 -o eno16777736 -j SNAT --to 192.168.43.208</span><br><span class="line">service iptables save</span><br></pre></td></tr></table></figure><img src="https://v2ray.dana5haw.com:8008/images/2020/07/11/image9f3f73a7e1eed80f.png" alt="image9f3f73a7e1eed80f.png"><br>（2）方法二：通过firewalld-config设置转发策略<br><img src="https://v2ray.dana5haw.com:8008/images/2020/07/11/imagecb1b5596770b28bd.png" alt="imagecb1b5596770b28bd.png"></li><li>客户端修改网卡配置，将网关设置为服务端IP地址192.168.0.106，DNS服务设置为8.8.8.8。浏览器不设置代理，即可访问互联网网站。<br><img src="https://v2ray.dana5haw.com:8008/images/2020/07/11/image6279dfa426002e43.png" alt="image6279dfa426002e43.png"></li></ul><h2 id="squid反向代理"><a href="#squid反向代理" class="headerlink" title="squid反向代理"></a>squid反向代理</h2><p>就是可以在用代理服务器的IP地址访问到网站内容，看起来这个网站就是代理服务器自己做的一样。说得通俗一点，就是偷别人的作品，冠上自己的姓名。以下是squid反向代理的配置方法：<br>重新做一台squid代理服务器，只需要一张桥接网卡，可连外网。</p><ul><li>安装squid<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum install squid</span><br></pre></td></tr></table></figure></li><li>修改配置文件/etc/squid/squid.conf<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">http_port 192.168.43.208:80 vhost #将本机外网网卡地址设置为虚拟主机</span><br><span class="line">cache_peer 122.142.74.150 parent 80 0  originserver #同步目标服务器的网站内容</span><br><span class="line"></span><br></pre></td></tr></table></figure><img src="https://v2ray.dana5haw.com:8008/images/2020/07/11/image629638bce63ab274.png" alt="image629638bce63ab274.png"></li><li>重启squid服务并 加入开机启动项<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">systemctl restart squid</span><br><span class="line">systemctl enable squid</span><br></pre></td></tr></table></figure></li><li>在浏览器输入本机地址，即可访问到目标网站（<a href="http://www.jldaren.com）的内容，和原站一模一样">www.jldaren.com）的内容，和原站一模一样</a><br><img src="https://v2ray.dana5haw.com:8008/images/2020/07/11/imageb623a21ac4f98893.png" alt="imageb623a21ac4f98893.png"><br><img src="https://v2ray.dana5haw.com:8008/images/2020/07/11/imagea38a90f80016fbd2.png" alt="imagea38a90f80016fbd2.png"></li></ul>]]></content>
-    
-    <summary type="html">
-    
-      &lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h2&gt;&lt;p&gt;squid可正向代理、正向透明代理、反向代理。&lt;/p&gt;
-&lt;p&gt;&lt;escape&gt;
-    
-    </summary>
-    
-    
-      <category term="RHCE" scheme="https://dana5haw.com/categories/RHCE/"/>
-    
-    
-      <category term="redhat7" scheme="https://dana5haw.com/tags/redhat7/"/>
-    
-      <category term="squid" scheme="https://dana5haw.com/tags/squid/"/>
     
   </entry>
   
