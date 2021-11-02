@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://dana5haw.com/"/>
-  <updated>2021-11-01T06:10:27.926Z</updated>
+  <updated>2021-11-02T14:18:05.866Z</updated>
   <id>https://dana5haw.com/</id>
   
   <author>
@@ -15,6 +15,34 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>辉瑞赚翻了</title>
+    <link href="https://dana5haw.com/posts/ZH-CN/Espresso-Economics-Marathon-96day.html"/>
+    <id>https://dana5haw.com/posts/ZH-CN/Espresso-Economics-Marathon-96day.html</id>
+    <published>2021-11-02T14:12:34.000Z</published>
+    <updated>2021-11-02T14:18:05.866Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>经济学人浓咖啡马拉松计划doing！第-96天。</p><p><escape> <span id="more"></span></escape></p><h2 id="喝吧"><a href="#喝吧" class="headerlink" title="喝吧"></a>喝吧</h2><p>Profit booster: Pfizer<br>盆满钵满：辉瑞</p><p><img src="https://v2ray.dana5haw.com:8008/images/2021/11/02/pfizer.png" alt="pfizer.png"> </p><p>Pfizer has had a good year.<br>今年对辉瑞来说是个井喷年。</p><p>The wide adoption of the drugmaker’s covid-19 jab, the first to be rolled out, has given its profits a real shot in the arm.<br>辉瑞作为第一个推出新冠疫苗的药厂，疫苗的广泛接种让它赚的盆满钵满。</p><p>It is on track to produce 3bn doses this year.<br>今年有望生产出30亿剂疫苗。</p><p>America’s drug regulator has just approved its vaccine for children aged 5-11.<br>美国药监局刚刚批准了辉瑞生产的适用于5至11岁儿童的疫苗。</p><p>Next year it expects to almost double covid-vaccine sales.<br>辉瑞希望明年的新冠疫苗销量达到今年的两倍。</p><p>As it reports quarterly results on Tuesday, its upward trajectory shows no signs of slowing.<br>周二发布的季度报告显示，其销量上升趋势并未见减缓迹象。</p><p>Pfizer’s non-covid business is also flourishing, with strong year-on-year growth in the second quarter.<br>在第二季度报告中显示，辉瑞的非新冠疫苗业务也如火如荼，正以逐年递增的趋势发展。</p><p>That trend is likely to continue, as the mRNA technology its covid vaccine employs finds other uses.<br>因为mRNA技术不仅能用于新冠疫苗的研发，非新冠疫苗的业务趋势可能仍会持续上升。</p><p>The recent acquisition of a cancer-drug biotech company for $2.3bn shows Pfizer is looking beyond the pandemic.<br>最近，辉瑞以23亿美元收购了一家癌症药物生物科技公司（Trillium Therapeutics）。这也说明辉瑞看到了疫情之外的业务机会。</p><p><img src="https://v2ray.dana5haw.com:8008/images/2021/11/02/virus.jpg" alt="virus.jpg"><br><img src="https://v2ray.dana5haw.com:8008/images/2021/11/02/trillium.png" alt="trillium.png"></p><p>In August the firm raised its 2021 revenue projections.<br>8月，辉瑞公布了2021年度预期收入。</p><p>Thanks to demand for covid-vaccine boosters and the possibility that new variants of the virus will emerge, it may set its sights even higher.<br>由于新冠疫苗的大量需求，加上新冠病毒新毒株也可能面世，辉瑞的预期收入可能更高。</p><p><br>很多国家推出了疫苗护照，接种了新冠疫苗的旅客才可以入境。</br></p><p><img src="https://v2ray.dana5haw.com:8008/images/2021/11/02/vaccine-paasport.jpg" alt="vaccine-paasport.jpg"></p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h2&gt;&lt;p&gt;经济学人浓咖啡马拉松计划doing！第-96天。&lt;/p&gt;
+&lt;p&gt;&lt;escape&gt;
+    
+    </summary>
+    
+    
+      <category term="经济学人" scheme="https://dana5haw.com/categories/%E7%BB%8F%E6%B5%8E%E5%AD%A6%E4%BA%BA/"/>
+    
+    
+      <category term="I期马拉松" scheme="https://dana5haw.com/tags/I%E6%9C%9F%E9%A9%AC%E6%8B%89%E6%9D%BE/"/>
+    
+      <category term="经济学人" scheme="https://dana5haw.com/tags/%E7%BB%8F%E6%B5%8E%E5%AD%A6%E4%BA%BA/"/>
+    
+      <category term="浓咖啡" scheme="https://dana5haw.com/tags/%E6%B5%93%E5%92%96%E5%95%A1/"/>
+    
+  </entry>
   
   <entry>
     <title>I期马拉松|坚持100天喝经济学人浓咖啡（-97）</title>
@@ -526,34 +554,6 @@
       <category term="kickstart" scheme="https://dana5haw.com/tags/kickstart/"/>
     
       <category term="无人值守安装系统" scheme="https://dana5haw.com/tags/%E6%97%A0%E4%BA%BA%E5%80%BC%E5%AE%88%E5%AE%89%E8%A3%85%E7%B3%BB%E7%BB%9F/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>redhat7使用iSCSI部署网络存储</title>
-    <link href="https://dana5haw.com/posts/ZH-CN/rehat7-iSCSI-network-store.html"/>
-    <id>https://dana5haw.com/posts/ZH-CN/rehat7-iSCSI-network-store.html</id>
-    <published>2020-07-11T13:07:12.000Z</published>
-    <updated>2021-08-06T03:54:01.344Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>两台电脑之间传输数据，最简单快速的方式，把硬盘拆下来，用iSCSI接口转接，将硬盘变成移动硬盘。</p><p><escape> <span id="more"></span></escape></p><h2 id="服务端部署iSCSI"><a href="#服务端部署iSCSI" class="headerlink" title="服务端部署iSCSI"></a>服务端部署iSCSI</h2><p>服务端IP地址：192.168.0.106</p><ol><li>服务端新增4块硬盘，创建raid10磁盘阵列<br><img src="https://v2ray.dana5haw.com:8008/images/2020/07/11/image6082175f65c8f591.png" alt="image6082175f65c8f591.png"><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">mdadm -Cv /dev/md0 -n 4 -l 10 /dev/sd[b-e] #创建raid10阵列</span><br><span class="line">mdadm -D /dev/md0 #检查磁盘阵列初始化是否完成</span><br></pre></td></tr></table></figure><img src="https://v2ray.dana5haw.com:8008/images/2020/07/11/image9bf4838232ce93ff.png" alt="image9bf4838232ce93ff.png"></li><li>安装target、tarfetd<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum install targetd targetcli</span><br></pre></td></tr></table></figure></li><li>命令行输入targetcli进行iSCSI部署操作<br><img src="https://v2ray.dana5haw.com:8008/images/2020/07/11/imagef8de3494ad4f9a20.png" alt="imagef8de3494ad4f9a20.png"><br><img src="https://v2ray.dana5haw.com:8008/images/2020/07/11/image9af18b96fed76baa.png" alt="image9af18b96fed76baa.png"><br><img src="https://v2ray.dana5haw.com:8008/images/2020/07/11/image7e8d0072172e9af6.png" alt="image7e8d0072172e9af6.png"><br><img src="https://v2ray.dana5haw.com:8008/images/2020/07/11/image51376da58243d471.png" alt="image51376da58243d471.png"><br><img src="https://v2ray.dana5haw.com:8008/images/2020/07/11/imagec172eb34c709922d.png" alt="imagec172eb34c709922d.png"><br><img src="https://v2ray.dana5haw.com:8008/images/2020/07/11/image6688416831e6421c.png" alt="image6688416831e6421c.png"><h2 id="验证iSCSI网络存储服务"><a href="#验证iSCSI网络存储服务" class="headerlink" title="验证iSCSI网络存储服务"></a>验证iSCSI网络存储服务</h2></li><li>linux客户端</li></ol><ul><li>编辑配置文件/etc/iscsi/initiatorname.iscsi<br><img src="https://v2ray.dana5haw.com:8008/images/2020/07/11/image312788230cf5cde5.png" alt="image312788230cf5cde5.png"></li><li>重启服务并加入开机启动项<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">systemctl restart iscsid</span><br><span class="line">systemctl renable iscsid</span><br></pre></td></tr></table></figure></li><li>发现服务端<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">iscsiadm -m discovery -t st -p 192.168.0.106</span><br></pre></td></tr></table></figure><img src="https://v2ray.dana5haw.com:8008/images/2020/07/11/image33a37f20605b4266.png" alt="image33a37f20605b4266.png"></li><li>登录到服务端<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">iscsiadm -m node -T iqn.2003-01.org.linux-iscsi.dana.x8664:sn.b6176097698c -p 192.168.0.106 -l</span><br></pre></td></tr></table></figure></li><li>卸载服务端<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">iscsiadm -m node -T iqn.2003-01.org.linux-iscsi.dana.x8664:sn.b6176097698c -u</span><br></pre></td></tr></table></figure></li></ul><ol start="2"><li>windows客户端<br><img src="https://v2ray.dana5haw.com:8008/images/2020/07/11/image5fb28d2aa70f8080.png" alt="image5fb28d2aa70f8080.png"><br><img src="https://v2ray.dana5haw.com:8008/images/2020/07/11/image7914279380dd54e0.png" alt="image7914279380dd54e0.png"><br><img src="https://v2ray.dana5haw.com:8008/images/2020/07/11/imagea1a638ee565a432e.png" alt="imagea1a638ee565a432e.png"><br><img src="https://v2ray.dana5haw.com:8008/images/2020/07/11/image064ff2a8506390fe.png" alt="image064ff2a8506390fe.png"><br><img src="https://v2ray.dana5haw.com:8008/images/2020/07/11/image8cdab3925dc9727c.png" alt="image8cdab3925dc9727c.png"><br><img src="https://v2ray.dana5haw.com:8008/images/2020/07/11/image7ecfcc15bbc53f7d.png" alt="image7ecfcc15bbc53f7d.png"><br><img src="https://v2ray.dana5haw.com:8008/images/2020/07/11/image89a05f5e52f08513.png" alt="image89a05f5e52f08513.png"><br><img src="https://v2ray.dana5haw.com:8008/images/2020/07/11/image850319cd5ac9a91f.png" alt="image850319cd5ac9a91f.png"><br><img src="https://v2ray.dana5haw.com:8008/images/2020/07/11/image456a82072f09410a.png" alt="image456a82072f09410a.png"><br><img src="https://v2ray.dana5haw.com:8008/images/2020/07/11/image7ce4903c5d6965df.png" alt="image7ce4903c5d6965df.png"></li></ol>]]></content>
-    
-    <summary type="html">
-    
-      &lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h2&gt;&lt;p&gt;两台电脑之间传输数据，最简单快速的方式，把硬盘拆下来，用iSCSI接口转接，将硬盘变成移动硬盘。&lt;/p&gt;
-&lt;p&gt;&lt;escape&gt;
-    
-    </summary>
-    
-    
-      <category term="RHCE" scheme="https://dana5haw.com/categories/RHCE/"/>
-    
-    
-      <category term="redhat7" scheme="https://dana5haw.com/tags/redhat7/"/>
-    
-      <category term="iSCSI" scheme="https://dana5haw.com/tags/iSCSI/"/>
-    
-      <category term="网络存储" scheme="https://dana5haw.com/tags/%E7%BD%91%E7%BB%9C%E5%AD%98%E5%82%A8/"/>
     
   </entry>
   
