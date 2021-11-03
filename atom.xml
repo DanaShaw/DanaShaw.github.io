@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://dana5haw.com/"/>
-  <updated>2021-11-02T14:18:05.866Z</updated>
+  <updated>2021-11-03T13:24:18.899Z</updated>
   <id>https://dana5haw.com/</id>
   
   <author>
@@ -15,6 +15,34 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>(Facebook OR 雅虎) VS 数据安全法</title>
+    <link href="https://dana5haw.com/posts/ZH-CN/Espresso-Economics-Marathon-95day.html"/>
+    <id>https://dana5haw.com/posts/ZH-CN/Espresso-Economics-Marathon-95day.html</id>
+    <published>2021-11-03T13:15:37.000Z</published>
+    <updated>2021-11-03T13:24:18.899Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>经济学人浓咖啡马拉松计划doing！第-95天。</p><p><escape> <span id="more"></span></escape></p><h2 id="喝吧"><a href="#喝吧" class="headerlink" title="喝吧"></a>喝吧</h2><p>Facebook VS 数据安全法</p><p>Meta, parent company to Facebook, said it would shut down the platform’s facial-recognition system amid “growing societal concerns”.</p><p>在“持续不断的社会关注”下，Facebook的母公司Meta宣布将关闭平台的人脸识别系统。</p><p>Facebook will delete over a billion images of people’s faces from its repository.</p><p>Facebook将从存储库中删除上十亿的人脸照片。</p><p>More than a third of Facebook users had consented to being automatically identified and suggested for tags in photos and videos, but they will no longer be recognised.</p><p>超过三分之一的Facebook用户同意了关于照片和视频的用户协议，同意协议后，系统会自动识别人脸并推荐标签。但在未来，用户的人脸信息不再被自动识别。</p><p>（推荐标签功能是这样的，图源：新浪财经：太平洋电脑网）</p><p><img src="https://v2ray.dana5haw.com:8008/images/2021/11/03/facebook.png" alt="facebook.png"></p><p>雅虎 VS 数据安全法</p><p>Yahoo said it would end its operations in China owing to an “increasingly challenging business and legal environment”.</p><p>由于“越来越具挑战的商业环境和法律环境”，雅虎宣布将在中国停止运营。</p><p>（图源：华尔街日报）</p><p><img src="https://v2ray.dana5haw.com:8008/images/2021/11/03/yahoo.png" alt="yahoo.png"></p><p>The move is largely symbolic: the tech firm had already shut down most of its services, such as its email offering.</p><p>这个动作非常具有标志性：这家科技公司很早就关闭了邮件服务等大部分业务。</p><p>Yahoo’s departure coincides with the introduction of new rules governing how firms can store and transfer data.</p><p>雅虎的撤退恰逢新规，这项新规（数据安全法）规定了如何管控企业的数据存储和数据传输。</p><p>Last month LinkedIn, a professional-networking site, also quit China.</p><p>上个月，职业社交网站领英也宣布退出中国。</p><p>数据管控越来越严格了。</p><p>以后一定要去加州看看Dana Point。<br><img src="https://v2ray.dana5haw.com:8008/images/2021/11/03/Dana-Point.png" alt="Dana-Point.png"></p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h2&gt;&lt;p&gt;经济学人浓咖啡马拉松计划doing！第-95天。&lt;/p&gt;
+&lt;p&gt;&lt;escape&gt;
+    
+    </summary>
+    
+    
+      <category term="经济学人" scheme="https://dana5haw.com/categories/%E7%BB%8F%E6%B5%8E%E5%AD%A6%E4%BA%BA/"/>
+    
+    
+      <category term="I期马拉松" scheme="https://dana5haw.com/tags/I%E6%9C%9F%E9%A9%AC%E6%8B%89%E6%9D%BE/"/>
+    
+      <category term="经济学人" scheme="https://dana5haw.com/tags/%E7%BB%8F%E6%B5%8E%E5%AD%A6%E4%BA%BA/"/>
+    
+      <category term="浓咖啡" scheme="https://dana5haw.com/tags/%E6%B5%93%E5%92%96%E5%95%A1/"/>
+    
+  </entry>
   
   <entry>
     <title>辉瑞赚翻了</title>
@@ -524,36 +552,6 @@
       <category term="redhat7" scheme="https://dana5haw.com/tags/redhat7/"/>
     
       <category term="mariadb" scheme="https://dana5haw.com/tags/mariadb/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>redhat7使用PXE+kickstart无人值守安装系统</title>
-    <link href="https://dana5haw.com/posts/ZH-CN/redhat7-PXE-kickstart-auto-install-system.html"/>
-    <id>https://dana5haw.com/posts/ZH-CN/redhat7-PXE-kickstart-auto-install-system.html</id>
-    <published>2020-07-12T07:52:26.000Z</published>
-    <updated>2021-08-06T03:54:06.120Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>redhat配置PXE+kickstart，自动为同网段服务器安装系统。</p><p><escape> <span id="more"></span></escape></p><h2 id="PXE-kickstart配置"><a href="#PXE-kickstart配置" class="headerlink" title="PXE+kickstart配置"></a>PXE+kickstart配置</h2><p>IP地址：192.168.0.106<br>网卡配置：仅主机模式</p><ol><li>配置DHCP服务</li></ol><ul><li>安装dhcp<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum install dhcp</span><br></pre></td></tr></table></figure></li><li>编辑配置文件/etc/dhcp/dhcpd.conf<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">allow booting;</span><br><span class="line">allow bootp;</span><br><span class="line">ddns-update-style none;</span><br><span class="line">ignore client-updates;</span><br><span class="line">subnet 192.168.0.0 netmask 255.255.255.0 &#123;</span><br><span class="line">option subnet-mask 255.255.255.0;</span><br><span class="line">option domain-name-servers 8.8.8.8;</span><br><span class="line">range dynamic-bootp 192.168.0.50 192.168.0.250; #为客户端自动分配IP地址，地址范围192.168.0.50~192.168.0.250</span><br><span class="line">default-lease-time 21600;</span><br><span class="line">max-lease-time 43200;</span><br><span class="line">next-server 192.168.0.106; #网关设置为本机IP</span><br><span class="line">filename &quot;pxelinux.0&quot;;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li><li>重启dhcpd服务并加入开机启动项<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">systemctl restart dhcpd</span><br><span class="line">systemctl enable dhcpd</span><br></pre></td></tr></table></figure></li></ul><ol start="2"><li>配置tftp服务</li></ol><ul><li>安装tfp-server<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum install tftp-server</span><br></pre></td></tr></table></figure></li><li>修改配置文件/etc/xinetd.d/tftp<br><img src="https://v2ray.dana5haw.com:8008/images/2020/07/12/image.png" alt="image.png"></li><li>重启xinetd服务并加入开机启动项<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">systemctl restart xinetd</span><br><span class="line">systemctl enable xinetd</span><br></pre></td></tr></table></figure></li></ul><ol start="3"><li>配置syslinux</li></ol><ul><li>安装syslinux<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum install syslinux</span><br></pre></td></tr></table></figure></li><li>将syslinux的配置文件拷贝到tftp服务的目录<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">cp /usr/share/syslinux/pxelinux.0 /var/lib/tftpboot/</span><br><span class="line">cp /media/cdrom/isolinux/&#123;vesamenu.c32,boot.msg&#125; /var/lib/tftpboot/</span><br><span class="line">cp /media/cdrom/images/pxeboot/&#123;vmlinuz,initrd.img&#125; /var/lib/tftpboot/</span><br><span class="line">cd /var/lib/tftpboot</span><br><span class="line">mkdir pxelinux.cfg</span><br><span class="line">cp /media/cdrom/isolinux/isolinux.cfg pxelinux.cfg/default</span><br></pre></td></tr></table></figure></li><li>修改配置文件/var/lib/tftpboot/pxelinux.cfg/default<br><img src="https://v2ray.dana5haw.com:8008/images/2020/07/12/image24ccca6e728ebbaa.png" alt="image24ccca6e728ebbaa.png"><br><img src="https://v2ray.dana5haw.com:8008/images/2020/07/12/image30676559fd011adf.png" alt="image30676559fd011adf.png"></li></ul><ol start="4"><li>配置http服务</li></ol><ul><li>安装httpd<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum install httpd</span><br></pre></td></tr></table></figure></li><li>拷贝镜像文件到http根目录<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cp -rf /media/cdrom/* /var/www/html/</span><br></pre></td></tr></table></figure></li><li>重启httpd服务并加入开机启动项<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">systemctl restart httpd</span><br><span class="line">systemctl enable httpd</span><br></pre></td></tr></table></figure></li></ul><ol start="5"><li>配置kickstart</li></ol><ul><li>编辑配置文件ks.cfg<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">mkdir /var/www/html/pub</span><br><span class="line">cp /root/anaconda-ks.cfg /var/www/html/pub</span><br><span class="line">cd /var/www/html/pub</span><br><span class="line">mv anaconda-ks.cfg ks.cfg</span><br><span class="line">chmod 755 ks.cfg</span><br></pre></td></tr></table></figure>配置文件修改以下内容：<br><img src="https://v2ray.dana5haw.com:8008/images/2020/07/12/image82ca57f4a89f4b62.png" alt="image82ca57f4a89f4b62.png"></li><li>重启httpd服务<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl restart httpd</span><br></pre></td></tr></table></figure></li></ul><ol start="6"><li>清除防火墙规则<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">iptables -F</span><br><span class="line">service iptables save</span><br></pre></td></tr></table></figure><h2 id="客户端验证无人值守安装"><a href="#客户端验证无人值守安装" class="headerlink" title="客户端验证无人值守安装"></a>客户端验证无人值守安装</h2>客户端设置：网卡模式为仅主机模式。设置完成后，即可进入自动安装系统，无需手动操作。<br><img src="https://v2ray.dana5haw.com:8008/images/2020/07/12/imagec9670f281bf93bd6.png" alt="imagec9670f281bf93bd6.png"><br><img src="https://v2ray.dana5haw.com:8008/images/2020/07/12/image1d0956854cc334e2.png" alt="image1d0956854cc334e2.png"><br>客户端分得的IP地址在DHCP地址池范围内：<br><img src="https://v2ray.dana5haw.com:8008/images/2020/07/12/imageed657cda8f51f620.png" alt="imageed657cda8f51f620.png"></li></ol>]]></content>
-    
-    <summary type="html">
-    
-      &lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h2&gt;&lt;p&gt;redhat配置PXE+kickstart，自动为同网段服务器安装系统。&lt;/p&gt;
-&lt;p&gt;&lt;escape&gt;
-    
-    </summary>
-    
-    
-      <category term="RHCE" scheme="https://dana5haw.com/categories/RHCE/"/>
-    
-    
-      <category term="redhat7" scheme="https://dana5haw.com/tags/redhat7/"/>
-    
-      <category term="PXE" scheme="https://dana5haw.com/tags/PXE/"/>
-    
-      <category term="kickstart" scheme="https://dana5haw.com/tags/kickstart/"/>
-    
-      <category term="无人值守安装系统" scheme="https://dana5haw.com/tags/%E6%97%A0%E4%BA%BA%E5%80%BC%E5%AE%88%E5%AE%89%E8%A3%85%E7%B3%BB%E7%BB%9F/"/>
     
   </entry>
   
