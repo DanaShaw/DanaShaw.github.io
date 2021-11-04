@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://dana5haw.com/"/>
-  <updated>2021-11-03T13:24:18.899Z</updated>
+  <updated>2021-11-04T15:34:39.371Z</updated>
   <id>https://dana5haw.com/</id>
   
   <author>
@@ -15,6 +15,34 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>瑞典乐队ABBA回归</title>
+    <link href="https://dana5haw.com/posts/ZH-CN/Espresso-Economics-Marathon-94day.html"/>
+    <id>https://dana5haw.com/posts/ZH-CN/Espresso-Economics-Marathon-94day.html</id>
+    <published>2021-11-04T15:29:19.000Z</published>
+    <updated>2021-11-04T15:34:39.371Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>经济学人浓咖啡马拉松计划doing！第-94天。</p><p><escape> <span id="more"></span></escape></p><h2 id="喝吧"><a href="#喝吧" class="headerlink" title="喝吧"></a>喝吧</h2><p>Been waiting for you: ABBA returns</p><p>等你：ABBA回归</p><p><img src="https://v2ray.dana5haw.com:8008/images/2021/11/04/abba-band.jpg" alt="abba-band.jpg"></p><p>The Swedish pop group disbanded almost 40 years ago but the music still goes on.</p><p>瑞典流行乐队ABBA在40年前就解散了，但他们的音乐至今仍在流传。</p><p>A greatest hits album released in 1992 cracked the Billboard Top 40 in September.</p><p>9月，ABBA发行于1992年的专辑（ABBA Gold: Greatest Hits）冲上了Billboard Top40榜单。</p><p><img src="https://v2ray.dana5haw.com:8008/images/2021/11/04/abba-gold.png" alt="abba-gold.png"></p><p>More than 65m people have seen “Mamma Mia!”, a stage show of 1999.</p><p>超650万观众都看过1999年舞台秀“妈妈咪呀”。</p><p>The film adaptation, released in 2008, and its sequel, from 2018, grossed over $1bn at the box office between them.</p><p>“妈妈咪呀”的改编电影（上映于2008年）和续集（上映于2018年）的票房毛利润超过了10亿美元。</p><p><img src="https://v2ray.dana5haw.com:8008/images/2021/11/04/mammamia.jpg" alt="mammamia.jpg"></p><p>For decades fans had a dream of a reunion, only to be disillusioned.</p><p>这几十年间，粉丝们一直希望乐队复合，但这一梦想最终还是幻灭。</p><p>In 2000 ABBA refused $1bn to perform 100 shows.</p><p>2000年，ABBA拒绝了出价10亿美元的100场演唱会。</p><p>In 2014 Bjorn Ulvaeus hinted fans might want to move on.</p><p>2014年，Bjorn Ulvaeus表示，粉丝可能还是希望乐队复合。</p><p>But ABBA couldn’t escape if they wanted to.</p><p>ABBA注定要复合，想逃也逃不掉。</p><p>On Friday they release a new album, “Voyage”.</p><p>周五，他们发行了新专辑“Voyage”。</p><p>A custom-built arena in London will host concerts, but the singers aren’t performing.</p><p>ABBA将在伦敦定制舞台举办演唱会，但是歌手并不出场。</p><p>（这个演唱会就是3D全息演唱会）</p><p>Instead, they used motion-capture technology to create digital “ABBAtars”.</p><p>“ABBA歌星”是运用动作捕捉技术生成数字化（人物）。</p><p>Naysayers will argue it’s all motivated by money, money, money.</p><p>反对者会认为一切都是靠金钱力量驱使的。</p><p>The fans will just be thankful for the music.</p><p>但是粉丝只是感谢音乐。</p><p>早上发的文章被禁止了°の ABBA乐队是继Beatles之后最知名的乐队。</p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h2&gt;&lt;p&gt;经济学人浓咖啡马拉松计划doing！第-94天。&lt;/p&gt;
+&lt;p&gt;&lt;escape&gt;
+    
+    </summary>
+    
+    
+      <category term="经济学人" scheme="https://dana5haw.com/categories/%E7%BB%8F%E6%B5%8E%E5%AD%A6%E4%BA%BA/"/>
+    
+    
+      <category term="I期马拉松" scheme="https://dana5haw.com/tags/I%E6%9C%9F%E9%A9%AC%E6%8B%89%E6%9D%BE/"/>
+    
+      <category term="经济学人" scheme="https://dana5haw.com/tags/%E7%BB%8F%E6%B5%8E%E5%AD%A6%E4%BA%BA/"/>
+    
+      <category term="浓咖啡" scheme="https://dana5haw.com/tags/%E6%B5%93%E5%92%96%E5%95%A1/"/>
+    
+  </entry>
   
   <entry>
     <title>(Facebook OR 雅虎) VS 数据安全法</title>
@@ -526,32 +554,6 @@
     
     
       <category term="RHCSA练习" scheme="https://dana5haw.com/tags/RHCSA%E7%BB%83%E4%B9%A0/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>redhat7中mariadb的简单使用</title>
-    <link href="https://dana5haw.com/posts/ZH-CN/redhat7-mariadb-usage.html"/>
-    <id>https://dana5haw.com/posts/ZH-CN/redhat7-mariadb-usage.html</id>
-    <published>2020-07-12T08:36:59.000Z</published>
-    <updated>2021-08-06T03:54:11.141Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>redhat7默认的数据库是mariadb，使用语法与mysql一致。</p><p><escape> <span id="more"></span></escape></p><h2 id="mariadb的简单使用"><a href="#mariadb的简单使用" class="headerlink" title="mariadb的简单使用"></a>mariadb的简单使用</h2><ol><li>安装mariadb并开启服务<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">yum install mariadb mariadb-server</span><br><span class="line">systemctl restart mariadb</span><br><span class="line">systemctl enable mariadb</span><br></pre></td></tr></table></figure></li><li>数据库初始化，注意过程中会设置root密码。<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysql_secure_installation</span><br></pre></td></tr></table></figure></li><li>登录到root用户的数据库<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysql -u root -p</span><br></pre></td></tr></table></figure>进入数据库命令行：<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">MariaDB [(none)]&gt; show databases; #查看当前的数据库</span><br><span class="line">MariaDB [(none)]&gt; set password = password(&#x27;linuxprobe&#x27;); #修改root密码</span><br><span class="line">MariaDB [(none)]&gt; create user edge@localhost identified by &#x27;redhat&#x27;; #新建用户edge，密码为redhat</span><br><span class="line">MariaDB [(none)]&gt; grant select,update,delete,insert on mysql.* to edge@localhost; #给edge用户授予权限，可对root用户的数据库进行增删查改</span><br><span class="line">MariaDB [(none)]&gt; revoke select,update,delete,insert on mysql.* from edge@localhost; #给edge用户取消权限，该用户将无法看到root用户的数据库</span><br><span class="line">MariaDB [(none)]&gt; create database linuxprobe; #创建数据库linuxprobe</span><br><span class="line">MariaDB [(none)]&gt; use linuxprobe; #进入数据库linuxprobe</span><br><span class="line">MariaDB [(none)]&gt; create table mybook(name char(15),price int,pages int); #创建数据表mybook</span><br><span class="line">MariaDB [(none)]&gt; describe mybook; #查看数据表mybook的字段结构</span><br><span class="line">MariaDB [(none)]&gt; insert into mybook (name,price,pages) values(&#x27;linuxprobe&#x27;,&#x27;50&#x27;,&#x27;300&#x27;); #向数据表mybook中插入数据</span><br><span class="line">MariaDB [(none)]&gt; update mybook set price=300; #更改数据表的price字段，设置为30</span><br><span class="line">MariaDB [(none)]&gt; delete from mybook; #删除数据表mybook的数据内容</span><br><span class="line">MariaDB [(none)]&gt; select * from mybook; #查询数据表mybook的所有数据 </span><br><span class="line">MariaDB [(none)]&gt; select name,price from mybook where price=30; #条件查询，查询price字段值为30的数据</span><br><span class="line">MariaDB [(none)]&gt; drop table mybook; #删除数据表mybook</span><br></pre></td></tr></table></figure></li></ol><hr><p><code>delete from mybook</code>与<code>drop table mybook</code>的区别：delete是清空数据表里面的数据，数据表结构还在；但是drop是直接把数据表销毁，数据表结构也不在了。<br><img src="https://v2ray.dana5haw.com:8008/images/2020/07/12/imagee9e6a6785f528631.png" alt="imagee9e6a6785f528631.png"><br><img src="https://v2ray.dana5haw.com:8008/images/2020/07/12/image3313aa102c23da8f.png" alt="image3313aa102c23da8f.png"><br>4. 数据库备份与恢复</p><ul><li>数据库备份<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysqldump -u root -p linuxprobe &gt;  haha.dump</span><br></pre></td></tr></table></figure></li><li>数据库恢复<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysql -u root -p linuxprobe &lt; haha.dump</span><br></pre></td></tr></table></figure></li></ul>]]></content>
-    
-    <summary type="html">
-    
-      &lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h2&gt;&lt;p&gt;redhat7默认的数据库是mariadb，使用语法与mysql一致。&lt;/p&gt;
-&lt;p&gt;&lt;escape&gt;
-    
-    </summary>
-    
-    
-      <category term="RHCE" scheme="https://dana5haw.com/categories/RHCE/"/>
-    
-    
-      <category term="redhat7" scheme="https://dana5haw.com/tags/redhat7/"/>
-    
-      <category term="mariadb" scheme="https://dana5haw.com/tags/mariadb/"/>
     
   </entry>
   
