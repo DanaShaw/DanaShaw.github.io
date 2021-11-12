@@ -115,9 +115,7 @@
 <h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><p><a href="https://www.nginx.com/blog/compiling-and-installing-modsecurity-for-open-source-nginx/">官方文档：主要是参考这个文档做的，不能完全照搬，按官方操作，编译ngx_http_modsecurity_module.so的时候会报错</a></p>
 ]]></content>
       <categories>
-        <category>Nginx</category>
-        <category>Modsecurity</category>
-        <category>v2ray</category>
+        <category>IT</category>
       </categories>
       <tags>
         <tag>Nginx</tag>
@@ -228,8 +226,7 @@
 <h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><p><a href="http://drops.xmd5.com/static/drops/tips-3804.html">参考了这篇文章对secrule的解释</a></p>
 ]]></content>
       <categories>
-        <category>Modsecurity</category>
-        <category>SQL注入</category>
+        <category>IT</category>
       </categories>
       <tags>
         <tag>modsecurity</tag>
@@ -265,8 +262,7 @@
 <h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>第一次听说这种整数溢出攻击。<br><a href="https://blog.csdn.net/ioio_jy/article/details/50576353">整数溢出的原理</a></p>
 ]]></content>
       <categories>
-        <category>Modsecurity</category>
-        <category>SQL注入</category>
+        <category>IT</category>
       </categories>
       <tags>
         <tag>modsecurity</tag>
@@ -299,8 +295,7 @@
 <h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>这个规则也没啥好说的，就是匹配关键字sleep和benchmark。</p>
 ]]></content>
       <categories>
-        <category>Modsecurity</category>
-        <category>SQL注入</category>
+        <category>IT</category>
       </categories>
       <tags>
         <tag>modsecurity</tag>
@@ -341,8 +336,7 @@
 <h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>简单的规则。</p>
 ]]></content>
       <categories>
-        <category>Modsecurity</category>
-        <category>SQL注入</category>
+        <category>IT</category>
       </categories>
       <tags>
         <tag>modsecurity</tag>
@@ -381,8 +375,7 @@
 <h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>easy。但是这个规则容易误拦截，尤其是<code>if</code>就只有两个字符，那些经过编码的数据很容易匹配到这个关键字。</p>
 ]]></content>
       <categories>
-        <category>Modsecurity</category>
-        <category>SQL注入</category>
+        <category>IT</category>
       </categories>
       <tags>
         <tag>modsecurity</tag>
@@ -419,8 +412,7 @@
 <h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>这条规则相对简单。</p>
 ]]></content>
       <categories>
-        <category>Modsecurity</category>
-        <category>SQL注入</category>
+        <category>IT</category>
       </categories>
       <tags>
         <tag>modsecurity</tag>
@@ -461,8 +453,7 @@
 <h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>也是简单的关键字匹配。</p>
 ]]></content>
       <categories>
-        <category>Modsecurity</category>
-        <category>SQL注入</category>
+        <category>IT</category>
       </categories>
       <tags>
         <tag>modsecurity</tag>
@@ -503,8 +494,7 @@
 <h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>规则不复杂，但是因为对正则表达式不熟悉，还不知道不同规则对select这个关键字的匹配有什么区别。<br>什么是<a href="https://xz.aliyun.com/t/2167">MySQL UDF注入</a></p>
 ]]></content>
       <categories>
-        <category>Modsecurity</category>
-        <category>SQL注入</category>
+        <category>IT</category>
       </categories>
       <tags>
         <tag>modsecurity</tag>
@@ -574,7 +564,7 @@
       </tags>
   </entry>
   <entry>
-    <title>mysql查询练习</title>
+    <title>Mysql查询练习</title>
     <url>//posts/ZH-CN/mysql_query.html</url>
     <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>关于学习Mysql的学习想法已经有一年多了，然而现在还是只会简单的<code>select * from database where id =1</code>这种查询语句，很惭愧。很久没有写博客了，转眼间博客已经运行近1年时间。</p>
 <p><escape> <span id="more"></span></escape></p>
@@ -647,7 +637,7 @@
         <category>IT</category>
       </categories>
       <tags>
-        <tag>mysql</tag>
+        <tag>Mysql</tag>
       </tags>
   </entry>
   <entry>
@@ -661,11 +651,10 @@
 <h2 id="End"><a href="#End" class="headerlink" title="End"></a>End</h2><p>感谢你看到这里，如果你也对IT、英语感兴趣，关注我，一定能给你不一样的体验。<br>再次亮出二维码，点关注的都是活菩萨。<br><img src="https://v2ray.dana5haw.com:8008/images/2021/08/03/qrcode_for_gh_9b7280eb1edc_258.jpg" alt="qrcode_for_gh_9b7280eb1edc_258.jpg"></p>
 ]]></content>
       <categories>
-        <category>运营</category>
+        <category>私人</category>
       </categories>
       <tags>
         <tag>微信公众号</tag>
-        <tag>庆祝</tag>
       </tags>
   </entry>
   <entry>
@@ -1237,13 +1226,10 @@ section 3. 配置Woocommerce
 <h2 id="用QEMU驱动软盘镜像"><a href="#用QEMU驱动软盘镜像" class="headerlink" title="用QEMU驱动软盘镜像"></a>用QEMU驱动软盘镜像</h2><p>在QEMU中进行验证，用汇编语言制作的img镜像也可以正常驱动。<br><img src="http://ww1.sinaimg.cn/large/006gDuOdgy1gctfsl7781j30yi0fbjsd.jpg" alt="image.png"></p>
 ]]></content>
       <categories>
-        <category>操作系统</category>
+        <category>IT</category>
       </categories>
       <tags>
         <tag>30天自制操作系统</tag>
-        <tag>汇编语言</tag>
-        <tag>软盘镜像</tag>
-        <tag>nask</tag>
       </tags>
   </entry>
   <entry>
@@ -1315,11 +1301,10 @@ section 3. 配置Woocommerce
 <h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>写程序还是使用编辑器比较好，用记事本太容易引起格式错误了，多么惨痛的教训……</p>
 ]]></content>
       <categories>
-        <category>30天自制操作系统</category>
+        <category>IT</category>
       </categories>
       <tags>
         <tag>30天自制操作系统</tag>
-        <tag>汇编程序制作软盘</tag>
       </tags>
   </entry>
   <entry>
@@ -1383,10 +1368,11 @@ section 3. 配置Woocommerce
 </ul>
 ]]></content>
       <categories>
-        <category>RHCE</category>
+        <category>IT</category>
       </categories>
       <tags>
         <tag>DNS分离解析</tag>
+        <tag>RHCE</tag>
       </tags>
   </entry>
   <entry>
@@ -1731,7 +1717,7 @@ section 3. 配置Woocommerce
 <p>创建逻辑卷，并设置开机自动挂载<br><img src="https://v2ray.dana5haw.com:8008/images/2020/07/17/image6e6685c090bcafc0.png" alt="image6e6685c090bcafc0.png"><br><img src="https://v2ray.dana5haw.com:8008/images/2020/07/17/image7efc95cf539dcd13.png" alt="image7efc95cf539dcd13.png"><br><img src="https://v2ray.dana5haw.com:8008/images/2020/07/17/image4fd41ecb803e478b.png" alt="image4fd41ecb803e478b.png"><br><img src="https://v2ray.dana5haw.com:8008/images/2020/07/17/image8d7e1fcef77fc298.png" alt="image8d7e1fcef77fc298.png"><br><img src="https://v2ray.dana5haw.com:8008/images/2020/07/17/image0463563e4587cf22.png" alt="image0463563e4587cf22.png"></p>
 <h2 id="最后，重启机器，检查题目"><a href="#最后，重启机器，检查题目" class="headerlink" title="最后，重启机器，检查题目"></a>最后，重启机器，检查题目</h2>]]></content>
       <categories>
-        <category>RHCE</category>
+        <category>IT</category>
       </categories>
       <tags>
         <tag>RHCSA练习</tag>
@@ -1782,7 +1768,7 @@ section 3. 配置Woocommerce
 <h2 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h2><p>本书用通俗的语言解释信息安全的概念。目标读者是初学者。同时，为了让内容吸引信息安全领域的人群，我们也详细描述了其中一些概念。</p>
 ]]></content>
       <categories>
-        <category>翻译</category>
+        <category>IT</category>
       </categories>
       <tags>
         <tag>The InfoSec Handbook</tag>
@@ -1834,7 +1820,7 @@ section 3. 配置Woocommerce
 </ul>
 ]]></content>
       <categories>
-        <category>翻译</category>
+        <category>IT</category>
       </categories>
       <tags>
         <tag>The InfoSec Handbook</tag>
@@ -1850,8 +1836,7 @@ section 3. 配置Woocommerce
 <h2 id="参考博文"><a href="#参考博文" class="headerlink" title="参考博文"></a>参考博文</h2><p><a href="https://blog.csdn.net/anthony_ju/article/details/80445728">https://blog.csdn.net/anthony_ju/article/details/80445728</a></p>
 ]]></content>
       <categories>
-        <category>java学习</category>
-        <category>Tips</category>
+        <category>IT</category>
       </categories>
       <tags>
         <tag>快速切换java版本</tag>
@@ -1867,7 +1852,7 @@ section 3. 配置Woocommerce
 <h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><p>参考<a href="https://blog.csdn.net/WinstonLau/article/details/89246874">这篇文章</a></p>
 ]]></content>
       <categories>
-        <category>VScode</category>
+        <category>IT</category>
       </categories>
       <tags>
         <tag>VScode</tag>
@@ -1884,7 +1869,7 @@ section 3. 配置Woocommerce
 <h2 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h2><p>其他的基本用法逐步熟悉。</p>
 ]]></content>
       <categories>
-        <category>安装教程</category>
+        <category>IT</category>
       </categories>
       <tags>
         <tag>安装VirtualBox</tag>
@@ -2671,7 +2656,7 @@ section 3. 配置Woocommerce
 </ul>
 ]]></content>
       <categories>
-        <category>mysql</category>
+        <category>IT</category>
       </categories>
       <tags>
         <tag>mysql</tag>
@@ -2829,7 +2814,7 @@ section 3. 配置Woocommerce
 </ul>
 ]]></content>
       <categories>
-        <category>python爬虫实例</category>
+        <category>IT</category>
       </categories>
       <tags>
         <tag>python爬虫实例</tag>
@@ -2874,7 +2859,7 @@ section 3. 配置Woocommerce
 </ul>
 ]]></content>
       <categories>
-        <category>python爬虫实例</category>
+        <category>IT</category>
       </categories>
       <tags>
         <tag>python爬虫实例</tag>
@@ -2908,7 +2893,7 @@ section 3. 配置Woocommerce
 <h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>要抓取登录后的页面，要么使用session类做会话保持，要么使用未过期的cookie并且赶在cookie过期之前完成数据抓取。还有更高阶的方法，写两个程序，一个程序专门获取cookie，另一个程序专门发送请求抓取页面，现阶段只了解一下方法。</p>
 ]]></content>
       <categories>
-        <category>python爬虫实例</category>
+        <category>IT</category>
       </categories>
       <tags>
         <tag>python爬虫实例</tag>
@@ -2973,7 +2958,7 @@ section 3. 配置Woocommerce
 <h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>基本的语法并不难，但是这些基本的语法可以组成复杂的匹配规则。基础打扎实先~</p>
 ]]></content>
       <categories>
-        <category>python爬虫实例</category>
+        <category>IT</category>
       </categories>
       <tags>
         <tag>python爬虫实例</tag>
@@ -3019,7 +3004,7 @@ I heard the echo, <span class="label default">from the valleys and the heart</sp
 </p>
 </details>]]></content>
       <categories>
-        <category>python爬虫实例</category>
+        <category>IT</category>
       </categories>
       <tags>
         <tag>python爬虫实例</tag>
@@ -3046,7 +3031,7 @@ I heard the echo, <span class="label default">from the valleys and the heart</sp
 <h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>这只是很初级的方法。并且只抓取了20部剧的信息。如果要抓取所有的电视剧，还要进一步学习，主要是剧的总数和url之间的数学关系，怎么使用代码表现出来。<br>先这样，下次有兴趣了继续。</p>
 ]]></content>
       <categories>
-        <category>python爬虫实例</category>
+        <category>IT</category>
       </categories>
       <tags>
         <tag>python爬虫实例</tag>
@@ -3094,7 +3079,7 @@ I heard the echo, <span class="label default">from the valleys and the heart</sp
 <h2 id="灵感来源"><a href="#灵感来源" class="headerlink" title="灵感来源"></a><a href="https://dana5haw.com/2020/01/22/python爬虫实例之爬取糗事百科段子/">灵感来源</a></h2><p>好像每一次的疑问，都一定能找到答案。真的很巧。</p>
 ]]></content>
       <categories>
-        <category>python爬虫实例</category>
+        <category>IT</category>
       </categories>
       <tags>
         <tag>python爬虫实例</tag>
@@ -3120,7 +3105,7 @@ I heard the echo, <span class="label default">from the valleys and the heart</sp
 <h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>为了输出好看的json格式文件，就要用<code>json.dumps</code>方法。使用这个方法，就得兜圈子，先把json转换为python数据类型，再把python数据类型转换为格式化的json字符串，写入文件并保存。</p>
 ]]></content>
       <categories>
-        <category>python爬虫实例</category>
+        <category>IT</category>
       </categories>
       <tags>
         <tag>python爬虫实例</tag>
@@ -3155,7 +3140,7 @@ I heard the echo, <span class="label default">from the valleys and the heart</sp
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> requests</span><br><span class="line"><span class="keyword">from</span> lxml <span class="keyword">import</span> etree</span><br><span class="line"><span class="keyword">from</span> pprint <span class="keyword">import</span> pprint</span><br><span class="line"><span class="keyword">import</span> json</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">duanzi</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span>(<span class="params">self</span>):</span></span><br><span class="line">        self.url_temp = <span class="string">&quot;http://www.budejie.com/&#123;&#125;&quot;</span></span><br><span class="line">        self.headers = &#123;<span class="string">&quot;User-Agent&quot;</span>: <span class="string">&quot;Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/79.0.3945.130 Safari/537.36&quot;</span>&#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">get_url_list</span>(<span class="params">self,url_temp</span>):</span></span><br><span class="line">        url_list = []</span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">50</span>): <span class="comment">#一共有50页内容</span></span><br><span class="line">            url_list.append(self.url_temp.<span class="built_in">format</span>(i+<span class="number">1</span>)) </span><br><span class="line">        <span class="keyword">return</span> url_list</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">parse_url</span>(<span class="params">self,url,headers</span>):</span> <span class="comment">#发送请求，获取响应</span></span><br><span class="line">        response = requests.get(url,headers=self.headers)</span><br><span class="line">        <span class="keyword">return</span> response.content.decode()</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">get_content</span>(<span class="params">self,html_str</span>):</span> <span class="comment">#使用xpath提取数据</span></span><br><span class="line">        html_element = etree.HTML(html_str)</span><br><span class="line">        content_list = html_element.xpath(<span class="string">&quot;//div[@class=&#x27;j-r-list-c-desc&#x27;]/a/text()&quot;</span>)</span><br><span class="line">        <span class="keyword">return</span> content_list</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">run</span>(<span class="params">self</span>):</span> <span class="comment">#实现主逻辑</span></span><br><span class="line">        <span class="comment">#1. 获取url列表</span></span><br><span class="line">        url_list = self.get_url_list(self.url_temp)</span><br><span class="line">        <span class="comment"># print(url_list)</span></span><br><span class="line">        <span class="comment">#2. 遍历url列表</span></span><br><span class="line">        <span class="keyword">for</span> url <span class="keyword">in</span> url_list:            </span><br><span class="line">            <span class="comment">#3. 发送请求，获取响应</span></span><br><span class="line">            html_str = self.parse_url(url,headers=self.headers)           </span><br><span class="line">            <span class="comment">#3. 提取数据</span></span><br><span class="line">            content_list = self.get_content(html_str) </span><br><span class="line">            <span class="comment"># pprint(content_list)</span></span><br><span class="line">            <span class="comment">#4. 保存</span></span><br><span class="line">            <span class="keyword">with</span> <span class="built_in">open</span>(<span class="string">&quot;duanzi.txt&quot;</span>,<span class="string">&quot;a&quot;</span>,encoding=<span class="string">&quot;utf8&quot;</span>) <span class="keyword">as</span> f: <span class="comment">#以追加的方式写入文件</span></span><br><span class="line">                <span class="keyword">for</span> content <span class="keyword">in</span> content_list: <span class="comment">#这里优化了，遍历段子内容，依次格式化写入文件并保存</span></span><br><span class="line">                    f.write(json.dumps(content,ensure_ascii=<span class="literal">False</span>,indent=<span class="number">2</span>)) <span class="comment">#嘻嘻嘻，可以使用json.dumps方式格式化写入文件~</span></span><br><span class="line">                    f.write(<span class="string">&quot;\n&quot;</span>) <span class="comment">#添加换行符，一个段子就占一行</span></span><br><span class="line">                <span class="comment"># f.write(str(content_list)) #将列表强制转换为str类型</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">    my_duanzi = duanzi()</span><br><span class="line">    my_duanzi.run()</span><br></pre></td></tr></table></figure>
 ]]></content>
       <categories>
-        <category>python爬虫实例</category>
+        <category>IT</category>
       </categories>
       <tags>
         <tag>python爬虫实例</tag>
@@ -3182,7 +3167,7 @@ I heard the echo, <span class="label default">from the valleys and the heart</sp
 </ul>
 ]]></content>
       <categories>
-        <category>python爬虫实例</category>
+        <category>IT</category>
       </categories>
       <tags>
         <tag>python爬虫实例</tag>
@@ -3221,7 +3206,7 @@ I heard the echo, <span class="label default">from the valleys and the heart</sp
 <h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>复杂的任务可以拆解。递归是多么伟大的思想。大象放冰箱只需要三步。<br>复杂的世界也是由许多简单的规律组成。</p>
 ]]></content>
       <categories>
-        <category>python爬虫实例</category>
+        <category>IT</category>
       </categories>
       <tags>
         <tag>python爬虫实例</tag>
@@ -3239,7 +3224,7 @@ I heard the echo, <span class="label default">from the valleys and the heart</sp
 <h2 id="参考博文"><a href="#参考博文" class="headerlink" title="参考博文"></a>参考博文</h2><p><a href="https://zhuanlan.zhihu.com/p/53295301">https://zhuanlan.zhihu.com/p/53295301</a></p>
 ]]></content>
       <categories>
-        <category>python小工具</category>
+        <category>IT</category>
       </categories>
       <tags>
         <tag>批量查询IP归属地</tag>
@@ -3275,7 +3260,7 @@ I heard the echo, <span class="label default">from the valleys and the heart</sp
 <p>.format搭配大括号{}使用，可以将任何格式的内容填入format里面。format就是个大筐筐，什么都能往里装。</p>
 ]]></content>
       <categories>
-        <category>聚沙成塔：python零碎</category>
+        <category>IT</category>
       </categories>
       <tags>
         <tag>python零碎知识</tag>
@@ -3294,7 +3279,7 @@ I heard the echo, <span class="label default">from the valleys and the heart</sp
 <p>运行结果：<br><img src="http://ww1.sinaimg.cn/large/006gDuOdgy1gb0pvbjiy6j30q202u3yh.jpg" alt="image.png"></p>
 ]]></content>
       <categories>
-        <category>聚沙成塔：python零碎</category>
+        <category>IT</category>
       </categories>
       <tags>
         <tag>python零碎知识</tag>
@@ -3321,7 +3306,7 @@ I heard the echo, <span class="label default">from the valleys and the heart</sp
 </ul>
 ]]></content>
       <categories>
-        <category>RHCE</category>
+        <category>IT</category>
       </categories>
       <tags>
         <tag>redhat7</tag>
@@ -3354,7 +3339,7 @@ I heard the echo, <span class="label default">from the valleys and the heart</sp
 </ol>
 ]]></content>
       <categories>
-        <category>RHCE</category>
+        <category>IT</category>
       </categories>
       <tags>
         <tag>redhat7</tag>
@@ -3414,7 +3399,7 @@ I heard the echo, <span class="label default">from the valleys and the heart</sp
 </ol>
 ]]></content>
       <categories>
-        <category>RHCE</category>
+        <category>IT</category>
       </categories>
       <tags>
         <tag>redhat7</tag>
@@ -3459,7 +3444,7 @@ I heard the echo, <span class="label default">from the valleys and the heart</sp
 </ul>
 ]]></content>
       <categories>
-        <category>RHCE</category>
+        <category>IT</category>
       </categories>
       <tags>
         <tag>DNS服务</tag>
@@ -3499,7 +3484,7 @@ I heard the echo, <span class="label default">from the valleys and the heart</sp
 </ol>
 ]]></content>
       <categories>
-        <category>RHCE</category>
+        <category>IT</category>
       </categories>
       <tags>
         <tag>redhat</tag>
@@ -3549,7 +3534,7 @@ I heard the echo, <span class="label default">from the valleys and the heart</sp
 </ul>
 ]]></content>
       <categories>
-        <category>RHCE</category>
+        <category>IT</category>
       </categories>
       <tags>
         <tag>DNS服务</tag>
@@ -3616,7 +3601,7 @@ I heard the echo, <span class="label default">from the valleys and the heart</sp
 </ul>
 ]]></content>
       <categories>
-        <category>RHCE</category>
+        <category>IT</category>
       </categories>
       <tags>
         <tag>redhat</tag>
@@ -3671,7 +3656,7 @@ I heard the echo, <span class="label default">from the valleys and the heart</sp
 <p><img src="https://v2ray.dana5haw.com:8008/images/2020/07/10/image55fb0bb46d4f9fa1.png" alt="image55fb0bb46d4f9fa1.png"><br><img src="https://v2ray.dana5haw.com:8008/images/2020/07/10/image3c41998b54160853.png" alt="image3c41998b54160853.png"><br>验证：现在kk用户可以收取到root发送的邮件了。<br><img src="https://v2ray.dana5haw.com:8008/images/2020/07/10/image58cacaebcd0fd41d.png" alt="image58cacaebcd0fd41d.png"></p>
 ]]></content>
       <categories>
-        <category>RHCE</category>
+        <category>IT</category>
       </categories>
       <tags>
         <tag>redhat7</tag>
@@ -3713,7 +3698,7 @@ I heard the echo, <span class="label default">from the valleys and the heart</sp
 </ul>
 ]]></content>
       <categories>
-        <category>RHCE</category>
+        <category>IT</category>
       </categories>
       <tags>
         <tag>redhat7</tag>
@@ -3781,7 +3766,7 @@ I heard the echo, <span class="label default">from the valleys and the heart</sp
 <p><img src="https://v2ray.dana5haw.com:8008/images/2020/07/02/image.png" alt="image.png"></p>
 ]]></content>
       <categories>
-        <category>RHCE</category>
+        <category>IT</category>
       </categories>
       <tags>
         <tag>redhat7</tag>
@@ -3805,7 +3790,7 @@ I heard the echo, <span class="label default">from the valleys and the heart</sp
 </ul>
 ]]></content>
       <categories>
-        <category>redis数据库</category>
+        <category>IT</category>
       </categories>
       <tags>
         <tag>redis数据库</tag>
@@ -3881,7 +3866,7 @@ I heard the echo, <span class="label default">from the valleys and the heart</sp
 </ul>
 ]]></content>
       <categories>
-        <category>RHCE</category>
+        <category>IT</category>
       </categories>
       <tags>
         <tag>redhat7</tag>
@@ -3906,7 +3891,7 @@ I heard the echo, <span class="label default">from the valleys and the heart</sp
 </ul>
 ]]></content>
       <categories>
-        <category>redis数据库</category>
+        <category>IT</category>
       </categories>
       <tags>
         <tag>redis数据类型</tag>
@@ -3929,7 +3914,7 @@ I heard the echo, <span class="label default">from the valleys and the heart</sp
 </ul>
 ]]></content>
       <categories>
-        <category>redis数据库</category>
+        <category>IT</category>
       </categories>
       <tags>
         <tag>redis数据类型</tag>
@@ -3954,7 +3939,7 @@ I heard the echo, <span class="label default">from the valleys and the heart</sp
 </ul>
 ]]></content>
       <categories>
-        <category>redis数据库</category>
+        <category>IT</category>
       </categories>
       <tags>
         <tag>redis数据类型</tag>
@@ -3984,8 +3969,7 @@ I heard the echo, <span class="label default">from the valleys and the heart</sp
 
 ]]></content>
       <categories>
-        <category>python爬虫实例</category>
-        <category>scrapy框架爬虫</category>
+        <category>IT</category>
       </categories>
       <tags>
         <tag>scrapy爬虫实例</tag>
@@ -4012,7 +3996,7 @@ I heard the echo, <span class="label default">from the valleys and the heart</sp
 </ul>
 ]]></content>
       <categories>
-        <category>redis数据库</category>
+        <category>IT</category>
       </categories>
       <tags>
         <tag>redis数据类型</tag>
@@ -4035,8 +4019,7 @@ I heard the echo, <span class="label default">from the valleys and the heart</sp
 <h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>我们用到了scrapy内置的函数，发起带cookies的请求，以访问登录后的页面。这个cookies一旦设置，爬虫发起的所有请求都将带上cookies。我们通过在settings.py开启<code>COOKIES_DEBUG</code>功能，追踪cookies的传送过程。<br><img src="http://ww1.sinaimg.cn/large/006gDuOdgy1gc4fi4fjhtj31f60u0n6x.jpg" alt="image.png"><br>将cookies转化为字典形式的方法：<code>cookies = &#123;i.split(&quot;=&quot;)[0]:i.split(&quot;=&quot;)[1] for i in cookies.split(&quot;; &quot;)&#125;</code>这个方法很常用，要熟记。<br>正则表达式<code>re.findall(&quot;要么绽放要么死去&quot;,response.body.decode())</code>是在查找响应页面中是否含有<code>要么绽放要么死去</code>这个字符串，最终会返回所有的<code>要么绽放要么死去</code>字符串。<br><code>response.body.decode()</code>这个属性是表示响应页面的html字符串。</p>
 ]]></content>
       <categories>
-        <category>python爬虫实例</category>
-        <category>scrapy框架爬虫</category>
+        <category>IT</category>
       </categories>
       <tags>
         <tag>scrapy爬虫实例</tag>
@@ -4083,8 +4066,7 @@ I heard the echo, <span class="label default">from the valleys and the heart</sp
 <p>pipeline设置的权重值，指的是距离中心引擎的管道长度，距离引擎越近的pipeline，越先执行。</p>
 ]]></content>
       <categories>
-        <category>python爬虫实例</category>
-        <category>scrapy框架爬虫</category>
+        <category>IT</category>
       </categories>
       <tags>
         <tag>scrapy爬虫实例</tag>
@@ -4114,8 +4096,7 @@ I heard the echo, <span class="label default">from the valleys and the heart</sp
 <h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>实践是检验真理的唯一标准。现在越来越觉得这句话是真理。分组的时候，不能<code>.extract()</code>，对分组提取数据时，才使用<code>.extract()</code>或者<code>.extract_first()</code>来提取数据。这个例子，翻页的请求是ajax请求，现有知识水平还做不了翻页之后数据的提取。所以我最终做出的结果是每个子分类只抓取了第一页的数据。这次学习的主要知识是用for循环的嵌套来实现每个字段数据的一一对应。</p>
 ]]></content>
       <categories>
-        <category>python爬虫实例</category>
-        <category>scrapy框架爬虫</category>
+        <category>IT</category>
       </categories>
       <tags>
         <tag>scrapy爬虫实例</tag>
@@ -4150,8 +4131,7 @@ I heard the echo, <span class="label default">from the valleys and the heart</sp
 <p>xpath之后一定要记得使用<code>.extract_first()</code>或者<code>.extract()</code>。<br><code>a[text()=&#39;&gt;&#39;</code>表示提取文本内容为<code>&gt;</code>的a标签。</p>
 ]]></content>
       <categories>
-        <category>python爬虫实例</category>
-        <category>scrapy框架爬虫</category>
+        <category>IT</category>
       </categories>
       <tags>
         <tag>scrapy爬虫实例</tag>
@@ -4182,8 +4162,7 @@ I heard the echo, <span class="label default">from the valleys and the heart</sp
 <p>这段代码是对问题反映的内容做格式化处理，去掉\xa0、空格、列表空元素。<br><code>&quot;//div[@class=&#39;wzy1&#39;][1]/table[2]/tr[1]/td[1]//text()&quot;</code>这句xpath有个新知识在里面，相同属性的标签如果有多个，我们可以按照标签的顺序进行提取。比如这里的<code>div[@class=&#39;wzy1&#39;][1]</code>就表示<code>class=&#39;wzy1&#39;</code>的第一个div标签。<br><code>response.xpath(&quot;xpath语句&quot;).get()</code>这个方法也可以提取xpath定位到的内容。</p>
 ]]></content>
       <categories>
-        <category>python爬虫实例</category>
-        <category>scrapy框架爬虫</category>
+        <category>IT</category>
       </categories>
       <tags>
         <tag>scrapy爬虫实例</tag>
@@ -4262,7 +4241,7 @@ I heard the echo, <span class="label default">from the valleys and the heart</sp
 </ul>
 ]]></content>
       <categories>
-        <category>基础知识大漫灌</category>
+        <category>IT</category>
       </categories>
       <tags>
         <tag>python爬虫</tag>
@@ -4285,7 +4264,7 @@ I heard the echo, <span class="label default">from the valleys and the heart</sp
 <h2 id="测试待翻译文件是否能正常输出"><a href="#测试待翻译文件是否能正常输出" class="headerlink" title="测试待翻译文件是否能正常输出"></a>测试待翻译文件是否能正常输出</h2><p><img src="https://v2ray.dana5haw.com:8008/images/2020/12/01/image497b06682e36d738.png" alt="image497b06682e36d738.png"><br><img src="https://v2ray.dana5haw.com:8008/images/2020/12/01/image2e39a94442831436.png" alt="image2e39a94442831436.png"></p>
 ]]></content>
       <categories>
-        <category>trados</category>
+        <category>Trados</category>
       </categories>
       <tags>
         <tag>trados</tag>
@@ -4309,7 +4288,7 @@ I heard the echo, <span class="label default">from the valleys and the heart</sp
 <h2 id="按-ctrl-S-保存文件"><a href="#按-ctrl-S-保存文件" class="headerlink" title="按 ctrl + S 保存文件"></a>按 ctrl + S 保存文件</h2><h2 id="生成目标翻译"><a href="#生成目标翻译" class="headerlink" title="生成目标翻译"></a>生成目标翻译</h2><p><img src="https://v2ray.dana5haw.com:8008/images/2020/12/01/image146748b8eb41f83f.png" alt="image146748b8eb41f83f.png"><br>生成的译文在zh-CN文件夹<br><img src="https://v2ray.dana5haw.com:8008/images/2020/12/01/imagecb0524e0a769c4a3.png" alt="imagecb0524e0a769c4a3.png"></p>
 ]]></content>
       <categories>
-        <category>trados</category>
+        <category>Trados</category>
       </categories>
       <tags>
         <tag>trados</tag>
@@ -4325,7 +4304,7 @@ I heard the echo, <span class="label default">from the valleys and the heart</sp
 <h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><p><a href="https://yq.aliyun.com/articles/43303">对于nginx日志切割的讲解</a></p>
 ]]></content>
       <categories>
-        <category>nginx</category>
+        <category>IT</category>
       </categories>
       <tags>
         <tag>nginx</tag>
@@ -4414,7 +4393,7 @@ I heard the echo, <span class="label default">from the valleys and the heart</sp
 </ul>
 ]]></content>
       <categories>
-        <category>vps</category>
+        <category>IT</category>
       </categories>
       <tags>
         <tag>ubuntu18.04</tag>
@@ -4430,7 +4409,7 @@ I heard the echo, <span class="label default">from the valleys and the heart</sp
 <h2 id="参考博文"><a href="#参考博文" class="headerlink" title="参考博文"></a>参考博文</h2><p><a href="https://blog.csdn.net/wy_97/article/details/78294562">https://blog.csdn.net/wy_97/article/details/78294562</a></p>
 ]]></content>
       <categories>
-        <category>ubuntu</category>
+        <category>IT</category>
       </categories>
       <tags>
         <tag>ubuntu</tag>
@@ -4446,7 +4425,7 @@ I heard the echo, <span class="label default">from the valleys and the heart</sp
 <h2 id="参考博文"><a href="#参考博文" class="headerlink" title="参考博文"></a>参考博文</h2><p><a href="https://blog.csdn.net/JingLisen/article/details/102000039">https://blog.csdn.net/JingLisen/article/details/102000039</a></p>
 ]]></content>
       <categories>
-        <category>ubuntu</category>
+        <category>IT</category>
       </categories>
       <tags>
         <tag>ubuntu命令学习</tag>
@@ -4462,7 +4441,7 @@ I heard the echo, <span class="label default">from the valleys and the heart</sp
 <h2 id="参考博文"><a href="#参考博文" class="headerlink" title="参考博文"></a>参考博文</h2><p><a href="https://blog.csdn.net/keith_bb/article/details/65435337">https://blog.csdn.net/keith_bb/article/details/65435337</a></p>
 ]]></content>
       <categories>
-        <category>ubuntu</category>
+        <category>IT</category>
       </categories>
       <tags>
         <tag>ubuntu</tag>
@@ -4480,7 +4459,7 @@ I heard the echo, <span class="label default">from the valleys and the heart</sp
 <h2 id="参考博文"><a href="#参考博文" class="headerlink" title="参考博文"></a>参考博文</h2><p><a href="https://blog.csdn.net/u011191042/article/details/84528502">https://blog.csdn.net/u011191042/article/details/84528502</a></p>
 ]]></content>
       <categories>
-        <category>redis数据库</category>
+        <category>IT</category>
       </categories>
       <tags>
         <tag>问题解决</tag>
@@ -4497,7 +4476,7 @@ I heard the echo, <span class="label default">from the valleys and the heart</sp
 <h2 id="参考博文"><a href="#参考博文" class="headerlink" title="参考博文"></a>参考博文</h2><p><a href="https://blog.csdn.net/inslow/article/details/54378350">https://blog.csdn.net/inslow/article/details/54378350</a><br><a href="https://mirror.tuna.tsinghua.edu.cn/help/ubuntu/">https://mirror.tuna.tsinghua.edu.cn/help/ubuntu/</a><br><a href="https://blog.csdn.net/mybelief321/article/details/9076331">https://blog.csdn.net/mybelief321/article/details/9076331</a></p>
 ]]></content>
       <categories>
-        <category>ubuntu</category>
+        <category>IT</category>
       </categories>
       <tags>
         <tag>ubuntu镜像源更改</tag>
@@ -4513,7 +4492,7 @@ I heard the echo, <span class="label default">from the valleys and the heart</sp
 <h2 id="参考博文"><a href="#参考博文" class="headerlink" title="参考博文"></a>参考博文</h2><p><a href="https://blog.csdn.net/wy_97/article/details/78294562">https://blog.csdn.net/wy_97/article/details/78294562</a></p>
 ]]></content>
       <categories>
-        <category>ubuntu</category>
+        <category>IT</category>
       </categories>
       <tags>
         <tag>ubuntu</tag>
@@ -4533,7 +4512,7 @@ I heard the echo, <span class="label default">from the valleys and the heart</sp
 </ul>
 ]]></content>
       <categories>
-        <category>安装教程</category>
+        <category>IT</category>
       </categories>
       <tags>
         <tag>安装教程</tag>
@@ -4549,7 +4528,7 @@ I heard the echo, <span class="label default">from the valleys and the heart</sp
 <h2 id="参考博文"><a href="#参考博文" class="headerlink" title="参考博文"></a>参考博文</h2><p><a href="https://blog.51cto.com/lovelace/969698">https://blog.51cto.com/lovelace/969698</a></p>
 ]]></content>
       <categories>
-        <category>安装教程</category>
+        <category>IT</category>
       </categories>
       <tags>
         <tag>vmware workstation</tag>
@@ -4567,7 +4546,7 @@ I heard the echo, <span class="label default">from the valleys and the heart</sp
 <h2 id="参考博文"><a href="#参考博文" class="headerlink" title="参考博文"></a>参考博文</h2><p><a href="https://www.dkukoc.com/post/226.html">https://www.dkukoc.com/post/226.html</a></p>
 ]]></content>
       <categories>
-        <category>黑苹果</category>
+        <category>IT</category>
       </categories>
       <tags>
         <tag>vmware黑苹果</tag>
@@ -4584,8 +4563,7 @@ I heard the echo, <span class="label default">from the valleys and the heart</sp
 <h2 id="参考博文"><a href="#参考博文" class="headerlink" title="参考博文"></a>参考博文</h2><p><a href="https://www.bilibili.com/read/cv3041419/">https://www.bilibili.com/read/cv3041419/</a></p>
 ]]></content>
       <categories>
-        <category>问题解决</category>
-        <category>黑苹果</category>
+        <category>IT</category>
       </categories>
       <tags>
         <tag>vmware黑苹果</tag>
@@ -4614,8 +4592,7 @@ I heard the echo, <span class="label default">from the valleys and the heart</sp
 <h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><p>主要参考<a href="https://p3terx.com/archives/docker-aria2-pro.html">这篇文章</a></p>
 ]]></content>
       <categories>
-        <category>vps</category>
-        <category>私人网盘</category>
+        <category>IT</category>
       </categories>
       <tags>
         <tag>离线下载</tag>
@@ -4649,7 +4626,7 @@ I heard the echo, <span class="label default">from the valleys and the heart</sp
 <h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><p>参考<a href="https://colobu.com/2015/10/31/How-to-Clear-RAM-Memory-Cache-Buffer-and-Swap-Space-on-Linux/">这篇文章</a></p>
 ]]></content>
       <categories>
-        <category>vps</category>
+        <category>IT</category>
       </categories>
       <tags>
         <tag>vps</tag>
@@ -4675,8 +4652,7 @@ I heard the echo, <span class="label default">from the valleys and the heart</sp
 <h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><p><a href="http://github.jun6.net/zfile-readme/">作者写的安装文档</a></p>
 ]]></content>
       <categories>
-        <category>vps</category>
-        <category>私人网盘</category>
+        <category>IT</category>
       </categories>
       <tags>
         <tag>vps</tag>
@@ -4759,8 +4735,7 @@ I heard the echo, <span class="label default">from the valleys and the heart</sp
 <h2 id="参考博文"><a href="#参考博文" class="headerlink" title="参考博文"></a>参考博文</h2><p><a href="http://element-ui.cn/news/show-43855.aspx">http://element-ui.cn/news/show-43855.aspx</a></p>
 ]]></content>
       <categories>
-        <category>学习计划</category>
-        <category>丧必读</category>
+        <category>私人</category>
       </categories>
       <tags>
         <tag>vulnhub靶机渗透</tag>
@@ -4778,7 +4753,7 @@ I heard the echo, <span class="label default">from the valleys and the heart</sp
 <h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><p><a href="https://blog.csdn.net/ZYC88888/article/details/89380994">ubuntu系统ufw防火墙设置方法</a></p>
 ]]></content>
       <categories>
-        <category>v2ray</category>
+        <category>IT</category>
       </categories>
       <tags>
         <tag>ubuntu18.04</tag>
@@ -4832,7 +4807,7 @@ I heard the echo, <span class="label default">from the valleys and the heart</sp
 <h2 id="参考博文"><a href="#参考博文" class="headerlink" title="参考博文"></a>参考博文</h2><p><a href="https://kongwenbin.wordpress.com/2017/12/31/write-up-for-fristileaks-v1-3-vulnhub/">https://kongwenbin.wordpress.com/2017/12/31/write-up-for-fristileaks-v1-3-vulnhub/</a></p>
 ]]></content>
       <categories>
-        <category>vulnhub靶机练习</category>
+        <category>IT</category>
       </categories>
       <tags>
         <tag>vulnhub靶机练习</tag>
@@ -4863,7 +4838,7 @@ I heard the echo, <span class="label default">from the valleys and the heart</sp
 </ul>
 ]]></content>
       <categories>
-        <category>vulnhub靶机练习</category>
+        <category>IT</category>
       </categories>
       <tags>
         <tag>vulnhub靶机练习</tag>
@@ -4899,7 +4874,7 @@ I heard the echo, <span class="label default">from the valleys and the heart</sp
 <h2 id="参考博文"><a href="#参考博文" class="headerlink" title="参考博文"></a>参考博文</h2><p><a href="https://kongwenbin.wordpress.com/2016/11/02/writeup-for-kioptrix-2014-5/">https://kongwenbin.wordpress.com/2016/11/02/writeup-for-kioptrix-2014-5/</a></p>
 ]]></content>
       <categories>
-        <category>vulnhub靶机练习</category>
+        <category>IT</category>
       </categories>
       <tags>
         <tag>vulnhub靶机练习</tag>
@@ -4961,7 +4936,7 @@ I heard the echo, <span class="label default">from the valleys and the heart</sp
 <h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><p><a href="https://www.cnvultr.com/15.html">新人注册赠送100美金的活动介绍</a><br><a href="https://yuan.ga/v2ray-complete-tutorial/">教程</a><br><a href="https://zhuanlan.zhihu.com/p/35779715">vultr的vps服务器修改root密码的方法</a><br><a href="https://github.com/v2ray/v2ray-core/releases">v2ray电脑客户端下载链接</a><br><a href="https://apkpure.com/cn/bifrostv/com.github.dawndiy.bifrostv">安卓下载连接</a><br><a href="https://blog.seanchao.xyz/2018/08/v2ray-guide">BifrostV配置参考</a><br><a href="https://www.hijk.pw/v2ray-multiple-users/">配置多用户生成uuid</a></p>
 ]]></content>
       <categories>
-        <category>v2ray</category>
+        <category>IT</category>
       </categories>
       <tags>
         <tag>vps</tag>
@@ -4982,7 +4957,7 @@ I heard the echo, <span class="label default">from the valleys and the heart</sp
 <h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><p><a href="https://www.youtube.com/watch?v=EmWi_Axy0jw">视频教程</a><br><a href="https://blog.csdn.net/qq_36409711/article/details/86530903">vmtools安装参考文章</a></p>
 ]]></content>
       <categories>
-        <category>黑苹果</category>
+        <category>IT</category>
       </categories>
       <tags>
         <tag>win10+vmware15</tag>
@@ -5002,7 +4977,7 @@ I heard the echo, <span class="label default">from the valleys and the heart</sp
 </ul>
 ]]></content>
       <categories>
-        <category>windows</category>
+        <category>IT</category>
       </categories>
       <tags>
         <tag>CPU</tag>
@@ -5024,7 +4999,7 @@ I heard the echo, <span class="label default">from the valleys and the heart</sp
 </ul>
 ]]></content>
       <categories>
-        <category>mysql</category>
+        <category>IT</category>
       </categories>
       <tags>
         <tag>windows10</tag>
@@ -5040,7 +5015,7 @@ I heard the echo, <span class="label default">from the valleys and the heart</sp
 <p><a href="https://v2ray.dana5haw.com:8008/image/x4Tl"><img src="https://v2ray.dana5haw.com:8008/images/2020/04/08/image7e5ec2be7b66eb97.png" alt="image7e5ec2be7b66eb97.png"></a><br>参考<a href="https://yq.aliyun.com/articles/673802">文章</a></p>
 ]]></content>
       <categories>
-        <category>mysql</category>
+        <category>IT</category>
       </categories>
       <tags>
         <tag>windows10</tag>
@@ -5059,7 +5034,7 @@ I heard the echo, <span class="label default">from the valleys and the heart</sp
 </ul>
 ]]></content>
       <categories>
-        <category>windows</category>
+        <category>IT</category>
       </categories>
       <tags>
         <tag>windows服务进程</tag>
@@ -5630,8 +5605,7 @@ I heard the echo, <span class="label default">from the valleys and the heart</sp
 <h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><p>参考<a href="https://zhidao.baidu.com/question/1860550641232376387.html?qbpn=1_1&fr=newsearchlist&word=%E5%A6%82%E4%BD%95%E6%8A%8Aexcel%E6%AF%8F%E4%B8%80%E8%A1%8C%E5%90%84%E5%AF%BC%E5%87%BA%E4%B8%BA%E4%B8%80%E4%B8%AAtxt%E6%96%87%E6%9C%AC%2C%E5%B9%B6%E4%B8%94%E4%BB%A5%E5%AF%B9%E5%BA%94%E6%AF%8F%E8%A1%8C%E7%9A%84%E6%A0%87%E9%A2%98%E5%91%BD%E5%90%8D&aup=1">这篇文章</a></p>
 ]]></content>
       <categories>
-        <category>excel</category>
-        <category>vba编程</category>
+        <category>IT</category>
       </categories>
       <tags>
         <tag>excel</tag>
@@ -5712,7 +5686,7 @@ I heard the echo, <span class="label default">from the valleys and the heart</sp
 <h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><p><a href="https://blog.csdn.net/zutsoft/article/details/9948707">参考文章</a></p>
 ]]></content>
       <categories>
-        <category>windows</category>
+        <category>IT</category>
       </categories>
       <tags>
         <tag>DOS命令</tag>
@@ -5763,7 +5737,7 @@ I heard the echo, <span class="label default">from the valleys and the heart</sp
 <h2 id="拍照水平不行，还是喜欢拍照"><a href="#拍照水平不行，还是喜欢拍照" class="headerlink" title="拍照水平不行，还是喜欢拍照"></a>拍照水平不行，还是喜欢拍照</h2><p><img src="http://ww1.sinaimg.cn/large/006gDuOdgy1gb3fqt72huj33a04dcnpg.jpg" alt="QQ图片20200120231537.jpg"><br><img src="http://ww1.sinaimg.cn/large/006gDuOdgy1gb3frjzfa4j33a04dcx6s.jpg" alt="QQ图片20200120231603.jpg"><br><img src="http://ww1.sinaimg.cn/large/006gDuOdgy1gb3frxsmc6j33a04dc4qt.jpg" alt="QQ图片20200120231608.jpg"><br><img src="http://ww1.sinaimg.cn/large/006gDuOdgy1gb3fsc2vs2j33a04dc1l0.jpg" alt="QQ图片20200120231612.jpg"><br><img src="http://ww1.sinaimg.cn/large/006gDuOdgy1gb3fsqg77wj34dc3a0b2e.jpg" alt="QQ图片20200120231616.jpg"><br><img src="http://ww1.sinaimg.cn/large/006gDuOdgy1gb3ft574lij34dc3a0e85.jpg" alt="QQ图片20200120231621.jpg"><br><img src="http://ww1.sinaimg.cn/large/006gDuOdgy1gb3ftm3ty9j34dc3a0qva.jpg" alt="QQ图片20200120231626.jpg"><br><img src="http://ww1.sinaimg.cn/large/006gDuOdgy1gb3fuakauoj34dc3a0hdx.jpg" alt="QQ图片20200120231631.jpg"><br><img src="http://ww1.sinaimg.cn/large/006gDuOdgy1gb3furkkhlj34dc3a0u10.jpg" alt="QQ图片20200120231635.jpg"><br><img src="http://ww1.sinaimg.cn/large/006gDuOdgy1gb3fv7nynxj33a04dc7wl.jpg" alt="QQ图片20200120231640.jpg"><br><img src="http://ww1.sinaimg.cn/large/006gDuOdgy1gb3fvjywitj33a04dchdw.jpg" alt="QQ图片20200120231645.jpg"><br><img src="http://ww1.sinaimg.cn/large/006gDuOdgy1gb3fvwt69pj33a04dcb2c.jpg" alt="QQ图片20200120231650.jpg"><br><img src="http://ww1.sinaimg.cn/large/006gDuOdgy1gb3fwc3akcj33a04dcb2d.jpg" alt="QQ图片20200120231655.jpg"></p>
 ]]></content>
       <categories>
-        <category>开心的</category>
+        <category>私人</category>
       </categories>
       <tags>
         <tag>开心的</tag>
@@ -6069,7 +6043,7 @@ I heard the echo, <span class="label default">from the valleys and the heart</sp
 <h2 id="win10的ssh服务"><a href="#win10的ssh服务" class="headerlink" title="win10的ssh服务"></a>win10的ssh服务</h2><p><img src="http://ww1.sinaimg.cn/large/006gDuOdgy1gcx35swx5nj30xz0hrjs9.jpg" alt="image.png"></p>
 ]]></content>
       <categories>
-        <category>windows</category>
+        <category>IT</category>
       </categories>
       <tags>
         <tag>win10</tag>
@@ -6267,8 +6241,7 @@ I heard the echo, <span class="label default">from the valleys and the heart</sp
 <h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><p><a href="https://youtu.be/OpDnhQdBk-U">参考这个YTB视频教程</a></p>
 ]]></content>
       <categories>
-        <category>工具</category>
-        <category>HTTP</category>
+        <category>IT</category>
       </categories>
       <tags>
         <tag>浏览器插件</tag>
@@ -6284,8 +6257,7 @@ I heard the echo, <span class="label default">from the valleys and the heart</sp
 <h2 id="主要内容"><a href="#主要内容" class="headerlink" title="主要内容"></a>主要内容</h2><p>主要就是学习使用selenium模块的webdriver驱动无头浏览器，爬取动态页面的内容。webdriver的优势在于，可以模拟用户的输入和点击行为。学了chromedriver和phantonjs这两种无头浏览器。chromedriver比较方便观察爬虫的现象，因为本地电脑安装了谷歌浏览器，用webdriver调用chromedriver时，会呈现出GUI。</p>
 ]]></content>
       <categories>
-        <category>基础知识大漫灌</category>
-        <category>python爬虫通识</category>
+        <category>IT</category>
       </categories>
       <tags>
         <tag>学习总结</tag>
@@ -6518,8 +6490,7 @@ I heard the echo, <span class="label default">from the valleys and the heart</sp
 <h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><p><a href="https://zealot.top/%E4%BD%BF%E7%94%A8Docker%E8%BD%BB%E6%9D%BE%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%9B%BE%E5%BA%8Achevereto.html">主要参考这篇文章进行docker镜像安装和chereveto软件的安装</a><br><a href="https://www.ioiox.com/archives/80.html">还参考了这篇文章用nginx代理docker容器的部分</a></p>
 ]]></content>
       <categories>
-        <category>docker</category>
-        <category>图床</category>
+        <category>IT</category>
       </categories>
       <tags>
         <tag>docker</tag>
@@ -7343,7 +7314,7 @@ I heard the echo, <span class="label default">from the valleys and the heart</sp
 <p><img src="https://v2ray.dana5haw.com:8008/images/2020/07/19/imagea0f72e67bb90b6b8.png" alt="imagea0f72e67bb90b6b8.png"></p>
 <h2 id="重启机器，检查题目"><a href="#重启机器，检查题目" class="headerlink" title="重启机器，检查题目"></a>重启机器，检查题目</h2>]]></content>
       <categories>
-        <category>RHCE</category>
+        <category>IT</category>
       </categories>
       <tags>
         <tag>RHCE</tag>
@@ -7660,7 +7631,7 @@ switch语句还可以匹配字符串。字符串匹配时，是比较“内容�
 <h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><p><a href="https://pincong.rocks/article/15493">思路主要参考这篇文章：用nginx反向代理v2ray，并伪装站点</a><br><a href="https://toutyrater.github.io/advanced/wss_and_web.html">PC客户端的配置文件参考了这篇文章</a><br><a href="https://www.myfreax.com/how-to-install-nginx-on-ubuntu-18-04/">nginx的安装和配置参考这篇</a><br><a href="https://blog.csdn.net/u012291393/article/details/78768547">https证书申请参考这篇：用certbot申请let’s encrypt的https证书</a></p>
 ]]></content>
       <categories>
-        <category>v2ray</category>
+        <category>IT</category>
       </categories>
       <tags>
         <tag>v2ray+ws+tls+web</tag>
@@ -7708,7 +7679,7 @@ switch语句还可以匹配字符串。字符串匹配时，是比较“内容�
 <h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>这个靶机提权，有两种方法入手：一是利用samba溢出漏洞，用metasploit的msfconsole获取靶机shell，二是利用apache漏洞，用metasploit的msfconsole获取靶机shell。<br>从这个靶机学习的关键知识是，如何使用metasploit工具进行漏洞利用，获取靶机的反弹shell。</p>
 ]]></content>
       <categories>
-        <category>vulnhub靶机练习</category>
+        <category>IT</category>
       </categories>
       <tags>
         <tag>vulnhub靶机练习</tag>
@@ -7752,7 +7723,7 @@ switch语句还可以匹配字符串。字符串匹配时，是比较“内容�
 </ol>
 ]]></content>
       <categories>
-        <category>vulnhub靶机练习</category>
+        <category>IT</category>
       </categories>
       <tags>
         <tag>vulnhub靶机练习</tag>
@@ -7783,7 +7754,7 @@ switch语句还可以匹配字符串。字符串匹配时，是比较“内容�
 </ul>
 ]]></content>
       <categories>
-        <category>vulnhub靶机练习</category>
+        <category>IT</category>
       </categories>
       <tags>
         <tag>vulnhub靶机练习</tag>
@@ -7822,7 +7793,7 @@ switch语句还可以匹配字符串。字符串匹配时，是比较“内容�
 <p>最终获取到这些本地用户名。<br><a href="https://www.mrb3n.com/?p=81">待续</a></p>
 ]]></content>
       <categories>
-        <category>vulnhub靶机练习</category>
+        <category>IT</category>
       </categories>
       <tags>
         <tag>vulnhub靶机练习</tag>
@@ -7886,7 +7857,7 @@ switch语句还可以匹配字符串。字符串匹配时，是比较“内容�
 </ul>
 ]]></content>
       <categories>
-        <category>vulnhub靶机练习</category>
+        <category>IT</category>
       </categories>
       <tags>
         <tag>vulnhub靶机练习</tag>
@@ -8278,7 +8249,7 @@ switch语句还可以匹配字符串。字符串匹配时，是比较“内容�
 <p>“须菩提！若有人以满无量阿僧祗世界七宝持用布施，若有善男子、善女人发菩提心者，持于此经，乃至四句偈等，受持读诵，为人演说，其福胜彼。云何为人演说，不取于相，如如不动。何以故？”“一切有为法，如梦幻泡影，如露亦如电，应作如是观”佛说是经已，长老须菩提及诸比丘、比丘尼、优婆塞、优婆夷，一切世间、天、人、阿修罗，闻佛所说，皆大欢喜，信受奉行。</p>
 ]]></content>
       <categories>
-        <category>金刚经</category>
+        <category>私人</category>
       </categories>
       <tags>
         <tag>金刚经</tag>
