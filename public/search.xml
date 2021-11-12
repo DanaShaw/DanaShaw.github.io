@@ -1618,8 +1618,7 @@ section 3. 配置Woocommerce
 <h2 id="安装步骤"><a href="#安装步骤" class="headerlink" title="安装步骤"></a>安装步骤</h2><p>部署，添加产品<code>Visio专业版2016-批量版-[VisioProVolume]</code>，选择安装模块<code>Office Tool Plus</code>。<br><img src="http://ww1.sinaimg.cn/large/006gDuOdgy1gbtnazdrt7j30ni0a0t9f.jpg" alt="image.png"><br><img src="http://ww1.sinaimg.cn/large/006gDuOdgy1gbtna4qs07j312e0ltqc7.jpg" alt="image.png"><br><img src="http://ww1.sinaimg.cn/large/006gDuOdgy1gbtncbjxn9j312e0lt7ea.jpg" alt="image.png"></p>
 ]]></content>
       <categories>
-        <category>visio</category>
-        <category>安装教程</category>
+        <category>Office</category>
       </categories>
       <tags>
         <tag>visio安装</tag>
@@ -2602,7 +2601,7 @@ section 3. 配置Woocommerce
 <h2 id="原理学习"><a href="#原理学习" class="headerlink" title="原理学习"></a>原理学习</h2><p>看书【sql必知必会】</p>
 ]]></content>
       <categories>
-        <category>mysql</category>
+        <category>IT</category>
       </categories>
       <tags>
         <tag>mysql</tag>
@@ -5170,7 +5169,7 @@ I heard the echo, <span class="label default">from the valleys and the heart</sp
 <h2 id="结语"><a href="#结语" class="headerlink" title="结语"></a>结语</h2><p>我希望自己至少有恒心。</p>
 ]]></content>
       <categories>
-        <category>思考</category>
+        <category>私人</category>
       </categories>
       <tags>
         <tag>恒心</tag>
@@ -5367,7 +5366,7 @@ I heard the echo, <span class="label default">from the valleys and the heart</sp
 </ul>
 ]]></content>
       <categories>
-        <category>渗透测试</category>
+        <category>IT</category>
       </categories>
       <tags>
         <tag>墨者靶场练习</tag>
@@ -5757,7 +5756,7 @@ I heard the echo, <span class="label default">from the valleys and the heart</sp
 <h2 id="使用word模板"><a href="#使用word模板" class="headerlink" title="使用word模板"></a>使用word模板</h2><p>在创建新文档时，选择“个人”，即可看到自定义的模板，点击模板即可根据模板创建文档。<br><img src="https://v2ray.dana5haw.com:8008/images/2020/12/22/image6c5758c07eb3cbdb.png" alt="image6c5758c07eb3cbdb.png"></p>
 ]]></content>
       <categories>
-        <category>IT</category>
+        <category>Office</category>
       </categories>
       <tags>
         <tag>office</tag>
@@ -7497,8 +7496,7 @@ switch语句还可以匹配字符串。字符串匹配时，是比较“内容�
 </ol>
 ]]></content>
       <categories>
-        <category>java学习</category>
-        <category>基础知识大漫灌</category>
+        <category>IT</category>
       </categories>
       <tags>
         <tag>java编程</tag>
