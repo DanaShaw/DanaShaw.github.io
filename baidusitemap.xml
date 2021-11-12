@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>https://dana5haw.com//posts/en/how-to-customize-404-page-in-hexo-blog.html</loc>
+    <lastmod>2021-11-12</lastmod>
+  </url>  <url>
     <loc>https://dana5haw.com//posts/ZH-CN/F12_YTB_Speed.html</loc>
     <lastmod>2021-11-12</lastmod>
   </url>  <url>
@@ -759,8 +762,5 @@
   </url>  <url>
     <loc>https://dana5haw.com//posts/ZH-CN/Espresso-Economics-Marathon-87day.html</loc>
     <lastmod>2021-11-11</lastmod>
-  </url>  <url>
-    <loc>https://dana5haw.com//posts/en/how-to-customize-404-page-in-hexo-blog.html</loc>
-    <lastmod>2021-08-06</lastmod>
   </url>
 </urlset>
