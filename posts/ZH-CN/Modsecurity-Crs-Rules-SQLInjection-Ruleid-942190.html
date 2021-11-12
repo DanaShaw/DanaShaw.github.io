@@ -69,7 +69,7 @@
 <meta property="og:image" content="http://ww1.sinaimg.cn/large/006gDuOdgy1gd2sxxfemxj31do0i9mz9.jpg">
 <meta property="article:published_time" content="2020-03-22T07:16:46.000Z">
 <meta property="article:modified_time" content="2021-08-06T03:36:53.766Z">
-<meta property="article:author" content="Dana Shaw">
+<meta property="article:author" content="肖坤稼">
 <meta property="article:tag" content="modsecurity">
 <meta property="article:tag" content="crs防护规则">
 <meta property="article:tag" content="SQL注入">
@@ -148,7 +148,8 @@
         <span class="logo-line-after"><i></i></span>
       </a>
     </div>
-        <p class="site-subtitle">为了去往别处</p>
+        <h1 class="site-subtitle" itemprop="description">为了去往别处</h1>
+      
   </div>
 
   <div class="site-nav-toggle">
@@ -223,9 +224,7 @@
     <i class="fa fa-search"></i>
   </span>
   <div class="search-input-container">
-    <input autocomplete="off" autocorrect="off" autocapitalize="none"
-           placeholder="搜索..." spellcheck="false"
-           type="text" id="search-input">
+    <input autocomplete="off" autocorrect="off" autocapitalize="none" placeholder="搜索..." spellcheck="false" type="text" id="search-input">
   </div>
   <span class="popup-btn-close">
     <i class="fa fa-times-circle"></i>
@@ -265,7 +264,7 @@
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/./images/photo.jpg">
-      <meta itemprop="name" content="Dana Shaw">
+      <meta itemprop="name" content="肖坤稼">
       <meta itemprop="description" content="连尘埃也想收藏">
     </span>
 
@@ -273,9 +272,9 @@
       <meta itemprop="name" content="Dana Shaw's blog">
     </span>
       <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
+        <h2 class="post-title" itemprop="name headline">
           modsecurity防护crs规则学习之SQL注入-ruleid=942190
-        </h1>
+        </h2>
 
         <div class="post-meta">
             <span class="post-meta-item">
@@ -348,7 +347,7 @@
 <h2 id="防护规则学习之SQL注入"><a href="#防护规则学习之SQL注入" class="headerlink" title="防护规则学习之SQL注入"></a>防护规则学习之SQL注入</h2><div class="note info">
             <ul><li>攻击类型：注入攻击</li><li>ruleid: 942190</li></ul>
           </div>
-<h3 id="规则配置文件"><a href="#规则配置文件" class="headerlink" title="规则配置文件"></a>规则配置文件</h3><p>我直接从<a target="_blank" rel="noopener" href="https://github.com/SpiderLabs/owasp-modsecurity-crs">github</a>下载了<code>owasp-modsecurity-crs-3.3</code>的源码。<br>规则配置文件位于：<code>F:\学习资料\owasp-modsecurity-crs-3.3-dev\owasp-modsecurity-crs-3.3-dev\rules\REQUEST-942-APPLICATION-ATTACK-SQLI.conf</code></p>
+<h3 id="规则配置文件"><a href="#规则配置文件" class="headerlink" title="规则配置文件"></a>规则配置文件</h3><p>我直接从<a target="_blank" rel="external nofollow noopener noreferrer" href="https://github.com/SpiderLabs/owasp-modsecurity-crs">github</a>下载了<code>owasp-modsecurity-crs-3.3</code>的源码。<br>规则配置文件位于：<code>F:\学习资料\owasp-modsecurity-crs-3.3-dev\owasp-modsecurity-crs-3.3-dev\rules\REQUEST-942-APPLICATION-ATTACK-SQLI.conf</code></p>
 <details><summary>点击展开ruleid=942190的配置内容</summary>
 <p>
 
@@ -398,7 +397,7 @@
 <li>例子2：<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Matched Data: \x22!5 found within ARGS_NAMES:\x5cx05U-\x5cxa7\x5cxd9\x5cx0c\x5cxf1\x5cx17\x5cx11OD\x5cxe1\x5cx8c\x5cxb5!\x5cx0e\x5cx7f\x5cxf3\x5cxc9\x5cxc2\x5cxc3\x5cxcf\x5cxd5\x5cxe4\x5cxc5V\x5cxf8\x5cxf4\x5cx1fV\x5cxd5\x5cx13\x5cxdf\x5cx9dV\x5cx04o\x5cxf2\x5cxd1Q\x5cxea\x5cxf3_\x5cxa2\x5cxec\x5cx7fZ\x5cxd3\x5cx1f\x5cxcd3\x5cxa6\x5ctO\x5cx8cO\x5cxbbZ\x5cxe3\x5cx83\x5cx1e\x5cx86\x5cx9b\x5cxbb\x5cxd1l\x5cx8cK\x5cx8fQ\x5cxc9c!)\x5cxd9\x5cxf7lu\x5cxae6\x5cv\x5cx9d[\x5cv\x5cxf1\x5cx9b|\x5cx1f\x5cx7fN[E\x5cxfb\x5cx9b\x5cr\x5cx1b\x5cx86\x5cx9eK1\x5cxc3\x5cx0f\x5cxf4\x5cxe4J&#125;\x5cxa8\x5cx8c \x5cxf1\x5cx13\x5cx9c8~!\x5cxca1\x22!5\x5cx80~\x5cxdc\x5cxd9:\x5cxa1\x5cxa8\x5cxe7y\x5cxa0M\x5cxc5\x5cxf5\x5cxad\x5cxc5\x5cxa24\x5cx91z\x5cxc7\x5cxe7D\x5cx7f\x5cx0c\x5cx97\x5cxbb\x5cxde:\x5cx06#\x5cx1cZe1\x5cx9b;\x5cxf0\x5cx96\x5cxc1$\x5cxf6&#x27;\x5cx8b\x5cvA\x5cxaf\x5cx82ii\x5cxb2\x5cxb9-\x5cxd1_\x5cxd3\x5cxd0\x5cxe1\x5cxaa\x5cxad\x5cxf9\x5cx1eO\x5cxc2au\x5c\x5c\x5cxba\x5cxfc\x5cx12 \x5cx01tZ\x5cxa9&lt;c\x5cxb7\x5cxf7\x5cx05&gt;;\x5cxeei\x5cxd9&#123;\x5cxac\x5cxdd\x5cxde\x5cxaaZK\x5cx87\x5cx1dt\x5cx16 \x5cxf1\x5cxc3\x5cxfc:\x5cxaf\x5cx03\x5cx8e\x5cxe2|\x5cxf0\x5cxb4\x5cxd3\x5cxeb\x5cxaa\x5cx9f\x5cx11\x5cxc7\x5cxc7\x5cx8d\x5cx93\x5cxe2\x5cxfc\x5cx9cC&gt;\x5cx83\x5cxc2M#\x5cx94U\x5cxdb;\x5cxc6\x5cnB\x5cxd9ti\x5ct\x5cx8a\x5cxa8j\x5cxc2\x5cxf3\x5cxda\x5cxab\x5cxdd\x5cx07\x5cxe3.\x5cx87\x5cx93\x5cx94\x5cxbb\x5cx1a7\x5cxab\x5cx01k\x5cxf0)\x22\x5cxd9N\x5cxfb\x5c\x5c\x5cxe4\x5cxcb\x5cx9f\x5cx10W\x5cx8a\x5cx03\x5cx89\x5cx00\x5cxbar\x5cxeb\x5cxbb\x5cx8c0\x5cx17\x5cxbd\x5cxe0\x5cxa3K\x5cx0e\x5cxaf\x5cxca\x5cx9d\x5cxc8\x5cx9bf\x5cx16\x5cx80\x5cxaf\x5cxc0k\x5cxa0IJ\x5cxae\x5c\x5c\x5cxbf\x5cxa1&#123;*\x22k0\x5cxee1\x5cxba\x5cxa4\x5cx9c\x5ct\x5cx82\x5cx05 \x5cx0eX\x5cxab\x5cxa71\x5cxd2??\x5cxfb\x5cxe7\x5cx1b: \x05U-\xa7\xd9\x0c\xf1\x17\x11OD\xe1\x8c\xb5!\x0e\x7f\xf3\xc9\xc2\xc3\xcf\xd5\xe4\xc5V\xf8\xf4\x1fV\xd5\x13\xdf\x9dV\x04o\xf2\xd1Q\xea\xf3_\xa2\xec\x7fZ\xd3\x1f\xcd3\xa6\x09O\x8cO\xbbZ\xe3\x83\x1e\x86\x9b\xbb\xd1l\x8cK\x8fQ\xc9c!)\xd9\xf7lu\xae6\x0b\x9d[\x0b\xf1\x9</span><br></pre></td></tr></table></figure>
 <del>这个编码没看懂😥</del> 原来是16进制编码，把16进制转换为字符串结果如下：<br><img src="http://ww1.sinaimg.cn/large/006gDuOdgy1gd2sxxfemxj31do0i9mz9.jpg" alt="image.png"><br>意思就是这个post参数名称匹配到了规则。匹配的内容是<code>\x22!5</code>。没有搞懂这是怎么匹配上去的😥</li>
 </ul>
-<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><p><a target="_blank" rel="noopener" href="http://drops.xmd5.com/static/drops/tips-3804.html">参考了这篇文章对secrule的解释</a></p>
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><p><a target="_blank" rel="external nofollow noopener noreferrer" href="http://drops.xmd5.com/static/drops/tips-3804.html">参考了这篇文章对secrule的解释</a></p>
 
     </div>
 
@@ -410,21 +409,21 @@
 <div>
 <ul class="post-copyright">
   <li class="post-copyright-author">
-    <strong>本文作者： </strong>Dana Shaw
+    <strong>本文作者： </strong>肖坤稼
   </li>
   <li class="post-copyright-link">
     <strong>本文链接：</strong>
     <a href="https://dana5haw.com/posts/ZH-CN/Modsecurity-Crs-Rules-SQLInjection-Ruleid-942190.html" title="modsecurity防护crs规则学习之SQL注入-ruleid&#x3D;942190">https://dana5haw.com/posts/ZH-CN/Modsecurity-Crs-Rules-SQLInjection-Ruleid-942190.html</a>
   </li>
   <li class="post-copyright-license">
-    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" rel="noopener" target="_blank"><i class="fa fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" rel="external nofollow noopener noreferrer" target="_blank"><i class="fa fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
   </li>
 
   <div class="wechat_OA">
 	<span>欢迎关注我的公众号(Welcome to follow me on Wechat)</span>
 	<br>
     <!-- 这里添加你的二维码图片 -->
-	<img src ="https://v2ray.dana5haw.com:8008/images/2021/08/03/qrcode_for_gh_9b7280eb1edc_258.jpg">
+	<img src="https://v2ray.dana5haw.com:8008/images/2021/08/03/qrcode_for_gh_9b7280eb1edc_258.jpg">
 </div>
 
 </ul>
@@ -527,18 +526,17 @@
       <div class="post-toc-wrap sidebar-panel">
           <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%89%8D%E8%A8%80"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%98%B2%E6%8A%A4%E8%A7%84%E5%88%99%E5%AD%A6%E4%B9%A0%E4%B9%8BSQL%E6%B3%A8%E5%85%A5"><span class="nav-number">2.</span> <span class="nav-text">防护规则学习之SQL注入</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A7%84%E5%88%99%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6"><span class="nav-number">2.1.</span> <span class="nav-text">规则配置文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%9E%E4%BE%8B"><span class="nav-number">2.2.</span> <span class="nav-text">实例</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8F%82%E8%80%83"><span class="nav-number">3.</span> <span class="nav-text">参考</span></a></li></ol></div>
       </div>
-        <div id="">
+        <div id>
 	  <canvas id="canvas" style="width:60%;">
-	    </div>
+	    </canvas></div>
 	      <script type="text/javascript" src="/js/canvas-dance-time.js"></script>
       <!--/noindex-->
 
 
       <div class="site-overview-wrap sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
-    <img class="site-author-image" itemprop="image" alt="Dana Shaw"
-      src="/./images/photo.jpg">
-  <p class="site-author-name" itemprop="name">Dana Shaw</p>
+    <img class="site-author-image" itemprop="image" alt="肖坤稼" src="/./images/photo.jpg">
+  <p class="site-author-name" itemprop="name">肖坤稼</p>
   <div class="site-description" itemprop="description">连尘埃也想收藏</div>
 </div>
 <div class="site-state-wrap motion-element">
@@ -546,7 +544,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">255</span>
+          <span class="site-state-item-count">256</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -566,13 +564,13 @@
 </div>
   <div class="links-of-author motion-element">
       <span class="links-of-author-item">
-        <a href="https://github.com/DanaShaw" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;DanaShaw" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+        <a href="https://github.com/DanaShaw" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;DanaShaw" rel="external nofollow noopener noreferrer" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
       </span>
       <span class="links-of-author-item">
-        <a href="mailto:danaxkj@gmail.com" title="E-Mail → mailto:danaxkj@gmail.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+        <a href="mailto:danaxkj@gmail.com" title="E-Mail → mailto:danaxkj@gmail.com" rel="external nofollow noopener noreferrer" target="_blank"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
       </span>
       <span class="links-of-author-item">
-        <a href="https://weibo.com/u/5742631593" title="Weibo → https:&#x2F;&#x2F;weibo.com&#x2F;u&#x2F;5742631593" rel="noopener" target="_blank"><i class="fa fa-fw fa-weibo"></i>Weibo</a>
+        <a href="https://weibo.com/u/5742631593" title="Weibo → https:&#x2F;&#x2F;weibo.com&#x2F;u&#x2F;5742631593" rel="external nofollow noopener noreferrer" target="_blank"><i class="fa fa-fw fa-weibo"></i>Weibo</a>
       </span>
       <span class="links-of-author-item">
         <a href="/atom.xml" title="RSS → &#x2F;atom.xml"><i class="fa fa-fw fa-rss"></i>RSS</a>
@@ -587,7 +585,7 @@
     </div>
     <ul class="links-of-blogroll-list">
         <li class="links-of-blogroll-item">
-          <a href="https://whale3070.github.io/" title="https:&#x2F;&#x2F;whale3070.github.io&#x2F;" rel="noopener" target="_blank">windows提权学习</a>
+          <a href="https://whale3070.github.io/" title="https:&#x2F;&#x2F;whale3070.github.io&#x2F;" rel="external nofollow noopener noreferrer" target="_blank">windows提权学习</a>
         </li>
     </ul>
   </div>
@@ -634,7 +632,7 @@
   <span class="with-love">
     <i class="fa fa-user"></i>
   </span>
-  <span class="author" itemprop="copyrightHolder">Dana Shaw</span>
+  <span class="author" itemprop="copyrightHolder">肖坤稼</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-area-chart"></i>
@@ -648,7 +646,7 @@
 </div>
 
 
-  <script src='https://unpkg.com/mermaid@/dist/mermaid.min.js'></script>
+  <script src="https://unpkg.com/mermaid@/dist/mermaid.min.js"></script>
   <script>
     if (window.mermaid) {
       mermaid.initialize({theme: 'default'});
@@ -690,7 +688,7 @@
 
   
   
-  <script color='0,0,255' opacity='0.5' zIndex='-1' count='99' src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  <script color="0,0,255" opacity="0.5" zindex="-1" count="99" src="/lib/canvas-nest/canvas-nest.min.js"></script>
   <script src="/lib/anime.min.js"></script>
   <script src="//cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js"></script>
   <script src="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.js"></script>
@@ -713,6 +711,15 @@
 
 
   
+  <script>
+    (function(){
+      var bp = document.createElement('script');
+      var curProtocol = window.location.protocol.split(':')[0];
+      bp.src = (curProtocol === 'https') ? 'https://zz.bdstatic.com/linksubmit/push.js' : 'http://push.zhanzhang.baidu.com/push.js';
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(bp, s);
+    })();
+  </script>
 
 
 
@@ -769,15 +776,9 @@ NexT.utils.loadComments(document.querySelector('#gitalk-container'), () => {
 });
 </script>
 
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3938956891324222"
-     crossorigin="anonymous"></script>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3938956891324222" crossorigin="anonymous"></script>
 <!-- sidebar -->
-<ins class="adsbygoogle"
-     style="display:block"
-     data-ad-client="ca-pub-3938956891324222"
-     data-ad-slot="6163650450"
-     data-ad-format="auto"
-     data-full-width-responsive="true"></ins>
+<ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-3938956891324222" data-ad-slot="6163650450" data-ad-format="auto" data-full-width-responsive="true"></ins>
 <script>
      (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -785,7 +786,7 @@ NexT.utils.loadComments(document.querySelector('#gitalk-container'), () => {
   <script type="text/javascript" src="//cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js"></script>
   
   
-   <canvas class="fireworks" style="position: fixed;left: 0;top: 0;z-index: 1; pointer-events: none;" ></canvas> 
+   <canvas class="fireworks" style="position: fixed;left: 0;top: 0;z-index: 1; pointer-events: none;"></canvas> 
    <script type="text/javascript" src="//cdn.bootcss.com/animejs/2.2.0/anime.min.js"></script> 
    <script type="text/javascript" src="/js/fireworks.js"></script>
 

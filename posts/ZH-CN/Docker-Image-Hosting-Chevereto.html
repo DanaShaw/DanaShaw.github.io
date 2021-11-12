@@ -82,7 +82,7 @@
 <meta property="og:image" content="https://v2ray.dana5haw.com:8008/images/2020/03/24/image5615ef216cd0e898.png">
 <meta property="article:published_time" content="2020-03-23T16:30:40.000Z">
 <meta property="article:modified_time" content="2021-08-06T03:45:09.323Z">
-<meta property="article:author" content="Dana Shaw">
+<meta property="article:author" content="肖坤稼">
 <meta property="article:tag" content="docker">
 <meta property="article:tag" content="ubuntu18.04">
 <meta property="article:tag" content="自建图床">
@@ -161,7 +161,8 @@
         <span class="logo-line-after"><i></i></span>
       </a>
     </div>
-        <p class="site-subtitle">为了去往别处</p>
+        <h1 class="site-subtitle" itemprop="description">为了去往别处</h1>
+      
   </div>
 
   <div class="site-nav-toggle">
@@ -236,9 +237,7 @@
     <i class="fa fa-search"></i>
   </span>
   <div class="search-input-container">
-    <input autocomplete="off" autocorrect="off" autocapitalize="none"
-           placeholder="搜索..." spellcheck="false"
-           type="text" id="search-input">
+    <input autocomplete="off" autocorrect="off" autocapitalize="none" placeholder="搜索..." spellcheck="false" type="text" id="search-input">
   </div>
   <span class="popup-btn-close">
     <i class="fa fa-times-circle"></i>
@@ -278,7 +277,7 @@
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/./images/photo.jpg">
-      <meta itemprop="name" content="Dana Shaw">
+      <meta itemprop="name" content="肖坤稼">
       <meta itemprop="description" content="连尘埃也想收藏">
     </span>
 
@@ -286,9 +285,9 @@
       <meta itemprop="name" content="Dana Shaw's blog">
     </span>
       <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
+        <h2 class="post-title" itemprop="name headline">
           用docker方式自建图床chevereto
-        </h1>
+        </h2>
 
         <div class="post-meta">
             <span class="post-meta-item">
@@ -364,13 +363,13 @@
 </ul>
 <h2 id="图床软件选择"><a href="#图床软件选择" class="headerlink" title="图床软件选择"></a>图床软件选择</h2><p>google了一圈，现在最流行的就是chevereto这款图床开源软件了，有免费版，咱就用免费版足够了。</p>
 <h2 id="我选择用docker部署"><a href="#我选择用docker部署" class="headerlink" title="我选择用docker部署"></a>我选择用docker部署</h2><p>安装部署chevereto的方式有很多，我选了最省事的方法——docker。docker相当于是一个盒子，把安装chevereto软件的环境都集成到里面，我们把这个盒子做好，再装上chevereto软件就可以直接运行了。docker为我们节省了集成安装环境的步骤和时间。</p>
-<h3 id="安装docker-ce"><a href="#安装docker-ce" class="headerlink" title="安装docker-ce"></a>安装docker-ce</h3><p>参考<a target="_blank" rel="noopener" href="https://docs.docker.com/install/linux/docker-ce/ubuntu/">官网</a>，用脚本安装的方法：</p>
+<h3 id="安装docker-ce"><a href="#安装docker-ce" class="headerlink" title="安装docker-ce"></a>安装docker-ce</h3><p>参考<a target="_blank" rel="external nofollow noopener noreferrer" href="https://docs.docker.com/install/linux/docker-ce/ubuntu/">官网</a>，用脚本安装的方法：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">root@vultr:~<span class="comment"># curl -fsSL https://get.docker.com -o get-docker.sh</span></span><br><span class="line">root@vultr:~<span class="comment"># sh get-docker.sh</span></span><br></pre></td></tr></table></figure>
 <p>用<code>docker version</code>检查版本号。</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">root@vultr:~<span class="comment"># docker version</span></span><br></pre></td></tr></table></figure>
 <p>试运行hello-world镜像：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">root@vultr:~<span class="comment"># docker run hello-world</span></span><br></pre></td></tr></table></figure>
-<h3 id="安装docker-compose"><a href="#安装docker-compose" class="headerlink" title="安装docker-compose"></a>安装docker-compose</h3><p>在github找到<a target="_blank" rel="noopener" href="https://github.com/docker/compose/releases">docker-compose的最新版本</a>，按照官方提供的方法进行安装。<br><img src="http://ww1.sinaimg.cn/large/006gDuOdgy1gd4cdxpxp6j31f60u0wi4.jpg" alt="image.png"></p>
+<h3 id="安装docker-compose"><a href="#安装docker-compose" class="headerlink" title="安装docker-compose"></a>安装docker-compose</h3><p>在github找到<a target="_blank" rel="external nofollow noopener noreferrer" href="https://github.com/docker/compose/releases">docker-compose的最新版本</a>，按照官方提供的方法进行安装。<br><img src="http://ww1.sinaimg.cn/large/006gDuOdgy1gd4cdxpxp6j31f60u0wi4.jpg" alt="image.png"></p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">root@vultr:~<span class="comment"># curl -L https://github.com/docker/compose/releases/download/1.25.4/docker-compose-`uname -s`-`uname -m` -o /usr/local/bin/docker-compose</span></span><br><span class="line">root@vultr:~<span class="comment"># chmod +x /usr/local/bin/docker-compose</span></span><br><span class="line">root@vultr:~<span class="comment"># docker-compose --version</span></span><br><span class="line">docker-compose version 1.25.4, build 8d51620a</span><br></pre></td></tr></table></figure>
 <p><code>docker-compose --version</code>是用于查看docker-compose是否安装成功，能正常显示版本号，就说明安装成功了。</p>
 <h3 id="配置docker-compose-yml"><a href="#配置docker-compose-yml" class="headerlink" title="配置docker-compose.yml"></a>配置docker-compose.yml</h3><p>就在root家目录操作吧。<code>vi docker-compose.yml</code>新建配置文件（这是官方建议的配置）：</p>
@@ -382,7 +381,7 @@
 </p>
 </details>
 
-<p><strong>配置文件解读：<a target="_blank" rel="noopener" href="https://yeasy.gitbooks.io/docker_practice/compose/compose_file.html">参考</a></strong></p>
+<p><strong>配置文件解读：<a target="_blank" rel="external nofollow noopener noreferrer" href="https://yeasy.gitbooks.io/docker_practice/compose/compose_file.html">参考</a></strong></p>
 <ul>
 <li>用到两个镜像：<code>mariadb</code>和<code>nmtan/chevereto</code>。</li>
 <li><code>image</code>指定为镜像名称或镜像ID。如果镜像在本地不存在，Compose将会尝试拉取这个镜像。</li>
@@ -396,25 +395,25 @@
 <li>调整目录所属权限为www-data：<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">root@vultr:~<span class="comment"># chown -R www-data:www-data database chevereto_images conf</span></span><br></pre></td></tr></table></figure>
 <h3 id="启动docker容器"><a href="#启动docker容器" class="headerlink" title="启动docker容器"></a>启动docker容器</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">root@vultr:~<span class="comment"># docker-compose up -d</span></span><br></pre></td></tr></table></figure>
 <h3 id="安装chevereto"><a href="#安装chevereto" class="headerlink" title="安装chevereto"></a>安装chevereto</h3><h4 id="测试docker启动是否正常"><a href="#测试docker启动是否正常" class="headerlink" title="测试docker启动是否正常"></a>测试docker启动是否正常</h4>开启防火墙的8080端口（因为docker容器开放的端口是8080）:<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">root@vultr:~# ufw allow 8080</span><br></pre></td></tr></table></figure>
-接下来在浏览器输入vps的外网IP+8080端口，就可以进行chevereto软件安装了。<br>安装过程傻瓜化。<a target="_blank" rel="noopener" href="https://zealot.top/%E4%BD%BF%E7%94%A8Docker%E8%BD%BB%E6%9D%BE%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%9B%BE%E5%BA%8Achevereto.html">参考</a><br><img src="http://ww1.sinaimg.cn/large/006gDuOdgy1gd4ezb2wq1j31f60u0dk0.jpg" alt="image.png"><br><img src="http://ww1.sinaimg.cn/large/006gDuOdgy1gd4f2urrykj30tp0a9mxx.jpg" alt="image.png"><br><img src="http://ww1.sinaimg.cn/large/006gDuOdgy1gd4f45z22dj31f60u0q6l.jpg" alt="image.png"><br><img src="http://ww1.sinaimg.cn/large/006gDuOdgy1gd4f5857rhj31f60qqjt5.jpg" alt="image.png"><h4 id="用Nginx反向代理docker容器"><a href="#用Nginx反向代理docker容器" class="headerlink" title="用Nginx反向代理docker容器"></a>用Nginx反向代理docker容器</h4><a target="_blank" rel="noopener" href="https://www.ioiox.com/archives/80.html">参考</a><br>接下来我们用nginx反向代理docker。为什么要用nginx反向代理？因为我不想增加vps开放的端口（不在互联网暴露docker的8080端口，降低安全风险）。<br>nginx的开放端口目前反向代理了v2ray和伪装网站。我们取消对伪装网站的代理，/路径直接代理docker容器的8080端口。<details><summary>nginx配置文件修改如下</summary>
+接下来在浏览器输入vps的外网IP+8080端口，就可以进行chevereto软件安装了。<br>安装过程傻瓜化。<a target="_blank" rel="external nofollow noopener noreferrer" href="https://zealot.top/%E4%BD%BF%E7%94%A8Docker%E8%BD%BB%E6%9D%BE%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%9B%BE%E5%BA%8Achevereto.html">参考</a><br><img src="http://ww1.sinaimg.cn/large/006gDuOdgy1gd4ezb2wq1j31f60u0dk0.jpg" alt="image.png"><br><img src="http://ww1.sinaimg.cn/large/006gDuOdgy1gd4f2urrykj30tp0a9mxx.jpg" alt="image.png"><br><img src="http://ww1.sinaimg.cn/large/006gDuOdgy1gd4f45z22dj31f60u0q6l.jpg" alt="image.png"><br><img src="http://ww1.sinaimg.cn/large/006gDuOdgy1gd4f5857rhj31f60qqjt5.jpg" alt="image.png"><h4 id="用Nginx反向代理docker容器"><a href="#用Nginx反向代理docker容器" class="headerlink" title="用Nginx反向代理docker容器"></a>用Nginx反向代理docker容器</h4><a target="_blank" rel="external nofollow noopener noreferrer" href="https://www.ioiox.com/archives/80.html">参考</a><br>接下来我们用nginx反向代理docker。为什么要用nginx反向代理？因为我不想增加vps开放的端口（不在互联网暴露docker的8080端口，降低安全风险）。<br>nginx的开放端口目前反向代理了v2ray和伪装网站。我们取消对伪装网站的代理，/路径直接代理docker容器的8080端口。<details><summary>nginx配置文件修改如下</summary>
 <p>
 
-</li>
+</p></details></li>
 </ul>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">## server部分增加对/路径的反向代理</span><br><span class="line">    location / &#123;</span><br><span class="line">        proxy_redirect off;</span><br><span class="line">        proxy_pass http://127.0.0.1:8080;</span><br><span class="line"></span><br><span class="line">        proxy_set_header  Host                $http_host;</span><br><span class="line">        proxy_set_header  X-Real-IP           $remote_addr;</span><br><span class="line">        proxy_set_header  X-Forwarded-Ssl     on;</span><br><span class="line">        proxy_set_header  X-Forwarded-For     $proxy_add_x_forwarded_for;</span><br><span class="line">        proxy_set_header  X-Forwarded-Proto   $scheme;</span><br><span class="line">        proxy_set_header  X-Frame-Options     SAMEORIGIN;</span><br><span class="line"></span><br><span class="line">        client_max_body_size        100m;</span><br><span class="line">        client_body_buffer_size     128k;</span><br><span class="line"></span><br><span class="line">        proxy_buffer_size           4k;</span><br><span class="line">        proxy_buffers               4 32k;</span><br><span class="line">        proxy_busy_buffers_size     64k;</span><br><span class="line">        proxy_temp_file_write_size  64k;</span><br><span class="line">    &#125;</span><br><span class="line">## 注释掉原本的Nginx模板网站的配置</span><br><span class="line"># /root/var/www/html;</span><br><span class="line"># index index.html index.htm index.nginx-debian.html;</span><br><span class="line"># location ~ .*\.(js|jpg|JPEG|css|bmp|gif|GIF|png)$ &#123;access_log off;&#125;</span><br></pre></td></tr></table></figure>
 
-</p>
-</details>
+<p></p>
+
 
 <div class="note info">
             <p><strong>注意：</strong>配置文件中的这一句<code>location ~ .*\.(js|jpg|JPEG|css|bmp|gif|GIF|png)$ {access_log off;}</code>默认不注释的话，将导致chevereto网站的静态资源无法显示。&lt;原因就是静态资源没有转发到docker容器，我们直接注释掉这一句，不单独设置静态资源的转发。<br><img src="http://ww1.sinaimg.cn/large/006gDuOdgy1gd4g07fb7lj31f60u0gnr.jpg" alt="image.png"><br><img src="http://ww1.sinaimg.cn/large/006gDuOdgy1gd4hgcl33wj30rh0dsdgy.jpg" alt="image.png"></p>
           </div>
 
-<p>好的，经过一番折腾，终于可以正常使用图床了，玩一玩：<br><img src="http://ww1.sinaimg.cn/large/006gDuOdgy1gd4hhgozn5j31f60u0x6q.jpg" alt="image.png"><br><a target="_blank" rel="noopener" href="https://v2ray.dana5haw.com:8008/image/4Qd">我的图片</a></p>
-<h3 id="给图片加水印"><a href="#给图片加水印" class="headerlink" title="给图片加水印"></a>给图片加水印</h3><p>之前看到有些博客的图片是加的统一水印，看起来可酷了~<br>这个图床也可以自定义水印图片~<br><a target="_blank" rel="noopener" href="https://v2ray.dana5haw.com:8008/image/2k8"><img src="https://v2ray.dana5haw.com:8008/images/2020/03/24/image54edcc7522f50cdd.png" alt="image54edcc7522f50cdd.png"></a><br><a target="_blank" rel="noopener" href="https://v2ray.dana5haw.com:8008/image/O8Z"><img src="https://v2ray.dana5haw.com:8008/images/2020/03/24/image0b5b6fdbc185d4ac.png" alt="image0b5b6fdbc185d4ac.png"></a><br>加了水印就是这样的效果。为了统一风格，我把主题的图片改成和水印一样的图片了。<br><img src="https://v2ray.dana5haw.com:8008/images/2020/03/24/background.jpg" alt="background.jpg"><br><a target="_blank" rel="noopener" href="https://v2ray.dana5haw.com:8008/image/sBU"><img src="https://v2ray.dana5haw.com:8008/images/2020/03/24/image.png" alt="image.png"></a></p>
-<h3 id="开放用户注册"><a href="#开放用户注册" class="headerlink" title="开放用户注册"></a>开放用户注册</h3><p>可以把图床提供给朋友使用，默认的配置是新用户注册时，站长会发送激活链接至用户邮箱。这就涉及到了邮件功能，chereveto默认用PHP函数发送邮件，但是这个默认的配置将导致邮件发不出去。<br><a target="_blank" rel="noopener" href="https://v2ray.dana5haw.com:8008/image/bii"><img src="https://v2ray.dana5haw.com:8008/images/2020/03/24/image737c92dbdd8c0799.png" alt="image737c92dbdd8c0799.png"></a><br>所以，我们选择SMTP方式给注册用户发送激活邮件。<br>我用Gmail邮箱设置的SMTP，在Gmail邮箱这边需要开启双重验证，获取专用密码（我之前设置过，已经有专用密码了，这个步骤就跳过，可参考<a target="_blank" rel="noopener" href="https://www.yiyisoft.com/news/289.html">这篇教程</a>）<br>接下来进入chereveto的邮件设置，按照这个配置：<a target="_blank" rel="noopener" href="https://www.newlearner.site/2018/12/05/chevereto.html">参考教程</a><br><a target="_blank" rel="noopener" href="https://v2ray.dana5haw.com:8008/image/qgn"><img src="https://v2ray.dana5haw.com:8008/images/2020/03/24/imaged09f239ce201f243.png" alt="imaged09f239ce201f243.png"></a><br>接下来，发送一封测试邮件，试一下站长邮箱能不能自动往外发送邮件：<br><a target="_blank" rel="noopener" href="https://v2ray.dana5haw.com:8008/image/yGV"><img src="https://v2ray.dana5haw.com:8008/images/2020/03/24/image5615ef216cd0e898.png" alt="image5615ef216cd0e898.png"></a><br>终于可以开放用户注册使用自己的图床啦~</p>
+<p>好的，经过一番折腾，终于可以正常使用图床了，玩一玩：<br><img src="http://ww1.sinaimg.cn/large/006gDuOdgy1gd4hhgozn5j31f60u0x6q.jpg" alt="image.png"><br><a target="_blank" rel="external nofollow noopener noreferrer" href="https://v2ray.dana5haw.com:8008/image/4Qd">我的图片</a></p>
+<h3 id="给图片加水印"><a href="#给图片加水印" class="headerlink" title="给图片加水印"></a>给图片加水印</h3><p>之前看到有些博客的图片是加的统一水印，看起来可酷了~<br>这个图床也可以自定义水印图片~<br><a target="_blank" rel="external nofollow noopener noreferrer" href="https://v2ray.dana5haw.com:8008/image/2k8"><img src="https://v2ray.dana5haw.com:8008/images/2020/03/24/image54edcc7522f50cdd.png" alt="image54edcc7522f50cdd.png"></a><br><a target="_blank" rel="external nofollow noopener noreferrer" href="https://v2ray.dana5haw.com:8008/image/O8Z"><img src="https://v2ray.dana5haw.com:8008/images/2020/03/24/image0b5b6fdbc185d4ac.png" alt="image0b5b6fdbc185d4ac.png"></a><br>加了水印就是这样的效果。为了统一风格，我把主题的图片改成和水印一样的图片了。<br><img src="https://v2ray.dana5haw.com:8008/images/2020/03/24/background.jpg" alt="background.jpg"><br><a target="_blank" rel="external nofollow noopener noreferrer" href="https://v2ray.dana5haw.com:8008/image/sBU"><img src="https://v2ray.dana5haw.com:8008/images/2020/03/24/image.png" alt="image.png"></a></p>
+<h3 id="开放用户注册"><a href="#开放用户注册" class="headerlink" title="开放用户注册"></a>开放用户注册</h3><p>可以把图床提供给朋友使用，默认的配置是新用户注册时，站长会发送激活链接至用户邮箱。这就涉及到了邮件功能，chereveto默认用PHP函数发送邮件，但是这个默认的配置将导致邮件发不出去。<br><a target="_blank" rel="external nofollow noopener noreferrer" href="https://v2ray.dana5haw.com:8008/image/bii"><img src="https://v2ray.dana5haw.com:8008/images/2020/03/24/image737c92dbdd8c0799.png" alt="image737c92dbdd8c0799.png"></a><br>所以，我们选择SMTP方式给注册用户发送激活邮件。<br>我用Gmail邮箱设置的SMTP，在Gmail邮箱这边需要开启双重验证，获取专用密码（我之前设置过，已经有专用密码了，这个步骤就跳过，可参考<a target="_blank" rel="external nofollow noopener noreferrer" href="https://www.yiyisoft.com/news/289.html">这篇教程</a>）<br>接下来进入chereveto的邮件设置，按照这个配置：<a target="_blank" rel="external nofollow noopener noreferrer" href="https://www.newlearner.site/2018/12/05/chevereto.html">参考教程</a><br><a target="_blank" rel="external nofollow noopener noreferrer" href="https://v2ray.dana5haw.com:8008/image/qgn"><img src="https://v2ray.dana5haw.com:8008/images/2020/03/24/imaged09f239ce201f243.png" alt="imaged09f239ce201f243.png"></a><br>接下来，发送一封测试邮件，试一下站长邮箱能不能自动往外发送邮件：<br><a target="_blank" rel="external nofollow noopener noreferrer" href="https://v2ray.dana5haw.com:8008/image/yGV"><img src="https://v2ray.dana5haw.com:8008/images/2020/03/24/image5615ef216cd0e898.png" alt="image5615ef216cd0e898.png"></a><br>终于可以开放用户注册使用自己的图床啦~</p>
 <h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>还有很多功能可以摸索，这次的docker体验满分！docker真是一项伟大的发明。这个图床花了好多时间精力，昨天几乎通宵，很久没有这样的求知欲了。</p>
-<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><p><a target="_blank" rel="noopener" href="https://zealot.top/%E4%BD%BF%E7%94%A8Docker%E8%BD%BB%E6%9D%BE%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%9B%BE%E5%BA%8Achevereto.html">主要参考这篇文章进行docker镜像安装和chereveto软件的安装</a><br><a target="_blank" rel="noopener" href="https://www.ioiox.com/archives/80.html">还参考了这篇文章用nginx代理docker容器的部分</a></p>
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><p><a target="_blank" rel="external nofollow noopener noreferrer" href="https://zealot.top/%E4%BD%BF%E7%94%A8Docker%E8%BD%BB%E6%9D%BE%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%9B%BE%E5%BA%8Achevereto.html">主要参考这篇文章进行docker镜像安装和chereveto软件的安装</a><br><a target="_blank" rel="external nofollow noopener noreferrer" href="https://www.ioiox.com/archives/80.html">还参考了这篇文章用nginx代理docker容器的部分</a></p>
 
     </div>
 
@@ -426,21 +425,21 @@
 <div>
 <ul class="post-copyright">
   <li class="post-copyright-author">
-    <strong>本文作者： </strong>Dana Shaw
+    <strong>本文作者： </strong>肖坤稼
   </li>
   <li class="post-copyright-link">
     <strong>本文链接：</strong>
     <a href="https://dana5haw.com/posts/ZH-CN/Docker-Image-Hosting-Chevereto.html" title="用docker方式自建图床chevereto">https://dana5haw.com/posts/ZH-CN/Docker-Image-Hosting-Chevereto.html</a>
   </li>
   <li class="post-copyright-license">
-    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" rel="noopener" target="_blank"><i class="fa fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" rel="external nofollow noopener noreferrer" target="_blank"><i class="fa fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
   </li>
 
   <div class="wechat_OA">
 	<span>欢迎关注我的公众号(Welcome to follow me on Wechat)</span>
 	<br>
     <!-- 这里添加你的二维码图片 -->
-	<img src ="https://v2ray.dana5haw.com:8008/images/2021/08/03/qrcode_for_gh_9b7280eb1edc_258.jpg">
+	<img src="https://v2ray.dana5haw.com:8008/images/2021/08/03/qrcode_for_gh_9b7280eb1edc_258.jpg">
 </div>
 
 </ul>
@@ -543,18 +542,17 @@
       <div class="post-toc-wrap sidebar-panel">
           <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%89%8D%E8%A8%80"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%8E%B0%E7%8A%B6"><span class="nav-number">2.</span> <span class="nav-text">现状</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9B%BE%E5%BA%8A%E8%BD%AF%E4%BB%B6%E9%80%89%E6%8B%A9"><span class="nav-number">3.</span> <span class="nav-text">图床软件选择</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%88%91%E9%80%89%E6%8B%A9%E7%94%A8docker%E9%83%A8%E7%BD%B2"><span class="nav-number">4.</span> <span class="nav-text">我选择用docker部署</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%89%E8%A3%85docker-ce"><span class="nav-number">4.1.</span> <span class="nav-text">安装docker-ce</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%89%E8%A3%85docker-compose"><span class="nav-number">4.2.</span> <span class="nav-text">安装docker-compose</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%85%8D%E7%BD%AEdocker-compose-yml"><span class="nav-number">4.3.</span> <span class="nav-text">配置docker-compose.yml</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%AE%BE%E7%BD%AEdocker%E7%8E%AF%E5%A2%83"><span class="nav-number">4.4.</span> <span class="nav-text">设置docker环境</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%90%AF%E5%8A%A8docker%E5%AE%B9%E5%99%A8"><span class="nav-number">4.5.</span> <span class="nav-text">启动docker容器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%89%E8%A3%85chevereto"><span class="nav-number">4.6.</span> <span class="nav-text">安装chevereto</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%B5%8B%E8%AF%95docker%E5%90%AF%E5%8A%A8%E6%98%AF%E5%90%A6%E6%AD%A3%E5%B8%B8"><span class="nav-number">4.6.1.</span> <span class="nav-text">测试docker启动是否正常</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%94%A8Nginx%E5%8F%8D%E5%90%91%E4%BB%A3%E7%90%86docker%E5%AE%B9%E5%99%A8"><span class="nav-number">4.6.2.</span> <span class="nav-text">用Nginx反向代理docker容器</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%BB%99%E5%9B%BE%E7%89%87%E5%8A%A0%E6%B0%B4%E5%8D%B0"><span class="nav-number">4.7.</span> <span class="nav-text">给图片加水印</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%BC%80%E6%94%BE%E7%94%A8%E6%88%B7%E6%B3%A8%E5%86%8C"><span class="nav-number">4.8.</span> <span class="nav-text">开放用户注册</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%80%BB%E7%BB%93"><span class="nav-number">5.</span> <span class="nav-text">总结</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8F%82%E8%80%83"><span class="nav-number">6.</span> <span class="nav-text">参考</span></a></li></ol></div>
       </div>
-        <div id="">
+        <div id>
 	  <canvas id="canvas" style="width:60%;">
-	    </div>
+	    </canvas></div>
 	      <script type="text/javascript" src="/js/canvas-dance-time.js"></script>
       <!--/noindex-->
 
 
       <div class="site-overview-wrap sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
-    <img class="site-author-image" itemprop="image" alt="Dana Shaw"
-      src="/./images/photo.jpg">
-  <p class="site-author-name" itemprop="name">Dana Shaw</p>
+    <img class="site-author-image" itemprop="image" alt="肖坤稼" src="/./images/photo.jpg">
+  <p class="site-author-name" itemprop="name">肖坤稼</p>
   <div class="site-description" itemprop="description">连尘埃也想收藏</div>
 </div>
 <div class="site-state-wrap motion-element">
@@ -562,7 +560,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">255</span>
+          <span class="site-state-item-count">256</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -582,13 +580,13 @@
 </div>
   <div class="links-of-author motion-element">
       <span class="links-of-author-item">
-        <a href="https://github.com/DanaShaw" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;DanaShaw" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+        <a href="https://github.com/DanaShaw" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;DanaShaw" rel="external nofollow noopener noreferrer" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
       </span>
       <span class="links-of-author-item">
-        <a href="mailto:danaxkj@gmail.com" title="E-Mail → mailto:danaxkj@gmail.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+        <a href="mailto:danaxkj@gmail.com" title="E-Mail → mailto:danaxkj@gmail.com" rel="external nofollow noopener noreferrer" target="_blank"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
       </span>
       <span class="links-of-author-item">
-        <a href="https://weibo.com/u/5742631593" title="Weibo → https:&#x2F;&#x2F;weibo.com&#x2F;u&#x2F;5742631593" rel="noopener" target="_blank"><i class="fa fa-fw fa-weibo"></i>Weibo</a>
+        <a href="https://weibo.com/u/5742631593" title="Weibo → https:&#x2F;&#x2F;weibo.com&#x2F;u&#x2F;5742631593" rel="external nofollow noopener noreferrer" target="_blank"><i class="fa fa-fw fa-weibo"></i>Weibo</a>
       </span>
       <span class="links-of-author-item">
         <a href="/atom.xml" title="RSS → &#x2F;atom.xml"><i class="fa fa-fw fa-rss"></i>RSS</a>
@@ -603,7 +601,7 @@
     </div>
     <ul class="links-of-blogroll-list">
         <li class="links-of-blogroll-item">
-          <a href="https://whale3070.github.io/" title="https:&#x2F;&#x2F;whale3070.github.io&#x2F;" rel="noopener" target="_blank">windows提权学习</a>
+          <a href="https://whale3070.github.io/" title="https:&#x2F;&#x2F;whale3070.github.io&#x2F;" rel="external nofollow noopener noreferrer" target="_blank">windows提权学习</a>
         </li>
     </ul>
   </div>
@@ -650,7 +648,7 @@
   <span class="with-love">
     <i class="fa fa-user"></i>
   </span>
-  <span class="author" itemprop="copyrightHolder">Dana Shaw</span>
+  <span class="author" itemprop="copyrightHolder">肖坤稼</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-area-chart"></i>
@@ -664,7 +662,7 @@
 </div>
 
 
-  <script src='https://unpkg.com/mermaid@/dist/mermaid.min.js'></script>
+  <script src="https://unpkg.com/mermaid@/dist/mermaid.min.js"></script>
   <script>
     if (window.mermaid) {
       mermaid.initialize({theme: 'default'});
@@ -706,7 +704,7 @@
 
   
   
-  <script color='0,0,255' opacity='0.5' zIndex='-1' count='99' src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  <script color="0,0,255" opacity="0.5" zindex="-1" count="99" src="/lib/canvas-nest/canvas-nest.min.js"></script>
   <script src="/lib/anime.min.js"></script>
   <script src="//cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js"></script>
   <script src="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.js"></script>
@@ -729,6 +727,15 @@
 
 
   
+  <script>
+    (function(){
+      var bp = document.createElement('script');
+      var curProtocol = window.location.protocol.split(':')[0];
+      bp.src = (curProtocol === 'https') ? 'https://zz.bdstatic.com/linksubmit/push.js' : 'http://push.zhanzhang.baidu.com/push.js';
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(bp, s);
+    })();
+  </script>
 
 
 
@@ -785,15 +792,9 @@ NexT.utils.loadComments(document.querySelector('#gitalk-container'), () => {
 });
 </script>
 
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3938956891324222"
-     crossorigin="anonymous"></script>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3938956891324222" crossorigin="anonymous"></script>
 <!-- sidebar -->
-<ins class="adsbygoogle"
-     style="display:block"
-     data-ad-client="ca-pub-3938956891324222"
-     data-ad-slot="6163650450"
-     data-ad-format="auto"
-     data-full-width-responsive="true"></ins>
+<ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-3938956891324222" data-ad-slot="6163650450" data-ad-format="auto" data-full-width-responsive="true"></ins>
 <script>
      (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -801,7 +802,7 @@ NexT.utils.loadComments(document.querySelector('#gitalk-container'), () => {
   <script type="text/javascript" src="//cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js"></script>
   
   
-   <canvas class="fireworks" style="position: fixed;left: 0;top: 0;z-index: 1; pointer-events: none;" ></canvas> 
+   <canvas class="fireworks" style="position: fixed;left: 0;top: 0;z-index: 1; pointer-events: none;"></canvas> 
    <script type="text/javascript" src="//cdn.bootcss.com/animejs/2.2.0/anime.min.js"></script> 
    <script type="text/javascript" src="/js/fireworks.js"></script>
 

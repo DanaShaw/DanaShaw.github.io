@@ -76,7 +76,7 @@
 <meta property="og:image" content="http://ww1.sinaimg.cn/large/006gDuOdgy1gcybnq8oj0j30uj0awju0.jpg">
 <meta property="article:published_time" content="2020-03-18T07:23:30.000Z">
 <meta property="article:modified_time" content="2021-08-06T03:56:44.316Z">
-<meta property="article:author" content="Dana Shaw">
+<meta property="article:author" content="肖坤稼">
 <meta property="article:tag" content="v2ray+ws+tls+web">
 <meta property="article:tag" content="梯子">
 <meta name="twitter:card" content="summary">
@@ -153,7 +153,8 @@
         <span class="logo-line-after"><i></i></span>
       </a>
     </div>
-        <p class="site-subtitle">为了去往别处</p>
+        <h1 class="site-subtitle" itemprop="description">为了去往别处</h1>
+      
   </div>
 
   <div class="site-nav-toggle">
@@ -228,9 +229,7 @@
     <i class="fa fa-search"></i>
   </span>
   <div class="search-input-container">
-    <input autocomplete="off" autocorrect="off" autocapitalize="none"
-           placeholder="搜索..." spellcheck="false"
-           type="text" id="search-input">
+    <input autocomplete="off" autocorrect="off" autocapitalize="none" placeholder="搜索..." spellcheck="false" type="text" id="search-input">
   </div>
   <span class="popup-btn-close">
     <i class="fa fa-times-circle"></i>
@@ -270,7 +269,7 @@
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/./images/photo.jpg">
-      <meta itemprop="name" content="Dana Shaw">
+      <meta itemprop="name" content="肖坤稼">
       <meta itemprop="description" content="连尘埃也想收藏">
     </span>
 
@@ -278,9 +277,9 @@
       <meta itemprop="name" content="Dana Shaw's blog">
     </span>
       <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
+        <h2 class="post-title" itemprop="name headline">
           v2ray+ws+tls+web加固梯子
-        </h1>
+        </h2>
 
         <div class="post-meta">
             <span class="post-meta-item">
@@ -345,12 +344,12 @@
         <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>v2ray默认的vmess协议，流量特征太明显，容易被识别，安全性低。于是找了一个相对安全的方式：https。前提是手里有一个域名用来做伪装站点。</p>
 <p><escape> <span id="more"></span></escape></p>
 <h2 id="方法"><a href="#方法" class="headerlink" title="方法"></a>方法</h2><p>nginx反向代理v2ray的websocket流量。</p>
-<h3 id="nginx安装及配置"><a href="#nginx安装及配置" class="headerlink" title="nginx安装及配置"></a>nginx安装及配置</h3><h4 id="nginx安装"><a href="#nginx安装" class="headerlink" title="nginx安装"></a>nginx安装</h4><p><a target="_blank" rel="noopener" href="https://www.myfreax.com/how-to-install-nginx-on-ubuntu-18-04/">参考文章</a></p>
+<h3 id="nginx安装及配置"><a href="#nginx安装及配置" class="headerlink" title="nginx安装及配置"></a>nginx安装及配置</h3><h4 id="nginx安装"><a href="#nginx安装" class="headerlink" title="nginx安装"></a>nginx安装</h4><p><a target="_blank" rel="external nofollow noopener noreferrer" href="https://www.myfreax.com/how-to-install-nginx-on-ubuntu-18-04/">参考文章</a></p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">root@vultr:~# apt install nginx</span><br></pre></td></tr></table></figure>
 <blockquote>
 <p>查看nginx版本：<code>nginx -V</code><br><img src="http://ww1.sinaimg.cn/large/006gDuOdgy1gczg6drgpgj30pi08g3zr.jpg" alt="image.png"></p>
 </blockquote>
-<h4 id="修改默认端口"><a href="#修改默认端口" class="headerlink" title="修改默认端口"></a>修改默认端口</h4><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/w20101310/article/details/78835668">参考文章</a><br><img src="http://ww1.sinaimg.cn/large/006gDuOdgy1gcy48l676ej30k10gjmyb.jpg" alt="image.png"><br>root@vultr:/etc/nginx/sites-enabled# ufw allow 8008<br>root@vultr:/etc/nginx/sites-enabled# nginx -s reload<br>root@vultr:/etc/nginx/sites-enabled# service nginx restart</p>
+<h4 id="修改默认端口"><a href="#修改默认端口" class="headerlink" title="修改默认端口"></a>修改默认端口</h4><p><a target="_blank" rel="external nofollow noopener noreferrer" href="https://blog.csdn.net/w20101310/article/details/78835668">参考文章</a><br><img src="http://ww1.sinaimg.cn/large/006gDuOdgy1gcy48l676ej30k10gjmyb.jpg" alt="image.png"><br>root@vultr:/etc/nginx/sites-enabled# ufw allow 8008<br>root@vultr:/etc/nginx/sites-enabled# nginx -s reload<br>root@vultr:/etc/nginx/sites-enabled# service nginx restart</p>
 <blockquote>
 <p>扩展：启动nginx遇到一个报错</p>
 </blockquote>
@@ -362,7 +361,7 @@
 </p>
 </details>
 
-<p>解决方法：<br><a target="_blank" rel="noopener" href="https://stackoverflow.com/questions/42078674/nginx-service-failed-to-read-pid-from-file-run-nginx-pid-invalid-argument">参考文章</a></p>
+<p>解决方法：<br><a target="_blank" rel="external nofollow noopener noreferrer" href="https://stackoverflow.com/questions/42078674/nginx-service-failed-to-read-pid-from-file-run-nginx-pid-invalid-argument">参考文章</a></p>
 <details><summary>点击展开解决过程</summary>
 <p>
 
@@ -372,7 +371,7 @@
 </details>
 
 <p>已成功启动nginx，可输入IP+端口，进入nginx欢迎界面。<br><img src="http://ww1.sinaimg.cn/large/006gDuOdgy1gcy4izwvyfj31f60u0dif.jpg" alt="image.png"></p>
-<h3 id="安装certbot获取https证书"><a href="#安装certbot获取https证书" class="headerlink" title="安装certbot获取https证书"></a>安装certbot获取https证书</h3><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/u012291393/article/details/78768547">参考文章</a></p>
+<h3 id="安装certbot获取https证书"><a href="#安装certbot获取https证书" class="headerlink" title="安装certbot获取https证书"></a>安装certbot获取https证书</h3><p><a target="_blank" rel="external nofollow noopener noreferrer" href="https://blog.csdn.net/u012291393/article/details/78768547">参考文章</a></p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">root@vultr:/etc/nginx/sites-available# apt install certbot</span><br></pre></td></tr></table></figure>
 <p>申请https证书：</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">root@vultr:/etc# certbot certonly --manual --preferred-challenge dns -d v2ray.dana5haw.com</span><br></pre></td></tr></table></figure>
@@ -405,7 +404,7 @@
 </p>
 </details>
 
-<h3 id="配置v2ray"><a href="#配置v2ray" class="headerlink" title="配置v2ray"></a>配置v2ray</h3><p>修改配置文件<code>config.json</code>，改为通过websocket传输流量。这个文件里，我们自定义websocket路径（最好是在<a target="_blank" rel="noopener" href="https://pincong.rocks/url/link/aHR0cHM6Ly93d3cucmFuZG9tLm9yZy9zdHJpbmdzLz9udW09MSZsZW49NyZkaWdpdHM9b24mdXBwZXJhbHBoYT1vbiZsb3dlcmFscGhhPW9uJnVuaXF1ZT1vZmYmZm9ybWF0PWh0bWwmcm5kPW5ldw">这个网站</a>随机生成），以及websocket的端口号（我定义的端口号是4433）。</p>
+<h3 id="配置v2ray"><a href="#配置v2ray" class="headerlink" title="配置v2ray"></a>配置v2ray</h3><p>修改配置文件<code>config.json</code>，改为通过websocket传输流量。这个文件里，我们自定义websocket路径（最好是在<a target="_blank" rel="external nofollow noopener noreferrer" href="https://pincong.rocks/url/link/aHR0cHM6Ly93d3cucmFuZG9tLm9yZy9zdHJpbmdzLz9udW09MSZsZW49NyZkaWdpdHM9b24mdXBwZXJhbHBoYT1vbiZsb3dlcmFscGhhPW9uJnVuaXF1ZT1vZmYmZm9ybWF0PWh0bWwmcm5kPW5ldw">这个网站</a>随机生成），以及websocket的端口号（我定义的端口号是4433）。</p>
 <details><summary>点击展开配置文件内容</summary>
 <p>
 
@@ -430,7 +429,7 @@
 
 <p>检查配置文件是否正确：<br><code>nginx -t</code></p>
 <p>重载配置文件：<br><code>nginx -s reload</code></p>
-<h3 id="上传网站模板"><a href="#上传网站模板" class="headerlink" title="上传网站模板"></a>上传网站模板</h3><p>在<a target="_blank" rel="noopener" href="https://pincong.rocks/url/link/aHR0cHM6Ly9jb2xvcmxpYi5jb20vd3AvdGVtcGxhdGVzLw">这个网站</a>下载一个自己喜欢的网站模板（注意，我们用这个网站的模板，是因为这些模板都是全英文的，隐蔽性较强）<br>将下载下来的所有内容拷贝到网站根目录<code>/var/www/html</code>（我用的是mobaxterms的xftp功能来上传网站模板，mobaxterms作为一款远程连接工具确实好用）。</p>
+<h3 id="上传网站模板"><a href="#上传网站模板" class="headerlink" title="上传网站模板"></a>上传网站模板</h3><p>在<a target="_blank" rel="external nofollow noopener noreferrer" href="https://pincong.rocks/url/link/aHR0cHM6Ly9jb2xvcmxpYi5jb20vd3AvdGVtcGxhdGVzLw">这个网站</a>下载一个自己喜欢的网站模板（注意，我们用这个网站的模板，是因为这些模板都是全英文的，隐蔽性较强）<br>将下载下来的所有内容拷贝到网站根目录<code>/var/www/html</code>（我用的是mobaxterms的xftp功能来上传网站模板，mobaxterms作为一款远程连接工具确实好用）。</p>
 <h3 id="重启nginx和v2ray"><a href="#重启nginx和v2ray" class="headerlink" title="重启nginx和v2ray"></a>重启nginx和v2ray</h3><p><strong>注意：</strong>以上所有操作的前提是，我已经把防火墙关了，并且开启了ssh服务。（为了方便远程连接服务器进行这些软件的安装和配置）<br>重启nginx和v2ray：</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">systemctl restart nginx</span><br><span class="line">systemctl restart v2ray</span><br></pre></td></tr></table></figure>
 <h3 id="测试一下"><a href="#测试一下" class="headerlink" title="测试一下~"></a>测试一下~</h3><p>测试就看两点：</p>
@@ -444,7 +443,7 @@
 <li>通信过程：用户——(udp协议、<strong>websocket通信</strong>)——&gt;v2ray客户端——(tcp协议、tls加密、<strong>websocket通信</strong>)——&gt;nginx反向代理——(tcp协议、<strong>websocket通信</strong>)——&gt;v2ray服务端——(any)——&gt;目标访问网站</li>
 <li>v2ray客户端的inbound是用户，outbound是v2ray服务端</li>
 <li>v2ray服务端的inbound是v2ray客户端，outbound是目标访问网站</li>
-<li>用户访问v2ray客户端使用udp协议，网络访问速度会更快，尤其是看YTB视频更流畅。（视频播放这种应用场景，更适合用udp协议）<a target="_blank" rel="noopener" href="https://github.com/v2ray/discussion/issues/513">参考</a></li>
+<li>用户访问v2ray客户端使用udp协议，网络访问速度会更快，尤其是看YTB视频更流畅。（视频播放这种应用场景，更适合用udp协议）<a target="_blank" rel="external nofollow noopener noreferrer" href="https://github.com/v2ray/discussion/issues/513">参考</a></li>
 <li>开启MUX功能，即多路复用，增加了并发连接数</li>
 </ul>
 <details><summary>点击展开配置文件内容</summary>
@@ -456,13 +455,13 @@
 </details>
 
 <p>开启软件，打开浏览器代理即可使用。（浏览器的代理配置和之前一样，用SOCKS5代理，代理端口是1080）</p>
-<h4 id="手机端的配置更改"><a href="#手机端的配置更改" class="headerlink" title="手机端的配置更改"></a>手机端的配置更改</h4><p>参考<a target="_blank" rel="noopener" href="https://www.shawnlin.cn/v2ray-client/#%E4%BB%A5BifrostV%E9%85%8D%E7%BD%AE%E4%B8%BA%E4%BE%8B">这篇文章</a><br>配置简单，照着这个教程配置就可以正常上网了。<br><strong>新增</strong>：直接把配置文件导入手机端就行了，这样的配置更精细化，网络访问速度更快。</p>
+<h4 id="手机端的配置更改"><a href="#手机端的配置更改" class="headerlink" title="手机端的配置更改"></a>手机端的配置更改</h4><p>参考<a target="_blank" rel="external nofollow noopener noreferrer" href="https://www.shawnlin.cn/v2ray-client/#%E4%BB%A5BifrostV%E9%85%8D%E7%BD%AE%E4%B8%BA%E4%BE%8B">这篇文章</a><br>配置简单，照着这个教程配置就可以正常上网了。<br><strong>新增</strong>：直接把配置文件导入手机端就行了，这样的配置更精细化，网络访问速度更快。</p>
 <h3 id="别忘了把防火墙打开"><a href="#别忘了把防火墙打开" class="headerlink" title="别忘了把防火墙打开"></a>别忘了把防火墙打开</h3><p>我们打开防火墙是为了便于操作，但不利于安全。操作完成之后，一定要把防火墙开启，并且只开放nginx的监听端口到互联网。<br>首先关闭ssh服务：<br><code>service ssh stop</code><br>关闭开放的多余端口：</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ufw enable</span><br><span class="line">ufw delete allow 端口号</span><br></pre></td></tr></table></figure>
 
 <h3 id="nginx默认的欢迎页面也删掉"><a href="#nginx默认的欢迎页面也删掉" class="headerlink" title="nginx默认的欢迎页面也删掉"></a>nginx默认的欢迎页面也删掉</h3><p>减少暴露信息，我们把nginx欢迎页面删掉。<br><img src="http://ww1.sinaimg.cn/large/006gDuOdgy1gcybgipqdsj30qe02rdfw.jpg" alt="image.png"><br><img src="http://ww1.sinaimg.cn/large/006gDuOdgy1gcybh51w3pj30gv00tt8j.jpg" alt="image.png"></p>
 <h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>其实主要运用了Nginx的代理功能，由nginx代理v2ray的websocket流量，并且nginx可以建站，帮助我们挂羊头卖狗肉。这种方式的优点是：所有请求其实都经过nginx代理，nginx设置了https，那么所有流量都将是经过https加密的，不会具有<strong>不良特征</strong>。<br>nginx上观察访问日志，看到的都是访问websocket路径，看不到用户访问的具体内容，不过可以看到用户端的IP。<br><img src="http://ww1.sinaimg.cn/large/006gDuOdgy1gcybnq8oj0j30uj0awju0.jpg" alt="image.png"></p>
-<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><p><a target="_blank" rel="noopener" href="https://pincong.rocks/article/15493">思路主要参考这篇文章：用nginx反向代理v2ray，并伪装站点</a><br><a target="_blank" rel="noopener" href="https://toutyrater.github.io/advanced/wss_and_web.html">PC客户端的配置文件参考了这篇文章</a><br><a target="_blank" rel="noopener" href="https://www.myfreax.com/how-to-install-nginx-on-ubuntu-18-04/">nginx的安装和配置参考这篇</a><br><a target="_blank" rel="noopener" href="https://blog.csdn.net/u012291393/article/details/78768547">https证书申请参考这篇：用certbot申请let’s encrypt的https证书</a></p>
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><p><a target="_blank" rel="external nofollow noopener noreferrer" href="https://pincong.rocks/article/15493">思路主要参考这篇文章：用nginx反向代理v2ray，并伪装站点</a><br><a target="_blank" rel="external nofollow noopener noreferrer" href="https://toutyrater.github.io/advanced/wss_and_web.html">PC客户端的配置文件参考了这篇文章</a><br><a target="_blank" rel="external nofollow noopener noreferrer" href="https://www.myfreax.com/how-to-install-nginx-on-ubuntu-18-04/">nginx的安装和配置参考这篇</a><br><a target="_blank" rel="external nofollow noopener noreferrer" href="https://blog.csdn.net/u012291393/article/details/78768547">https证书申请参考这篇：用certbot申请let’s encrypt的https证书</a></p>
 
     </div>
 
@@ -474,21 +473,21 @@
 <div>
 <ul class="post-copyright">
   <li class="post-copyright-author">
-    <strong>本文作者： </strong>Dana Shaw
+    <strong>本文作者： </strong>肖坤稼
   </li>
   <li class="post-copyright-link">
     <strong>本文链接：</strong>
     <a href="https://dana5haw.com/posts/ZH-CN/V2ray_Ws_Tls_Web.html" title="v2ray+ws+tls+web加固梯子">https://dana5haw.com/posts/ZH-CN/V2ray_Ws_Tls_Web.html</a>
   </li>
   <li class="post-copyright-license">
-    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" rel="noopener" target="_blank"><i class="fa fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" rel="external nofollow noopener noreferrer" target="_blank"><i class="fa fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
   </li>
 
   <div class="wechat_OA">
 	<span>欢迎关注我的公众号(Welcome to follow me on Wechat)</span>
 	<br>
     <!-- 这里添加你的二维码图片 -->
-	<img src ="https://v2ray.dana5haw.com:8008/images/2021/08/03/qrcode_for_gh_9b7280eb1edc_258.jpg">
+	<img src="https://v2ray.dana5haw.com:8008/images/2021/08/03/qrcode_for_gh_9b7280eb1edc_258.jpg">
 </div>
 
 </ul>
@@ -589,18 +588,17 @@
       <div class="post-toc-wrap sidebar-panel">
           <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%89%8D%E8%A8%80"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%96%B9%E6%B3%95"><span class="nav-number">2.</span> <span class="nav-text">方法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#nginx%E5%AE%89%E8%A3%85%E5%8F%8A%E9%85%8D%E7%BD%AE"><span class="nav-number">2.1.</span> <span class="nav-text">nginx安装及配置</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#nginx%E5%AE%89%E8%A3%85"><span class="nav-number">2.1.1.</span> <span class="nav-text">nginx安装</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%BF%AE%E6%94%B9%E9%BB%98%E8%AE%A4%E7%AB%AF%E5%8F%A3"><span class="nav-number">2.1.2.</span> <span class="nav-text">修改默认端口</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%89%E8%A3%85certbot%E8%8E%B7%E5%8F%96https%E8%AF%81%E4%B9%A6"><span class="nav-number">2.2.</span> <span class="nav-text">安装certbot获取https证书</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%85%8D%E7%BD%AEv2ray"><span class="nav-number">2.3.</span> <span class="nav-text">配置v2ray</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%85%8D%E7%BD%AEnginx"><span class="nav-number">2.4.</span> <span class="nav-text">配置nginx</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%8A%E4%BC%A0%E7%BD%91%E7%AB%99%E6%A8%A1%E6%9D%BF"><span class="nav-number">2.5.</span> <span class="nav-text">上传网站模板</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%87%8D%E5%90%AFnginx%E5%92%8Cv2ray"><span class="nav-number">2.6.</span> <span class="nav-text">重启nginx和v2ray</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%B5%8B%E8%AF%95%E4%B8%80%E4%B8%8B"><span class="nav-number">2.7.</span> <span class="nav-text">测试一下~</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#PC%E7%AB%AF%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6%E6%9B%B4%E6%94%B9"><span class="nav-number">2.7.1.</span> <span class="nav-text">PC端配置文件更改</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%89%8B%E6%9C%BA%E7%AB%AF%E7%9A%84%E9%85%8D%E7%BD%AE%E6%9B%B4%E6%94%B9"><span class="nav-number">2.7.2.</span> <span class="nav-text">手机端的配置更改</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%AB%E5%BF%98%E4%BA%86%E6%8A%8A%E9%98%B2%E7%81%AB%E5%A2%99%E6%89%93%E5%BC%80"><span class="nav-number">2.8.</span> <span class="nav-text">别忘了把防火墙打开</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#nginx%E9%BB%98%E8%AE%A4%E7%9A%84%E6%AC%A2%E8%BF%8E%E9%A1%B5%E9%9D%A2%E4%B9%9F%E5%88%A0%E6%8E%89"><span class="nav-number">2.9.</span> <span class="nav-text">nginx默认的欢迎页面也删掉</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%80%BB%E7%BB%93"><span class="nav-number">3.</span> <span class="nav-text">总结</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8F%82%E8%80%83"><span class="nav-number">4.</span> <span class="nav-text">参考</span></a></li></ol></div>
       </div>
-        <div id="">
+        <div id>
 	  <canvas id="canvas" style="width:60%;">
-	    </div>
+	    </canvas></div>
 	      <script type="text/javascript" src="/js/canvas-dance-time.js"></script>
       <!--/noindex-->
 
 
       <div class="site-overview-wrap sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
-    <img class="site-author-image" itemprop="image" alt="Dana Shaw"
-      src="/./images/photo.jpg">
-  <p class="site-author-name" itemprop="name">Dana Shaw</p>
+    <img class="site-author-image" itemprop="image" alt="肖坤稼" src="/./images/photo.jpg">
+  <p class="site-author-name" itemprop="name">肖坤稼</p>
   <div class="site-description" itemprop="description">连尘埃也想收藏</div>
 </div>
 <div class="site-state-wrap motion-element">
@@ -608,7 +606,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">255</span>
+          <span class="site-state-item-count">256</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -628,13 +626,13 @@
 </div>
   <div class="links-of-author motion-element">
       <span class="links-of-author-item">
-        <a href="https://github.com/DanaShaw" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;DanaShaw" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+        <a href="https://github.com/DanaShaw" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;DanaShaw" rel="external nofollow noopener noreferrer" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
       </span>
       <span class="links-of-author-item">
-        <a href="mailto:danaxkj@gmail.com" title="E-Mail → mailto:danaxkj@gmail.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+        <a href="mailto:danaxkj@gmail.com" title="E-Mail → mailto:danaxkj@gmail.com" rel="external nofollow noopener noreferrer" target="_blank"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
       </span>
       <span class="links-of-author-item">
-        <a href="https://weibo.com/u/5742631593" title="Weibo → https:&#x2F;&#x2F;weibo.com&#x2F;u&#x2F;5742631593" rel="noopener" target="_blank"><i class="fa fa-fw fa-weibo"></i>Weibo</a>
+        <a href="https://weibo.com/u/5742631593" title="Weibo → https:&#x2F;&#x2F;weibo.com&#x2F;u&#x2F;5742631593" rel="external nofollow noopener noreferrer" target="_blank"><i class="fa fa-fw fa-weibo"></i>Weibo</a>
       </span>
       <span class="links-of-author-item">
         <a href="/atom.xml" title="RSS → &#x2F;atom.xml"><i class="fa fa-fw fa-rss"></i>RSS</a>
@@ -649,7 +647,7 @@
     </div>
     <ul class="links-of-blogroll-list">
         <li class="links-of-blogroll-item">
-          <a href="https://whale3070.github.io/" title="https:&#x2F;&#x2F;whale3070.github.io&#x2F;" rel="noopener" target="_blank">windows提权学习</a>
+          <a href="https://whale3070.github.io/" title="https:&#x2F;&#x2F;whale3070.github.io&#x2F;" rel="external nofollow noopener noreferrer" target="_blank">windows提权学习</a>
         </li>
     </ul>
   </div>
@@ -696,7 +694,7 @@
   <span class="with-love">
     <i class="fa fa-user"></i>
   </span>
-  <span class="author" itemprop="copyrightHolder">Dana Shaw</span>
+  <span class="author" itemprop="copyrightHolder">肖坤稼</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-area-chart"></i>
@@ -710,7 +708,7 @@
 </div>
 
 
-  <script src='https://unpkg.com/mermaid@/dist/mermaid.min.js'></script>
+  <script src="https://unpkg.com/mermaid@/dist/mermaid.min.js"></script>
   <script>
     if (window.mermaid) {
       mermaid.initialize({theme: 'default'});
@@ -752,7 +750,7 @@
 
   
   
-  <script color='0,0,255' opacity='0.5' zIndex='-1' count='99' src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  <script color="0,0,255" opacity="0.5" zindex="-1" count="99" src="/lib/canvas-nest/canvas-nest.min.js"></script>
   <script src="/lib/anime.min.js"></script>
   <script src="//cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js"></script>
   <script src="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.js"></script>
@@ -775,6 +773,15 @@
 
 
   
+  <script>
+    (function(){
+      var bp = document.createElement('script');
+      var curProtocol = window.location.protocol.split(':')[0];
+      bp.src = (curProtocol === 'https') ? 'https://zz.bdstatic.com/linksubmit/push.js' : 'http://push.zhanzhang.baidu.com/push.js';
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(bp, s);
+    })();
+  </script>
 
 
 
@@ -831,15 +838,9 @@ NexT.utils.loadComments(document.querySelector('#gitalk-container'), () => {
 });
 </script>
 
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3938956891324222"
-     crossorigin="anonymous"></script>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3938956891324222" crossorigin="anonymous"></script>
 <!-- sidebar -->
-<ins class="adsbygoogle"
-     style="display:block"
-     data-ad-client="ca-pub-3938956891324222"
-     data-ad-slot="6163650450"
-     data-ad-format="auto"
-     data-full-width-responsive="true"></ins>
+<ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-3938956891324222" data-ad-slot="6163650450" data-ad-format="auto" data-full-width-responsive="true"></ins>
 <script>
      (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
@@ -847,7 +848,7 @@ NexT.utils.loadComments(document.querySelector('#gitalk-container'), () => {
   <script type="text/javascript" src="//cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js"></script>
   
   
-   <canvas class="fireworks" style="position: fixed;left: 0;top: 0;z-index: 1; pointer-events: none;" ></canvas> 
+   <canvas class="fireworks" style="position: fixed;left: 0;top: 0;z-index: 1; pointer-events: none;"></canvas> 
    <script type="text/javascript" src="//cdn.bootcss.com/animejs/2.2.0/anime.min.js"></script> 
    <script type="text/javascript" src="/js/fireworks.js"></script>
 
