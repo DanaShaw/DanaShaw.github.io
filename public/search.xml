@@ -10606,7 +10606,7 @@ switch语句还可以匹配字符串。字符串匹配时，是比较“内容�
     <content><![CDATA[<p>经济学人浓咖啡马拉松计划doing！第-xx天。</p>
 <p><strong>Old meets new: ancient “cupping” method boosts covid vaccines<a href="拔罐好不好？">^1</a></strong></p>
 <p><strong>新旧碰撞：传统“拔罐”加强新冠疫苗吸收</strong></p>
-<p><img src="media/45b78da4054130515dba83e3d9b6c315.jpeg" alt="1"></p>
+<p><img src="/media/45b78da4054130515dba83e3d9b6c315.jpeg" alt="1"></p>
 <p>Pressing a suction cup to the skin to boost health may sound like pseudoscience.</p>
 <p>将吸盘扣到皮肤上，这种保健方式听起来可能像是伪科学。</p>
 <p>And to some scientists, “cupping” is just that: a form of quackery akin to<br>acupuncture and bloodletting.</p>
