@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://dana5haw.com/"/>
-  <updated>2021-11-20T01:39:45.466Z</updated>
+  <updated>2021-11-20T02:23:09.966Z</updated>
   <id>https://dana5haw.com/</id>
   
   <author>
@@ -15,6 +15,29 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title></title>
+    <link href="https://dana5haw.com/posts/ZH-CN/undefined.html"/>
+    <id>https://dana5haw.com/posts/ZH-CN/undefined.html</id>
+    <published>2021-11-20T02:21:05.583Z</published>
+    <updated>2021-11-20T02:23:09.966Z</updated>
+    
+    <content type="html"><![CDATA[<p><strong>Old meets new: ancient “cupping” method boosts covid vaccines<a href="拔罐好不好？">^1</a></strong></p><p><strong>新旧碰撞：传统“拔罐”加强新冠疫苗吸收</strong></p><p><img src="media/45b78da4054130515dba83e3d9b6c315.jpeg" alt=""></p><p>Pressing a suction cup to the skin to boost health may sound like pseudoscience.</p><p>将吸盘扣到皮肤上，这种保健方式听起来可能像是伪科学。</p><p>And to some scientists, “cupping” is just that: a form of quackery akin to<br>acupuncture and bloodletting.</p><p>一些科学家认为，“拔罐”只不过是类似于针灸和放血的骗术。</p><p>But researchers reporting in the journal Science Advances have applied the<br>ancient technique to covid-19 vaccine delivery with success.</p><p>但是Science Advances期刊的研究报告表明，已经将这种传统方式成功应用到新冠疫苗。</p><p>In experiments, rats were injected with pure SARS-CoV-2 DNA, which on its own<br>quickly degrades in the body.</p><p>在实验中，单独注射SARS-CoV-2 DNA的小鼠，SARS-CoV-2 DNA在体内迅速就降解。</p><p>But following up the injection with moderate suction through a plastic cup<br>induced the skin cells to absorb the DNA, triggering an immune response 100<br>times stronger than injection alone.</p><p>但是用一个适度吸力的塑料吸盘继续注射，以诱导皮肤细胞吸收DNA，这样触发的免疫反应比单独注射强100倍。</p><p>Based on these results, cupping has been incorporated into DNA-vaccine clinical<br>trials.</p><p>基于以上研究结果，拔罐已经纳入到了DNA疫苗的临床试验。</p><p>These matter hugely because DNA vaccines, such as India’s ZyCoV-D, do not<br>require constant refrigeration, and so are easier to roll out in poor countries.</p><p>这些试验影响深远，因为像印度ZyCoV-D这样的DNA疫苗不需要恒温冷藏，更易于推向贫穷国家市场。</p><p>This goes to show that scientists should take inspiration wherever they can get<br>it; public health is no place for squeamishness.</p><p>这也说明了科学家应当随处攫取灵感，对于公共健康不应吹毛求疵。</p><p><strong>去年做过一次拔罐+放血+刮痧，痛的不得了。再也不想体验了：（</strong></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;&lt;strong&gt;Old meets new: ancient “cupping” method boosts covid vaccines&lt;a href=&quot;拔罐好不好？&quot;&gt;^1&lt;/a&gt;&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;新旧碰撞：传统“拔罐”加强新冠疫苗吸收&lt;
+      
+    
+    </summary>
+    
+    
+    
+  </entry>
   
   <entry>
     <title>test</title>
@@ -536,39 +559,6 @@
       <category term="电商网站" scheme="https://dana5haw.com/tags/%E7%94%B5%E5%95%86%E7%BD%91%E7%AB%99/"/>
     
       <category term="独立站" scheme="https://dana5haw.com/tags/%E7%8B%AC%E7%AB%8B%E7%AB%99/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>How to customize your 404 page in hexo blog?</title>
-    <link href="https://dana5haw.com/posts/en/how-to-customize-404-page-in-hexo-blog.html"/>
-    <id>https://dana5haw.com/posts/en/how-to-customize-404-page-in-hexo-blog.html</id>
-    <published>2021-08-05T12:48:00.000Z</published>
-    <updated>2021-11-12T16:45:29.957Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="FOREWORD"><a href="#FOREWORD" class="headerlink" title="FOREWORD"></a>FOREWORD</h2><p>Today I checked the keyword 长ping in google, my page ranks number one, so amazing! But I click the page, it’s a 404 page. It suddenly occured to me that I had changed all of my URLs! So Google has not indexed my new URLs yet. It’s so weird that the top one search result is a blank page without any tip guides the users back to home page. This article recorded how to customize the 404 page and guide the users back to home page.<br><escape> <span id="more"></span></escape><br><img src="https://v2ray.dana5haw.com:8008/images/2021/08/05/image.png" alt="image.png"></p><h2 id="STEPS"><a href="#STEPS" class="headerlink" title="STEPS"></a>STEPS</h2><p>The following steps are applicable to any themes of your hexo blog. No matter the theme is NEXT or others, you can follow these steps.</p><ol><li><p>Create a <code>404.html</code> file on the theme folder. The html file is to customize your 404 page.<br>For example, my theme is NEXT, I need to create a <code>404.html</code> file on this directory: <code>\themes\next\source</code>.<br><img src="https://v2ray.dana5haw.com:8008/images/2021/08/05/image8f94f3a6ef348c9f.png" alt="image8f94f3a6ef348c9f.png"></p></li><li><p>Then you can edit the html, and write your code to customize the page. I choose <a href="https://www.qq.com/404/">Tencent 404 page</a> as my 404 page. The code below is for your reference.</p><blockquote><p>Note!! Please replace <code>https://dana5haw.com</code> with your homePageUrl. And replace <code>返回主页（您可以进入首页继续搜索）</code> with your own words to guide the users back to home page.</p></blockquote></li></ol><blockquote><p>The javascript may be updated by Tencent, please refer to Tencent’s official code.<br><img src="https://v2ray.dana5haw.com:8008/images/2021/08/05/image845ad54beb3a14e4.png" alt="image845ad54beb3a14e4.png"></p></blockquote><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="meta-keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">&quot;text/javascript&quot;</span> <span class="attr">src</span>=<span class="string">&quot;//qzonestyle.gtimg.cn/qzone/hybrid/app/404/search_children.js&quot;</span> <span class="attr">charset</span>=<span class="string">&quot;utf-8&quot;</span> <span class="attr">homePageUrl</span>=<span class="string">&quot;https://dana5haw.com&quot;</span> <span class="attr">homePageName</span>=<span class="string">&quot;返回主页（您可以进入首页继续搜索）&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure><ol start="3"><li>Deploy and update your website by inputing this command: <code>hexo g -d</code>.</li><li>Test your 404 page. You can input a non-existed URL in browser to test if your 404 page is successfully updated. For example, my domain is <code>dana5haw.com</code>, so I may input this non-existed URL <code>https://dana5haw.com/111</code> to test my 404 page.<br>Look what the final 404 page!<br><img src="https://v2ray.dana5haw.com:8008/images/2021/08/05/image61eb468b2a976a0f.png" alt="image61eb468b2a976a0f.png"></li></ol><h2 id="CONCLUSION"><a href="#CONCLUSION" class="headerlink" title="CONCLUSION"></a>CONCLUSION</h2><p>You can make the 404 page look more fantastic, since you have known the steps to customize it.</p><h2 id="REFERRENCE"><a href="#REFERRENCE" class="headerlink" title="REFERRENCE"></a>REFERRENCE</h2><p><a href="https://www.zhihu.com/question/21650209">https://www.zhihu.com/question/21650209</a></p><h2 id="RELATED-POST"><a href="#RELATED-POST" class="headerlink" title="RELATED POST"></a>RELATED POST</h2><p><a href="https://dana5haw.com/posts/ZH-CN/how-to-customize-404-page-in-hexo-blog.html">https://dana5haw.com/posts/ZH-CN/how-to-customize-404-page-in-hexo-blog.html</a></p>]]></content>
-    
-    <summary type="html">
-    
-      &lt;h2 id=&quot;FOREWORD&quot;&gt;&lt;a href=&quot;#FOREWORD&quot; class=&quot;headerlink&quot; title=&quot;FOREWORD&quot;&gt;&lt;/a&gt;FOREWORD&lt;/h2&gt;&lt;p&gt;Today I checked the keyword 长ping in google, my page ranks number one, so amazing! But I click the page, it’s a 404 page. It suddenly occured to me that I had changed all of my URLs! So Google has not indexed my new URLs yet. It’s so weird that the top one search result is a blank page without any tip guides the users back to home page. This article recorded how to customize the 404 page and guide the users back to home page.&lt;br&gt;&lt;escape&gt;
-    
-    </summary>
-    
-    
-      <category term="hexo博客" scheme="https://dana5haw.com/categories/hexo%E5%8D%9A%E5%AE%A2/"/>
-    
-    
-      <category term="404 page" scheme="https://dana5haw.com/tags/404-page/"/>
-    
-      <category term="hexo blog" scheme="https://dana5haw.com/tags/hexo-blog/"/>
-    
-      <category term="next theme" scheme="https://dana5haw.com/tags/next-theme/"/>
-    
-      <category term="404页面" scheme="https://dana5haw.com/tags/404%E9%A1%B5%E9%9D%A2/"/>
-    
-      <category term="hexo博客" scheme="https://dana5haw.com/tags/hexo%E5%8D%9A%E5%AE%A2/"/>
-    
-      <category term="next主题" scheme="https://dana5haw.com/tags/next%E4%B8%BB%E9%A2%98/"/>
     
   </entry>
   
