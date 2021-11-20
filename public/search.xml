@@ -10605,7 +10605,11 @@ switch语句还可以匹配字符串。字符串匹配时，是比较“内容�
     <url>//posts/ZH-CN/spresso-Economics-Marathon-83day.html</url>
     <content><![CDATA[<p>经济学人浓咖啡马拉松计划doing！第-xx天。</p>
 <p><escape> <span id="more"></span></escape></p>
-<iframe src="https://onedrive.live.com/embed?cid=3FE90C02771210C7&amp;resid=3FE90C02771210C7%2124265&amp;authkey=ADgrjpB3PNq6VXk&amp;em=2" width=100% height=90vh allowfullscreen frameborder="0">这是嵌入 <a target="_blank" href="https://office.com">Microsoft Office</a> 文档，由 <a target="_blank" href="https://office.com/webapps">Office</a> 提供支持。</iframe>]]></content>
+<iframe src="https://onedrive.live.com/embed?cid=3FE90C02771210C7&amp;resid=3FE90C02771210C7%2124265&amp;authkey=ADgrjpB3PNq6VXk&amp;em=2" width=100% height=90vh allowfullscreen frameborder="0">这是嵌入 <a target="_blank" href="https://office.com">Microsoft Office</a> 文档，由 <a target="_blank" href="https://office.com/webapps">Office</a> 提供支持。</iframe>
+
+
+<h2 id="Image"><a href="#Image" class="headerlink" title="Image"></a>Image</h2><p><img src="media/d5441aef8e77c41b0e5e2cd891543fc7.jpg" alt="test"></p>
+]]></content>
       <categories>
         <category>经济学人</category>
       </categories>
