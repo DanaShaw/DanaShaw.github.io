@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://dana5haw.com/"/>
-  <updated>2021-11-17T15:12:08.983Z</updated>
+  <updated>2021-11-20T01:18:42.976Z</updated>
   <id>https://dana5haw.com/</id>
   
   <author>
@@ -15,6 +15,33 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>test</title>
+    <link href="https://dana5haw.com/posts/ZH-CN/spresso-Economics-Marathon-83day.html"/>
+    <id>https://dana5haw.com/posts/ZH-CN/spresso-Economics-Marathon-83day.html</id>
+    <published>2021-11-20T01:14:14.000Z</published>
+    <updated>2021-11-20T01:18:42.976Z</updated>
+    
+    <content type="html"><![CDATA[<p>经济学人浓咖啡马拉松计划doing！第-xx天。</p><p><escape> <span id="more"></span></escape></p><iframe src="https://onedrive.live.com/embed?cid=3FE90C02771210C7&amp;resid=3FE90C02771210C7%2124265&amp;authkey=ADgrjpB3PNq6VXk&amp;em=2" width="476px" height="288px" frameborder="0">这是嵌入 <a target="_blank" href="https://office.com">Microsoft Office</a> 文档，由 <a target="_blank" href="https://office.com/webapps">Office</a> 提供支持。</iframe>]]></content>
+    
+    <summary type="html">
+    
+      拔罐是否加强新冠疫苗吸收
+    
+    </summary>
+    
+    
+      <category term="经济学人" scheme="https://dana5haw.com/categories/%E7%BB%8F%E6%B5%8E%E5%AD%A6%E4%BA%BA/"/>
+    
+    
+      <category term="I期马拉松" scheme="https://dana5haw.com/tags/I%E6%9C%9F%E9%A9%AC%E6%8B%89%E6%9D%BE/"/>
+    
+      <category term="经济学人" scheme="https://dana5haw.com/tags/%E7%BB%8F%E6%B5%8E%E5%AD%A6%E4%BA%BA/"/>
+    
+      <category term="浓咖啡" scheme="https://dana5haw.com/tags/%E6%B5%93%E5%92%96%E5%95%A1/"/>
+    
+  </entry>
   
   <entry>
     <title>安乐死是否等于善终</title>
@@ -524,39 +551,6 @@
     <summary type="html">
     
       &lt;h2 id=&quot;FOREWORD&quot;&gt;&lt;a href=&quot;#FOREWORD&quot; class=&quot;headerlink&quot; title=&quot;FOREWORD&quot;&gt;&lt;/a&gt;FOREWORD&lt;/h2&gt;&lt;p&gt;Today I checked the keyword 长ping in google, my page ranks number one, so amazing! But I click the page, it’s a 404 page. It suddenly occured to me that I had changed all of my URLs! So Google has not indexed my new URLs yet. It’s so weird that the top one search result is a blank page without any tip guides the users back to home page. This article recorded how to customize the 404 page and guide the users back to home page.&lt;br&gt;&lt;escape&gt;
-    
-    </summary>
-    
-    
-      <category term="hexo博客" scheme="https://dana5haw.com/categories/hexo%E5%8D%9A%E5%AE%A2/"/>
-    
-    
-      <category term="404 page" scheme="https://dana5haw.com/tags/404-page/"/>
-    
-      <category term="hexo blog" scheme="https://dana5haw.com/tags/hexo-blog/"/>
-    
-      <category term="next theme" scheme="https://dana5haw.com/tags/next-theme/"/>
-    
-      <category term="404页面" scheme="https://dana5haw.com/tags/404%E9%A1%B5%E9%9D%A2/"/>
-    
-      <category term="hexo博客" scheme="https://dana5haw.com/tags/hexo%E5%8D%9A%E5%AE%A2/"/>
-    
-      <category term="next主题" scheme="https://dana5haw.com/tags/next%E4%B8%BB%E9%A2%98/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>hexo博客怎样自定义404页面</title>
-    <link href="https://dana5haw.com/posts/ZH-CN/how-to-customize-404-page-in-hexo-blog.html"/>
-    <id>https://dana5haw.com/posts/ZH-CN/how-to-customize-404-page-in-hexo-blog.html</id>
-    <published>2021-08-05T12:48:00.000Z</published>
-    <updated>2021-11-12T12:16:43.556Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>今天看了下我的博客“长ping”关键词竟然排到了谷歌搜索结果的第一位！但是昨天更新了所有文章的url地址，谷歌并没有及时抓取最新内容。所以导致这个排名第一的网页，用户打开之后看不到内容，这样的用户体验是绝对无法忍受的！于是，就有了自定义404页面的需求。本文记录了将404页面重定向到网站首页，并引导客户在网站内进行搜索的具体操作步骤。<br><escape> <span id="more"></span></escape></p><p><img src="https://v2ray.dana5haw.com:8008/images/2021/08/05/image.png" alt="image.png"></p><h2 id="操作步骤"><a href="#操作步骤" class="headerlink" title="操作步骤"></a>操作步骤</h2><p>以下操作步骤适用于任何主题，不管你是hexo还是其他主题，操作步骤都一样。</p><ol><li><p>在博客主题的source文件夹下面创建<code>404.html</code>，这个html文件就是用来自定义404页面的。<br>比如我是next主题的博客，就是在<code>\themes\next\source</code>路径下创建<code>404.html</code><br><img src="https://v2ray.dana5haw.com:8008/images/2021/08/05/image8f94f3a6ef348c9f.png" alt="image8f94f3a6ef348c9f.png"></p></li><li><p>接下来编辑这个html文件，写入自定义404页面的内容，我用了<a href="https://www.qq.com/404/">腾讯的公益404页面</a>，以下代码供参考：</p><blockquote><p>！！注意：请将以下代码中的<code>https://dana5haw.com</code>替换为你的网站首页，<code>返回主页（您可以进入首页继续搜索）</code>替换为引导用户回到网站首页的引导语。</p></blockquote></li></ol><blockquote><p>js文件的地址可能会有更新，请以腾讯官方代码为准<br><img src="https://v2ray.dana5haw.com:8008/images/2021/08/05/image845ad54beb3a14e4.png" alt="image845ad54beb3a14e4.png"></p></blockquote><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="meta-keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">&quot;text/javascript&quot;</span> <span class="attr">src</span>=<span class="string">&quot;//qzonestyle.gtimg.cn/qzone/hybrid/app/404/search_children.js&quot;</span> <span class="attr">charset</span>=<span class="string">&quot;utf-8&quot;</span> <span class="attr">homePageUrl</span>=<span class="string">&quot;https://dana5haw.com&quot;</span> <span class="attr">homePageName</span>=<span class="string">&quot;返回主页（您可以进入首页继续搜索）&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure><ol start="3"><li>部署上传，更新网站。输入命令<code>hexo g -d</code>即可。</li><li>测试404页面。在域名下输入一个不存在的地址，看看404页面是否更新成功。比如我的域名是<code>dana5haw.com</code>，那么我可以输入<code>https://dana5haw.com/111</code>这个不存在的地址进行测试。<br>看看自定义之后的404页面是什么样子呢？<br><img src="https://v2ray.dana5haw.com:8008/images/2021/08/05/image61eb468b2a976a0f.png" alt="image61eb468b2a976a0f.png"></li></ol><h2 id="结语"><a href="#结语" class="headerlink" title="结语"></a>结语</h2><p>你还可以把404页面写得很炫酷，掌握这个操作方法就可以了。</p><h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><p><a href="https://www.zhihu.com/question/21650209">https://www.zhihu.com/question/21650209</a></p><h2 id="相关文章"><a href="#相关文章" class="headerlink" title="相关文章"></a>相关文章</h2><p><a href="https://dana5haw.com/posts/en/how-to-customize-404-page-in-hexo-blog.html">https://dana5haw.com/posts/en/how-to-customize-404-page-in-hexo-blog.html</a></p>]]></content>
-    
-    <summary type="html">
-    
-      hexo博客自定义404页面的方法
     
     </summary>
     
